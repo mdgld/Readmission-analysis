@@ -1,0 +1,162 @@
+PSYCHIATRIC REHOSPITALIZATION DATA ANALYSIS
+ICD-10 to DSM-5 TR MAPPING & READMISSION TRENDS
+===============================================
+
+DATASET OVERVIEW
+================
+Source: GD1854RVSD Psychiatric Rehospitalization in School-Aged Children
+Total Records: 2652 patient admissions
+Date Range: 2017-2019
+Geographic: Arizona (AHCCCS, major commercial insurers)
+
+DIAGNOSTIC CODING ANALYSIS
+===========================
+Total ICD-10 Codes in Dataset: 1863
+Total Diagnosis Records (long form): 27884
+
+Diagnosis Distribution by Type:
+  - Visit Diagnoses: 11,351 records
+  - NSSI-Related Diagnoses: 2,448 records
+  - Chronic Comorbid Diagnoses: 14,085 records
+
+DSM-5 TR Mapping Coverage:
+  - DSM-5 Mapped Diagnoses: 16,665 records (59.8%)
+  - Psychiatric Categories Identified: 31
+  - Medical/Other Categories: 21
+
+MOST COMMON DIAGNOSES (TOP 15)
+==============================
+ICD_10_Code                                                          Diagnosis_Name                         DSM5_Category  Frequency_in_Dataset
+    R45.851                                                       Suicidal ideation     Non-Suicidal Self-Injury Behavior                  2968
+      F90.2                                                     ADHD, combined type                                  ADHD                  1243
+     F43.10                                                       PTSD, unspecified Trauma and Stressor-Related Disorders                  1124
+      F90.9                                                       ADHD, unspecified                                  ADHD                   845
+      F41.9                                           Anxiety disorder, unspecified                     Anxiety Disorders                   810
+      F84.0                                                Autism spectrum disorder              Autism Spectrum Disorder                   756
+      F32.9                  Major depressive disorder, single episode, unspecified                  Depressive Disorders                   733
+      F41.1                                            Generalized anxiety disorder                     Anxiety Disorders                   718
+     R46.89                                                R46.89 [Requires lookup]                                   NaN                   706
+     F34.81                                  Disruptive mood dysregulation disorder                  Depressive Disorders                   637
+        F39                                               Unspecified mood disorder                  Depressive Disorders                   455
+      F91.3                                  Adolescent-onset type conduct disorder                      Conduct Disorder                   444
+    R45.850                                                      Homicidal ideation                 Other Mental Disorder                   384
+      F43.9                       Unspecified trauma- and stressor-related disorder Trauma and Stressor-Related Disorders                   345
+      F33.2 Major depressive disorder, recurrent, severe without psychotic features                  Depressive Disorders                   265
+
+TOP DSM-5 DIAGNOSTIC CATEGORIES
+================================
+By Prevalence (Unique Patients):
+                                       Unique_Patients  Total_Occurrences
+dsm5_category                                                            
+Depressive Disorders                              1779               3182
+Trauma and Stressor-Related Disorders             1424               2572
+ADHD                                              1399               2333
+Non-Suicidal Self-Injury Behavior                 1348               2985
+Anxiety Disorders                                 1154               1980
+Autism Spectrum Disorder                           513                794
+Conduct Disorder                                   484                696
+Other Mental Disorder                              232                384
+Bipolar and Related Disorders                      147                217
+Personality Disorder                               138                152
+
+READMISSION ANALYSIS
+====================
+Overall Statistics:
+  - Patients with Readmissions: 246/2652 (9.3%)
+  - Total Readmissions: 275
+  - Mean Readmissions per Patient: 0.10
+
+Highest Readmission Risk Diagnoses:
+                                           Readmitted_Count  Unique_Patients  Readmission_Rate_%
+dsm5_category                                                                                   
+Neurocognitive Disorders                                  1                3                33.3
+Non-Suicidal Self-Injury Behavior                       394             1348                29.2
+Other Neurodevelopmental Disorder                        28              101                27.7
+Mental Disorders Due to Medical Condition                 3               11                27.3
+Other Mental Disorder                                    62              232                26.7
+Specific Learning Disorder                               24               93                25.8
+Tic Disorders                                            12               51                23.5
+Dissociative Disorders                                    7               32                21.9
+Bipolar and Related Disorders                            32              147                21.8
+Psychotic Disorders                                      12               55                21.8
+
+KEY CLINICAL INSIGHTS
+=====================
+1. SUICIDAL IDEATION (R45.851) is the single most common diagnosis:
+   - 2,968 occurrences (29.2% readmission rate)
+   - Documented in NSSI column indicating self-injury context
+   
+2. NEURODEVELOPMENTAL DISORDERS are highly represented:
+   - ADHD: 2,333 occurrences (18.4% readmission rate)
+   - Autism Spectrum Disorder: 794 occurrences (19.9% readmission rate)
+   - Conduct Disorder: 696 occurrences (19.8% readmission rate)
+   
+3. INTERNALIZING DISORDERS prevalent:
+   - Depressive Disorders: 3,182 occurrences (20.2% readmission rate)
+   - Anxiety Disorders: 1,980 occurrences (18.5% readmission rate)
+   - PTSD/Trauma-Related: 2,572 occurrences (19.7% readmission rate)
+
+4. HIGH-RISK DIAGNOSTIC GROUPS (>25% readmission rate):
+   - Neurocognitive Disorders (33.3%)
+   - Non-Suicidal Self-Injury Behavior (29.2%)
+   - Other Neurodevelopmental Disorders (27.7%)
+   - Mental Disorders Due to Medical Condition (27.3%)
+
+DELIVERABLES CREATED
+====================
+1. ICD10_to_DSM5_Reference.csv
+   Complete mapping of all 1,863 ICD-10 codes in dataset to:
+   - Diagnosis name
+   - ICD-10 category
+   - DSM-5 TR category (where applicable)
+   - DSM-5 code
+   - Frequency in dataset
+
+2. DSM5_Category_Summary.csv
+   Prevalence statistics for 31 DSM-5 diagnostic categories
+   - Unique patients per category
+   - Total occurrences
+   - Useful for epidemiologic analysis
+
+3. DSM5_Readmission_Analysis.csv
+   Risk stratification by psychiatric diagnosis
+   - Readmitted counts and rates
+   - Identifies high-risk diagnostic groups
+   - Actionable for clinical intervention prioritization
+
+4. annotated_psychiatric_data.csv
+   Original dataset enhanced with:
+   - Diagnosis names for all three ICD columns
+   - DSM-5 category assignments
+   - DSM-5 mapping counts
+   - Ready for multivariate analysis
+
+5. diagnoses_long_form.csv
+   27,884 diagnosis records for granular analysis:
+   - One row per diagnosis per patient
+   - Includes diagnosis type (Visit/NSSI/Chronic)
+   - DSM-5 category for systematic grouping
+   - Ideal for trend analysis and ML applications
+
+NEXT STEPS FOR ANALYSIS
+=======================
+1. Temporal trends: Track diagnostic patterns across admission dates
+2. Comorbidity analysis: Identify co-occurring diagnostic combinations
+3. Sociodemographic patterns: Age/gender/insurance associations
+4. Readmission prediction: Use diagnostic combinations as features
+5. Treatment response analysis: Link diagnoses to discharge outcomes
+
+FILES AVAILABLE IN PROJECT DIRECTORY
+=====================================
+All analysis files are in: /Users/matthewgold/code/jupyter_projects/
+
+Reference data (for repeated use):
+  - comprehensive_icd_ref.pkl (Python pickle - all ICD mappings)
+
+Analysis-ready datasets:
+  - annotated_psychiatric_data.csv (wide format, patient-level)
+  - diagnoses_long_form.csv (long format, diagnosis-level)
+  - ICD10_to_DSM5_Reference.csv (reference table)
+  - DSM5_Category_Summary.csv (category statistics)
+  - DSM5_Readmission_Analysis.csv (readmission risk analysis)
+
