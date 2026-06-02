@@ -12598,41 +12598,152 @@
       "metadata": {
         "tool_calls": [
           {
+            "raw_output": {
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "structuredContent": {
+                "result": "### Cell 1\n\n#### Metadata\n\n```yaml\neditable: true\nexecution_count: 1\nslideshow:\n  slide_type: ''\ntags: []\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Load data \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf = pd.read_csv('annotated_psychiatric_data_complete.csv')\n\n# \u2500\u2500 Outcome \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nprint(\"Readmissions value counts:\")\nprint(df['Readmissions'].value_counts().sort_index())\ndf['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)\n\n# \u2500\u2500 Demographics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['age'] = pd.to_numeric(df['Pt_Age_Visit'], errors='coerce')\ndf['age_group'] = pd.cut(df['age'], bins=[5, 9, 11, 13, 19],\n                          labels=['6\u20139', '10\u201311', '12\u201313', '14+'], right=True)\ndf['gender_male'] = (df['GenderCode'].str.strip().str.lower() == 'male').astype(int)\ndf['insurance_public'] = df['Insurance'].str.contains('AHCCCS', case=False, na=False).astype(int)\n\n# \u2500\u2500 ACE score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['ace_score'] = pd.to_numeric(df['ACEscore'], errors='coerce')\ndf['ace_high'] = (df['ace_score'] >= 4).astype(float)\n\n# \u2500\u2500 Restraints \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['had_restraints'] = (pd.to_numeric(df['restraints'], errors='coerce').fillna(0) > 0).astype(int)\n\n# \u2500\u2500 C-SSRS flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['csrss_yellow'] = df['Yellow flags (C-SRSS)'].notna().astype(int)\ndf['csrss_orange'] = df['Orange flags (C-SSRS)'].notna().astype(int)\ndf['csrss_red']    = df['Red flags (C-SSRS)'].notna().astype(int)\ndf['csrss_any']    = ((df['csrss_yellow'] + df['csrss_orange'] + df['csrss_red']) > 0).astype(int)\n\n# \u2500\u2500 Length of stay (compute before date-quality filter) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['VisitDate'] = pd.to_datetime(df['VisitDate'], errors='coerce')\ndf['DischDate']  = pd.to_datetime(df['DischDate'],  errors='coerce')\ndf['los_days']   = (df['DischDate'] - df['VisitDate']).dt.days\n\n# \u2500\u2500 DATE QUALITY FILTER \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Flag records with impossible or unusable dates and hold them out until reviewed.\nflag_missing_visit  = df['VisitDate'].isna()\nflag_missing_disch  = df['DischDate'].isna()\nflag_negative_los   = df['los_days'].notna() & (df['los_days'] < 0)   # DischDate before VisitDate\n\nflagged = df[flag_missing_visit | flag_missing_disch | flag_negative_los].copy()\nflagged['flag_reason'] = ''\nflagged.loc[flag_missing_visit[flagged.index], 'flag_reason'] += 'missing_VisitDate; '\nflagged.loc[flag_missing_disch[flagged.index], 'flag_reason'] += 'missing_DischDate; '\nflagged.loc[flag_negative_los[flagged.index], 'flag_reason']  += f'negative_LOS ({df.loc[flag_negative_los, \"los_days\"].min():.0f} to {df.loc[flag_negative_los, \"los_days\"].max():.0f} days); '\n\nif len(flagged) > 0:\n    flagged.to_csv('flagged_records_date_errors.csv', index=True)\n    print(f\"\\n{'='*60}\")\n    print(f\"  \u26a0  DATE QUALITY FLAGS \u2014 {len(flagged)} records excluded\")\n    print(f\"{'='*60}\")\n    print(f\"  Missing VisitDate   : {flag_missing_visit.sum()}\")\n    print(f\"  Missing DischDate   : {flag_missing_disch.sum()}\")\n    print(f\"  Negative LOS        : {flag_negative_los.sum()} \"\n          f\"(range: {df.loc[flag_negative_los,'los_days'].min():.0f} \"\n          f\"to {df.loc[flag_negative_los,'los_days'].max():.0f} days)\")\n    print(f\"\\n  Readmission status of flagged records:\")\n    print(f\"    Readmitted     : {flagged['readmitted'].sum()}\")\n    print(f\"    Not readmitted : {(flagged['readmitted']==0).sum()}\")\n    print(f\"\\n  Saved for review \u2192 flagged_records_date_errors.csv\")\n    print(f\"{'='*60}\\n\")\nelse:\n    print(\"\\n\u2713 No date-quality issues found.\")\n\n# Exclude flagged records from all downstream analysis\ndf = df[~(flag_missing_visit | flag_missing_disch | flag_negative_los)].copy()\ndf = df.reset_index(drop=True)\n\n# \u2500\u2500 Diagnostic complexity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_csv(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(',') if x.strip()])\n\ndef count_dsm5(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(';') if x.strip()])\n\ndf['n_visit_diags']   = df['VisitDiags'].apply(count_csv)\ndf['n_chronic_diags'] = df['ChronicDiags'].apply(count_csv)\ndf['n_total_diags']   = df['n_visit_diags'] + df['n_chronic_diags']\n\ndef unique_dsm5_count(row):\n    cats = set()\n    for col in ['VisitDiags_DSM5Categories', 'ChronicDiags_DSM5Categories']:\n        val = row.get(col, '')\n        if pd.notna(val) and str(val).strip():\n            cats.update(c.strip() for c in str(val).split(';') if c.strip())\n    return len(cats)\n\ndf['n_dsm5_categories'] = df.apply(unique_dsm5_count, axis=1)\n\n# \u2500\u2500 DSM-5 category flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_dsm5 = (df['VisitDiags_DSM5Categories'].fillna('') + ';' +\n            df['ChronicDiags_DSM5Categories'].fillna('')).str.lower()\n\nCATEGORY_FLAGS = {\n    'has_nssi':        'non-suicidal self-injury',\n    'has_trauma':      'trauma and stressor',\n    'has_adhd':        'adhd',\n    'has_asd':         'autism spectrum',\n    'has_conduct':     'conduct disorder',\n    'has_depression':  'depressive disorders',\n    'has_anxiety':     'anxiety disorders',\n    'has_bipolar':     'bipolar',\n    'has_psychotic':   'psychotic',\n    'has_intellectual':'intellectual disability',\n    'has_ocd':         'obsessive-compulsive',\n}\nfor flag, kw in CATEGORY_FLAGS.items():\n    df[flag] = all_dsm5.str.contains(kw, na=False).astype(int)\n\n# \u2500\u2500 Medical comorbidity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_medical(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return sum(1 for c in str(s).split(',') if c.strip() and not c.strip().startswith('F'))\n\nMEDICAL_COMORBIDITY_PATTERNS = {\n    'Metabolic/Obesity': ('E66',),\n    'Sleep Disorder': ('G47',),\n    'GI/Digestive': ('K59', 'K21'),\n    'Respiratory/Allergy': ('J30', 'R06'),\n    'Renal/Urologic': ('N39',),\n}\n\ndef get_medical_comorbidity_types(codes):\n    if pd.isna(codes) or str(codes).strip() == '':\n        return []\n    code_tokens = [c.strip().upper() for c in str(codes).split(',') if c.strip()]\n    return [\n        category\n        for category, prefixes in MEDICAL_COMORBIDITY_PATTERNS.items()\n        if any(code.startswith(prefix) for code in code_tokens for prefix in prefixes)\n    ]\n\ndf['n_medical_chronic']       = df['ChronicDiags'].apply(count_medical)\ndf['has_medical_comorbidity'] = (df['n_medical_chronic'] > 0).astype(int)\ndf['medical_comorbidity_types'] = df['ChronicDiags'].apply(get_medical_comorbidity_types)\n\nprint(f\"\u2713 Feature engineering complete.\")\nprint(f\"  N = {len(df):,} (after date-quality exclusions) | \"\n      f\"Readmitted = {df['readmitted'].sum():,} ({df['readmitted'].mean():.1%})\")\nprint(f\"  Age range: {df['age'].min():.0f}\u2013{df['age'].max():.0f} yrs | \"\n      f\"LOS: {df['los_days'].min():.0f}\u2013{df['los_days'].max():.0f} days \"\n      f\"(median {df['los_days'].median():.0f})\")\nprint(f\"  ACE score available: {df['ace_score'].notna().sum():,} \"\n      f\"({df['ace_score'].notna().mean():.1%})\")```\n\n#### Output\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[1]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Load data \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m df = pd.read_csv(\u001b[33m'annotated_psychiatric_data_complete.csv'\u001b[39m)\n\u001b[32m      3\u001b[39m \n\u001b[32m      4\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Outcome \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m      5\u001b[39m print(\u001b[33m\"Readmissions value counts:\"\u001b[39m)\n\n\u001b[31mNameError\u001b[39m: name 'pd' is not defined```"
+              },
+              "isError": false,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 1\n\n#### Metadata\n\n```yaml\neditable: true\nexecution_count: 1\nslideshow:\n  slide_type: ''\ntags: []\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Load data \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf = pd.read_csv('annotated_psychiatric_data_complete.csv')\n\n# \u2500\u2500 Outcome \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nprint(\"Readmissions value counts:\")\nprint(df['Readmissions'].value_counts().sort_index())\ndf['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)\n\n# \u2500\u2500 Demographics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['age'] = pd.to_numeric(df['Pt_Age_Visit'], errors='coerce')\ndf['age_group'] = pd.cut(df['age'], bins=[5, 9, 11, 13, 19],\n                          labels=['6\u20139', '10\u201311', '12\u201313', '14+'], right=True)\ndf['gender_male'] = (df['GenderCode'].str.strip().str.lower() == 'male').astype(int)\ndf['insurance_public'] = df['Insurance'].str.contains('AHCCCS', case=False, na=False).astype(int)\n\n# \u2500\u2500 ACE score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['ace_score'] = pd.to_numeric(df['ACEscore'], errors='coerce')\ndf['ace_high'] = (df['ace_score'] >= 4).astype(float)\n\n# \u2500\u2500 Restraints \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['had_restraints'] = (pd.to_numeric(df['restraints'], errors='coerce').fillna(0) > 0).astype(int)\n\n# \u2500\u2500 C-SSRS flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['csrss_yellow'] = df['Yellow flags (C-SRSS)'].notna().astype(int)\ndf['csrss_orange'] = df['Orange flags (C-SSRS)'].notna().astype(int)\ndf['csrss_red']    = df['Red flags (C-SSRS)'].notna().astype(int)\ndf['csrss_any']    = ((df['csrss_yellow'] + df['csrss_orange'] + df['csrss_red']) > 0).astype(int)\n\n# \u2500\u2500 Length of stay (compute before date-quality filter) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['VisitDate'] = pd.to_datetime(df['VisitDate'], errors='coerce')\ndf['DischDate']  = pd.to_datetime(df['DischDate'],  errors='coerce')\ndf['los_days']   = (df['DischDate'] - df['VisitDate']).dt.days\n\n# \u2500\u2500 DATE QUALITY FILTER \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Flag records with impossible or unusable dates and hold them out until reviewed.\nflag_missing_visit  = df['VisitDate'].isna()\nflag_missing_disch  = df['DischDate'].isna()\nflag_negative_los   = df['los_days'].notna() & (df['los_days'] < 0)   # DischDate before VisitDate\n\nflagged = df[flag_missing_visit | flag_missing_disch | flag_negative_los].copy()\nflagged['flag_reason'] = ''\nflagged.loc[flag_missing_visit[flagged.index], 'flag_reason'] += 'missing_VisitDate; '\nflagged.loc[flag_missing_disch[flagged.index], 'flag_reason'] += 'missing_DischDate; '\nflagged.loc[flag_negative_los[flagged.index], 'flag_reason']  += f'negative_LOS ({df.loc[flag_negative_los, \"los_days\"].min():.0f} to {df.loc[flag_negative_los, \"los_days\"].max():.0f} days); '\n\nif len(flagged) > 0:\n    flagged.to_csv('flagged_records_date_errors.csv', index=True)\n    print(f\"\\n{'='*60}\")\n    print(f\"  \u26a0  DATE QUALITY FLAGS \u2014 {len(flagged)} records excluded\")\n    print(f\"{'='*60}\")\n    print(f\"  Missing VisitDate   : {flag_missing_visit.sum()}\")\n    print(f\"  Missing DischDate   : {flag_missing_disch.sum()}\")\n    print(f\"  Negative LOS        : {flag_negative_los.sum()} \"\n          f\"(range: {df.loc[flag_negative_los,'los_days'].min():.0f} \"\n          f\"to {df.loc[flag_negative_los,'los_days'].max():.0f} days)\")\n    print(f\"\\n  Readmission status of flagged records:\")\n    print(f\"    Readmitted     : {flagged['readmitted'].sum()}\")\n    print(f\"    Not readmitted : {(flagged['readmitted']==0).sum()}\")\n    print(f\"\\n  Saved for review \u2192 flagged_records_date_errors.csv\")\n    print(f\"{'='*60}\\n\")\nelse:\n    print(\"\\n\u2713 No date-quality issues found.\")\n\n# Exclude flagged records from all downstream analysis\ndf = df[~(flag_missing_visit | flag_missing_disch | flag_negative_los)].copy()\ndf = df.reset_index(drop=True)\n\n# \u2500\u2500 Diagnostic complexity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_csv(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(',') if x.strip()])\n\ndef count_dsm5(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(';') if x.strip()])\n\ndf['n_visit_diags']   = df['VisitDiags'].apply(count_csv)\ndf['n_chronic_diags'] = df['ChronicDiags'].apply(count_csv)\ndf['n_total_diags']   = df['n_visit_diags'] + df['n_chronic_diags']\n\ndef unique_dsm5_count(row):\n    cats = set()\n    for col in ['VisitDiags_DSM5Categories', 'ChronicDiags_DSM5Categories']:\n        val = row.get(col, '')\n        if pd.notna(val) and str(val).strip():\n            cats.update(c.strip() for c in str(val).split(';') if c.strip())\n    return len(cats)\n\ndf['n_dsm5_categories'] = df.apply(unique_dsm5_count, axis=1)\n\n# \u2500\u2500 DSM-5 category flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_dsm5 = (df['VisitDiags_DSM5Categories'].fillna('') + ';' +\n            df['ChronicDiags_DSM5Categories'].fillna('')).str.lower()\n\nCATEGORY_FLAGS = {\n    'has_nssi':        'non-suicidal self-injury',\n    'has_trauma':      'trauma and stressor',\n    'has_adhd':        'adhd',\n    'has_asd':         'autism spectrum',\n    'has_conduct':     'conduct disorder',\n    'has_depression':  'depressive disorders',\n    'has_anxiety':     'anxiety disorders',\n    'has_bipolar':     'bipolar',\n    'has_psychotic':   'psychotic',\n    'has_intellectual':'intellectual disability',\n    'has_ocd':         'obsessive-compulsive',\n}\nfor flag, kw in CATEGORY_FLAGS.items():\n    df[flag] = all_dsm5.str.contains(kw, na=False).astype(int)\n\n# \u2500\u2500 Medical comorbidity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_medical(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return sum(1 for c in str(s).split(',') if c.strip() and not c.strip().startswith('F'))\n\nMEDICAL_COMORBIDITY_PATTERNS = {\n    'Metabolic/Obesity': ('E66',),\n    'Sleep Disorder': ('G47',),\n    'GI/Digestive': ('K59', 'K21'),\n    'Respiratory/Allergy': ('J30', 'R06'),\n    'Renal/Urologic': ('N39',),\n}\n\ndef get_medical_comorbidity_types(codes):\n    if pd.isna(codes) or str(codes).strip() == '':\n        return []\n    code_tokens = [c.strip().upper() for c in str(codes).split(',') if c.strip()]\n    return [\n        category\n        for category, prefixes in MEDICAL_COMORBIDITY_PATTERNS.items()\n        if any(code.startswith(prefix) for code in code_tokens for prefix in prefixes)\n    ]\n\ndf['n_medical_chronic']       = df['ChronicDiags'].apply(count_medical)\ndf['has_medical_comorbidity'] = (df['n_medical_chronic'] > 0).astype(int)\ndf['medical_comorbidity_types'] = df['ChronicDiags'].apply(get_medical_comorbidity_types)\n\nprint(f\"\u2713 Feature engineering complete.\")\nprint(f\"  N = {len(df):,} (after date-quality exclusions) | \"\n      f\"Readmitted = {df['readmitted'].sum():,} ({df['readmitted'].mean():.1%})\")\nprint(f\"  Age range: {df['age'].min():.0f}\u2013{df['age'].max():.0f} yrs | \"\n      f\"LOS: {df['los_days'].min():.0f}\u2013{df['los_days'].max():.0f} days \"\n      f\"(median {df['los_days'].median():.0f})\")\nprint(f\"  ACE score available: {df['ace_score'].notna().sum():,} \"\n      f\"({df['ace_score'].notna().mean():.1%})\")```\n\n#### Output\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[1]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Load data \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m df = pd.read_csv(\u001b[33m'annotated_psychiatric_data_complete.csv'\u001b[39m)\n\u001b[32m      3\u001b[39m \n\u001b[32m      4\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Outcome \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m      5\u001b[39m print(\u001b[33m\"Readmissions value counts:\"\u001b[39m)\n\n\u001b[31mNameError\u001b[39m: name 'pd' is not defined```"
+                }
+              ]
+            },
+            "session_id": "019e8297-21ab-7a42-a386-621508723f32",
+            "tool_call_id": "call_AcklWwFr5l5K8iBsIkAD4shN",
             "permission_options": [
               {
-                "kind": "allow_once",
                 "option_id": "approved",
+                "kind": "allow_once",
                 "name": "Allow"
               },
               {
+                "name": "Allow for this session",
                 "option_id": "approved-for-session",
-                "kind": "allow_always",
-                "name": "Allow for this session"
-              },
-              {
-                "option_id": "approved-always",
-                "name": "Allow and don't ask again",
                 "kind": "allow_always"
               },
               {
-                "kind": "reject_once",
+                "kind": "allow_always",
+                "option_id": "approved-always",
+                "name": "Allow and don't ask again"
+              },
+              {
+                "option_id": "cancel",
                 "name": "Cancel",
-                "option_id": "cancel"
+                "kind": "reject_once"
               }
             ],
-            "permission_status": "pending",
-            "status": "in_progress",
+            "permission_status": "resolved",
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "status": "completed",
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "tool": "read_cell",
+              "arguments": {
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "include_outputs": true,
+                "cell_id": "1"
+              }
+            },
+            "selected_option_id": "approved-always"
+          },
+          {
+            "tool_call_id": "call_NPp1Sb79veumFI4GQsqgf0Q0",
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
             "raw_input": {
               "arguments": {
-                "cell_id": "1",
+                "cell_id": "2",
                 "include_outputs": true,
                 "file_path": "Readmission_Full_Analysis.ipynb"
               },
               "server": "Jupyter_MCP_Server",
               "tool": "read_cell"
             },
-            "session_id": "019e8297-21ab-7a42-a386-621508723f32",
-            "tool_call_id": "call_AcklWwFr5l5K8iBsIkAD4shN",
+            "status": "completed",
+            "raw_output": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 2\n\n#### Metadata\n\n```yaml\nexecution_count: 2\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Table 1: Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom scipy.stats import ttest_ind, chi2_contingency\n\ndef get_stats(vals, total, is_ra=False):\n    r = {}\n    r['N (%)'] = f\"{len(vals)} ({100*len(vals)/total:.1f}%)\"\n    \n    # Readmissions\n    r['# Readmissions, mean\u00b1SD'] = f\"{vals['Readmissions'].mean():.2f} \u00b1 {vals['Readmissions'].std():.2f}\"\n    \n    # ACE Score\n    ace_n = vals['ace_score'].notna().sum()\n    r['ACE score collected, n(%)'] = f\"{ace_n} ({100*ace_n/len(vals):.1f}%)\"\n    r['ACE score, mean\u00b1SD'] = f\"{vals['ace_score'].mean():.1f} \u00b1 {vals['ace_score'].std():.1f}\"\n    r['ACE score, median'] = f\"{vals['ace_score'].median():.1f}\"\n    \n    # LOS\n    r['LOS, mean\u00b1SD'] = f\"{vals['los_days'].mean():.1f} \u00b1 {vals['los_days'].std():.1f}\"\n    r['LOS, median'] = f\"{vals['los_days'].median():.1f}\"\n    \n    # Diagnoses\n    r['# Visit diags, mean\u00b1SD'] = f\"{vals['n_visit_diags'].mean():.1f} \u00b1 {vals['n_visit_diags'].std():.1f}\"\n    r['# Visit diags, median']  = f\"{vals['n_visit_diags'].median():.1f}\"\n    r['# Chronic diags, mean\u00b1SD'] = f\"{vals['n_chronic_diags'].mean():.1f} \u00b1 {vals['n_chronic_diags'].std():.1f}\"\n    r['# Chronic diags, median']  = f\"{vals['n_chronic_diags'].median():.1f}\"\n    r['# NSSI diags, mean\u00b1SD'] = f\"{vals['has_nssi'].mean():.1f} \u00b1 {vals['has_nssi'].std():.1f}\"\n    \n    # Medical comorbidity categories are not mutually exclusive.\n    if 'medical_comorbidity_types' in vals.columns:\n        med_types = vals['medical_comorbidity_types']\n    else:\n        med_types = vals['ChronicDiags'].apply(get_medical_comorbidity_types)\n    all_types = [t for sublist in med_types for t in sublist]\n    type_counts = pd.Series(all_types).value_counts()\n    for t, count in type_counts.items():\n        r[f'Medical: {t}, n(%)'] = f\"{count} ({100*count/len(vals):.1f}%)\"\n        \n    return r\n\nra  = df[df['readmitted'] == 1]\nnra = df[df['readmitted'] == 0]\ntotal_n = len(df)\n\ntable1_data = {\n    'Not Readmitted': get_stats(nra, total_n),\n    'Readmitted': get_stats(ra, total_n)\n}\ntable1 = pd.DataFrame(table1_data).T\ntable1.to_csv('figures/Table1_descriptive.csv')\nprint(table1.to_string())```\n\n#### Output\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[2]\u001b[39m\u001b[32m, line 40\u001b[39m\n\u001b[32m     36\u001b[39m         r[f'Medical: {t}, n(%)'] = f\"{count} ({\u001b[32m100\u001b[39m*count/len(vals):.1f}%)\"\n\u001b[32m     37\u001b[39m \n\u001b[32m     38\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m r\n\u001b[32m     39\u001b[39m \n\u001b[32m---> \u001b[39m\u001b[32m40\u001b[39m ra  = df[df[\u001b[33m'readmitted'\u001b[39m] == \u001b[32m1\u001b[39m]\n\u001b[32m     41\u001b[39m nra = df[df[\u001b[33m'readmitted'\u001b[39m] == \u001b[32m0\u001b[39m]\n\u001b[32m     42\u001b[39m total_n = len(df)\n\u001b[32m     43\u001b[39m \n\n\u001b[31mNameError\u001b[39m: name 'df' is not defined```"
+                }
+              ],
+              "structuredContent": {
+                "result": "### Cell 2\n\n#### Metadata\n\n```yaml\nexecution_count: 2\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Table 1: Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom scipy.stats import ttest_ind, chi2_contingency\n\ndef get_stats(vals, total, is_ra=False):\n    r = {}\n    r['N (%)'] = f\"{len(vals)} ({100*len(vals)/total:.1f}%)\"\n    \n    # Readmissions\n    r['# Readmissions, mean\u00b1SD'] = f\"{vals['Readmissions'].mean():.2f} \u00b1 {vals['Readmissions'].std():.2f}\"\n    \n    # ACE Score\n    ace_n = vals['ace_score'].notna().sum()\n    r['ACE score collected, n(%)'] = f\"{ace_n} ({100*ace_n/len(vals):.1f}%)\"\n    r['ACE score, mean\u00b1SD'] = f\"{vals['ace_score'].mean():.1f} \u00b1 {vals['ace_score'].std():.1f}\"\n    r['ACE score, median'] = f\"{vals['ace_score'].median():.1f}\"\n    \n    # LOS\n    r['LOS, mean\u00b1SD'] = f\"{vals['los_days'].mean():.1f} \u00b1 {vals['los_days'].std():.1f}\"\n    r['LOS, median'] = f\"{vals['los_days'].median():.1f}\"\n    \n    # Diagnoses\n    r['# Visit diags, mean\u00b1SD'] = f\"{vals['n_visit_diags'].mean():.1f} \u00b1 {vals['n_visit_diags'].std():.1f}\"\n    r['# Visit diags, median']  = f\"{vals['n_visit_diags'].median():.1f}\"\n    r['# Chronic diags, mean\u00b1SD'] = f\"{vals['n_chronic_diags'].mean():.1f} \u00b1 {vals['n_chronic_diags'].std():.1f}\"\n    r['# Chronic diags, median']  = f\"{vals['n_chronic_diags'].median():.1f}\"\n    r['# NSSI diags, mean\u00b1SD'] = f\"{vals['has_nssi'].mean():.1f} \u00b1 {vals['has_nssi'].std():.1f}\"\n    \n    # Medical comorbidity categories are not mutually exclusive.\n    if 'medical_comorbidity_types' in vals.columns:\n        med_types = vals['medical_comorbidity_types']\n    else:\n        med_types = vals['ChronicDiags'].apply(get_medical_comorbidity_types)\n    all_types = [t for sublist in med_types for t in sublist]\n    type_counts = pd.Series(all_types).value_counts()\n    for t, count in type_counts.items():\n        r[f'Medical: {t}, n(%)'] = f\"{count} ({100*count/len(vals):.1f}%)\"\n        \n    return r\n\nra  = df[df['readmitted'] == 1]\nnra = df[df['readmitted'] == 0]\ntotal_n = len(df)\n\ntable1_data = {\n    'Not Readmitted': get_stats(nra, total_n),\n    'Readmitted': get_stats(ra, total_n)\n}\ntable1 = pd.DataFrame(table1_data).T\ntable1.to_csv('figures/Table1_descriptive.csv')\nprint(table1.to_string())```\n\n#### Output\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[2]\u001b[39m\u001b[32m, line 40\u001b[39m\n\u001b[32m     36\u001b[39m         r[f'Medical: {t}, n(%)'] = f\"{count} ({\u001b[32m100\u001b[39m*count/len(vals):.1f}%)\"\n\u001b[32m     37\u001b[39m \n\u001b[32m     38\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m r\n\u001b[32m     39\u001b[39m \n\u001b[32m---> \u001b[39m\u001b[32m40\u001b[39m ra  = df[df[\u001b[33m'readmitted'\u001b[39m] == \u001b[32m1\u001b[39m]\n\u001b[32m     41\u001b[39m nra = df[df[\u001b[33m'readmitted'\u001b[39m] == \u001b[32m0\u001b[39m]\n\u001b[32m     42\u001b[39m total_n = len(df)\n\u001b[32m     43\u001b[39m \n\n\u001b[31mNameError\u001b[39m: name 'df' is not defined```"
+              },
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "isError": false
+            }
+          },
+          {
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "tool": "read_cell",
+              "arguments": {
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "include_outputs": true,
+                "cell_id": "4"
+              }
+            },
+            "status": "completed",
+            "raw_output": {
+              "isError": false,
+              "structuredContent": {
+                "result": "### Cell 4\n\n#### Metadata\n\n```yaml\nexecution_count: 3\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Fig 2: Demographics panel (gender, insurance, C-SSRS, restraints) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 4, figsize=(18, 5))\n\nbinary_vars = [\n    ('gender_male',      'Gender ID at Admission',       ['Female', 'Male']),\n    ('insurance_public', 'Insurance Type',               ['Private', 'Public']),\n    ('csrss_any',        'Any C-SSRS Flag',              ['No Flag', 'Flag']),\n    ('had_restraints',   'Physical Restraints\\nUsed',    ['No', 'Yes']),\n]\n\nfor ax, (col, title, xlabels) in zip(axes, binary_vars):\n    res  = df.groupby(col)['readmitted'].agg(['mean', 'count'])\n    rates = res['mean'] * 100\n    ns    = res['count']\n    err   = 1.96 * np.sqrt(res['mean'] * (1 - res['mean']) / ns) * 100\n\n    from scipy.stats import chi2_contingency\n    tab = pd.crosstab(df[col], df['readmitted'])\n    _, p, _, _ = chi2_contingency(tab)\n    p_str = f'p={p:.3f}' if p >= 0.001 else 'p<0.001'\n    if col == 'had_restraints' and p < 0.001:\n        p_str += ' ***'\n    p_color = '#c0392b' if p < 0.05 else 'dimgray'\n\n    colors = [BLUE, ORANGE]\n    bars = ax.bar(xlabels, rates.values, yerr=err.values, capsize=5,\n                  color=colors, alpha=0.85, edgecolor='white', width=0.5)\n\n    # Place label ABOVE the CI cap (rate + err + gap)\n    for bar, n, rate, e in zip(bars, ns.values, rates.values, err.values):\n        ax.text(bar.get_x() + bar.get_width() / 2, rate + e + 1.0,\n                f'{rate:.1f}%\\n(n={n})', ha='center', va='bottom', fontsize=10)\n\n    ax.set_title(title, fontsize=12, fontweight='bold')\n    ax.text(0.5, 0.96, p_str, transform=ax.transAxes,\n            ha='center', va='top', fontsize=11, fontweight='bold', color=p_color,\n            bbox=dict(facecolor='white', edgecolor='none', alpha=0.75, pad=1.5))\n    ax.set_ylabel('Readmission Rate (%)')\n    ax.set_ylim(0, (rates.values + err.values).max() * 1.55)\n    ax.spines['top'].set_visible(False)\n    ax.spines['right'].set_visible(False)\n\nplt.suptitle('Readmission Rates by Demographic & Clinical Characteristics',\n             fontsize=16, fontweight='bold', y=1.02)\nplt.tight_layout()\nplt.savefig('figures/Fig2_demographics_panel.png')\nplt.show()\nprint(\"\u2713 Fig 2 saved\")```\n\n#### Output\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[3]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Fig 2: Demographics panel (gender, insurance, C-SSRS, restraints) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m fig, axes = plt.subplots(\u001b[32m1\u001b[39m, \u001b[32m4\u001b[39m, figsize=(\u001b[32m18\u001b[39m, \u001b[32m5\u001b[39m))\n\u001b[32m      3\u001b[39m \n\u001b[32m      4\u001b[39m binary_vars = [\n\u001b[32m      5\u001b[39m     (\u001b[33m'gender_male'\u001b[39m,      \u001b[33m'Gender ID at Admission'\u001b[39m,       [\u001b[33m'Female'\u001b[39m, \u001b[33m'Male'\u001b[39m]),\n\n\u001b[31mNameError\u001b[39m: name 'plt' is not defined```"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 4\n\n#### Metadata\n\n```yaml\nexecution_count: 3\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Fig 2: Demographics panel (gender, insurance, C-SSRS, restraints) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 4, figsize=(18, 5))\n\nbinary_vars = [\n    ('gender_male',      'Gender ID at Admission',       ['Female', 'Male']),\n    ('insurance_public', 'Insurance Type',               ['Private', 'Public']),\n    ('csrss_any',        'Any C-SSRS Flag',              ['No Flag', 'Flag']),\n    ('had_restraints',   'Physical Restraints\\nUsed',    ['No', 'Yes']),\n]\n\nfor ax, (col, title, xlabels) in zip(axes, binary_vars):\n    res  = df.groupby(col)['readmitted'].agg(['mean', 'count'])\n    rates = res['mean'] * 100\n    ns    = res['count']\n    err   = 1.96 * np.sqrt(res['mean'] * (1 - res['mean']) / ns) * 100\n\n    from scipy.stats import chi2_contingency\n    tab = pd.crosstab(df[col], df['readmitted'])\n    _, p, _, _ = chi2_contingency(tab)\n    p_str = f'p={p:.3f}' if p >= 0.001 else 'p<0.001'\n    if col == 'had_restraints' and p < 0.001:\n        p_str += ' ***'\n    p_color = '#c0392b' if p < 0.05 else 'dimgray'\n\n    colors = [BLUE, ORANGE]\n    bars = ax.bar(xlabels, rates.values, yerr=err.values, capsize=5,\n                  color=colors, alpha=0.85, edgecolor='white', width=0.5)\n\n    # Place label ABOVE the CI cap (rate + err + gap)\n    for bar, n, rate, e in zip(bars, ns.values, rates.values, err.values):\n        ax.text(bar.get_x() + bar.get_width() / 2, rate + e + 1.0,\n                f'{rate:.1f}%\\n(n={n})', ha='center', va='bottom', fontsize=10)\n\n    ax.set_title(title, fontsize=12, fontweight='bold')\n    ax.text(0.5, 0.96, p_str, transform=ax.transAxes,\n            ha='center', va='top', fontsize=11, fontweight='bold', color=p_color,\n            bbox=dict(facecolor='white', edgecolor='none', alpha=0.75, pad=1.5))\n    ax.set_ylabel('Readmission Rate (%)')\n    ax.set_ylim(0, (rates.values + err.values).max() * 1.55)\n    ax.spines['top'].set_visible(False)\n    ax.spines['right'].set_visible(False)\n\nplt.suptitle('Readmission Rates by Demographic & Clinical Characteristics',\n             fontsize=16, fontweight='bold', y=1.02)\nplt.tight_layout()\nplt.savefig('figures/Fig2_demographics_panel.png')\nplt.show()\nprint(\"\u2713 Fig 2 saved\")```\n\n#### Output\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[3]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Fig 2: Demographics panel (gender, insurance, C-SSRS, restraints) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m fig, axes = plt.subplots(\u001b[32m1\u001b[39m, \u001b[32m4\u001b[39m, figsize=(\u001b[32m18\u001b[39m, \u001b[32m5\u001b[39m))\n\u001b[32m      3\u001b[39m \n\u001b[32m      4\u001b[39m binary_vars = [\n\u001b[32m      5\u001b[39m     (\u001b[33m'gender_male'\u001b[39m,      \u001b[33m'Gender ID at Admission'\u001b[39m,       [\u001b[33m'Female'\u001b[39m, \u001b[33m'Male'\u001b[39m]),\n\n\u001b[31mNameError\u001b[39m: name 'plt' is not defined```"
+                }
+              ],
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              }
+            },
+            "tool_call_id": "call_kMMZMQEePE6LWfETAoVXTwyX",
+            "title": "Tool: Jupyter_MCP_Server/read_cell"
+          },
+          {
+            "raw_input": {
+              "tool": "read_cell",
+              "arguments": {
+                "cell_id": "11",
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "include_outputs": true
+              },
+              "server": "Jupyter_MCP_Server"
+            },
+            "status": "completed",
+            "raw_output": {
+              "structuredContent": {
+                "result": "### Cell 11\n\n#### Metadata\n\n```yaml\nexecution_count: 4\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\nprint(f\"  N collected: {len(ace_sub)} ({len(ace_sub)/len(df):.1%})\")\n\n# LOS Detailed\nprint(f\"\\nLength of Stay (LOS):\")\nprint(f\"  Mean:   {df['los_days'].mean():.1f} \u00b1 {df['los_days'].std():.1f}\")\nprint(f\"  Median: {df['los_days'].median():.1f}\")\n\n# Diagnostic Counts\nprint(f\"\\nDiagnostic Burdens (Mean \u00b1 SD, Median):\")\nfor col, label in [('n_visit_diags', 'Visit'), ('n_chronic_diags', 'Chronic'), ('has_nssi', 'Non-Suicidal (NSSI)')]:\n    print(f\"  {label:<20} {df[col].mean():.1f} \u00b1 {df[col].std():.1f} | Mdn: {df[col].median():.1f}\")\n\n# Medical Comorbidity Breakdown\nall_m = [t for sublist in df['medical_comorbidity_types'] for t in sublist]\nmed_counts = pd.Series(all_m, name='Medical comorbidity type').value_counts()\nmed_breakdown = (\n    med_counts.rename_axis('type')\n    .reset_index(name='n')\n    .assign(\n        pct_of_patients=lambda x: 100 * x['n'] / len(df),\n        pct_of_mentions=lambda x: 100 * x['n'] / x['n'].sum(),\n    )\n)\nmed_breakdown.to_csv('figures/Medical_Comorbidity_Breakdown.csv', index=False)\n\nprint(f\"\\nMedical Comorbidity Breakdown (Top Types; categories may overlap by patient):\")\nif med_breakdown.empty:\n    print(\"  No mapped medical comorbidity categories found.\")\nelse:\n    display_breakdown = med_breakdown.copy()\n    display_breakdown['Patient %'] = display_breakdown['pct_of_patients'].map(lambda x: f'{x:.1f}%')\n    display_breakdown['Mention %'] = display_breakdown['pct_of_mentions'].map(lambda x: f'{x:.1f}%')\n    print(display_breakdown[['type', 'n', 'Patient %', 'Mention %']].to_string(index=False))\n\n    fig, ax = plt.subplots(figsize=(8, 7))\n    labels = [f\"{row.type}\\n(n={int(row.n)})\" for row in med_breakdown.itertuples()]\n    colors_med = sns.color_palette('Set2', n_colors=len(med_breakdown))\n    ax.pie(\n        med_breakdown['n'],\n        labels=labels,\n        autopct='%1.1f%%',\n        startangle=90,\n        counterclock=False,\n        colors=colors_med,\n        textprops={'fontsize': 10},\n        wedgeprops={'edgecolor': 'white', 'linewidth': 1},\n    )\n    ax.set_title('Medical Comorbidity Breakdown\\n(share of mapped code-type mentions)',\n                 fontsize=14, fontweight='bold')\n    plt.tight_layout()\n    plt.savefig('figures/Fig_medical_comorbidity_breakdown.png')\n    plt.show()\n    print(\"\\n\u2713 Medical comorbidity breakdown saved\")```\n\n#### Output\n\n```\nOverall Readmission Stats (Continuous):\n```\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[4]\u001b[39m\u001b[32m, line 4\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m      2\u001b[39m \u001b[38;5;66;03m# Continuous Readmissions\u001b[39;00m\n\u001b[32m      3\u001b[39m print(f\"Overall Readmission Stats (Continuous):\")\n\u001b[32m----> \u001b[39m\u001b[32m4\u001b[39m print(f\"  Mean # Readmissions: {df[\u001b[33m'Readmissions'\u001b[39m].mean():.2f} \u00b1 {df[\u001b[33m'Readmissions'\u001b[39m].std():.2f}\")\n\u001b[32m      5\u001b[39m print(f\"  Readmitted (%):      {df[\u001b[33m'readmitted'\u001b[39m].mean():.1%}\")\n\u001b[32m      6\u001b[39m \n\u001b[32m      7\u001b[39m \u001b[38;5;66;03m# ACE Score Detailed\u001b[39;00m\n\n\u001b[31mNameError\u001b[39m: name 'df' is not defined```"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 11\n\n#### Metadata\n\n```yaml\nexecution_count: 4\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\nprint(f\"  N collected: {len(ace_sub)} ({len(ace_sub)/len(df):.1%})\")\n\n# LOS Detailed\nprint(f\"\\nLength of Stay (LOS):\")\nprint(f\"  Mean:   {df['los_days'].mean():.1f} \u00b1 {df['los_days'].std():.1f}\")\nprint(f\"  Median: {df['los_days'].median():.1f}\")\n\n# Diagnostic Counts\nprint(f\"\\nDiagnostic Burdens (Mean \u00b1 SD, Median):\")\nfor col, label in [('n_visit_diags', 'Visit'), ('n_chronic_diags', 'Chronic'), ('has_nssi', 'Non-Suicidal (NSSI)')]:\n    print(f\"  {label:<20} {df[col].mean():.1f} \u00b1 {df[col].std():.1f} | Mdn: {df[col].median():.1f}\")\n\n# Medical Comorbidity Breakdown\nall_m = [t for sublist in df['medical_comorbidity_types'] for t in sublist]\nmed_counts = pd.Series(all_m, name='Medical comorbidity type').value_counts()\nmed_breakdown = (\n    med_counts.rename_axis('type')\n    .reset_index(name='n')\n    .assign(\n        pct_of_patients=lambda x: 100 * x['n'] / len(df),\n        pct_of_mentions=lambda x: 100 * x['n'] / x['n'].sum(),\n    )\n)\nmed_breakdown.to_csv('figures/Medical_Comorbidity_Breakdown.csv', index=False)\n\nprint(f\"\\nMedical Comorbidity Breakdown (Top Types; categories may overlap by patient):\")\nif med_breakdown.empty:\n    print(\"  No mapped medical comorbidity categories found.\")\nelse:\n    display_breakdown = med_breakdown.copy()\n    display_breakdown['Patient %'] = display_breakdown['pct_of_patients'].map(lambda x: f'{x:.1f}%')\n    display_breakdown['Mention %'] = display_breakdown['pct_of_mentions'].map(lambda x: f'{x:.1f}%')\n    print(display_breakdown[['type', 'n', 'Patient %', 'Mention %']].to_string(index=False))\n\n    fig, ax = plt.subplots(figsize=(8, 7))\n    labels = [f\"{row.type}\\n(n={int(row.n)})\" for row in med_breakdown.itertuples()]\n    colors_med = sns.color_palette('Set2', n_colors=len(med_breakdown))\n    ax.pie(\n        med_breakdown['n'],\n        labels=labels,\n        autopct='%1.1f%%',\n        startangle=90,\n        counterclock=False,\n        colors=colors_med,\n        textprops={'fontsize': 10},\n        wedgeprops={'edgecolor': 'white', 'linewidth': 1},\n    )\n    ax.set_title('Medical Comorbidity Breakdown\\n(share of mapped code-type mentions)',\n                 fontsize=14, fontweight='bold')\n    plt.tight_layout()\n    plt.savefig('figures/Fig_medical_comorbidity_breakdown.png')\n    plt.show()\n    print(\"\\n\u2713 Medical comorbidity breakdown saved\")```\n\n#### Output\n\n```\nOverall Readmission Stats (Continuous):\n```\n\n```\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[4]\u001b[39m\u001b[32m, line 4\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;66;03m# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u001b[39;00m\n\u001b[32m      2\u001b[39m \u001b[38;5;66;03m# Continuous Readmissions\u001b[39;00m\n\u001b[32m      3\u001b[39m print(f\"Overall Readmission Stats (Continuous):\")\n\u001b[32m----> \u001b[39m\u001b[32m4\u001b[39m print(f\"  Mean # Readmissions: {df[\u001b[33m'Readmissions'\u001b[39m].mean():.2f} \u00b1 {df[\u001b[33m'Readmissions'\u001b[39m].std():.2f}\")\n\u001b[32m      5\u001b[39m print(f\"  Readmitted (%):      {df[\u001b[33m'readmitted'\u001b[39m].mean():.1%}\")\n\u001b[32m      6\u001b[39m \n\u001b[32m      7\u001b[39m \u001b[38;5;66;03m# ACE Score Detailed\u001b[39;00m\n\n\u001b[31mNameError\u001b[39m: name 'df' is not defined```"
+                }
+              ],
+              "isError": false,
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              }
+            },
+            "tool_call_id": "call_aGlQ7VLnwIYWCiUcd08fBRGV",
             "title": "Tool: Jupyter_MCP_Server/read_cell"
           }
         ]
@@ -12643,6 +12754,1123 @@
       "mentions": [],
       "body": "",
       "id": "25404336-133e-4ecc-90c7-2189ad3e477d"
+    },
+    {
+      "body": "The first run hit a clean-kernel ordering issue: imports were not loaded. I\u2019m running the import cell first, then the changed cells sequentially.",
+      "id": "e45c5acb-069b-4829-bbb0-de86cd736d3d",
+      "time": 1780355281.976334,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "raw_time": false,
+      "mentions": [],
+      "type": "msg"
+    },
+    {
+      "type": "msg",
+      "raw_time": false,
+      "metadata": {
+        "tool_calls": [
+          {
+            "status": "completed",
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "tool": "run_cell",
+              "arguments": {
+                "timeout": 10.0,
+                "cell_id": "0"
+              }
+            },
+            "raw_output": {
+              "isError": false,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"requestId\":\"5a041b4d-fbd5-4946-bd9f-22212d0ea5ef\",\"success\":true,\"result\":true}"
+                }
+              ],
+              "structuredContent": {
+                "result": true,
+                "requestId": "5a041b4d-fbd5-4946-bd9f-22212d0ea5ef",
+                "success": true
+              }
+            },
+            "tool_call_id": "call_ZVqRyMfAYadx2G0dSgT3wqfP",
+            "title": "Tool: Jupyter_MCP_Server/run_cell"
+          },
+          {
+            "raw_input": {
+              "tool": "run_cell",
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "cell_id": "1",
+                "timeout": 10.0
+              }
+            },
+            "raw_output": {
+              "structuredContent": {
+                "success": true,
+                "requestId": "fce8ece1-8640-497d-892b-9258ba6fa870",
+                "result": true
+              },
+              "content": [
+                {
+                  "text": "{\"requestId\":\"fce8ece1-8640-497d-892b-9258ba6fa870\",\"success\":true,\"result\":true}",
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "tool_call_id": "call_A4gD2TgOtKsvE0pcI6g7ncY1",
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "status": "completed"
+          },
+          {
+            "raw_output": {
+              "isError": false,
+              "structuredContent": {
+                "requestId": "bfde9841-9ddf-4983-9c89-7edb9bde7868",
+                "success": true,
+                "result": true
+              },
+              "content": [
+                {
+                  "text": "{\"requestId\":\"bfde9841-9ddf-4983-9c89-7edb9bde7868\",\"success\":true,\"result\":true}",
+                  "type": "text"
+                }
+              ]
+            },
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "raw_input": {
+              "tool": "run_cell",
+              "arguments": {
+                "cell_id": "2",
+                "timeout": 10.0
+              },
+              "server": "Jupyter_MCP_Server"
+            },
+            "tool_call_id": "call_w2jFzdlE9gwf0McOj1SPfbvz",
+            "status": "completed"
+          },
+          {
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "tool_call_id": "call_LrDA6IFeNWN2vbt0D3YzFnul",
+            "status": "completed",
+            "raw_input": {
+              "tool": "run_cell",
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "timeout": 10.0,
+                "cell_id": "4"
+              }
+            },
+            "raw_output": {
+              "structuredContent": {
+                "requestId": "d6e97782-fcc4-48d6-9595-2912df47e7a1",
+                "success": true,
+                "result": true
+              },
+              "isError": false,
+              "content": [
+                {
+                  "text": "{\"requestId\":\"d6e97782-fcc4-48d6-9595-2912df47e7a1\",\"success\":true,\"result\":true}",
+                  "type": "text"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "body": "",
+      "id": "afb23d4c-ebea-41e7-b7ae-a390ee9bfc1f",
+      "time": 1780355282.750276,
+      "mentions": [],
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona"
+    },
+    {
+      "time": 1780355300.134486,
+      "id": "ac0635fc-8285-449f-aeb4-fd4e17995970",
+      "raw_time": false,
+      "body": "The feature, table, and demographics cells now run successfully. I\u2019m generating the comorbidity pie chart and checking the corrected numbers.",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "type": "msg",
+      "mentions": []
+    },
+    {
+      "metadata": {
+        "tool_calls": [
+          {
+            "status": "completed",
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "tool_call_id": "call_AUSu5gm6tszEj1pJZIzBtn9W",
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "tool": "run_cell",
+              "arguments": {
+                "timeout": 10.0,
+                "cell_id": "11"
+              }
+            },
+            "raw_output": {
+              "isError": false,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"requestId\":\"5faf45f6-c33c-4d96-b5d7-4317864f7fec\",\"success\":true,\"result\":true}"
+                }
+              ],
+              "structuredContent": {
+                "result": true,
+                "requestId": "5faf45f6-c33c-4d96-b5d7-4317864f7fec",
+                "success": true
+              }
+            }
+          }
+        ]
+      },
+      "mentions": [],
+      "type": "msg",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "raw_time": false,
+      "time": 1780355300.945173,
+      "id": "f8771bb4-74b1-440b-8c6c-3366532624a7",
+      "body": ""
+    },
+    {
+      "time": 1780355305.575063,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "id": "061b7c18-7dd5-4e8b-a1a4-af17b2fc43ce",
+      "mentions": [],
+      "type": "msg",
+      "raw_time": false,
+      "body": "Fig 14 needs the model probability arrays, so I\u2019m checking the model-building cells rather than rerunning the whole notebook blindly."
+    },
+    {
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "id": "9a47d9c6-58d7-4364-aa3a-cca68035a723",
+      "mentions": [],
+      "raw_time": false,
+      "time": 1780355309.8521228,
+      "body": "",
+      "type": "msg",
+      "metadata": {
+        "tool_calls": [
+          {
+            "tool_call_id": "call_Dg6PAawi9310TSf8YuVcp83z",
+            "title": "jq -r '.cells | to_entries[] | select(.key >= 10 and .key <= 20) | \"CELL \\(.key)\\n\" + (.value.source | join(\"\") | split(\"\\n\")[:12] | join(\"\\n\")) + \"\\n---\"' Readmission_Full_Analysis.ipynb",
+            "kind": "execute",
+            "raw_input": {
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "jq -r '.cells | to_entries[] | select(.key >= 10 and .key <= 20) | \"CELL \\(.key)\\n\" + (.value.source | join(\"\") | split(\"\\n\")[:12] | join(\"\\n\")) + \"\\n---\"' Readmission_Full_Analysis.ipynb"
+              ],
+              "process_id": "27321",
+              "source": "unified_exec_startup",
+              "call_id": "call_Dg6PAawi9310TSf8YuVcp83z",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "parsed_cmd": [
+                {
+                  "cmd": "jq -r '.cells | to_entries[] | select(.key >= 10 and .key <= 20) | \"CELL \\(.key)\\n\" + (.value.source | join(\"\") | split(\"\\n\")[:12] | join(\"\\n\")) + \"\\n---\"' Readmission_Full_Analysis.ipynb",
+                  "type": "unknown"
+                }
+              ],
+              "started_at_ms": 1780355309840.0
+            },
+            "raw_output": {
+              "call_id": "call_Dg6PAawi9310TSf8YuVcp83z",
+              "exit_code": 0.0,
+              "process_id": "27321",
+              "parsed_cmd": [
+                {
+                  "type": "unknown",
+                  "cmd": "jq -r '.cells | to_entries[] | select(.key >= 10 and .key <= 20) | \"CELL \\(.key)\\n\" + (.value.source | join(\"\") | split(\"\\n\")[:12] | join(\"\\n\")) + \"\\n---\"' Readmission_Full_Analysis.ipynb"
+                }
+              ],
+              "source": "unified_exec_startup",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "stdout": "CELL 10\n\n# \u2500\u2500 Logistic regression: build feature matrix \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nFEATURES = {\n    # Demographics\n    'age':                   'Age at Admission',\n    'gender_male':           'Male Sex',\n    'insurance_public':      'Public Insurance (AHCCCS)',\n    # Clinical\n    'ace_score':             'ACE Score',\n    'had_restraints':        'Physical Restraints',\n    'csrss_any':             'Any C-SSRS Flag',\n---\nCELL 11\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\n---\nCELL 12\n\n# \u2500\u2500 Cohort Descriptive Visualizations \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(2, 2, figsize=(16, 11))\n\n# 1. Readmission Count Distribution\nrc_counts = df['Readmissions'].fillna(0).value_counts().sort_index()\nrc_mean = df['Readmissions'].fillna(0).mean()\nrc_sd   = df['Readmissions'].fillna(0).std()\naxes[0, 0].bar(rc_counts.index.astype(int), rc_counts.values, color=BLUE, alpha=0.8, edgecolor='white')\naxes[0, 0].set_title(f\"Readmission Counts\\n(Mean={rc_mean:.2f}, SD={rc_sd:.2f})\", fontweight='bold')\naxes[0, 0].set_xlabel(\"# of Readmissions\")\naxes[0, 0].set_ylabel(\"Count\")\n---\nCELL 13\n\n# \u2500\u2500 Logistic regression model + interaction terms \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport statsmodels.api as sm\n\n# Add clinically motivated interaction terms\nmodel_df['age_x_conduct']  = model_df['age'] * model_df['has_conduct']\nmodel_df['age_x_asd']      = model_df['age'] * model_df['has_asd']\nmodel_df['ace_x_trauma']   = model_df['ace_score'] * model_df['has_trauma']\nmodel_df['nssi_x_csrss']   = model_df['has_nssi'] * model_df['csrss_any']\nmodel_df['complexity_x_age'] = model_df['n_dsm5_categories'] * model_df['age']\nmodel_df['csrss_level'] = (model_df['csrss_red'] * 3 + model_df['csrss_orange'] * 2 + model_df['csrss_yellow'] * 1).fillna(0).astype(int)\nmodel_df['nssi_x_csrss_red'] = model_df['has_nssi'] * model_df['csrss_red']\n---\nCELL 14\n\n# \u2500\u2500 Fig 7: Forest plot \u2014 odds ratios from logistic regression \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_labels = {**FEATURES, **interaction_labels}\n\ncoef_df = pd.DataFrame({\n    'feature': logit_model.params.index,\n    'coef':    logit_model.params.values,\n    'se':      logit_model.bse.values,\n    'pval':    logit_model.pvalues.values,\n}).query(\"feature != 'const'\")\n\ncoef_df['OR']    = np.exp(coef_df['coef'])\n---\nCELL 15\n\n# \u2500\u2500 ML: prepare feature matrix (same features + interactions) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import roc_auc_score, roc_curve, average_precision_score\n\nml_cols = all_x_cols   # same features as logistic regression (incl. interactions)\nX_ml = model_df[ml_cols].values\nX_ml_raw = model_df_unscaled[ml_cols].values\ny_ml = model_df['readmitted'].values\n\ncv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)\n---\nCELL 16\n\n# \u2500\u2500 Fig 8: ROC curves \u2014 LR vs Random Forest vs CatBoost \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\nmodels = [\n    ('Logistic Regression', lr_probs,  '#2166ac', lr_auc),\n    ('Random Forest',       rf_probs,  '#4dac26', rf_auc),\n    ('CatBoost',            cat_probs, '#d01c8b', cat_auc),\n]\n\n# Left: ROC curves\nfor name, probs, color, auc in models:\n---\nCELL 17\n\n# \u2500\u2500 Fig 9: SHAP summary plot (CatBoost trained on full dataset) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport shap\n\nfeature_labels = [all_labels.get(c, c) for c in ml_cols]\n\n# Refit CatBoost on full dataset for SHAP\ncat_full = CatBoostClassifier(\n    iterations=500, depth=4, learning_rate=0.05,\n    auto_class_weights='Balanced', eval_metric='AUC',\n    random_seed=42, verbose=0,\n)\n---\nCELL 18\n\n# \u2500\u2500 Fig 10: Feature importance \u2014 RF vs CatBoost (side-by-side) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nrf_full = RandomForestClassifier(\n    n_estimators=500, max_depth=6, min_samples_leaf=10,\n    class_weight='balanced', random_state=42, n_jobs=-1\n)\nrf_full.fit(X_ml, y_ml)\n\nrf_imp  = pd.Series(rf_full.feature_importances_,  index=feature_labels).sort_values(ascending=False).head(15)\ncat_imp = pd.Series(cat_full.get_feature_importance(), index=feature_labels).sort_values(ascending=False).head(15)\n\nfig, axes = plt.subplots(1, 2, figsize=(16, 7))\n---\nCELL 19\n\n# \u2500\u2500 Fig 11: SHAP dependence plots \u2014 top 3 CatBoost predictors \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Manual scatter avoids shap.dependence_plot's internal jitter and gives\n# full axis control. Uses unscaled feature values for the x-axis. Negative\n# x-values, if present, reflect actual data\n# quality issues in the source (e.g., DischDate < VisitDate \u2192 negative LOS);\n# those records are flagged below.\ntop3 = cat_imp.head(3).index.tolist()\n\n# Warn about negative feature values\nfor feat_label in top3:\n    feat_idx = feature_labels.index(feat_label)\n---\nCELL 20\n\n# \u2500\u2500 Fig 9b: SHAP summary plot \u2014 Random Forest \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# rf_full already fitted in the feature importance cell\nexplainer_rf   = shap.TreeExplainer(rf_full)\nshap_values_rf = explainer_rf.shap_values(X_ml)\n\n# Robustly extract class-1 SHAP values across SHAP version formats:\n#   - list of two arrays (older SHAP)  \u2192 shap_values_rf[1]\n#   - 3-D array (n, p, 2) (newer SHAP) \u2192 shap_values_rf[:, :, 1]\n#   - 2-D array (n, p) (single output) \u2192 shap_values_rf\nif isinstance(shap_values_rf, list):\n    shap_rf_pos = shap_values_rf[1]\n---\n",
+              "stderr": "",
+              "formatted_output": "CELL 10\n\n# \u2500\u2500 Logistic regression: build feature matrix \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nFEATURES = {\n    # Demographics\n    'age':                   'Age at Admission',\n    'gender_male':           'Male Sex',\n    'insurance_public':      'Public Insurance (AHCCCS)',\n    # Clinical\n    'ace_score':             'ACE Score',\n    'had_restraints':        'Physical Restraints',\n    'csrss_any':             'Any C-SSRS Flag',\n---\nCELL 11\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\n---\nCELL 12\n\n# \u2500\u2500 Cohort Descriptive Visualizations \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(2, 2, figsize=(16, 11))\n\n# 1. Readmission Count Distribution\nrc_counts = df['Readmissions'].fillna(0).value_counts().sort_index()\nrc_mean = df['Readmissions'].fillna(0).mean()\nrc_sd   = df['Readmissions'].fillna(0).std()\naxes[0, 0].bar(rc_counts.index.astype(int), rc_counts.values, color=BLUE, alpha=0.8, edgecolor='white')\naxes[0, 0].set_title(f\"Readmission Counts\\n(Mean={rc_mean:.2f}, SD={rc_sd:.2f})\", fontweight='bold')\naxes[0, 0].set_xlabel(\"# of Readmissions\")\naxes[0, 0].set_ylabel(\"Count\")\n---\nCELL 13\n\n# \u2500\u2500 Logistic regression model + interaction terms \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport statsmodels.api as sm\n\n# Add clinically motivated interaction terms\nmodel_df['age_x_conduct']  = model_df['age'] * model_df['has_conduct']\nmodel_df['age_x_asd']      = model_df['age'] * model_df['has_asd']\nmodel_df['ace_x_trauma']   = model_df['ace_score'] * model_df['has_trauma']\nmodel_df['nssi_x_csrss']   = model_df['has_nssi'] * model_df['csrss_any']\nmodel_df['complexity_x_age'] = model_df['n_dsm5_categories'] * model_df['age']\nmodel_df['csrss_level'] = (model_df['csrss_red'] * 3 + model_df['csrss_orange'] * 2 + model_df['csrss_yellow'] * 1).fillna(0).astype(int)\nmodel_df['nssi_x_csrss_red'] = model_df['has_nssi'] * model_df['csrss_red']\n---\nCELL 14\n\n# \u2500\u2500 Fig 7: Forest plot \u2014 odds ratios from logistic regression \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_labels = {**FEATURES, **interaction_labels}\n\ncoef_df = pd.DataFrame({\n    'feature': logit_model.params.index,\n    'coef':    logit_model.params.values,\n    'se':      logit_model.bse.values,\n    'pval':    logit_model.pvalues.values,\n}).query(\"feature != 'const'\")\n\ncoef_df['OR']    = np.exp(coef_df['coef'])\n---\nCELL 15\n\n# \u2500\u2500 ML: prepare feature matrix (same features + interactions) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import roc_auc_score, roc_curve, average_precision_score\n\nml_cols = all_x_cols   # same features as logistic regression (incl. interactions)\nX_ml = model_df[ml_cols].values\nX_ml_raw = model_df_unscaled[ml_cols].values\ny_ml = model_df['readmitted'].values\n\ncv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)\n---\nCELL 16\n\n# \u2500\u2500 Fig 8: ROC curves \u2014 LR vs Random Forest vs CatBoost \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\nmodels = [\n    ('Logistic Regression', lr_probs,  '#2166ac', lr_auc),\n    ('Random Forest',       rf_probs,  '#4dac26', rf_auc),\n    ('CatBoost',            cat_probs, '#d01c8b', cat_auc),\n]\n\n# Left: ROC curves\nfor name, probs, color, auc in models:\n---\nCELL 17\n\n# \u2500\u2500 Fig 9: SHAP summary plot (CatBoost trained on full dataset) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport shap\n\nfeature_labels = [all_labels.get(c, c) for c in ml_cols]\n\n# Refit CatBoost on full dataset for SHAP\ncat_full = CatBoostClassifier(\n    iterations=500, depth=4, learning_rate=0.05,\n    auto_class_weights='Balanced', eval_metric='AUC',\n    random_seed=42, verbose=0,\n)\n---\nCELL 18\n\n# \u2500\u2500 Fig 10: Feature importance \u2014 RF vs CatBoost (side-by-side) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nrf_full = RandomForestClassifier(\n    n_estimators=500, max_depth=6, min_samples_leaf=10,\n    class_weight='balanced', random_state=42, n_jobs=-1\n)\nrf_full.fit(X_ml, y_ml)\n\nrf_imp  = pd.Series(rf_full.feature_importances_,  index=feature_labels).sort_values(ascending=False).head(15)\ncat_imp = pd.Series(cat_full.get_feature_importance(), index=feature_labels).sort_values(ascending=False).head(15)\n\nfig, axes = plt.subplots(1, 2, figsize=(16, 7))\n---\nCELL 19\n\n# \u2500\u2500 Fig 11: SHAP dependence plots \u2014 top 3 CatBoost predictors \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Manual scatter avoids shap.dependence_plot's internal jitter and gives\n# full axis control. Uses unscaled feature values for the x-axis. Negative\n# x-values, if present, reflect actual data\n# quality issues in the source (e.g., DischDate < VisitDate \u2192 negative LOS);\n# those records are flagged below.\ntop3 = cat_imp.head(3).index.tolist()\n\n# Warn about negative feature values\nfor feat_label in top3:\n    feat_idx = feature_labels.index(feat_label)\n---\nCELL 20\n\n# \u2500\u2500 Fig 9b: SHAP summary plot \u2014 Random Forest \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# rf_full already fitted in the feature importance cell\nexplainer_rf   = shap.TreeExplainer(rf_full)\nshap_values_rf = explainer_rf.shap_values(X_ml)\n\n# Robustly extract class-1 SHAP values across SHAP version formats:\n#   - list of two arrays (older SHAP)  \u2192 shap_values_rf[1]\n#   - 3-D array (n, p, 2) (newer SHAP) \u2192 shap_values_rf[:, :, 1]\n#   - 2-D array (n, p) (single output) \u2192 shap_values_rf\nif isinstance(shap_values_rf, list):\n    shap_rf_pos = shap_values_rf[1]\n---\n",
+              "duration": {
+                "secs": 0.0,
+                "nanos": 7083.0
+              },
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "jq -r '.cells | to_entries[] | select(.key >= 10 and .key <= 20) | \"CELL \\(.key)\\n\" + (.value.source | join(\"\") | split(\"\\n\")[:12] | join(\"\\n\")) + \"\\n---\"' Readmission_Full_Analysis.ipynb"
+              ],
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "aggregated_output": "CELL 10\n\n# \u2500\u2500 Logistic regression: build feature matrix \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nFEATURES = {\n    # Demographics\n    'age':                   'Age at Admission',\n    'gender_male':           'Male Sex',\n    'insurance_public':      'Public Insurance (AHCCCS)',\n    # Clinical\n    'ace_score':             'ACE Score',\n    'had_restraints':        'Physical Restraints',\n    'csrss_any':             'Any C-SSRS Flag',\n---\nCELL 11\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\n---\nCELL 12\n\n# \u2500\u2500 Cohort Descriptive Visualizations \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(2, 2, figsize=(16, 11))\n\n# 1. Readmission Count Distribution\nrc_counts = df['Readmissions'].fillna(0).value_counts().sort_index()\nrc_mean = df['Readmissions'].fillna(0).mean()\nrc_sd   = df['Readmissions'].fillna(0).std()\naxes[0, 0].bar(rc_counts.index.astype(int), rc_counts.values, color=BLUE, alpha=0.8, edgecolor='white')\naxes[0, 0].set_title(f\"Readmission Counts\\n(Mean={rc_mean:.2f}, SD={rc_sd:.2f})\", fontweight='bold')\naxes[0, 0].set_xlabel(\"# of Readmissions\")\naxes[0, 0].set_ylabel(\"Count\")\n---\nCELL 13\n\n# \u2500\u2500 Logistic regression model + interaction terms \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport statsmodels.api as sm\n\n# Add clinically motivated interaction terms\nmodel_df['age_x_conduct']  = model_df['age'] * model_df['has_conduct']\nmodel_df['age_x_asd']      = model_df['age'] * model_df['has_asd']\nmodel_df['ace_x_trauma']   = model_df['ace_score'] * model_df['has_trauma']\nmodel_df['nssi_x_csrss']   = model_df['has_nssi'] * model_df['csrss_any']\nmodel_df['complexity_x_age'] = model_df['n_dsm5_categories'] * model_df['age']\nmodel_df['csrss_level'] = (model_df['csrss_red'] * 3 + model_df['csrss_orange'] * 2 + model_df['csrss_yellow'] * 1).fillna(0).astype(int)\nmodel_df['nssi_x_csrss_red'] = model_df['has_nssi'] * model_df['csrss_red']\n---\nCELL 14\n\n# \u2500\u2500 Fig 7: Forest plot \u2014 odds ratios from logistic regression \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_labels = {**FEATURES, **interaction_labels}\n\ncoef_df = pd.DataFrame({\n    'feature': logit_model.params.index,\n    'coef':    logit_model.params.values,\n    'se':      logit_model.bse.values,\n    'pval':    logit_model.pvalues.values,\n}).query(\"feature != 'const'\")\n\ncoef_df['OR']    = np.exp(coef_df['coef'])\n---\nCELL 15\n\n# \u2500\u2500 ML: prepare feature matrix (same features + interactions) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import roc_auc_score, roc_curve, average_precision_score\n\nml_cols = all_x_cols   # same features as logistic regression (incl. interactions)\nX_ml = model_df[ml_cols].values\nX_ml_raw = model_df_unscaled[ml_cols].values\ny_ml = model_df['readmitted'].values\n\ncv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)\n---\nCELL 16\n\n# \u2500\u2500 Fig 8: ROC curves \u2014 LR vs Random Forest vs CatBoost \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\nmodels = [\n    ('Logistic Regression', lr_probs,  '#2166ac', lr_auc),\n    ('Random Forest',       rf_probs,  '#4dac26', rf_auc),\n    ('CatBoost',            cat_probs, '#d01c8b', cat_auc),\n]\n\n# Left: ROC curves\nfor name, probs, color, auc in models:\n---\nCELL 17\n\n# \u2500\u2500 Fig 9: SHAP summary plot (CatBoost trained on full dataset) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport shap\n\nfeature_labels = [all_labels.get(c, c) for c in ml_cols]\n\n# Refit CatBoost on full dataset for SHAP\ncat_full = CatBoostClassifier(\n    iterations=500, depth=4, learning_rate=0.05,\n    auto_class_weights='Balanced', eval_metric='AUC',\n    random_seed=42, verbose=0,\n)\n---\nCELL 18\n\n# \u2500\u2500 Fig 10: Feature importance \u2014 RF vs CatBoost (side-by-side) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nrf_full = RandomForestClassifier(\n    n_estimators=500, max_depth=6, min_samples_leaf=10,\n    class_weight='balanced', random_state=42, n_jobs=-1\n)\nrf_full.fit(X_ml, y_ml)\n\nrf_imp  = pd.Series(rf_full.feature_importances_,  index=feature_labels).sort_values(ascending=False).head(15)\ncat_imp = pd.Series(cat_full.get_feature_importance(), index=feature_labels).sort_values(ascending=False).head(15)\n\nfig, axes = plt.subplots(1, 2, figsize=(16, 7))\n---\nCELL 19\n\n# \u2500\u2500 Fig 11: SHAP dependence plots \u2014 top 3 CatBoost predictors \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Manual scatter avoids shap.dependence_plot's internal jitter and gives\n# full axis control. Uses unscaled feature values for the x-axis. Negative\n# x-values, if present, reflect actual data\n# quality issues in the source (e.g., DischDate < VisitDate \u2192 negative LOS);\n# those records are flagged below.\ntop3 = cat_imp.head(3).index.tolist()\n\n# Warn about negative feature values\nfor feat_label in top3:\n    feat_idx = feature_labels.index(feat_label)\n---\nCELL 20\n\n# \u2500\u2500 Fig 9b: SHAP summary plot \u2014 Random Forest \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# rf_full already fitted in the feature importance cell\nexplainer_rf   = shap.TreeExplainer(rf_full)\nshap_values_rf = explainer_rf.shap_values(X_ml)\n\n# Robustly extract class-1 SHAP values across SHAP version formats:\n#   - list of two arrays (older SHAP)  \u2192 shap_values_rf[1]\n#   - 3-D array (n, p, 2) (newer SHAP) \u2192 shap_values_rf[:, :, 1]\n#   - 2-D array (n, p) (single output) \u2192 shap_values_rf\nif isinstance(shap_values_rf, list):\n    shap_rf_pos = shap_values_rf[1]\n---\n",
+              "status": "completed",
+              "completed_at_ms": 1780355309840.0
+            },
+            "status": "completed"
+          },
+          {
+            "raw_input": {
+              "tool": "read_cell",
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "include_outputs": true,
+                "cell_id": "11",
+                "file_path": "Readmission_Full_Analysis.ipynb"
+              }
+            },
+            "raw_output": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 11\n\n#### Metadata\n\n```yaml\nexecution_count: 9\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\nprint(f\"  N collected: {len(ace_sub)} ({len(ace_sub)/len(df):.1%})\")\n\n# LOS Detailed\nprint(f\"\\nLength of Stay (LOS):\")\nprint(f\"  Mean:   {df['los_days'].mean():.1f} \u00b1 {df['los_days'].std():.1f}\")\nprint(f\"  Median: {df['los_days'].median():.1f}\")\n\n# Diagnostic Counts\nprint(f\"\\nDiagnostic Burdens (Mean \u00b1 SD, Median):\")\nfor col, label in [('n_visit_diags', 'Visit'), ('n_chronic_diags', 'Chronic'), ('has_nssi', 'Non-Suicidal (NSSI)')]:\n    print(f\"  {label:<20} {df[col].mean():.1f} \u00b1 {df[col].std():.1f} | Mdn: {df[col].median():.1f}\")\n\n# Medical Comorbidity Breakdown\nall_m = [t for sublist in df['medical_comorbidity_types'] for t in sublist]\nmed_counts = pd.Series(all_m, name='Medical comorbidity type').value_counts()\nmed_breakdown = (\n    med_counts.rename_axis('type')\n    .reset_index(name='n')\n    .assign(\n        pct_of_patients=lambda x: 100 * x['n'] / len(df),\n        pct_of_mentions=lambda x: 100 * x['n'] / x['n'].sum(),\n    )\n)\nmed_breakdown.to_csv('figures/Medical_Comorbidity_Breakdown.csv', index=False)\n\nprint(f\"\\nMedical Comorbidity Breakdown (Top Types; categories may overlap by patient):\")\nif med_breakdown.empty:\n    print(\"  No mapped medical comorbidity categories found.\")\nelse:\n    display_breakdown = med_breakdown.copy()\n    display_breakdown['Patient %'] = display_breakdown['pct_of_patients'].map(lambda x: f'{x:.1f}%')\n    display_breakdown['Mention %'] = display_breakdown['pct_of_mentions'].map(lambda x: f'{x:.1f}%')\n    print(display_breakdown[['type', 'n', 'Patient %', 'Mention %']].to_string(index=False))\n\n    fig, ax = plt.subplots(figsize=(8, 7))\n    labels = [f\"{row.type}\\n(n={int(row.n)})\" for row in med_breakdown.itertuples()]\n    colors_med = sns.color_palette('Set2', n_colors=len(med_breakdown))\n    ax.pie(\n        med_breakdown['n'],\n        labels=labels,\n        autopct='%1.1f%%',\n        startangle=90,\n        counterclock=False,\n        colors=colors_med,\n        textprops={'fontsize': 10},\n        wedgeprops={'edgecolor': 'white', 'linewidth': 1},\n    )\n    ax.set_title('Medical Comorbidity Breakdown\\n(share of mapped code-type mentions)',\n                 fontsize=14, fontweight='bold')\n    plt.tight_layout()\n    plt.savefig('figures/Fig_medical_comorbidity_breakdown.png')\n    plt.show()\n    print(\"\\n\u2713 Medical comorbidity breakdown saved\")```\n\n#### Output\n\n```\nOverall Readmission Stats (Continuous):\n  Mean # Readmissions: 0.10 \u00b1 0.34\n  Readmitted (%):      9.3%\n\nACE Score Stats:\n  Mean:   3.7 \u00b1 2.6\n  Median: 3.0\n  N collected: 1569 (59.2%)\n\nLength of Stay (LOS):\n  Mean:   10.0 \u00b1 6.9\n  Median: 8.0\n\nDiagnostic Burdens (Mean \u00b1 SD, Median):\n  Visit                4.3 \u00b1 2.3 | Mdn: 4.0\n  Chronic              5.3 \u00b1 5.4 | Mdn: 4.0\n  Non-Suicidal (NSSI)  0.4 \u00b1 0.5 | Mdn: 0.0\n\nMedical Comorbidity Breakdown (Top Types; categories may overlap by patient):\n               type   n Patient % Mention %\n       GI/Digestive 240      9.0%     27.5%\n  Metabolic/Obesity 217      8.2%     24.8%\n     Sleep Disorder 180      6.8%     20.6%\nRespiratory/Allergy 135      5.1%     15.4%\n     Renal/Urologic 102      3.8%     11.7%\n```\n\n```\n<Figure size 1200x1050 with 1 Axes>```\n\n```\n\n\u2713 Medical comorbidity breakdown saved\n```"
+                }
+              ],
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "isError": false,
+              "structuredContent": {
+                "result": "### Cell 11\n\n#### Metadata\n\n```yaml\nexecution_count: 9\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Cohort Summary & Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Continuous Readmissions\nprint(f\"Overall Readmission Stats (Continuous):\")\nprint(f\"  Mean # Readmissions: {df['Readmissions'].mean():.2f} \u00b1 {df['Readmissions'].std():.2f}\")\nprint(f\"  Readmitted (%):      {df['readmitted'].mean():.1%}\")\n\n# ACE Score Detailed\nace_sub = df['ace_score'].dropna()\nprint(f\"\\nACE Score Stats:\")\nprint(f\"  Mean:   {ace_sub.mean():.1f} \u00b1 {ace_sub.std():.1f}\")\nprint(f\"  Median: {ace_sub.median():.1f}\")\nprint(f\"  N collected: {len(ace_sub)} ({len(ace_sub)/len(df):.1%})\")\n\n# LOS Detailed\nprint(f\"\\nLength of Stay (LOS):\")\nprint(f\"  Mean:   {df['los_days'].mean():.1f} \u00b1 {df['los_days'].std():.1f}\")\nprint(f\"  Median: {df['los_days'].median():.1f}\")\n\n# Diagnostic Counts\nprint(f\"\\nDiagnostic Burdens (Mean \u00b1 SD, Median):\")\nfor col, label in [('n_visit_diags', 'Visit'), ('n_chronic_diags', 'Chronic'), ('has_nssi', 'Non-Suicidal (NSSI)')]:\n    print(f\"  {label:<20} {df[col].mean():.1f} \u00b1 {df[col].std():.1f} | Mdn: {df[col].median():.1f}\")\n\n# Medical Comorbidity Breakdown\nall_m = [t for sublist in df['medical_comorbidity_types'] for t in sublist]\nmed_counts = pd.Series(all_m, name='Medical comorbidity type').value_counts()\nmed_breakdown = (\n    med_counts.rename_axis('type')\n    .reset_index(name='n')\n    .assign(\n        pct_of_patients=lambda x: 100 * x['n'] / len(df),\n        pct_of_mentions=lambda x: 100 * x['n'] / x['n'].sum(),\n    )\n)\nmed_breakdown.to_csv('figures/Medical_Comorbidity_Breakdown.csv', index=False)\n\nprint(f\"\\nMedical Comorbidity Breakdown (Top Types; categories may overlap by patient):\")\nif med_breakdown.empty:\n    print(\"  No mapped medical comorbidity categories found.\")\nelse:\n    display_breakdown = med_breakdown.copy()\n    display_breakdown['Patient %'] = display_breakdown['pct_of_patients'].map(lambda x: f'{x:.1f}%')\n    display_breakdown['Mention %'] = display_breakdown['pct_of_mentions'].map(lambda x: f'{x:.1f}%')\n    print(display_breakdown[['type', 'n', 'Patient %', 'Mention %']].to_string(index=False))\n\n    fig, ax = plt.subplots(figsize=(8, 7))\n    labels = [f\"{row.type}\\n(n={int(row.n)})\" for row in med_breakdown.itertuples()]\n    colors_med = sns.color_palette('Set2', n_colors=len(med_breakdown))\n    ax.pie(\n        med_breakdown['n'],\n        labels=labels,\n        autopct='%1.1f%%',\n        startangle=90,\n        counterclock=False,\n        colors=colors_med,\n        textprops={'fontsize': 10},\n        wedgeprops={'edgecolor': 'white', 'linewidth': 1},\n    )\n    ax.set_title('Medical Comorbidity Breakdown\\n(share of mapped code-type mentions)',\n                 fontsize=14, fontweight='bold')\n    plt.tight_layout()\n    plt.savefig('figures/Fig_medical_comorbidity_breakdown.png')\n    plt.show()\n    print(\"\\n\u2713 Medical comorbidity breakdown saved\")```\n\n#### Output\n\n```\nOverall Readmission Stats (Continuous):\n  Mean # Readmissions: 0.10 \u00b1 0.34\n  Readmitted (%):      9.3%\n\nACE Score Stats:\n  Mean:   3.7 \u00b1 2.6\n  Median: 3.0\n  N collected: 1569 (59.2%)\n\nLength of Stay (LOS):\n  Mean:   10.0 \u00b1 6.9\n  Median: 8.0\n\nDiagnostic Burdens (Mean \u00b1 SD, Median):\n  Visit                4.3 \u00b1 2.3 | Mdn: 4.0\n  Chronic              5.3 \u00b1 5.4 | Mdn: 4.0\n  Non-Suicidal (NSSI)  0.4 \u00b1 0.5 | Mdn: 0.0\n\nMedical Comorbidity Breakdown (Top Types; categories may overlap by patient):\n               type   n Patient % Mention %\n       GI/Digestive 240      9.0%     27.5%\n  Metabolic/Obesity 217      8.2%     24.8%\n     Sleep Disorder 180      6.8%     20.6%\nRespiratory/Allergy 135      5.1%     15.4%\n     Renal/Urologic 102      3.8%     11.7%\n```\n\n```\n<Figure size 1200x1050 with 1 Axes>```\n\n```\n\n\u2713 Medical comorbidity breakdown saved\n```"
+              }
+            },
+            "tool_call_id": "call_Ay2CAvlNeKWX11DrFfGiDdik",
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "status": "completed"
+          },
+          {
+            "tool_call_id": "call_BWeLjoKa90f78RZ8aeBJXfPT",
+            "status": "completed",
+            "raw_output": {
+              "content": [
+                {
+                  "text": "### Cell 4\n\n#### Metadata\n\n```yaml\nexecution_count: 8\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Fig 2: Demographics panel (gender, insurance, C-SSRS, restraints) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 4, figsize=(18, 5))\n\nbinary_vars = [\n    ('gender_male',      'Gender ID at Admission',       ['Female', 'Male']),\n    ('insurance_public', 'Insurance Type',               ['Private', 'Public']),\n    ('csrss_any',        'Any C-SSRS Flag',              ['No Flag', 'Flag']),\n    ('had_restraints',   'Physical Restraints\\nUsed',    ['No', 'Yes']),\n]\n\nfor ax, (col, title, xlabels) in zip(axes, binary_vars):\n    res  = df.groupby(col)['readmitted'].agg(['mean', 'count'])\n    rates = res['mean'] * 100\n    ns    = res['count']\n    err   = 1.96 * np.sqrt(res['mean'] * (1 - res['mean']) / ns) * 100\n\n    from scipy.stats import chi2_contingency\n    tab = pd.crosstab(df[col], df['readmitted'])\n    _, p, _, _ = chi2_contingency(tab)\n    p_str = f'p={p:.3f}' if p >= 0.001 else 'p<0.001'\n    if col == 'had_restraints' and p < 0.001:\n        p_str += ' ***'\n    p_color = '#c0392b' if p < 0.05 else 'dimgray'\n\n    colors = [BLUE, ORANGE]\n    bars = ax.bar(xlabels, rates.values, yerr=err.values, capsize=5,\n                  color=colors, alpha=0.85, edgecolor='white', width=0.5)\n\n    # Place label ABOVE the CI cap (rate + err + gap)\n    for bar, n, rate, e in zip(bars, ns.values, rates.values, err.values):\n        ax.text(bar.get_x() + bar.get_width() / 2, rate + e + 1.0,\n                f'{rate:.1f}%\\n(n={n})', ha='center', va='bottom', fontsize=10)\n\n    ax.set_title(title, fontsize=12, fontweight='bold')\n    ax.text(0.5, 0.96, p_str, transform=ax.transAxes,\n            ha='center', va='top', fontsize=11, fontweight='bold', color=p_color,\n            bbox=dict(facecolor='white', edgecolor='none', alpha=0.75, pad=1.5))\n    ax.set_ylabel('Readmission Rate (%)')\n    ax.set_ylim(0, (rates.values + err.values).max() * 1.55)\n    ax.spines['top'].set_visible(False)\n    ax.spines['right'].set_visible(False)\n\nplt.suptitle('Readmission Rates by Demographic & Clinical Characteristics',\n             fontsize=16, fontweight='bold', y=1.02)\nplt.tight_layout()\nplt.savefig('figures/Fig2_demographics_panel.png')\nplt.show()\nprint(\"\u2713 Fig 2 saved\")```\n\n#### Output\n\n```\n<Figure size 2700x750 with 4 Axes>```\n\n```\n\u2713 Fig 2 saved\n```",
+                  "type": "text"
+                }
+              ],
+              "isError": false,
+              "structuredContent": {
+                "result": "### Cell 4\n\n#### Metadata\n\n```yaml\nexecution_count: 8\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Fig 2: Demographics panel (gender, insurance, C-SSRS, restraints) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfig, axes = plt.subplots(1, 4, figsize=(18, 5))\n\nbinary_vars = [\n    ('gender_male',      'Gender ID at Admission',       ['Female', 'Male']),\n    ('insurance_public', 'Insurance Type',               ['Private', 'Public']),\n    ('csrss_any',        'Any C-SSRS Flag',              ['No Flag', 'Flag']),\n    ('had_restraints',   'Physical Restraints\\nUsed',    ['No', 'Yes']),\n]\n\nfor ax, (col, title, xlabels) in zip(axes, binary_vars):\n    res  = df.groupby(col)['readmitted'].agg(['mean', 'count'])\n    rates = res['mean'] * 100\n    ns    = res['count']\n    err   = 1.96 * np.sqrt(res['mean'] * (1 - res['mean']) / ns) * 100\n\n    from scipy.stats import chi2_contingency\n    tab = pd.crosstab(df[col], df['readmitted'])\n    _, p, _, _ = chi2_contingency(tab)\n    p_str = f'p={p:.3f}' if p >= 0.001 else 'p<0.001'\n    if col == 'had_restraints' and p < 0.001:\n        p_str += ' ***'\n    p_color = '#c0392b' if p < 0.05 else 'dimgray'\n\n    colors = [BLUE, ORANGE]\n    bars = ax.bar(xlabels, rates.values, yerr=err.values, capsize=5,\n                  color=colors, alpha=0.85, edgecolor='white', width=0.5)\n\n    # Place label ABOVE the CI cap (rate + err + gap)\n    for bar, n, rate, e in zip(bars, ns.values, rates.values, err.values):\n        ax.text(bar.get_x() + bar.get_width() / 2, rate + e + 1.0,\n                f'{rate:.1f}%\\n(n={n})', ha='center', va='bottom', fontsize=10)\n\n    ax.set_title(title, fontsize=12, fontweight='bold')\n    ax.text(0.5, 0.96, p_str, transform=ax.transAxes,\n            ha='center', va='top', fontsize=11, fontweight='bold', color=p_color,\n            bbox=dict(facecolor='white', edgecolor='none', alpha=0.75, pad=1.5))\n    ax.set_ylabel('Readmission Rate (%)')\n    ax.set_ylim(0, (rates.values + err.values).max() * 1.55)\n    ax.spines['top'].set_visible(False)\n    ax.spines['right'].set_visible(False)\n\nplt.suptitle('Readmission Rates by Demographic & Clinical Characteristics',\n             fontsize=16, fontweight='bold', y=1.02)\nplt.tight_layout()\nplt.savefig('figures/Fig2_demographics_panel.png')\nplt.show()\nprint(\"\u2713 Fig 2 saved\")```\n\n#### Output\n\n```\n<Figure size 2700x750 with 4 Axes>```\n\n```\n\u2713 Fig 2 saved\n```"
+              },
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              }
+            },
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "raw_input": {
+              "tool": "read_cell",
+              "arguments": {
+                "cell_id": "4",
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "include_outputs": true
+              },
+              "server": "Jupyter_MCP_Server"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "b4e8b860-3720-48a9-bc5e-7e29686db467",
+      "type": "msg",
+      "raw_time": false,
+      "body": "The corrected comorbidity output shows GI/Digestive as `9.0%` of patients, not `905%`, and the pie file was created. I\u2019m now rebuilding only the model arrays needed for Fig 14.",
+      "mentions": [],
+      "time": 1780355312.684843,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona"
+    },
+    {
+      "body": "",
+      "raw_time": false,
+      "type": "msg",
+      "mentions": [],
+      "metadata": {
+        "tool_calls": [
+          {
+            "raw_input": {
+              "tool": "read_cell",
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "include_outputs": false,
+                "cell_id": "10",
+                "file_path": "Readmission_Full_Analysis.ipynb"
+              }
+            },
+            "tool_call_id": "call_iZGlDg8I9SeEKbUAfv4YuT2f",
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "raw_output": {
+              "structuredContent": {
+                "result": "### Cell 10\n\n#### Metadata\n\n```yaml\nexecution_count: 10\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Logistic regression: build feature matrix \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nFEATURES = {\n    # Demographics\n    'age':                   'Age at Admission',\n    'gender_male':           'Male Sex',\n    'insurance_public':      'Public Insurance (AHCCCS)',\n    # Clinical\n    'ace_score':             'ACE Score',\n    'had_restraints':        'Physical Restraints',\n    'csrss_any':             'Any C-SSRS Flag',\n    'los_days':              'Length of Stay (days)',\n    # Diagnostic complexity\n    'n_dsm5_categories':     '# DSM-5 Categories',\n    'has_medical_comorbidity': 'Medical Comorbidity',\n    # Diagnosis category flags\n    'has_nssi':              'NSSI Diagnosis',\n    'has_trauma':            'Trauma/PTSD',\n    'has_adhd':              'ADHD',\n    'has_asd':               'ASD',\n    'has_conduct':           'Conduct Disorder',\n    'has_depression':        'Depression',\n    'has_anxiety':           'Anxiety',\n    'has_bipolar':           'Bipolar Disorder',\n    'has_psychotic':         'Psychotic Disorder',\n}\n\nfeat_cols = list(FEATURES.keys())\nmodel_df  = df[feat_cols + ['readmitted', 'csrss_red', 'csrss_orange', 'csrss_yellow']].copy()\n\n# Impute ACE score with median (30% missing \u2192 median imputation noted in methods)\nace_median = model_df['ace_score'].median()\nmodel_df['ace_score'] = model_df['ace_score'].fillna(ace_median)\nmodel_df['los_days']  = model_df['los_days'].fillna(model_df['los_days'].median())\nmodel_df = model_df.dropna()\n\nprint(f\"Model dataset: {len(model_df):,} patients | {model_df['readmitted'].sum()} readmitted ({model_df['readmitted'].mean():.1%})\")\nprint(f\"Features: {len(feat_cols)}\")\n```\n\n#### Output\n\n```\nModel dataset: 2,652 patients | 246 readmitted (9.3%)\nFeatures: 18\n```"
+              },
+              "content": [
+                {
+                  "text": "### Cell 10\n\n#### Metadata\n\n```yaml\nexecution_count: 10\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Logistic regression: build feature matrix \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nFEATURES = {\n    # Demographics\n    'age':                   'Age at Admission',\n    'gender_male':           'Male Sex',\n    'insurance_public':      'Public Insurance (AHCCCS)',\n    # Clinical\n    'ace_score':             'ACE Score',\n    'had_restraints':        'Physical Restraints',\n    'csrss_any':             'Any C-SSRS Flag',\n    'los_days':              'Length of Stay (days)',\n    # Diagnostic complexity\n    'n_dsm5_categories':     '# DSM-5 Categories',\n    'has_medical_comorbidity': 'Medical Comorbidity',\n    # Diagnosis category flags\n    'has_nssi':              'NSSI Diagnosis',\n    'has_trauma':            'Trauma/PTSD',\n    'has_adhd':              'ADHD',\n    'has_asd':               'ASD',\n    'has_conduct':           'Conduct Disorder',\n    'has_depression':        'Depression',\n    'has_anxiety':           'Anxiety',\n    'has_bipolar':           'Bipolar Disorder',\n    'has_psychotic':         'Psychotic Disorder',\n}\n\nfeat_cols = list(FEATURES.keys())\nmodel_df  = df[feat_cols + ['readmitted', 'csrss_red', 'csrss_orange', 'csrss_yellow']].copy()\n\n# Impute ACE score with median (30% missing \u2192 median imputation noted in methods)\nace_median = model_df['ace_score'].median()\nmodel_df['ace_score'] = model_df['ace_score'].fillna(ace_median)\nmodel_df['los_days']  = model_df['los_days'].fillna(model_df['los_days'].median())\nmodel_df = model_df.dropna()\n\nprint(f\"Model dataset: {len(model_df):,} patients | {model_df['readmitted'].sum()} readmitted ({model_df['readmitted'].mean():.1%})\")\nprint(f\"Features: {len(feat_cols)}\")\n```\n\n#### Output\n\n```\nModel dataset: 2,652 patients | 246 readmitted (9.3%)\nFeatures: 18\n```",
+                  "type": "text"
+                }
+              ],
+              "isError": false,
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              }
+            },
+            "status": "completed"
+          },
+          {
+            "raw_output": {
+              "isError": false,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 13\n\n#### Metadata\n\n```yaml\nexecution_count: 13\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Logistic regression model + interaction terms \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport statsmodels.api as sm\n\n# Add clinically motivated interaction terms\nmodel_df['age_x_conduct']  = model_df['age'] * model_df['has_conduct']\nmodel_df['age_x_asd']      = model_df['age'] * model_df['has_asd']\nmodel_df['ace_x_trauma']   = model_df['ace_score'] * model_df['has_trauma']\nmodel_df['nssi_x_csrss']   = model_df['has_nssi'] * model_df['csrss_any']\nmodel_df['complexity_x_age'] = model_df['n_dsm5_categories'] * model_df['age']\nmodel_df['csrss_level'] = (model_df['csrss_red'] * 3 + model_df['csrss_orange'] * 2 + model_df['csrss_yellow'] * 1).fillna(0).astype(int)\nmodel_df['nssi_x_csrss_red'] = model_df['has_nssi'] * model_df['csrss_red']\nmodel_df['age_x_public_insurance'] = model_df['age'] * model_df['insurance_public']\n\n# Preserve unscaled values for SHAP dependence x-axes\nmodel_df_unscaled = model_df.copy()\n\n# Standardize continuous variables for Odds Ratio interpretation and visible CIs\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\nscale_cols = ['age', 'los_days', 'ace_score', 'n_dsm5_categories', 'complexity_x_age']\nmodel_df[scale_cols] = scaler.fit_transform(model_df[scale_cols])\n\ninteraction_labels = {\n    'age_x_conduct':    'Age \u00d7 Conduct Disorder',\n    'age_x_asd':        'Age \u00d7 ASD',\n    'ace_x_trauma':     'ACE Score \u00d7 Trauma/PTSD',\n    'nssi_x_csrss_red': 'NSSI \u00d7 C-SSRS Red Flag',\n    'complexity_x_age': 'Diagnostic Complexity \u00d7 Age',\n    'age_x_public_insurance': 'Age \u00d7 Public Insurance',\n}\n\nall_x_cols = [c for c in feat_cols if c != 'csrss_any'] + list(interaction_labels.keys()) + ['csrss_level']\nX = sm.add_constant(model_df[all_x_cols])\ny = model_df['readmitted']\n\nlogit_model = sm.Logit(y, X).fit(maxiter=200)\nprint(logit_model.summary2())\n```\n\n#### Output\n\n```\nOptimization terminated successfully.\n         Current function value: 0.285844\n         Iterations 7\n                            Results: Logit\n=======================================================================\nModel:                Logit              Method:             MLE       \nDependent Variable:   readmitted         Pseudo R-squared:   0.075     \nDate:                 2026-06-01 03:06   AIC:                1566.1155 \nNo. Observations:     2652               BIC:                1713.1923 \nDf Model:             24                 Log-Likelihood:     -758.06   \nDf Residuals:         2627               LL-Null:            -819.14   \nConverged:            1.0000             LLR p-value:        3.9743e-15\nNo. Iterations:       7.0000             Scale:              1.0000    \n-----------------------------------------------------------------------\n                         Coef.  Std.Err.    z    P>|z|   [0.025  0.975]\n-----------------------------------------------------------------------\nconst                   -3.7621   0.3983 -9.4442 0.0000 -4.5428 -2.9813\nage                     -0.0729   0.2352 -0.3098 0.7567 -0.5338  0.3881\ngender_male             -0.0437   0.1558 -0.2807 0.7789 -0.3491  0.2617\ninsurance_public         1.1231   0.7752  1.4488 0.1474 -0.3962  2.6425\nace_score                0.0600   0.1419  0.4225 0.6727 -0.2182  0.3382\nhad_restraints           0.4735   0.1805  2.6230 0.0087  0.1197  0.8274\nlos_days                -0.0872   0.0826 -1.0557 0.2911 -0.2491  0.0747\nn_dsm5_categories        0.2650   0.3681  0.7199 0.4716 -0.4564  0.9864\nhas_medical_comorbidity  0.4892   0.1667  2.9337 0.0033  0.1624  0.8160\nhas_nssi                -0.2190   0.1976 -1.1083 0.2677 -0.6064  0.1683\nhas_trauma               0.1987   0.3108  0.6393 0.5226 -0.4104  0.8078\nhas_adhd                 0.0941   0.1942  0.4848 0.6279 -0.2865  0.4748\nhas_asd                 -0.7995   0.8607 -0.9290 0.3529 -2.4864  0.8873\nhas_conduct              0.8213   0.8105  1.0134 0.3109 -0.7672  2.4098\nhas_depression           0.7126   0.1893  3.7645 0.0002  0.3416  1.0836\nhas_anxiety              0.2514   0.1743  1.4423 0.1492 -0.0902  0.5931\nhas_bipolar              0.4194   0.2698  1.5545 0.1201 -0.1094  0.9483\nhas_psychotic            0.5589   0.3919  1.4262 0.1538 -0.2091  1.3269\nage_x_conduct           -0.0577   0.0889 -0.6493 0.5162 -0.2319  0.1165\nage_x_asd                0.1106   0.0898  1.2315 0.2181 -0.0654  0.2867\nace_x_trauma            -0.0026   0.0818 -0.0322 0.9743 -0.1629  0.1576\nnssi_x_csrss_red         0.0499   0.3494  0.1429 0.8864 -0.6350  0.7348\ncomplexity_x_age         0.0046   0.4040  0.0115 0.9908 -0.7872  0.7965\nage_x_public_insurance  -0.1044   0.0787 -1.3264 0.1847 -0.2586  0.0499\ncsrss_level              0.0008   0.0884  0.0093 0.9925 -0.1725  0.1742\n=======================================================================\n\n```"
+                }
+              ],
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "structuredContent": {
+                "result": "### Cell 13\n\n#### Metadata\n\n```yaml\nexecution_count: 13\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Logistic regression model + interaction terms \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nimport statsmodels.api as sm\n\n# Add clinically motivated interaction terms\nmodel_df['age_x_conduct']  = model_df['age'] * model_df['has_conduct']\nmodel_df['age_x_asd']      = model_df['age'] * model_df['has_asd']\nmodel_df['ace_x_trauma']   = model_df['ace_score'] * model_df['has_trauma']\nmodel_df['nssi_x_csrss']   = model_df['has_nssi'] * model_df['csrss_any']\nmodel_df['complexity_x_age'] = model_df['n_dsm5_categories'] * model_df['age']\nmodel_df['csrss_level'] = (model_df['csrss_red'] * 3 + model_df['csrss_orange'] * 2 + model_df['csrss_yellow'] * 1).fillna(0).astype(int)\nmodel_df['nssi_x_csrss_red'] = model_df['has_nssi'] * model_df['csrss_red']\nmodel_df['age_x_public_insurance'] = model_df['age'] * model_df['insurance_public']\n\n# Preserve unscaled values for SHAP dependence x-axes\nmodel_df_unscaled = model_df.copy()\n\n# Standardize continuous variables for Odds Ratio interpretation and visible CIs\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\nscale_cols = ['age', 'los_days', 'ace_score', 'n_dsm5_categories', 'complexity_x_age']\nmodel_df[scale_cols] = scaler.fit_transform(model_df[scale_cols])\n\ninteraction_labels = {\n    'age_x_conduct':    'Age \u00d7 Conduct Disorder',\n    'age_x_asd':        'Age \u00d7 ASD',\n    'ace_x_trauma':     'ACE Score \u00d7 Trauma/PTSD',\n    'nssi_x_csrss_red': 'NSSI \u00d7 C-SSRS Red Flag',\n    'complexity_x_age': 'Diagnostic Complexity \u00d7 Age',\n    'age_x_public_insurance': 'Age \u00d7 Public Insurance',\n}\n\nall_x_cols = [c for c in feat_cols if c != 'csrss_any'] + list(interaction_labels.keys()) + ['csrss_level']\nX = sm.add_constant(model_df[all_x_cols])\ny = model_df['readmitted']\n\nlogit_model = sm.Logit(y, X).fit(maxiter=200)\nprint(logit_model.summary2())\n```\n\n#### Output\n\n```\nOptimization terminated successfully.\n         Current function value: 0.285844\n         Iterations 7\n                            Results: Logit\n=======================================================================\nModel:                Logit              Method:             MLE       \nDependent Variable:   readmitted         Pseudo R-squared:   0.075     \nDate:                 2026-06-01 03:06   AIC:                1566.1155 \nNo. Observations:     2652               BIC:                1713.1923 \nDf Model:             24                 Log-Likelihood:     -758.06   \nDf Residuals:         2627               LL-Null:            -819.14   \nConverged:            1.0000             LLR p-value:        3.9743e-15\nNo. Iterations:       7.0000             Scale:              1.0000    \n-----------------------------------------------------------------------\n                         Coef.  Std.Err.    z    P>|z|   [0.025  0.975]\n-----------------------------------------------------------------------\nconst                   -3.7621   0.3983 -9.4442 0.0000 -4.5428 -2.9813\nage                     -0.0729   0.2352 -0.3098 0.7567 -0.5338  0.3881\ngender_male             -0.0437   0.1558 -0.2807 0.7789 -0.3491  0.2617\ninsurance_public         1.1231   0.7752  1.4488 0.1474 -0.3962  2.6425\nace_score                0.0600   0.1419  0.4225 0.6727 -0.2182  0.3382\nhad_restraints           0.4735   0.1805  2.6230 0.0087  0.1197  0.8274\nlos_days                -0.0872   0.0826 -1.0557 0.2911 -0.2491  0.0747\nn_dsm5_categories        0.2650   0.3681  0.7199 0.4716 -0.4564  0.9864\nhas_medical_comorbidity  0.4892   0.1667  2.9337 0.0033  0.1624  0.8160\nhas_nssi                -0.2190   0.1976 -1.1083 0.2677 -0.6064  0.1683\nhas_trauma               0.1987   0.3108  0.6393 0.5226 -0.4104  0.8078\nhas_adhd                 0.0941   0.1942  0.4848 0.6279 -0.2865  0.4748\nhas_asd                 -0.7995   0.8607 -0.9290 0.3529 -2.4864  0.8873\nhas_conduct              0.8213   0.8105  1.0134 0.3109 -0.7672  2.4098\nhas_depression           0.7126   0.1893  3.7645 0.0002  0.3416  1.0836\nhas_anxiety              0.2514   0.1743  1.4423 0.1492 -0.0902  0.5931\nhas_bipolar              0.4194   0.2698  1.5545 0.1201 -0.1094  0.9483\nhas_psychotic            0.5589   0.3919  1.4262 0.1538 -0.2091  1.3269\nage_x_conduct           -0.0577   0.0889 -0.6493 0.5162 -0.2319  0.1165\nage_x_asd                0.1106   0.0898  1.2315 0.2181 -0.0654  0.2867\nace_x_trauma            -0.0026   0.0818 -0.0322 0.9743 -0.1629  0.1576\nnssi_x_csrss_red         0.0499   0.3494  0.1429 0.8864 -0.6350  0.7348\ncomplexity_x_age         0.0046   0.4040  0.0115 0.9908 -0.7872  0.7965\nage_x_public_insurance  -0.1044   0.0787 -1.3264 0.1847 -0.2586  0.0499\ncsrss_level              0.0008   0.0884  0.0093 0.9925 -0.1725  0.1742\n=======================================================================\n\n```"
+              }
+            },
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "status": "completed",
+            "tool_call_id": "call_PEQv1eJrU3LtmbVvspvhqMvB",
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "include_outputs": false,
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "cell_id": "13"
+              },
+              "tool": "read_cell"
+            }
+          },
+          {
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "cell_id": "15",
+                "include_outputs": false
+              },
+              "tool": "read_cell"
+            },
+            "raw_output": {
+              "content": [
+                {
+                  "text": "### Cell 15\n\n#### Metadata\n\n```yaml\nexecution_count: 15\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 ML: prepare feature matrix (same features + interactions) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import roc_auc_score, roc_curve, average_precision_score\n\nml_cols = all_x_cols   # same features as logistic regression (incl. interactions)\nX_ml = model_df[ml_cols].values\nX_ml_raw = model_df_unscaled[ml_cols].values\ny_ml = model_df['readmitted'].values\n\ncv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)\n\n# \u2500\u2500 Random Forest \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nrf = RandomForestClassifier(\n    n_estimators=500, max_depth=6, min_samples_leaf=10,\n    class_weight='balanced', random_state=42, n_jobs=-1\n)\nrf_probs = np.zeros(len(y_ml))\nfor train_idx, test_idx in cv.split(X_ml, y_ml):\n    rf.fit(X_ml[train_idx], y_ml[train_idx])\n    rf_probs[test_idx] = rf.predict_proba(X_ml[test_idx])[:, 1]\n\nrf_auc  = roc_auc_score(y_ml, rf_probs)\nrf_ap   = average_precision_score(y_ml, rf_probs)\nprint(f\"Random Forest  \u2014 AUC: {rf_auc:.3f}  |  AP: {rf_ap:.3f}\")\n\n# \u2500\u2500 CatBoost \u2014 imbalance-aware, conservative depth \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# All features are numeric floats; no cat_features needed\ncat_model = CatBoostClassifier(\n    iterations=500,\n    depth=4,\n    learning_rate=0.05,\n    auto_class_weights='Balanced',\n    eval_metric='AUC',\n    random_seed=42,\n    verbose=0,\n)\ncat_probs = np.zeros(len(y_ml))\nfor train_idx, test_idx in cv.split(X_ml, y_ml):\n    cat_model.fit(X_ml[train_idx], y_ml[train_idx])\n    cat_probs[test_idx] = cat_model.predict_proba(X_ml[test_idx])[:, 1]\n\ncat_auc = roc_auc_score(y_ml, cat_probs)\ncat_ap  = average_precision_score(y_ml, cat_probs)\nprint(f\"CatBoost       \u2014 AUC: {cat_auc:.3f}  |  AP: {cat_ap:.3f}\")\n\n# \u2500\u2500 Logistic regression probabilities (for ROC comparison) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nlr_probs = np.zeros(len(y_ml))\nfor train_idx, test_idx in cv.split(X_ml, y_ml):\n    X_tr = sm.add_constant(X_ml[train_idx], has_constant='add')\n    X_te = sm.add_constant(X_ml[test_idx],  has_constant='add')\n    m = sm.Logit(y_ml[train_idx], X_tr).fit(disp=0, maxiter=200)\n    lr_probs[test_idx] = m.predict(X_te)\n\nlr_auc = roc_auc_score(y_ml, lr_probs)\nlr_ap  = average_precision_score(y_ml, lr_probs)\nprint(f\"Logistic Regr  \u2014 AUC: {lr_auc:.3f}  |  AP: {lr_ap:.3f}\")\n```\n\n#### Output\n\n```\nRandom Forest  \u2014 AUC: 0.686  |  AP: 0.171\n```\n\n```\nCatBoost       \u2014 AUC: 0.662  |  AP: 0.164\nLogistic Regr  \u2014 AUC: 0.667  |  AP: 0.162\n```",
+                  "type": "text"
+                }
+              ],
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "structuredContent": {
+                "result": "### Cell 15\n\n#### Metadata\n\n```yaml\nexecution_count: 15\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 ML: prepare feature matrix (same features + interactions) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom sklearn.model_selection import StratifiedKFold\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import roc_auc_score, roc_curve, average_precision_score\n\nml_cols = all_x_cols   # same features as logistic regression (incl. interactions)\nX_ml = model_df[ml_cols].values\nX_ml_raw = model_df_unscaled[ml_cols].values\ny_ml = model_df['readmitted'].values\n\ncv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)\n\n# \u2500\u2500 Random Forest \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nrf = RandomForestClassifier(\n    n_estimators=500, max_depth=6, min_samples_leaf=10,\n    class_weight='balanced', random_state=42, n_jobs=-1\n)\nrf_probs = np.zeros(len(y_ml))\nfor train_idx, test_idx in cv.split(X_ml, y_ml):\n    rf.fit(X_ml[train_idx], y_ml[train_idx])\n    rf_probs[test_idx] = rf.predict_proba(X_ml[test_idx])[:, 1]\n\nrf_auc  = roc_auc_score(y_ml, rf_probs)\nrf_ap   = average_precision_score(y_ml, rf_probs)\nprint(f\"Random Forest  \u2014 AUC: {rf_auc:.3f}  |  AP: {rf_ap:.3f}\")\n\n# \u2500\u2500 CatBoost \u2014 imbalance-aware, conservative depth \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# All features are numeric floats; no cat_features needed\ncat_model = CatBoostClassifier(\n    iterations=500,\n    depth=4,\n    learning_rate=0.05,\n    auto_class_weights='Balanced',\n    eval_metric='AUC',\n    random_seed=42,\n    verbose=0,\n)\ncat_probs = np.zeros(len(y_ml))\nfor train_idx, test_idx in cv.split(X_ml, y_ml):\n    cat_model.fit(X_ml[train_idx], y_ml[train_idx])\n    cat_probs[test_idx] = cat_model.predict_proba(X_ml[test_idx])[:, 1]\n\ncat_auc = roc_auc_score(y_ml, cat_probs)\ncat_ap  = average_precision_score(y_ml, cat_probs)\nprint(f\"CatBoost       \u2014 AUC: {cat_auc:.3f}  |  AP: {cat_ap:.3f}\")\n\n# \u2500\u2500 Logistic regression probabilities (for ROC comparison) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nlr_probs = np.zeros(len(y_ml))\nfor train_idx, test_idx in cv.split(X_ml, y_ml):\n    X_tr = sm.add_constant(X_ml[train_idx], has_constant='add')\n    X_te = sm.add_constant(X_ml[test_idx],  has_constant='add')\n    m = sm.Logit(y_ml[train_idx], X_tr).fit(disp=0, maxiter=200)\n    lr_probs[test_idx] = m.predict(X_te)\n\nlr_auc = roc_auc_score(y_ml, lr_probs)\nlr_ap  = average_precision_score(y_ml, lr_probs)\nprint(f\"Logistic Regr  \u2014 AUC: {lr_auc:.3f}  |  AP: {lr_ap:.3f}\")\n```\n\n#### Output\n\n```\nRandom Forest  \u2014 AUC: 0.686  |  AP: 0.171\n```\n\n```\nCatBoost       \u2014 AUC: 0.662  |  AP: 0.164\nLogistic Regr  \u2014 AUC: 0.667  |  AP: 0.162\n```"
+              },
+              "isError": false
+            },
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "status": "completed",
+            "tool_call_id": "call_wdCIhYB6aTVgpGqdNchp8JKA"
+          }
+        ]
+      },
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "time": 1780355315.560378,
+      "id": "6b23cb3f-96e8-45dd-a5e9-505ae7a03d74"
+    },
+    {
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "raw_time": false,
+      "time": 1780355318.782352,
+      "body": "The model path is cells 10, 13, and 15. I\u2019m running those now, which may take a bit because CatBoost cross-validation is involved.",
+      "type": "msg",
+      "mentions": [],
+      "id": "72b5180c-9367-4368-a62a-212818a685b0"
+    },
+    {
+      "id": "3cbc12ea-1456-4ad0-b814-ada27940e4da",
+      "time": 1780355319.64905,
+      "raw_time": false,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "type": "msg",
+      "body": "",
+      "mentions": [],
+      "metadata": {
+        "tool_calls": [
+          {
+            "status": "completed",
+            "raw_output": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"requestId\":\"575acaa8-f7b7-4621-8d85-487fcf78d0aa\",\"success\":true,\"result\":true}"
+                }
+              ],
+              "isError": false,
+              "structuredContent": {
+                "result": true,
+                "requestId": "575acaa8-f7b7-4621-8d85-487fcf78d0aa",
+                "success": true
+              }
+            },
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "raw_input": {
+              "tool": "run_cell",
+              "arguments": {
+                "timeout": 10.0,
+                "cell_id": "10"
+              },
+              "server": "Jupyter_MCP_Server"
+            },
+            "tool_call_id": "call_iJXH80YkmDGirrMGScMUGmQ4"
+          },
+          {
+            "tool_call_id": "call_qOdA9SukwwJJGjZij1iiOSJs",
+            "status": "completed",
+            "raw_input": {
+              "arguments": {
+                "timeout": 10.0,
+                "cell_id": "13"
+              },
+              "tool": "run_cell",
+              "server": "Jupyter_MCP_Server"
+            },
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "raw_output": {
+              "isError": false,
+              "structuredContent": {
+                "requestId": "8e8b14eb-cf60-422a-9bb3-80470ec2fc8d",
+                "success": true,
+                "result": true
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"requestId\":\"8e8b14eb-cf60-422a-9bb3-80470ec2fc8d\",\"success\":true,\"result\":true}"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "56b30877-b9a9-4b6f-921b-bfcd161adc39",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "time": 1780355324.44644,
+      "body": "Feature matrix and logistic terms are ready; the cross-validated model probabilities are the slow part.",
+      "type": "msg",
+      "raw_time": false,
+      "mentions": []
+    },
+    {
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "time": 1780355325.146403,
+      "id": "ae39de41-3ebe-49cf-af99-f6dbea1a10cc",
+      "metadata": {
+        "tool_calls": [
+          {
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "status": "completed",
+            "raw_input": {
+              "tool": "run_cell",
+              "arguments": {
+                "cell_id": "15",
+                "timeout": 10.0
+              },
+              "server": "Jupyter_MCP_Server"
+            },
+            "raw_output": {
+              "isError": false,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"requestId\":\"092df476-7715-46e7-acd6-0504307f16ba\",\"success\":true,\"result\":true}"
+                }
+              ],
+              "structuredContent": {
+                "result": true,
+                "requestId": "092df476-7715-46e7-acd6-0504307f16ba",
+                "success": true
+              }
+            },
+            "tool_call_id": "call_jZHRbPxcAtQ7Yj5N0WDfHEj3"
+          }
+        ]
+      },
+      "type": "msg",
+      "mentions": [],
+      "body": "",
+      "raw_time": false
+    },
+    {
+      "mentions": [],
+      "time": 1780355335.262953,
+      "body": "Model probabilities are rebuilt. I\u2019m regenerating Fig 14 with the new crossover annotations and saving the metrics CSV.",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "raw_time": false,
+      "id": "270d04dd-1a92-4896-ae8f-5a7d000879ca",
+      "type": "msg"
+    },
+    {
+      "metadata": {
+        "tool_calls": [
+          {
+            "status": "completed",
+            "title": "Tool: Jupyter_MCP_Server/run_cell",
+            "tool_call_id": "call_VwmPuBS6cL2GJOiKbrx03vzZ",
+            "raw_input": {
+              "arguments": {
+                "cell_id": "26",
+                "timeout": 10.0
+              },
+              "tool": "run_cell",
+              "server": "Jupyter_MCP_Server"
+            },
+            "raw_output": {
+              "structuredContent": {
+                "requestId": "766e76a5-75db-4013-b484-b587b3d9cc01",
+                "success": true,
+                "result": true
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"requestId\":\"766e76a5-75db-4013-b484-b587b3d9cc01\",\"success\":true,\"result\":true}"
+                }
+              ],
+              "isError": false
+            }
+          }
+        ]
+      },
+      "id": "0025360d-aaa3-4ad6-a175-8ac2fb5fd466",
+      "type": "msg",
+      "time": 1780355336.083502,
+      "raw_time": false,
+      "body": "",
+      "mentions": [],
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona"
+    },
+    {
+      "raw_time": false,
+      "body": "Fig 14 regenerated successfully. I\u2019m doing a final check of saved files and the key printed metrics.",
+      "id": "e124ec28-1a91-4edb-8128-3b9f4e882c25",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "time": 1780355344.460854,
+      "type": "msg",
+      "mentions": []
+    },
+    {
+      "id": "68a72f3e-7f5c-4402-b382-333c8658345b",
+      "time": 1780355351.71872,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "body": "",
+      "type": "msg",
+      "mentions": [],
+      "raw_time": false,
+      "metadata": {
+        "tool_calls": [
+          {
+            "raw_output": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 26\n\n#### Metadata\n\n```yaml\nexecution_count: 13\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Fig 14: Burden vs Benefit \u2014 all models, extended thresholds \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nmodel_configs = [\n    ('CatBoost',            cat_probs, '#d01c8b', 0.65),\n    ('Random Forest',       rf_probs,  '#4dac26', 0.60),\n    ('Logistic Regression', lr_probs,  '#2166ac', 0.50),\n]\n\nn_total = len(y_ml)\nn_pos   = y_ml.sum()\n\ndef threshold_metrics(y_true, probs, threshold):\n    preds = (probs >= threshold).astype(int)\n    tn, fp, fn, tp = confusion_matrix(y_true, preds).ravel()\n    sensitivity = 100 * tp / (tp + fn) if (tp + fn) > 0 else 0\n    ppv = 100 * tp / (tp + fp) if (tp + fp) > 0 else 0\n    return tn, fp, fn, tp, sensitivity, ppv\n\ndef fp_fn_crossover(y_true, probs, max_thresh):\n    candidate_thresholds = np.unique(\n        np.r_[\n            np.linspace(0.01, max_thresh, 400),\n            probs[(probs >= 0.01) & (probs <= max_thresh)],\n        ]\n    )\n    rows = []\n    for t in candidate_thresholds:\n        tn, fp, fn, tp, sensitivity, ppv = threshold_metrics(y_true, probs, t)\n        rows.append((abs(fp - fn), t, tn, fp, fn, tp, sensitivity, ppv))\n    return min(rows, key=lambda row: (row[0], row[1]))\n\nfig, axes = plt.subplots(2, 3, figsize=(21, 12))\ncrossover_rows = []\n\nfor col, (name, probs, color, max_thresh) in enumerate(model_configs):\n    # Compute crossover over all observed probability cut points plus a fine grid.\n    diff, crossover_t, tn_c, fp_c, fn_c, tp_c, sens_c, ppv_c = fp_fn_crossover(y_ml, probs, max_thresh)\n    crossover_rows.append({\n        'Model': name,\n        'Threshold': crossover_t,\n        'FP': fp_c,\n        'FN': fn_c,\n        'Sensitivity': sens_c,\n        'PPV': ppv_c,\n    })\n\n    # Threshold grid up to max_thresh\n    base_ts = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50]\n    extra   = [t for t in [0.55, 0.60, 0.65] if t <= max_thresh]\n    key_ts  = base_ts + extra\n\n    flag_pcts, sensitivities, ppvs, n_flagged_list = [], [], [], []\n    for t in key_ts:\n        tn, fp, fn, tp, sensitivity, ppv = threshold_metrics(y_ml, probs, t)\n        n_flag = fp + tp\n        flag_pcts.append(100 * n_flag / n_total)\n        n_flagged_list.append(n_flag)\n        sensitivities.append(sensitivity)\n        ppvs.append(ppv)\n\n    xlabels = [f'{int(t*100)}%' for t in key_ts]\n    x_pos   = np.arange(len(key_ts))\n\n    # Crossover position in bar/line space using continuous interpolation.\n    crossover_x = np.interp(crossover_t, key_ts, x_pos) if key_ts[0] <= crossover_t <= key_ts[-1] else None\n    crossover_label = f't={crossover_t:.3f}\\nSens={sens_c:.1f}%\\nPPV={ppv_c:.1f}%'\n    fp_fn_label = 'FP=FN' if fp_c == fn_c else f'closest FP/FN ({fp_c}/{fn_c})'\n\n    # \u2500\u2500 Row 0: % flagged \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    ax0 = axes[0, col]\n    bars = ax0.bar(x_pos, flag_pcts, color=color, alpha=0.75, edgecolor='white')\n    ax0.axhline(100 * n_pos / n_total, color='black', linestyle='--', linewidth=1.5,\n                label=f'Actual rate ({100*n_pos/n_total:.1f}%)')\n    if crossover_x is not None:\n        ax0.axvline(crossover_x, color='purple', linestyle=':', linewidth=2,\n                    label=f'{fp_fn_label} at t={crossover_t:.3f}')\n    ax0.set_xticks(x_pos)\n    ax0.set_xticklabels(xlabels, rotation=30, ha='right', fontsize=9)\n    for bar, pct in zip(bars, flag_pcts):\n        ax0.text(bar.get_x() + bar.get_width() / 2, pct + 0.4,\n                 f'{pct:.0f}%', ha='center', fontsize=8, fontweight='bold')\n    ax0.set_ylabel('% Charts Flagged')\n    ax0.set_title(f'{name}\\n% of Charts Flagged', fontsize=12, fontweight='bold')\n    ax0.legend(fontsize=8)\n    ax0.spines['top'].set_visible(False)\n    ax0.spines['right'].set_visible(False)\n\n    # \u2500\u2500 Row 1: Sensitivity & PPV \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    ax1 = axes[1, col]\n    ax1.plot(x_pos, sensitivities, 'o-', color=BLUE,  linewidth=2.5, markersize=7,\n             label='Sensitivity (readmissions caught)')\n    ax1.plot(x_pos, ppvs,          's--', color=color, linewidth=2.5, markersize=7,\n             label='PPV (precision)')\n    if crossover_x is not None:\n        ax1.axvline(crossover_x, color='purple', linestyle=':', linewidth=2,\n                    label=f'{fp_fn_label} at t={crossover_t:.3f}')\n        ax1.text(crossover_x, 108, crossover_label, ha='center', va='top',\n                 fontsize=8, color='purple', fontweight='bold',\n                 bbox=dict(facecolor='white', edgecolor='purple', alpha=0.85, pad=2))\n    # Annotate every other point to avoid crowding\n    for i, (s, p) in enumerate(zip(sensitivities, ppvs)):\n        if i % 2 == 0:\n            ax1.text(i, min(s + 3, 108), f'{s:.0f}%', ha='center', fontsize=8, color=BLUE)\n            ax1.text(i, max(p - 6, 1),   f'{p:.0f}%', ha='center', fontsize=8, color=color)\n    ax1.set_xticks(x_pos)\n    ax1.set_xticklabels(xlabels, rotation=30, ha='right', fontsize=9)\n    ax1.set_ylabel('%')\n    ax1.set_ylim(0, 115)\n    ax1.set_title(f'{name}\\nSensitivity & PPV', fontsize=12, fontweight='bold')\n    ax1.legend(fontsize=8)\n    ax1.spines['top'].set_visible(False)\n    ax1.spines['right'].set_visible(False)\n\nplt.suptitle('Clinical Flagging Burden vs. Benefit \u2014 All Models\\n'\n             f'(10-Fold CV, n={n_total:,}; purple dotted line = FP/FN crossover threshold)',\n             fontsize=14, fontweight='bold', y=1.01)\nplt.tight_layout()\nplt.savefig('figures/Fig14_flagging_thresholds.png')\nplt.show()\n\ncrossover_df = pd.DataFrame(crossover_rows)\ncrossover_df.to_csv('figures/Fig14_fp_fn_crossover_metrics.csv', index=False)\nprint(\"\u2713 Fig 14 saved\")\nprint(\"\\nFP/FN crossover metrics:\")\nprint(crossover_df.to_string(index=False, formatters={\n    'Threshold': lambda x: f'{x:.4f}',\n    'Sensitivity': lambda x: f'{x:.2f}%',\n    'PPV': lambda x: f'{x:.2f}%',\n}))```\n\n#### Output\n\n```\n<Figure size 3150x1800 with 6 Axes>```\n\n```\n\u2713 Fig 14 saved\n\nFP/FN crossover metrics:\n              Model Threshold  FP  FN Sensitivity    PPV\n           CatBoost    0.6356 195 195      20.73% 20.73%\n      Random Forest    0.5747 195 195      20.73% 20.73%\nLogistic Regression    0.1830 197 197      19.92% 19.92%\n```"
+                }
+              ],
+              "isError": false,
+              "structuredContent": {
+                "result": "### Cell 26\n\n#### Metadata\n\n```yaml\nexecution_count: 13\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Fig 14: Burden vs Benefit \u2014 all models, extended thresholds \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nmodel_configs = [\n    ('CatBoost',            cat_probs, '#d01c8b', 0.65),\n    ('Random Forest',       rf_probs,  '#4dac26', 0.60),\n    ('Logistic Regression', lr_probs,  '#2166ac', 0.50),\n]\n\nn_total = len(y_ml)\nn_pos   = y_ml.sum()\n\ndef threshold_metrics(y_true, probs, threshold):\n    preds = (probs >= threshold).astype(int)\n    tn, fp, fn, tp = confusion_matrix(y_true, preds).ravel()\n    sensitivity = 100 * tp / (tp + fn) if (tp + fn) > 0 else 0\n    ppv = 100 * tp / (tp + fp) if (tp + fp) > 0 else 0\n    return tn, fp, fn, tp, sensitivity, ppv\n\ndef fp_fn_crossover(y_true, probs, max_thresh):\n    candidate_thresholds = np.unique(\n        np.r_[\n            np.linspace(0.01, max_thresh, 400),\n            probs[(probs >= 0.01) & (probs <= max_thresh)],\n        ]\n    )\n    rows = []\n    for t in candidate_thresholds:\n        tn, fp, fn, tp, sensitivity, ppv = threshold_metrics(y_true, probs, t)\n        rows.append((abs(fp - fn), t, tn, fp, fn, tp, sensitivity, ppv))\n    return min(rows, key=lambda row: (row[0], row[1]))\n\nfig, axes = plt.subplots(2, 3, figsize=(21, 12))\ncrossover_rows = []\n\nfor col, (name, probs, color, max_thresh) in enumerate(model_configs):\n    # Compute crossover over all observed probability cut points plus a fine grid.\n    diff, crossover_t, tn_c, fp_c, fn_c, tp_c, sens_c, ppv_c = fp_fn_crossover(y_ml, probs, max_thresh)\n    crossover_rows.append({\n        'Model': name,\n        'Threshold': crossover_t,\n        'FP': fp_c,\n        'FN': fn_c,\n        'Sensitivity': sens_c,\n        'PPV': ppv_c,\n    })\n\n    # Threshold grid up to max_thresh\n    base_ts = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50]\n    extra   = [t for t in [0.55, 0.60, 0.65] if t <= max_thresh]\n    key_ts  = base_ts + extra\n\n    flag_pcts, sensitivities, ppvs, n_flagged_list = [], [], [], []\n    for t in key_ts:\n        tn, fp, fn, tp, sensitivity, ppv = threshold_metrics(y_ml, probs, t)\n        n_flag = fp + tp\n        flag_pcts.append(100 * n_flag / n_total)\n        n_flagged_list.append(n_flag)\n        sensitivities.append(sensitivity)\n        ppvs.append(ppv)\n\n    xlabels = [f'{int(t*100)}%' for t in key_ts]\n    x_pos   = np.arange(len(key_ts))\n\n    # Crossover position in bar/line space using continuous interpolation.\n    crossover_x = np.interp(crossover_t, key_ts, x_pos) if key_ts[0] <= crossover_t <= key_ts[-1] else None\n    crossover_label = f't={crossover_t:.3f}\\nSens={sens_c:.1f}%\\nPPV={ppv_c:.1f}%'\n    fp_fn_label = 'FP=FN' if fp_c == fn_c else f'closest FP/FN ({fp_c}/{fn_c})'\n\n    # \u2500\u2500 Row 0: % flagged \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    ax0 = axes[0, col]\n    bars = ax0.bar(x_pos, flag_pcts, color=color, alpha=0.75, edgecolor='white')\n    ax0.axhline(100 * n_pos / n_total, color='black', linestyle='--', linewidth=1.5,\n                label=f'Actual rate ({100*n_pos/n_total:.1f}%)')\n    if crossover_x is not None:\n        ax0.axvline(crossover_x, color='purple', linestyle=':', linewidth=2,\n                    label=f'{fp_fn_label} at t={crossover_t:.3f}')\n    ax0.set_xticks(x_pos)\n    ax0.set_xticklabels(xlabels, rotation=30, ha='right', fontsize=9)\n    for bar, pct in zip(bars, flag_pcts):\n        ax0.text(bar.get_x() + bar.get_width() / 2, pct + 0.4,\n                 f'{pct:.0f}%', ha='center', fontsize=8, fontweight='bold')\n    ax0.set_ylabel('% Charts Flagged')\n    ax0.set_title(f'{name}\\n% of Charts Flagged', fontsize=12, fontweight='bold')\n    ax0.legend(fontsize=8)\n    ax0.spines['top'].set_visible(False)\n    ax0.spines['right'].set_visible(False)\n\n    # \u2500\u2500 Row 1: Sensitivity & PPV \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    ax1 = axes[1, col]\n    ax1.plot(x_pos, sensitivities, 'o-', color=BLUE,  linewidth=2.5, markersize=7,\n             label='Sensitivity (readmissions caught)')\n    ax1.plot(x_pos, ppvs,          's--', color=color, linewidth=2.5, markersize=7,\n             label='PPV (precision)')\n    if crossover_x is not None:\n        ax1.axvline(crossover_x, color='purple', linestyle=':', linewidth=2,\n                    label=f'{fp_fn_label} at t={crossover_t:.3f}')\n        ax1.text(crossover_x, 108, crossover_label, ha='center', va='top',\n                 fontsize=8, color='purple', fontweight='bold',\n                 bbox=dict(facecolor='white', edgecolor='purple', alpha=0.85, pad=2))\n    # Annotate every other point to avoid crowding\n    for i, (s, p) in enumerate(zip(sensitivities, ppvs)):\n        if i % 2 == 0:\n            ax1.text(i, min(s + 3, 108), f'{s:.0f}%', ha='center', fontsize=8, color=BLUE)\n            ax1.text(i, max(p - 6, 1),   f'{p:.0f}%', ha='center', fontsize=8, color=color)\n    ax1.set_xticks(x_pos)\n    ax1.set_xticklabels(xlabels, rotation=30, ha='right', fontsize=9)\n    ax1.set_ylabel('%')\n    ax1.set_ylim(0, 115)\n    ax1.set_title(f'{name}\\nSensitivity & PPV', fontsize=12, fontweight='bold')\n    ax1.legend(fontsize=8)\n    ax1.spines['top'].set_visible(False)\n    ax1.spines['right'].set_visible(False)\n\nplt.suptitle('Clinical Flagging Burden vs. Benefit \u2014 All Models\\n'\n             f'(10-Fold CV, n={n_total:,}; purple dotted line = FP/FN crossover threshold)',\n             fontsize=14, fontweight='bold', y=1.01)\nplt.tight_layout()\nplt.savefig('figures/Fig14_flagging_thresholds.png')\nplt.show()\n\ncrossover_df = pd.DataFrame(crossover_rows)\ncrossover_df.to_csv('figures/Fig14_fp_fn_crossover_metrics.csv', index=False)\nprint(\"\u2713 Fig 14 saved\")\nprint(\"\\nFP/FN crossover metrics:\")\nprint(crossover_df.to_string(index=False, formatters={\n    'Threshold': lambda x: f'{x:.4f}',\n    'Sensitivity': lambda x: f'{x:.2f}%',\n    'PPV': lambda x: f'{x:.2f}%',\n}))```\n\n#### Output\n\n```\n<Figure size 3150x1800 with 6 Axes>```\n\n```\n\u2713 Fig 14 saved\n\nFP/FN crossover metrics:\n              Model Threshold  FP  FN Sensitivity    PPV\n           CatBoost    0.6356 195 195      20.73% 20.73%\n      Random Forest    0.5747 195 195      20.73% 20.73%\nLogistic Regression    0.1830 197 197      19.92% 19.92%\n```"
+              },
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              }
+            },
+            "status": "completed",
+            "raw_input": {
+              "arguments": {
+                "file_path": "Readmission_Full_Analysis.ipynb",
+                "cell_id": "26",
+                "include_outputs": true
+              },
+              "server": "Jupyter_MCP_Server",
+              "tool": "read_cell"
+            },
+            "tool_call_id": "call_Ze4BCUxSbCemCfqT8uckIZ6O",
+            "title": "Tool: Jupyter_MCP_Server/read_cell"
+          },
+          {
+            "tool_call_id": "call_wqFyIU1yD5QkZfJujL5Pm0pI",
+            "locations": [
+              "/Users/matthewgold/code/jupyter_projects/figures/Medical_Comorbidity_Breakdown.csv"
+            ],
+            "kind": "read",
+            "title": "Read Medical_Comorbidity_Breakdown.csv",
+            "status": "completed",
+            "raw_input": {
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "call_id": "call_wqFyIU1yD5QkZfJujL5Pm0pI",
+              "parsed_cmd": [
+                {
+                  "path": "figures/Medical_Comorbidity_Breakdown.csv",
+                  "name": "Medical_Comorbidity_Breakdown.csv",
+                  "type": "read",
+                  "cmd": "cat figures/Medical_Comorbidity_Breakdown.csv"
+                }
+              ],
+              "source": "unified_exec_startup",
+              "started_at_ms": 1780355351814.0,
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "cat figures/Medical_Comorbidity_Breakdown.csv"
+              ],
+              "process_id": "64292"
+            },
+            "raw_output": {
+              "call_id": "call_wqFyIU1yD5QkZfJujL5Pm0pI",
+              "source": "unified_exec_startup",
+              "status": "completed",
+              "aggregated_output": "type,n,pct_of_patients,pct_of_mentions\nGI/Digestive,240,9.049773755656108,27.45995423340961\nMetabolic/Obesity,217,8.182503770739064,24.82837528604119\nSleep Disorder,180,6.787330316742081,20.594965675057207\nRespiratory/Allergy,135,5.090497737556561,15.446224256292906\nRenal/Urologic,102,3.8461538461538463,11.670480549199084\n",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "completed_at_ms": 1780355351814.0,
+              "duration": {
+                "secs": 0.0,
+                "nanos": 6250.0
+              },
+              "formatted_output": "type,n,pct_of_patients,pct_of_mentions\nGI/Digestive,240,9.049773755656108,27.45995423340961\nMetabolic/Obesity,217,8.182503770739064,24.82837528604119\nSleep Disorder,180,6.787330316742081,20.594965675057207\nRespiratory/Allergy,135,5.090497737556561,15.446224256292906\nRenal/Urologic,102,3.8461538461538463,11.670480549199084\n",
+              "process_id": "64292",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "parsed_cmd": [
+                {
+                  "cmd": "cat figures/Medical_Comorbidity_Breakdown.csv",
+                  "name": "Medical_Comorbidity_Breakdown.csv",
+                  "path": "figures/Medical_Comorbidity_Breakdown.csv",
+                  "type": "read"
+                }
+              ],
+              "exit_code": 0.0,
+              "stderr": "",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "cat figures/Medical_Comorbidity_Breakdown.csv"
+              ],
+              "stdout": "type,n,pct_of_patients,pct_of_mentions\nGI/Digestive,240,9.049773755656108,27.45995423340961\nMetabolic/Obesity,217,8.182503770739064,24.82837528604119\nSleep Disorder,180,6.787330316742081,20.594965675057207\nRespiratory/Allergy,135,5.090497737556561,15.446224256292906\nRenal/Urologic,102,3.8461538461538463,11.670480549199084\n"
+            }
+          },
+          {
+            "status": "completed",
+            "tool_call_id": "call_mb8UkBz6RGsLQPitJ3NdsyIz",
+            "kind": "read",
+            "raw_output": {
+              "status": "completed",
+              "aggregated_output": "Model,Threshold,FP,FN,Sensitivity,PPV\nCatBoost,0.6355639097744361,195,195,20.73170731707317,20.73170731707317\nRandom Forest,0.5747169758196815,195,195,20.73170731707317,20.73170731707317\nLogistic Regression,0.18304601795453382,197,197,19.91869918699187,19.91869918699187\n",
+              "call_id": "call_mb8UkBz6RGsLQPitJ3NdsyIz",
+              "source": "unified_exec_startup",
+              "stderr": "",
+              "parsed_cmd": [
+                {
+                  "type": "read",
+                  "path": "figures/Fig14_fp_fn_crossover_metrics.csv",
+                  "name": "Fig14_fp_fn_crossover_metrics.csv",
+                  "cmd": "cat figures/Fig14_fp_fn_crossover_metrics.csv"
+                }
+              ],
+              "exit_code": 0.0,
+              "formatted_output": "Model,Threshold,FP,FN,Sensitivity,PPV\nCatBoost,0.6355639097744361,195,195,20.73170731707317,20.73170731707317\nRandom Forest,0.5747169758196815,195,195,20.73170731707317,20.73170731707317\nLogistic Regression,0.18304601795453382,197,197,19.91869918699187,19.91869918699187\n",
+              "process_id": "88381",
+              "completed_at_ms": 1780355351814.0,
+              "stdout": "Model,Threshold,FP,FN,Sensitivity,PPV\nCatBoost,0.6355639097744361,195,195,20.73170731707317,20.73170731707317\nRandom Forest,0.5747169758196815,195,195,20.73170731707317,20.73170731707317\nLogistic Regression,0.18304601795453382,197,197,19.91869918699187,19.91869918699187\n",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "duration": {
+                "nanos": 4000.0,
+                "secs": 0.0
+              },
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "cat figures/Fig14_fp_fn_crossover_metrics.csv"
+              ],
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b"
+            },
+            "title": "Read Fig14_fp_fn_crossover_metrics.csv",
+            "locations": [
+              "/Users/matthewgold/code/jupyter_projects/figures/Fig14_fp_fn_crossover_metrics.csv"
+            ],
+            "raw_input": {
+              "source": "unified_exec_startup",
+              "process_id": "88381",
+              "started_at_ms": 1780355351814.0,
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "cat figures/Fig14_fp_fn_crossover_metrics.csv"
+              ],
+              "call_id": "call_mb8UkBz6RGsLQPitJ3NdsyIz",
+              "parsed_cmd": [
+                {
+                  "name": "Fig14_fp_fn_crossover_metrics.csv",
+                  "cmd": "cat figures/Fig14_fp_fn_crossover_metrics.csv",
+                  "path": "figures/Fig14_fp_fn_crossover_metrics.csv",
+                  "type": "read"
+                }
+              ],
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b"
+            }
+          },
+          {
+            "title": "List Fig2_demographics_panel.png",
+            "tool_call_id": "call_cIrhalCF3sHm6WdMbRxP049F",
+            "raw_output": {
+              "process_id": "55304",
+              "stdout": "-rw-r--r--@ 1 matthewgold  staff  753072 Jun  1 16:09 figures/Fig14_flagging_thresholds.png\n-rw-r--r--@ 1 matthewgold  staff     271 Jun  1 16:09 figures/Fig14_fp_fn_crossover_metrics.csv\n-rw-r--r--@ 1 matthewgold  staff  248169 Jun  1 16:08 figures/Fig2_demographics_panel.png\n-rw-r--r--@ 1 matthewgold  staff  189695 Jun  1 16:08 figures/Fig_medical_comorbidity_breakdown.png\n-rw-r--r--@ 1 matthewgold  staff     324 Jun  1 16:08 figures/Medical_Comorbidity_Breakdown.csv\n",
+              "call_id": "call_cIrhalCF3sHm6WdMbRxP049F",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "aggregated_output": "-rw-r--r--@ 1 matthewgold  staff  753072 Jun  1 16:09 figures/Fig14_flagging_thresholds.png\n-rw-r--r--@ 1 matthewgold  staff     271 Jun  1 16:09 figures/Fig14_fp_fn_crossover_metrics.csv\n-rw-r--r--@ 1 matthewgold  staff  248169 Jun  1 16:08 figures/Fig2_demographics_panel.png\n-rw-r--r--@ 1 matthewgold  staff  189695 Jun  1 16:08 figures/Fig_medical_comorbidity_breakdown.png\n-rw-r--r--@ 1 matthewgold  staff     324 Jun  1 16:08 figures/Medical_Comorbidity_Breakdown.csv\n",
+              "duration": {
+                "secs": 0.0,
+                "nanos": 2542.0
+              },
+              "exit_code": 0.0,
+              "formatted_output": "-rw-r--r--@ 1 matthewgold  staff  753072 Jun  1 16:09 figures/Fig14_flagging_thresholds.png\n-rw-r--r--@ 1 matthewgold  staff     271 Jun  1 16:09 figures/Fig14_fp_fn_crossover_metrics.csv\n-rw-r--r--@ 1 matthewgold  staff  248169 Jun  1 16:08 figures/Fig2_demographics_panel.png\n-rw-r--r--@ 1 matthewgold  staff  189695 Jun  1 16:08 figures/Fig_medical_comorbidity_breakdown.png\n-rw-r--r--@ 1 matthewgold  staff     324 Jun  1 16:08 figures/Medical_Comorbidity_Breakdown.csv\n",
+              "stderr": "",
+              "parsed_cmd": [
+                {
+                  "type": "list_files",
+                  "path": "Fig2_demographics_panel.png",
+                  "cmd": "ls -l figures/Fig2_demographics_panel.png figures/Fig_medical_comorbidity_breakdown.png figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_flagging_thresholds.png figures/Fig14_fp_fn_crossover_metrics.csv"
+                }
+              ],
+              "source": "unified_exec_startup",
+              "status": "completed",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "ls -l figures/Fig2_demographics_panel.png figures/Fig_medical_comorbidity_breakdown.png figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_flagging_thresholds.png figures/Fig14_fp_fn_crossover_metrics.csv"
+              ],
+              "completed_at_ms": 1780355351817.0,
+              "cwd": "/Users/matthewgold/code/jupyter_projects"
+            },
+            "locations": [
+              "/Users/matthewgold/code/jupyter_projects/Fig2_demographics_panel.png"
+            ],
+            "kind": "search",
+            "raw_input": {
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "ls -l figures/Fig2_demographics_panel.png figures/Fig_medical_comorbidity_breakdown.png figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_flagging_thresholds.png figures/Fig14_fp_fn_crossover_metrics.csv"
+              ],
+              "source": "unified_exec_startup",
+              "call_id": "call_cIrhalCF3sHm6WdMbRxP049F",
+              "process_id": "55304",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "started_at_ms": 1780355351816.0,
+              "parsed_cmd": [
+                {
+                  "cmd": "ls -l figures/Fig2_demographics_panel.png figures/Fig_medical_comorbidity_breakdown.png figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_flagging_thresholds.png figures/Fig14_fp_fn_crossover_metrics.csv",
+                  "type": "list_files",
+                  "path": "Fig2_demographics_panel.png"
+                }
+              ]
+            },
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "time": 1780355353.64873,
+      "raw_time": false,
+      "mentions": [],
+      "id": "5c6d7187-9ddc-4487-b13a-e0f7cfaf0a55",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "type": "msg",
+      "body": "The generated files and CSVs are present. I\u2019m checking the final diff so I can summarize exactly what changed."
+    },
+    {
+      "type": "msg",
+      "time": 1780355357.132009,
+      "id": "49797d0a-8eb5-402a-973b-33982c2202b3",
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "body": "",
+      "mentions": [],
+      "raw_time": false,
+      "metadata": {
+        "tool_calls": [
+          {
+            "status": "completed",
+            "kind": "execute",
+            "raw_input": {
+              "started_at_ms": 1780355357121.0,
+              "parsed_cmd": [
+                {
+                  "cmd": "git diff -- figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_fp_fn_crossover_metrics.csv",
+                  "type": "unknown"
+                }
+              ],
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "process_id": "68891",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "git diff -- figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_fp_fn_crossover_metrics.csv"
+              ],
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "call_id": "call_Dwfgnb7k6h5uQd2CpQihpPP8",
+              "source": "unified_exec_startup"
+            },
+            "title": "git diff -- figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_fp_fn_crossover_metrics.csv",
+            "tool_call_id": "call_Dwfgnb7k6h5uQd2CpQihpPP8",
+            "raw_output": {
+              "completed_at_ms": 1780355357121.0,
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "aggregated_output": "",
+              "duration": {
+                "nanos": 3084.0,
+                "secs": 0.0
+              },
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "formatted_output": "",
+              "process_id": "68891",
+              "stderr": "",
+              "call_id": "call_Dwfgnb7k6h5uQd2CpQihpPP8",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "git diff -- figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_fp_fn_crossover_metrics.csv"
+              ],
+              "stdout": "",
+              "parsed_cmd": [
+                {
+                  "type": "unknown",
+                  "cmd": "git diff -- figures/Medical_Comorbidity_Breakdown.csv figures/Fig14_fp_fn_crossover_metrics.csv"
+                }
+              ],
+              "source": "unified_exec_startup",
+              "exit_code": 0.0,
+              "status": "completed"
+            }
+          },
+          {
+            "status": "completed",
+            "raw_input": {
+              "source": "unified_exec_startup",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "started_at_ms": 1780355357122.0,
+              "process_id": "41811",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "git status --short"
+              ],
+              "parsed_cmd": [
+                {
+                  "type": "unknown",
+                  "cmd": "git status --short"
+                }
+              ],
+              "call_id": "call_uc3knerrSE51rD7ge7gH7aJI",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b"
+            },
+            "tool_call_id": "call_uc3knerrSE51rD7ge7gH7aJI",
+            "kind": "execute",
+            "raw_output": {
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "call_id": "call_uc3knerrSE51rD7ge7gH7aJI",
+              "stderr": "",
+              "stdout": " M \"Readmission data analysis.chat\"\n M Readmission_Full_Analysis.ipynb\n M figures/Fig14_flagging_thresholds.png\n M figures/Fig2_demographics_panel.png\n?? \"Readmission colab Analysis.ipynb\"\n?? figures/Fig14_fp_fn_crossover_metrics.csv\n?? figures/Fig_medical_comorbidity_breakdown.png\n?? figures/Medical_Comorbidity_Breakdown.csv\n",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "parsed_cmd": [
+                {
+                  "cmd": "git status --short",
+                  "type": "unknown"
+                }
+              ],
+              "status": "completed",
+              "duration": {
+                "secs": 0.0,
+                "nanos": 1333.0
+              },
+              "process_id": "41811",
+              "source": "unified_exec_startup",
+              "formatted_output": " M \"Readmission data analysis.chat\"\n M Readmission_Full_Analysis.ipynb\n M figures/Fig14_flagging_thresholds.png\n M figures/Fig2_demographics_panel.png\n?? \"Readmission colab Analysis.ipynb\"\n?? figures/Fig14_fp_fn_crossover_metrics.csv\n?? figures/Fig_medical_comorbidity_breakdown.png\n?? figures/Medical_Comorbidity_Breakdown.csv\n",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "git status --short"
+              ],
+              "completed_at_ms": 1780355357122.0,
+              "exit_code": 0.0,
+              "aggregated_output": " M \"Readmission data analysis.chat\"\n M Readmission_Full_Analysis.ipynb\n M figures/Fig14_flagging_thresholds.png\n M figures/Fig2_demographics_panel.png\n?? \"Readmission colab Analysis.ipynb\"\n?? figures/Fig14_fp_fn_crossover_metrics.csv\n?? figures/Fig_medical_comorbidity_breakdown.png\n?? figures/Medical_Comorbidity_Breakdown.csv\n"
+            },
+            "title": "git status --short"
+          },
+          {
+            "status": "completed",
+            "kind": "execute",
+            "raw_input": {
+              "source": "unified_exec_startup",
+              "started_at_ms": 1780355357209.0,
+              "parsed_cmd": [
+                {
+                  "type": "unknown",
+                  "cmd": "git diff --stat"
+                }
+              ],
+              "call_id": "call_WhnWMurnYbPzUeqUmetD3l1r",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "git diff --stat"
+              ],
+              "process_id": "28852"
+            },
+            "tool_call_id": "call_WhnWMurnYbPzUeqUmetD3l1r",
+            "title": "git diff --stat",
+            "raw_output": {
+              "aggregated_output": " Readmission data analysis.chat        | 984 +++++++++++++++++++++++++++++++++-\n Readmission_Full_Analysis.ipynb       | 169 +++---\n figures/Fig14_flagging_thresholds.png | Bin 727546 -> 753072 bytes\n figures/Fig2_demographics_panel.png   | Bin 245138 -> 248169 bytes\n 4 files changed, 1075 insertions(+), 78 deletions(-)\n",
+              "process_id": "28852",
+              "status": "completed",
+              "stderr": "",
+              "command": [
+                "/bin/zsh",
+                "-lc",
+                "git diff --stat"
+              ],
+              "parsed_cmd": [
+                {
+                  "cmd": "git diff --stat",
+                  "type": "unknown"
+                }
+              ],
+              "source": "unified_exec_startup",
+              "stdout": " Readmission data analysis.chat        | 984 +++++++++++++++++++++++++++++++++-\n Readmission_Full_Analysis.ipynb       | 169 +++---\n figures/Fig14_flagging_thresholds.png | Bin 727546 -> 753072 bytes\n figures/Fig2_demographics_panel.png   | Bin 245138 -> 248169 bytes\n 4 files changed, 1075 insertions(+), 78 deletions(-)\n",
+              "formatted_output": " Readmission data analysis.chat        | 984 +++++++++++++++++++++++++++++++++-\n Readmission_Full_Analysis.ipynb       | 169 +++---\n figures/Fig14_flagging_thresholds.png | Bin 727546 -> 753072 bytes\n figures/Fig2_demographics_panel.png   | Bin 245138 -> 248169 bytes\n 4 files changed, 1075 insertions(+), 78 deletions(-)\n",
+              "cwd": "/Users/matthewgold/code/jupyter_projects",
+              "call_id": "call_WhnWMurnYbPzUeqUmetD3l1r",
+              "turn_id": "019e8553-cf2f-7ef1-b9e0-55d898cac03b",
+              "completed_at_ms": 1780355357209.0,
+              "exit_code": 0.0,
+              "duration": {
+                "secs": 0.0,
+                "nanos": 2292.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "body": "The working tree had pre-existing/unrelated changes outside the notebook and generated figures; I\u2019m leaving those alone. One last output check, then I\u2019ll wrap up.",
+      "mentions": [],
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "time": 1780355361.522758,
+      "id": "b8366c30-1661-4420-a3eb-0a1fd3dc8622",
+      "type": "msg",
+      "raw_time": false
+    },
+    {
+      "type": "msg",
+      "metadata": {
+        "tool_calls": [
+          {
+            "raw_output": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 1\n\n#### Metadata\n\n```yaml\neditable: true\nexecution_count: 6\nslideshow:\n  slide_type: ''\ntags: []\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Load data \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf = pd.read_csv('annotated_psychiatric_data_complete.csv')\n\n# \u2500\u2500 Outcome \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nprint(\"Readmissions value counts:\")\nprint(df['Readmissions'].value_counts().sort_index())\ndf['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)\n\n# \u2500\u2500 Demographics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['age'] = pd.to_numeric(df['Pt_Age_Visit'], errors='coerce')\ndf['age_group'] = pd.cut(df['age'], bins=[5, 9, 11, 13, 19],\n                          labels=['6\u20139', '10\u201311', '12\u201313', '14+'], right=True)\ndf['gender_male'] = (df['GenderCode'].str.strip().str.lower() == 'male').astype(int)\ndf['insurance_public'] = df['Insurance'].str.contains('AHCCCS', case=False, na=False).astype(int)\n\n# \u2500\u2500 ACE score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['ace_score'] = pd.to_numeric(df['ACEscore'], errors='coerce')\ndf['ace_high'] = (df['ace_score'] >= 4).astype(float)\n\n# \u2500\u2500 Restraints \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['had_restraints'] = (pd.to_numeric(df['restraints'], errors='coerce').fillna(0) > 0).astype(int)\n\n# \u2500\u2500 C-SSRS flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['csrss_yellow'] = df['Yellow flags (C-SRSS)'].notna().astype(int)\ndf['csrss_orange'] = df['Orange flags (C-SSRS)'].notna().astype(int)\ndf['csrss_red']    = df['Red flags (C-SSRS)'].notna().astype(int)\ndf['csrss_any']    = ((df['csrss_yellow'] + df['csrss_orange'] + df['csrss_red']) > 0).astype(int)\n\n# \u2500\u2500 Length of stay (compute before date-quality filter) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['VisitDate'] = pd.to_datetime(df['VisitDate'], errors='coerce')\ndf['DischDate']  = pd.to_datetime(df['DischDate'],  errors='coerce')\ndf['los_days']   = (df['DischDate'] - df['VisitDate']).dt.days\n\n# \u2500\u2500 DATE QUALITY FILTER \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Flag records with impossible or unusable dates and hold them out until reviewed.\nflag_missing_visit  = df['VisitDate'].isna()\nflag_missing_disch  = df['DischDate'].isna()\nflag_negative_los   = df['los_days'].notna() & (df['los_days'] < 0)   # DischDate before VisitDate\n\nflagged = df[flag_missing_visit | flag_missing_disch | flag_negative_los].copy()\nflagged['flag_reason'] = ''\nflagged.loc[flag_missing_visit[flagged.index], 'flag_reason'] += 'missing_VisitDate; '\nflagged.loc[flag_missing_disch[flagged.index], 'flag_reason'] += 'missing_DischDate; '\nflagged.loc[flag_negative_los[flagged.index], 'flag_reason']  += f'negative_LOS ({df.loc[flag_negative_los, \"los_days\"].min():.0f} to {df.loc[flag_negative_los, \"los_days\"].max():.0f} days); '\n\nif len(flagged) > 0:\n    flagged.to_csv('flagged_records_date_errors.csv', index=True)\n    print(f\"\\n{'='*60}\")\n    print(f\"  \u26a0  DATE QUALITY FLAGS \u2014 {len(flagged)} records excluded\")\n    print(f\"{'='*60}\")\n    print(f\"  Missing VisitDate   : {flag_missing_visit.sum()}\")\n    print(f\"  Missing DischDate   : {flag_missing_disch.sum()}\")\n    print(f\"  Negative LOS        : {flag_negative_los.sum()} \"\n          f\"(range: {df.loc[flag_negative_los,'los_days'].min():.0f} \"\n          f\"to {df.loc[flag_negative_los,'los_days'].max():.0f} days)\")\n    print(f\"\\n  Readmission status of flagged records:\")\n    print(f\"    Readmitted     : {flagged['readmitted'].sum()}\")\n    print(f\"    Not readmitted : {(flagged['readmitted']==0).sum()}\")\n    print(f\"\\n  Saved for review \u2192 flagged_records_date_errors.csv\")\n    print(f\"{'='*60}\\n\")\nelse:\n    print(\"\\n\u2713 No date-quality issues found.\")\n\n# Exclude flagged records from all downstream analysis\ndf = df[~(flag_missing_visit | flag_missing_disch | flag_negative_los)].copy()\ndf = df.reset_index(drop=True)\n\n# \u2500\u2500 Diagnostic complexity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_csv(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(',') if x.strip()])\n\ndef count_dsm5(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(';') if x.strip()])\n\ndf['n_visit_diags']   = df['VisitDiags'].apply(count_csv)\ndf['n_chronic_diags'] = df['ChronicDiags'].apply(count_csv)\ndf['n_total_diags']   = df['n_visit_diags'] + df['n_chronic_diags']\n\ndef unique_dsm5_count(row):\n    cats = set()\n    for col in ['VisitDiags_DSM5Categories', 'ChronicDiags_DSM5Categories']:\n        val = row.get(col, '')\n        if pd.notna(val) and str(val).strip():\n            cats.update(c.strip() for c in str(val).split(';') if c.strip())\n    return len(cats)\n\ndf['n_dsm5_categories'] = df.apply(unique_dsm5_count, axis=1)\n\n# \u2500\u2500 DSM-5 category flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_dsm5 = (df['VisitDiags_DSM5Categories'].fillna('') + ';' +\n            df['ChronicDiags_DSM5Categories'].fillna('')).str.lower()\n\nCATEGORY_FLAGS = {\n    'has_nssi':        'non-suicidal self-injury',\n    'has_trauma':      'trauma and stressor',\n    'has_adhd':        'adhd',\n    'has_asd':         'autism spectrum',\n    'has_conduct':     'conduct disorder',\n    'has_depression':  'depressive disorders',\n    'has_anxiety':     'anxiety disorders',\n    'has_bipolar':     'bipolar',\n    'has_psychotic':   'psychotic',\n    'has_intellectual':'intellectual disability',\n    'has_ocd':         'obsessive-compulsive',\n}\nfor flag, kw in CATEGORY_FLAGS.items():\n    df[flag] = all_dsm5.str.contains(kw, na=False).astype(int)\n\n# \u2500\u2500 Medical comorbidity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_medical(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return sum(1 for c in str(s).split(',') if c.strip() and not c.strip().startswith('F'))\n\nMEDICAL_COMORBIDITY_PATTERNS = {\n    'Metabolic/Obesity': ('E66',),\n    'Sleep Disorder': ('G47',),\n    'GI/Digestive': ('K59', 'K21'),\n    'Respiratory/Allergy': ('J30', 'R06'),\n    'Renal/Urologic': ('N39',),\n}\n\ndef get_medical_comorbidity_types(codes):\n    if pd.isna(codes) or str(codes).strip() == '':\n        return []\n    code_tokens = [c.strip().upper() for c in str(codes).split(',') if c.strip()]\n    return [\n        category\n        for category, prefixes in MEDICAL_COMORBIDITY_PATTERNS.items()\n        if any(code.startswith(prefix) for code in code_tokens for prefix in prefixes)\n    ]\n\ndf['n_medical_chronic']       = df['ChronicDiags'].apply(count_medical)\ndf['has_medical_comorbidity'] = (df['n_medical_chronic'] > 0).astype(int)\ndf['medical_comorbidity_types'] = df['ChronicDiags'].apply(get_medical_comorbidity_types)\n\nprint(f\"\u2713 Feature engineering complete.\")\nprint(f\"  N = {len(df):,} (after date-quality exclusions) | \"\n      f\"Readmitted = {df['readmitted'].sum():,} ({df['readmitted'].mean():.1%})\")\nprint(f\"  Age range: {df['age'].min():.0f}\u2013{df['age'].max():.0f} yrs | \"\n      f\"LOS: {df['los_days'].min():.0f}\u2013{df['los_days'].max():.0f} days \"\n      f\"(median {df['los_days'].median():.0f})\")\nprint(f\"  ACE score available: {df['ace_score'].notna().sum():,} \"\n      f\"({df['ace_score'].notna().mean():.1%})\")```\n\n#### Output\n\n```\nReadmissions value counts:\nReadmissions\n0    2406\n1     219\n2      25\n3       2\nName: count, dtype: int64\n\n\u2713 No date-quality issues found.\n\u2713 Feature engineering complete.\n  N = 2,652 (after date-quality exclusions) | Readmitted = 246 (9.3%)\n  Age range: 5\u201312 yrs | LOS: 1\u2013112 days (median 8)\n  ACE score available: 1,569 (59.2%)\n```"
+                }
+              ],
+              "structuredContent": {
+                "result": "### Cell 1\n\n#### Metadata\n\n```yaml\neditable: true\nexecution_count: 6\nslideshow:\n  slide_type: ''\ntags: []\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Load data \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf = pd.read_csv('annotated_psychiatric_data_complete.csv')\n\n# \u2500\u2500 Outcome \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nprint(\"Readmissions value counts:\")\nprint(df['Readmissions'].value_counts().sort_index())\ndf['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)\n\n# \u2500\u2500 Demographics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['age'] = pd.to_numeric(df['Pt_Age_Visit'], errors='coerce')\ndf['age_group'] = pd.cut(df['age'], bins=[5, 9, 11, 13, 19],\n                          labels=['6\u20139', '10\u201311', '12\u201313', '14+'], right=True)\ndf['gender_male'] = (df['GenderCode'].str.strip().str.lower() == 'male').astype(int)\ndf['insurance_public'] = df['Insurance'].str.contains('AHCCCS', case=False, na=False).astype(int)\n\n# \u2500\u2500 ACE score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['ace_score'] = pd.to_numeric(df['ACEscore'], errors='coerce')\ndf['ace_high'] = (df['ace_score'] >= 4).astype(float)\n\n# \u2500\u2500 Restraints \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['had_restraints'] = (pd.to_numeric(df['restraints'], errors='coerce').fillna(0) > 0).astype(int)\n\n# \u2500\u2500 C-SSRS flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['csrss_yellow'] = df['Yellow flags (C-SRSS)'].notna().astype(int)\ndf['csrss_orange'] = df['Orange flags (C-SSRS)'].notna().astype(int)\ndf['csrss_red']    = df['Red flags (C-SSRS)'].notna().astype(int)\ndf['csrss_any']    = ((df['csrss_yellow'] + df['csrss_orange'] + df['csrss_red']) > 0).astype(int)\n\n# \u2500\u2500 Length of stay (compute before date-quality filter) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndf['VisitDate'] = pd.to_datetime(df['VisitDate'], errors='coerce')\ndf['DischDate']  = pd.to_datetime(df['DischDate'],  errors='coerce')\ndf['los_days']   = (df['DischDate'] - df['VisitDate']).dt.days\n\n# \u2500\u2500 DATE QUALITY FILTER \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Flag records with impossible or unusable dates and hold them out until reviewed.\nflag_missing_visit  = df['VisitDate'].isna()\nflag_missing_disch  = df['DischDate'].isna()\nflag_negative_los   = df['los_days'].notna() & (df['los_days'] < 0)   # DischDate before VisitDate\n\nflagged = df[flag_missing_visit | flag_missing_disch | flag_negative_los].copy()\nflagged['flag_reason'] = ''\nflagged.loc[flag_missing_visit[flagged.index], 'flag_reason'] += 'missing_VisitDate; '\nflagged.loc[flag_missing_disch[flagged.index], 'flag_reason'] += 'missing_DischDate; '\nflagged.loc[flag_negative_los[flagged.index], 'flag_reason']  += f'negative_LOS ({df.loc[flag_negative_los, \"los_days\"].min():.0f} to {df.loc[flag_negative_los, \"los_days\"].max():.0f} days); '\n\nif len(flagged) > 0:\n    flagged.to_csv('flagged_records_date_errors.csv', index=True)\n    print(f\"\\n{'='*60}\")\n    print(f\"  \u26a0  DATE QUALITY FLAGS \u2014 {len(flagged)} records excluded\")\n    print(f\"{'='*60}\")\n    print(f\"  Missing VisitDate   : {flag_missing_visit.sum()}\")\n    print(f\"  Missing DischDate   : {flag_missing_disch.sum()}\")\n    print(f\"  Negative LOS        : {flag_negative_los.sum()} \"\n          f\"(range: {df.loc[flag_negative_los,'los_days'].min():.0f} \"\n          f\"to {df.loc[flag_negative_los,'los_days'].max():.0f} days)\")\n    print(f\"\\n  Readmission status of flagged records:\")\n    print(f\"    Readmitted     : {flagged['readmitted'].sum()}\")\n    print(f\"    Not readmitted : {(flagged['readmitted']==0).sum()}\")\n    print(f\"\\n  Saved for review \u2192 flagged_records_date_errors.csv\")\n    print(f\"{'='*60}\\n\")\nelse:\n    print(\"\\n\u2713 No date-quality issues found.\")\n\n# Exclude flagged records from all downstream analysis\ndf = df[~(flag_missing_visit | flag_missing_disch | flag_negative_los)].copy()\ndf = df.reset_index(drop=True)\n\n# \u2500\u2500 Diagnostic complexity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_csv(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(',') if x.strip()])\n\ndef count_dsm5(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return len([x for x in str(s).split(';') if x.strip()])\n\ndf['n_visit_diags']   = df['VisitDiags'].apply(count_csv)\ndf['n_chronic_diags'] = df['ChronicDiags'].apply(count_csv)\ndf['n_total_diags']   = df['n_visit_diags'] + df['n_chronic_diags']\n\ndef unique_dsm5_count(row):\n    cats = set()\n    for col in ['VisitDiags_DSM5Categories', 'ChronicDiags_DSM5Categories']:\n        val = row.get(col, '')\n        if pd.notna(val) and str(val).strip():\n            cats.update(c.strip() for c in str(val).split(';') if c.strip())\n    return len(cats)\n\ndf['n_dsm5_categories'] = df.apply(unique_dsm5_count, axis=1)\n\n# \u2500\u2500 DSM-5 category flags \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nall_dsm5 = (df['VisitDiags_DSM5Categories'].fillna('') + ';' +\n            df['ChronicDiags_DSM5Categories'].fillna('')).str.lower()\n\nCATEGORY_FLAGS = {\n    'has_nssi':        'non-suicidal self-injury',\n    'has_trauma':      'trauma and stressor',\n    'has_adhd':        'adhd',\n    'has_asd':         'autism spectrum',\n    'has_conduct':     'conduct disorder',\n    'has_depression':  'depressive disorders',\n    'has_anxiety':     'anxiety disorders',\n    'has_bipolar':     'bipolar',\n    'has_psychotic':   'psychotic',\n    'has_intellectual':'intellectual disability',\n    'has_ocd':         'obsessive-compulsive',\n}\nfor flag, kw in CATEGORY_FLAGS.items():\n    df[flag] = all_dsm5.str.contains(kw, na=False).astype(int)\n\n# \u2500\u2500 Medical comorbidity \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndef count_medical(s):\n    if pd.isna(s) or str(s).strip() == '': return 0\n    return sum(1 for c in str(s).split(',') if c.strip() and not c.strip().startswith('F'))\n\nMEDICAL_COMORBIDITY_PATTERNS = {\n    'Metabolic/Obesity': ('E66',),\n    'Sleep Disorder': ('G47',),\n    'GI/Digestive': ('K59', 'K21'),\n    'Respiratory/Allergy': ('J30', 'R06'),\n    'Renal/Urologic': ('N39',),\n}\n\ndef get_medical_comorbidity_types(codes):\n    if pd.isna(codes) or str(codes).strip() == '':\n        return []\n    code_tokens = [c.strip().upper() for c in str(codes).split(',') if c.strip()]\n    return [\n        category\n        for category, prefixes in MEDICAL_COMORBIDITY_PATTERNS.items()\n        if any(code.startswith(prefix) for code in code_tokens for prefix in prefixes)\n    ]\n\ndf['n_medical_chronic']       = df['ChronicDiags'].apply(count_medical)\ndf['has_medical_comorbidity'] = (df['n_medical_chronic'] > 0).astype(int)\ndf['medical_comorbidity_types'] = df['ChronicDiags'].apply(get_medical_comorbidity_types)\n\nprint(f\"\u2713 Feature engineering complete.\")\nprint(f\"  N = {len(df):,} (after date-quality exclusions) | \"\n      f\"Readmitted = {df['readmitted'].sum():,} ({df['readmitted'].mean():.1%})\")\nprint(f\"  Age range: {df['age'].min():.0f}\u2013{df['age'].max():.0f} yrs | \"\n      f\"LOS: {df['los_days'].min():.0f}\u2013{df['los_days'].max():.0f} days \"\n      f\"(median {df['los_days'].median():.0f})\")\nprint(f\"  ACE score available: {df['ace_score'].notna().sum():,} \"\n      f\"({df['ace_score'].notna().mean():.1%})\")```\n\n#### Output\n\n```\nReadmissions value counts:\nReadmissions\n0    2406\n1     219\n2      25\n3       2\nName: count, dtype: int64\n\n\u2713 No date-quality issues found.\n\u2713 Feature engineering complete.\n  N = 2,652 (after date-quality exclusions) | Readmitted = 246 (9.3%)\n  Age range: 5\u201312 yrs | LOS: 1\u2013112 days (median 8)\n  ACE score available: 1,569 (59.2%)\n```"
+              },
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "isError": false
+            },
+            "tool_call_id": "call_jlh3vFQ3UBECeZdfeLJH0fEN",
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "arguments": {
+                "cell_id": "1",
+                "include_outputs": true,
+                "file_path": "Readmission_Full_Analysis.ipynb"
+              },
+              "tool": "read_cell"
+            },
+            "status": "completed"
+          },
+          {
+            "status": "completed",
+            "title": "Tool: Jupyter_MCP_Server/read_cell",
+            "tool_call_id": "call_DvVYCpJ1HcfjQxY3qyPs5NRs",
+            "raw_input": {
+              "server": "Jupyter_MCP_Server",
+              "tool": "read_cell",
+              "arguments": {
+                "cell_id": "2",
+                "include_outputs": true,
+                "file_path": "Readmission_Full_Analysis.ipynb"
+              }
+            },
+            "raw_output": {
+              "_meta": {
+                "fastmcp": {
+                  "wrap_result": true
+                }
+              },
+              "structuredContent": {
+                "result": "### Cell 2\n\n#### Metadata\n\n```yaml\nexecution_count: 7\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Table 1: Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom scipy.stats import ttest_ind, chi2_contingency\n\ndef get_stats(vals, total, is_ra=False):\n    r = {}\n    r['N (%)'] = f\"{len(vals)} ({100*len(vals)/total:.1f}%)\"\n    \n    # Readmissions\n    r['# Readmissions, mean\u00b1SD'] = f\"{vals['Readmissions'].mean():.2f} \u00b1 {vals['Readmissions'].std():.2f}\"\n    \n    # ACE Score\n    ace_n = vals['ace_score'].notna().sum()\n    r['ACE score collected, n(%)'] = f\"{ace_n} ({100*ace_n/len(vals):.1f}%)\"\n    r['ACE score, mean\u00b1SD'] = f\"{vals['ace_score'].mean():.1f} \u00b1 {vals['ace_score'].std():.1f}\"\n    r['ACE score, median'] = f\"{vals['ace_score'].median():.1f}\"\n    \n    # LOS\n    r['LOS, mean\u00b1SD'] = f\"{vals['los_days'].mean():.1f} \u00b1 {vals['los_days'].std():.1f}\"\n    r['LOS, median'] = f\"{vals['los_days'].median():.1f}\"\n    \n    # Diagnoses\n    r['# Visit diags, mean\u00b1SD'] = f\"{vals['n_visit_diags'].mean():.1f} \u00b1 {vals['n_visit_diags'].std():.1f}\"\n    r['# Visit diags, median']  = f\"{vals['n_visit_diags'].median():.1f}\"\n    r['# Chronic diags, mean\u00b1SD'] = f\"{vals['n_chronic_diags'].mean():.1f} \u00b1 {vals['n_chronic_diags'].std():.1f}\"\n    r['# Chronic diags, median']  = f\"{vals['n_chronic_diags'].median():.1f}\"\n    r['# NSSI diags, mean\u00b1SD'] = f\"{vals['has_nssi'].mean():.1f} \u00b1 {vals['has_nssi'].std():.1f}\"\n    \n    # Medical comorbidity categories are not mutually exclusive.\n    if 'medical_comorbidity_types' in vals.columns:\n        med_types = vals['medical_comorbidity_types']\n    else:\n        med_types = vals['ChronicDiags'].apply(get_medical_comorbidity_types)\n    all_types = [t for sublist in med_types for t in sublist]\n    type_counts = pd.Series(all_types).value_counts()\n    for t, count in type_counts.items():\n        r[f'Medical: {t}, n(%)'] = f\"{count} ({100*count/len(vals):.1f}%)\"\n        \n    return r\n\nra  = df[df['readmitted'] == 1]\nnra = df[df['readmitted'] == 0]\ntotal_n = len(df)\n\ntable1_data = {\n    'Not Readmitted': get_stats(nra, total_n),\n    'Readmitted': get_stats(ra, total_n)\n}\ntable1 = pd.DataFrame(table1_data).T\ntable1.to_csv('figures/Table1_descriptive.csv')\nprint(table1.to_string())```\n\n#### Output\n\n```\n                       N (%) # Readmissions, mean\u00b1SD ACE score collected, n(%) ACE score, mean\u00b1SD ACE score, median LOS, mean\u00b1SD LOS, median # Visit diags, mean\u00b1SD # Visit diags, median # Chronic diags, mean\u00b1SD # Chronic diags, median # NSSI diags, mean\u00b1SD Medical: GI/Digestive, n(%) Medical: Metabolic/Obesity, n(%) Medical: Sleep Disorder, n(%) Medical: Respiratory/Allergy, n(%) Medical: Renal/Urologic, n(%)\nNot Readmitted  2406 (90.7%)             0.00 \u00b1 0.00              1429 (59.4%)          3.7 \u00b1 2.6               3.0    9.9 \u00b1 7.1         8.0              4.3 \u00b1 2.3                   4.0                5.1 \u00b1 5.3                     4.0             0.4 \u00b1 0.5                  211 (8.8%)                       190 (7.9%)                    155 (6.4%)                         116 (4.8%)                     96 (4.0%)\nReadmitted        246 (9.3%)             1.12 \u00b1 0.35               140 (56.9%)          4.0 \u00b1 2.5               4.0   10.2 \u00b1 4.1        10.0              4.4 \u00b1 2.2                   4.0                7.1 \u00b1 5.2                     6.0             0.3 \u00b1 0.5                  29 (11.8%)                       27 (11.0%)                    25 (10.2%)                          19 (7.7%)                      6 (2.4%)\n```"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "### Cell 2\n\n#### Metadata\n\n```yaml\nexecution_count: 7\ntype: code\n```\n\n#### Source\n\n```python\n\n# \u2500\u2500 Table 1: Detailed Descriptive Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfrom scipy.stats import ttest_ind, chi2_contingency\n\ndef get_stats(vals, total, is_ra=False):\n    r = {}\n    r['N (%)'] = f\"{len(vals)} ({100*len(vals)/total:.1f}%)\"\n    \n    # Readmissions\n    r['# Readmissions, mean\u00b1SD'] = f\"{vals['Readmissions'].mean():.2f} \u00b1 {vals['Readmissions'].std():.2f}\"\n    \n    # ACE Score\n    ace_n = vals['ace_score'].notna().sum()\n    r['ACE score collected, n(%)'] = f\"{ace_n} ({100*ace_n/len(vals):.1f}%)\"\n    r['ACE score, mean\u00b1SD'] = f\"{vals['ace_score'].mean():.1f} \u00b1 {vals['ace_score'].std():.1f}\"\n    r['ACE score, median'] = f\"{vals['ace_score'].median():.1f}\"\n    \n    # LOS\n    r['LOS, mean\u00b1SD'] = f\"{vals['los_days'].mean():.1f} \u00b1 {vals['los_days'].std():.1f}\"\n    r['LOS, median'] = f\"{vals['los_days'].median():.1f}\"\n    \n    # Diagnoses\n    r['# Visit diags, mean\u00b1SD'] = f\"{vals['n_visit_diags'].mean():.1f} \u00b1 {vals['n_visit_diags'].std():.1f}\"\n    r['# Visit diags, median']  = f\"{vals['n_visit_diags'].median():.1f}\"\n    r['# Chronic diags, mean\u00b1SD'] = f\"{vals['n_chronic_diags'].mean():.1f} \u00b1 {vals['n_chronic_diags'].std():.1f}\"\n    r['# Chronic diags, median']  = f\"{vals['n_chronic_diags'].median():.1f}\"\n    r['# NSSI diags, mean\u00b1SD'] = f\"{vals['has_nssi'].mean():.1f} \u00b1 {vals['has_nssi'].std():.1f}\"\n    \n    # Medical comorbidity categories are not mutually exclusive.\n    if 'medical_comorbidity_types' in vals.columns:\n        med_types = vals['medical_comorbidity_types']\n    else:\n        med_types = vals['ChronicDiags'].apply(get_medical_comorbidity_types)\n    all_types = [t for sublist in med_types for t in sublist]\n    type_counts = pd.Series(all_types).value_counts()\n    for t, count in type_counts.items():\n        r[f'Medical: {t}, n(%)'] = f\"{count} ({100*count/len(vals):.1f}%)\"\n        \n    return r\n\nra  = df[df['readmitted'] == 1]\nnra = df[df['readmitted'] == 0]\ntotal_n = len(df)\n\ntable1_data = {\n    'Not Readmitted': get_stats(nra, total_n),\n    'Readmitted': get_stats(ra, total_n)\n}\ntable1 = pd.DataFrame(table1_data).T\ntable1.to_csv('figures/Table1_descriptive.csv')\nprint(table1.to_string())```\n\n#### Output\n\n```\n                       N (%) # Readmissions, mean\u00b1SD ACE score collected, n(%) ACE score, mean\u00b1SD ACE score, median LOS, mean\u00b1SD LOS, median # Visit diags, mean\u00b1SD # Visit diags, median # Chronic diags, mean\u00b1SD # Chronic diags, median # NSSI diags, mean\u00b1SD Medical: GI/Digestive, n(%) Medical: Metabolic/Obesity, n(%) Medical: Sleep Disorder, n(%) Medical: Respiratory/Allergy, n(%) Medical: Renal/Urologic, n(%)\nNot Readmitted  2406 (90.7%)             0.00 \u00b1 0.00              1429 (59.4%)          3.7 \u00b1 2.6               3.0    9.9 \u00b1 7.1         8.0              4.3 \u00b1 2.3                   4.0                5.1 \u00b1 5.3                     4.0             0.4 \u00b1 0.5                  211 (8.8%)                       190 (7.9%)                    155 (6.4%)                         116 (4.8%)                     96 (4.0%)\nReadmitted        246 (9.3%)             1.12 \u00b1 0.35               140 (56.9%)          4.0 \u00b1 2.5               4.0   10.2 \u00b1 4.1        10.0              4.4 \u00b1 2.2                   4.0                7.1 \u00b1 5.2                     6.0             0.3 \u00b1 0.5                  29 (11.8%)                       27 (11.0%)                    25 (10.2%)                          19 (7.7%)                      6 (2.4%)\n```"
+                }
+              ],
+              "isError": false
+            }
+          }
+        ]
+      },
+      "mentions": [],
+      "time": 1780355363.7435,
+      "raw_time": false,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "body": "",
+      "id": "2df75c5d-7ff8-4bd2-b25c-f38c36cb0007"
+    },
+    {
+      "type": "msg",
+      "body": "Implemented and regenerated the affected outputs in [Readmission_Full_Analysis.ipynb](/Users/matthewgold/code/jupyter_projects/Readmission_Full_Analysis.ipynb).\n\n**Changed**\n- Colored the `p<0.001 ***` restraint significance label red on [Fig2_demographics_panel.png](/Users/matthewgold/code/jupyter_projects/figures/Fig2_demographics_panel.png).\n- Fixed the medical comorbidity percentage bug: GI/Digestive now reports `240`, `9.0%` of patients, not `905%`.\n- Added [Fig_medical_comorbidity_breakdown.png](/Users/matthewgold/code/jupyter_projects/figures/Fig_medical_comorbidity_breakdown.png) and audit CSV [Medical_Comorbidity_Breakdown.csv](/Users/matthewgold/code/jupyter_projects/figures/Medical_Comorbidity_Breakdown.csv).\n- Added FP/FN crossover sensitivity and PPV labels to [Fig14_flagging_thresholds.png](/Users/matthewgold/code/jupyter_projects/figures/Fig14_flagging_thresholds.png), plus [Fig14_fp_fn_crossover_metrics.csv](/Users/matthewgold/code/jupyter_projects/figures/Fig14_fp_fn_crossover_metrics.csv).\n\n**Validated**\n- CatBoost: threshold `0.6356`, FP=FN=`195`, sensitivity=`20.73%`, PPV=`20.73%`\n- Random Forest: threshold `0.5747`, FP=FN=`195`, sensitivity=`20.73%`, PPV=`20.73%`\n- Logistic Regression: threshold `0.1830`, FP=FN=`197`, sensitivity=`19.92%`, PPV=`19.92%`\n\nI left unrelated working-tree changes alone, including `Readmission data analysis.chat` and the untracked `Readmission colab Analysis.ipynb`.",
+      "raw_time": false,
+      "sender": "jupyter-ai-personas::jupyter_ai_acp_client::CodexAcpPersona",
+      "mentions": [],
+      "time": 1780355378.049424,
+      "id": "f01f6cac-b480-414f-b086-24a221a91298"
     }
   ],
   "users": {

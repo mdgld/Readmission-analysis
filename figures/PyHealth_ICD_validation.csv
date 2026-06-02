@@ -1,0 +1,1864 @@
+icd_code,valid_icd10cm,pyhealth_description,n_patients
+R45.851,True,Suicidal ideations,1346
+F90.2,True,"Attention-deficit hyperactivity disorder, combined type",761
+F43.10,True,"Post-traumatic stress disorder, unspecified",679
+R46.89,True,Other symptoms and signs involving appearance and behavior,611
+F90.9,True,"Attention-deficit hyperactivity disorder, unspecified type",570
+F41.9,True,"Anxiety disorder, unspecified",563
+F32.9,True,"Major depressive disorder, single episode, unspecified",519
+F84.0,True,Autistic disorder,501
+F41.1,True,Generalized anxiety disorder,451
+F34.81,True,Disruptive mood dysregulation disorder,438
+F39,True,Unspecified mood [affective] disorder,331
+F91.3,True,Oppositional defiant disorder,302
+F43.9,True,"Reaction to severe stress, unspecified",255
+R45.850,True,Homicidal ideations,232
+K59.00,True,"Constipation, unspecified",201
+Z65.8,True,Other specified problems related to psychosocial circumstances,200
+F32.2,True,"Major depressive disorder, single episode, severe without psychotic features",181
+F43.25,True,Adjustment disorder with mixed disturbance of emotions and conduct,174
+F43.20,True,"Adjustment disorder, unspecified",172
+F33.2,True,"Major depressive disorder, recurrent severe without psychotic features",169
+F91.9,True,"Conduct disorder, unspecified",168
+Z62.820,True,Parent-biological child conflict,151
+E66.9,True,"Obesity, unspecified",150
+Z62.21,True,Child in welfare custody,139
+F33.1,True,"Major depressive disorder, recurrent, moderate",133
+Z63.5,True,Disruption of family by separation and divorce,129
+F43.23,True,Adjustment disorder with mixed anxiety and depressed mood,127
+R44.0,True,Auditory hallucinations,124
+F31.9,True,"Bipolar disorder, unspecified",114
+F43.12,True,"Post-traumatic stress disorder, chronic",113
+T14.91XA,True,"Suicide attempt, initial encounter",109
+Z63.8,True,Other specified problems related to primary support group,103
+P04.9,True,"Newborn affected by maternal noxious substance, unspecified",102
+F93.9,True,"Childhood emotional disorder, unspecified",98
+Z86.59,True,Personal history of other mental and behavioral disorders,97
+N39.44,True,Nocturnal enuresis,95
+F34.8,True,Other persistent mood [affective] disorders,92
+F94.1,True,Reactive attachment disorder of childhood,92
+Z62.810,True,Personal history of physical and sexual abuse in childhood,85
+R10.9,True,Unspecified abdominal pain,84
+F98.9,True,Unspecified behavioral and emotional disorders with onset usually occurring in childhood and adolescence,80
+H53.043,True,"Amblyopia suspect, bilateral",77
+F88,True,Other disorders of psychological development,76
+F42.9,True,"Obsessive-compulsive disorder, unspecified",75
+F60.89,True,Other specific personality disorders,74
+R45.5,True,Hostility,72
+G47.9,True,"Sleep disorder, unspecified",71
+Z91.89,True,"Other specified personal risk factors, not elsewhere classified",71
+F90.1,True,"Attention-deficit hyperactivity disorder, predominantly hyperactive type",71
+Z62.812,True,Personal history of neglect in childhood,70
+F32.A,True,"Depression, unspecified",69
+F90.0,True,"Attention-deficit hyperactivity disorder, predominantly inattentive type",68
+K21.9,True,Gastro-esophageal reflux disease without esophagitis,66
+F32.1,True,"Major depressive disorder, single episode, moderate",65
+F43.21,True,Adjustment disorder with depressed mood,65
+G47.33,True,Obstructive sleep apnea (adult) (pediatric),62
+J30.9,True,"Allergic rhinitis, unspecified",61
+E78.2,True,Mixed hyperlipidemia,59
+F33.3,True,"Major depressive disorder, recurrent, severe with psychotic symptoms",57
+F80.9,True,"Developmental disorder of speech and language, unspecified",56
+R06.83,True,Snoring,52
+F32.3,True,"Major depressive disorder, single episode, severe with psychotic features",52
+F81.9,True,"Developmental disorder of scholastic skills, unspecified",51
+G43.009,True,"Migraine without aura, not intractable, without status migrainosus",51
+E66.3,True,Overweight,50
+F33.9,True,"Major depressive disorder, recurrent, unspecified",48
+Z03.89,True,Encounter for observation for other suspected diseases and conditions ruled out,47
+F93.0,True,Separation anxiety disorder of childhood,47
+R32,True,Unspecified urinary incontinence,45
+R40.4,True,Transient alteration of awareness,45
+Z62.821,True,Parent-adopted child conflict,43
+R44.3,True,"Hallucinations, unspecified",43
+J45.20,True,"Mild intermittent asthma, uncomplicated",43
+F50.9,True,"Eating disorder, unspecified",43
+R45.88,True,Nonsuicidal self-harm,42
+F60.3,True,Borderline personality disorder,42
+R44.1,True,Visual hallucinations,41
+F29,True,Unspecified psychosis not due to a substance or known physiological condition,41
+F40.10,True,"Social phobia, unspecified",41
+J45.909,True,"Unspecified asthma, uncomplicated",40
+R94.6,True,Abnormal results of thyroid function studies,39
+R10.84,True,Generalized abdominal pain,39
+Z55.9,True,"Problems related to education and literacy, unspecified",39
+H52.7,True,Unspecified disorder of refraction,39
+R11.0,True,Nausea,38
+J45.30,True,"Mild persistent asthma, uncomplicated",37
+Z72.89,True,Other problems related to lifestyle,37
+Z63.4,True,Disappearance and death of family member,37
+F41.0,True,Panic disorder [episodic paroxysmal anxiety],37
+Z68.54,True,"Body mass index [BMI] pediatric, greater than or equal to 95th percentile for age",36
+R41.840,True,Attention and concentration deficit,35
+F81.0,True,Specific reading disorder,35
+R45.85,True,Homicidal and suicidal ideations,35
+E03.9,True,"Hypothyroidism, unspecified",35
+R45.87,True,Impulsiveness,35
+R45.89,True,Other symptoms and signs involving emotional state,35
+F63.81,True,Intermittent explosive disorder,34
+F91.1,True,"Conduct disorder, childhood-onset type",34
+R73.03,True,Prediabetes,34
+R63.5,True,Abnormal weight gain,33
+R11.2,True,"Nausea with vomiting, unspecified",32
+R11.10,True,"Vomiting, unspecified",32
+R62.50,True,Unspecified lack of expected normal physiological development in childhood,32
+F43.1,True,Post-traumatic stress disorder (PTSD),31
+R51.9,True,"Headache, unspecified",31
+L83,True,Acanthosis nigricans,31
+R45.4,True,Irritability and anger,31
+F43.22,True,Adjustment disorder with anxiety,30
+Z81,True,Family history of mental and behavioral disorders,30
+R51,True,Headache,30
+L30.9,True,"Dermatitis, unspecified",30
+R10.33,True,Periumbilical pain,30
+G47.00,True,"Insomnia, unspecified",30
+Z81.8,True,Family history of other mental and behavioral disorders,29
+G43.709,True,"Chronic migraine without aura, not intractable, without status migrainosus",29
+F40.11,True,"Social phobia, generalized",29
+R42,True,Dizziness and giddiness,29
+F95.2,True,Tourette's disorder,29
+R56.9,True,Unspecified convulsions,29
+G89.4,True,Chronic pain syndrome,28
+E55.9,True,"Vitamin D deficiency, unspecified",28
+R19.7,True,"Diarrhea, unspecified",28
+E66.01,True,Morbid (severe) obesity due to excess calories,28
+F42,True,Obsessive-compulsive disorder,28
+Z62.819,True,Personal history of unspecified abuse in childhood,28
+F95.9,True,"Tic disorder, unspecified",27
+Z91.5,True,Personal history of self-harm,27
+F48.9,True,"Nonpsychotic mental disorder, unspecified",27
+Z00.129,True,Encounter for routine child health examination without abnormal findings,27
+F64.2,True,Gender identity disorder of childhood,26
+F89,True,Unspecified disorder of psychological development,26
+T50.902A,True,"Poisoning by unspecified drugs, medicaments and biological substances, intentional self-harm, initial encounter",25
+F43.24,True,Adjustment disorder with disturbance of conduct,25
+T76.12XA,True,"Child physical abuse, suspected, initial encounter",25
+Z87.898,True,Personal history of other specified conditions,25
+J30.1,True,Allergic rhinitis due to pollen,24
+R62.0,True,Delayed milestone in childhood,24
+K59.09,True,Other constipation,24
+R63.3,True,Feeding difficulties,24
+R55,True,Syncope and collapse,24
+H52.13,True,"Myopia, bilateral",24
+R00.0,True,"Tachycardia, unspecified",24
+Z62.891,True,Sibling rivalry,24
+J35.3,True,Hypertrophy of tonsils with hypertrophy of adenoids,24
+G40.909,True,"Epilepsy, unspecified, not intractable, without status epilepticus",23
+R07.9,True,"Chest pain, unspecified",23
+M79.18,True,"Myalgia, other site",23
+N39.41,True,Urge incontinence,23
+F70,True,Mild intellectual disabilities,23
+G93.40,True,"Encephalopathy, unspecified",23
+F41.8,True,Other specified anxiety disorders,23
+F90.8,True,"Attention-deficit hyperactivity disorder, other type",22
+F69,True,Unspecified disorder of adult personality and behavior,22
+H52.223,True,"Regular astigmatism, bilateral",22
+R62.52,True,Short stature (child),22
+F79,True,Unspecified intellectual disabilities,21
+F93.8,True,Other childhood emotional disorders,21
+R15.9,True,Full incontinence of feces,21
+R35.0,True,Frequency of micturition,21
+R00.2,True,Palpitations,21
+R63.4,True,Abnormal weight loss,21
+R04.0,True,Epistaxis,20
+R62.51,True,Failure to thrive (child),20
+X83.8XXA,True,"Intentional self-harm by other specified means, initial encounter",20
+M35.7,True,Hypermobility syndrome,20
+R01.1,True,"Cardiac murmur, unspecified",20
+J31.0,True,Chronic rhinitis,20
+F63.9,True,"Impulse disorder, unspecified",19
+Z71.3,True,Dietary counseling and surveillance,19
+E10.65,True,Type 1 diabetes mellitus with hyperglycemia,19
+G93.9,True,"Disorder of brain, unspecified",19
+H52.31,True,Anisometropia,19
+M25.50,True,Pain in unspecified joint,19
+E78.5,True,"Hyperlipidemia, unspecified",19
+F33.0,True,"Major depressive disorder, recurrent, mild",18
+R03.0,True,"Elevated blood-pressure reading, without diagnosis of hypertension",18
+Z63.9,True,"Problem related to primary support group, unspecified",18
+R09.81,True,Nasal congestion,18
+G47.10,True,"Hypersomnia, unspecified",18
+F80.0,True,Phonological disorder,17
+H69.90,True,"Unspecified Eustachian tube disorder, unspecified ear",17
+Z00.121,True,Encounter for routine child health examination with abnormal findings,17
+Z78.9,True,Other specified health status,17
+E78.1,True,Pure hyperglyceridemia,17
+F64.9,True,"Gender identity disorder, unspecified",17
+Z91.018,True,Allergy to other foods,17
+R68.89,True,Other general symptoms and signs,17
+F64.0,True,Transsexualism,17
+F91.8,True,Other conduct disorders,16
+H50.43,True,Accommodative component in esotropia,16
+F95.1,True,Chronic motor or vocal tic disorder,16
+N92.6,True,"Irregular menstruation, unspecified",16
+H10.45,True,Other chronic allergic conjunctivitis,16
+Z68.53,True,"Body mass index [BMI] pediatric, 85th percentile to less than 95th percentile for age",16
+R13.10,True,"Dysphagia, unspecified",16
+E11.9,True,Type 2 diabetes mellitus without complications,16
+H53.023,True,"Refractive amblyopia, bilateral",16
+M54.2,True,Cervicalgia,15
+I10,True,Essential (primary) hypertension,15
+Z86.69,True,Personal history of other diseases of the nervous system and sense organs,15
+F81.2,True,Mathematics disorder,15
+M54.9,True,"Dorsalgia, unspecified",15
+H52.03,True,"Hypermetropia, bilateral",15
+K92.1,True,Melena,15
+Z62.82,True,Parent-child conflict,15
+R45.6,True,Violent behavior,15
+R46.81,True,Obsessive-compulsive behavior,15
+Z13.41,True,Encounter for autism screening,15
+M54.89,True,Other dorsalgia,14
+R94.31,True,Abnormal electrocardiogram [ECG] [EKG],14
+P04.49,True,Newborn affected by maternal use of other drugs of addiction,14
+Q99.9,True,"Chromosomal abnormality, unspecified",14
+T74.32XA,True,"Child psychological abuse, confirmed, initial encounter",14
+Z00.8,True,Encounter for other general examination,14
+G43.109,True,"Migraine with aura, not intractable, without status migrainosus",14
+N39.0,True,"Urinary tract infection, site not specified",14
+F32.89,True,Other specified depressive episodes,14
+R41.83,True,Borderline intellectual functioning,14
+Z79.899,True,Other long term (current) drug therapy,14
+R25.9,True,Unspecified abnormal involuntary movements,14
+E28.2,True,Polycystic ovarian syndrome,14
+R26.89,True,Other abnormalities of gait and mobility,14
+R21,True,Rash and other nonspecific skin eruption,14
+E44.1,True,Mild protein-calorie malnutrition,13
+R39.15,True,Urgency of urination,13
+T76.22XA,True,"Child sexual abuse, suspected, initial encounter",13
+E44.0,True,Moderate protein-calorie malnutrition,13
+F43.11,True,"Post-traumatic stress disorder, acute",13
+Z02.89,True,Encounter for other administrative examinations,13
+F44.5,True,Conversion disorder with seizures or convulsions,13
+R76.8,True,Other specified abnormal immunological findings in serum,13
+Z87.19,True,Personal history of other diseases of the digestive system,13
+R05,True,Cough,13
+R79.89,True,Other specified abnormal findings of blood chemistry,13
+R26.9,True,Unspecified abnormalities of gait and mobility,13
+Z82.49,True,Family history of ischemic heart disease and other diseases of the circulatory system,13
+J34.3,True,Hypertrophy of nasal turbinates,12
+K56.41,True,Fecal impaction,12
+E23.0,True,Hypopituitarism,12
+L20.9,True,"Atopic dermatitis, unspecified",12
+K76.0,True,"Fatty (change of) liver, not elsewhere classified",12
+R63.0,True,Anorexia,12
+E66.09,True,Other obesity due to excess calories,12
+F98.1,True,Encopresis not due to a substance or known physiological condition,12
+R74.8,True,Abnormal levels of other serum enzymes,12
+X78.9XXA,True,"Intentional self-harm by unspecified sharp object, initial encounter",12
+R10.13,True,Epigastric pain,12
+R25.8,True,Other abnormal involuntary movements,12
+N47.1,True,Phimosis,12
+G40.209,True,"Localization-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures, not intractable, without status epilepticus",11
+F84.9,True,"Pervasive developmental disorder, unspecified",11
+M25.532,True,Pain in left wrist,11
+E06.3,True,Autoimmune thyroiditis,11
+F82,True,Specific developmental disorder of motor function,11
+K90.0,True,Celiac disease,11
+N94.6,True,"Dysmenorrhea, unspecified",11
+J45.40,True,"Moderate persistent asthma, uncomplicated",11
+J02.0,True,Streptococcal pharyngitis,11
+E30.1,True,Precocious puberty,11
+J35.1,True,Hypertrophy of tonsils,11
+F71,True,Moderate intellectual disabilities,10
+M21.40,True,"Flat foot [pes planus] (acquired), unspecified foot",10
+R19.5,True,Other fecal abnormalities,10
+Z91.51,True,Personal history of suicidal behavior,10
+K59.04,True,Chronic idiopathic constipation,10
+F43.8,True,Other reactions to severe stress,10
+F81.81,True,Disorder of written expression,10
+R73.09,True,Other abnormal glucose,10
+G93.5,True,Compression of brain,10
+R53.83,True,Other fatigue,10
+F32.81,True,Premenstrual dysphoric disorder,10
+L70.0,True,Acne vulgaris,10
+Q86.0,True,Fetal alcohol syndrome (dysmorphic),10
+L85.3,True,Xerosis cutis,10
+J30.2,True,Other seasonal allergic rhinitis,10
+J30.81,True,Allergic rhinitis due to animal (cat) (dog) hair and dander,10
+M41.9,True,"Scoliosis, unspecified",10
+N91.1,True,Secondary amenorrhea,10
+F40.1,True,Social phobias,10
+H50.34,True,Intermittent alternating exotropia,10
+M25.551,True,Pain in right hip,10
+H50.52,True,Exophoria,10
+M25.571,True,Pain in right ankle and joints of right foot,10
+R19.8,True,Other specified symptoms and signs involving the digestive system and abdomen,10
+Z98.89,True,Other specified postprocedural states,9
+D64.9,True,"Anemia, unspecified",9
+H53.022,True,"Refractive amblyopia, left eye",9
+Z81.4,True,Family history of other substance abuse and dependence,9
+B85.0,True,Pediculosis due to Pediculus humanus capitis,9
+R05.3,True,Chronic cough,9
+Z51.81,True,Encounter for therapeutic drug level monitoring,9
+F84.8,True,Other pervasive developmental disorders,9
+Z55.8,True,Other problems related to education and literacy,9
+Z55.3,True,Underachievement in school,9
+D50.9,True,"Iron deficiency anemia, unspecified",9
+K52.9,True,"Noninfective gastroenteritis and colitis, unspecified",9
+Z60.9,True,"Problem related to social environment, unspecified",9
+K29.70,True,"Gastritis, unspecified, without bleeding",9
+F80.2,True,Mixed receptive-expressive language disorder,9
+R30.0,True,Dysuria,9
+F31.64,True,"Bipolar disorder, current episode mixed, severe, with psychotic features",9
+E73.9,True,"Lactose intolerance, unspecified",9
+M21.6X9,True,Other acquired deformities of unspecified foot,9
+F34.1,True,Dysthymic disorder,9
+F44.7,True,Conversion disorder with mixed symptom presentation,9
+Z62.81,True,Personal history of abuse in childhood,9
+Z87.09,True,Personal history of other diseases of the respiratory system,9
+F43.29,True,Adjustment disorder with other symptoms,9
+R47.9,True,Unspecified speech disturbances,9
+F32.4,True,"Major depressive disorder, single episode, in partial remission",9
+P04.3,True,Newborn affected by maternal use of alcohol,8
+T14.91XD,True,"Suicide attempt, subsequent encounter",8
+G40.009,True,"Localization-related (focal) (partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset, not intractable, without status epilepticus",8
+N94.4,True,Primary dysmenorrhea,8
+E78.00,True,"Pure hypercholesterolemia, unspecified",8
+F95.0,True,Transient tic disorder,8
+T65.92XA,True,"Toxic effect of unspecified substance, intentional self-harm, initial encounter",8
+Z87.820,True,Personal history of traumatic brain injury,8
+E34.3,True,Short stature due to endocrine disorder,8
+E43,True,Unspecified severe protein-calorie malnutrition,8
+E88.81,True,Metabolic syndrome,8
+R63.6,True,Underweight,8
+M21.41,True,"Flat foot [pes planus] (acquired), right foot",8
+F06.30,True,"Mood disorder due to known physiological condition, unspecified",8
+R68.81,True,Early satiety,8
+R41.844,True,Frontal lobe and executive function deficit,8
+Z82.0,True,Family history of epilepsy and other diseases of the nervous system,8
+M25.531,True,Pain in right wrist,8
+J06.9,True,"Acute upper respiratory infection, unspecified",8
+M25.561,True,Pain in right knee,7
+F84.5,True,Asperger's syndrome,7
+M25.572,True,Pain in left ankle and joints of left foot,7
+Z59.3,True,Problems related to living in residential institution,7
+G44.229,True,"Chronic tension-type headache, not intractable",7
+G43.909,True,"Migraine, unspecified, not intractable, without status migrainosus",7
+G43.711,True,"Chronic migraine without aura, intractable, with status migrainosus",7
+I49.8,True,Other specified cardiac arrhythmias,7
+E46,True,Unspecified protein-calorie malnutrition,7
+G47.19,True,Other hypersomnia,7
+G40.A09,True,"Absence epileptic syndrome, not intractable, without status epilepticus",7
+F98.4,True,Stereotyped movement disorders,7
+R12,True,Heartburn,7
+N92.0,True,Excessive and frequent menstruation with regular cycle,7
+Z72.82,True,Problems related to sleep,7
+K20.0,True,Eosinophilic esophagitis,7
+F42.4,True,Excoriation (skin-picking) disorder,7
+E66.8,True,Other obesity,7
+R00.1,True,"Bradycardia, unspecified",7
+Z83.2,True,Family history of diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,7
+Z63.32,True,Other absence of family member,7
+R93.0,True,"Abnormal findings on diagnostic imaging of skull and head, not elsewhere classified",7
+Z72.821,True,Inadequate sleep hygiene,7
+Z96.22,True,Myringotomy tube(s) status,7
+K59.0,True,Constipation,7
+Z84.89,True,Family history of other specified conditions,7
+Z87.440,True,Personal history of urinary (tract) infections,7
+F51.3,True,Sleepwalking [somnambulism],7
+Q55.64,True,Hidden penis,7
+K30,True,Functional dyspepsia,7
+H53.021,True,"Refractive amblyopia, right eye",7
+F80.1,True,Expressive language disorder,7
+M24.9,True,"Joint derangement, unspecified",7
+Q65.89,True,Other specified congenital deformities of hip,7
+G47.30,True,"Sleep apnea, unspecified",7
+P04.1,True,Newborn affected by other maternal medication,7
+T74.12,True,"Child physical abuse, confirmed",7
+R15.1,True,Fecal smearing,7
+B08.1,True,Molluscum contagiosum,7
+M54.5,True,Low back pain,6
+Z83.79,True,Family history of other diseases of the digestive system,6
+M54.50,True,"Low back pain, unspecified",6
+G25.81,True,Restless legs syndrome,6
+H53.10,True,Unspecified subjective visual disturbances,6
+R94.02,True,Abnormal brain scan,6
+R94.5,True,Abnormal results of liver function studies,6
+R63.1,True,Polydipsia,6
+R73.9,True,"Hyperglycemia, unspecified",6
+H50.05,True,Alternating esotropia,6
+G93.2,True,Benign intracranial hypertension,6
+G47.01,True,Insomnia due to medical condition,6
+G47.21,True,"Circadian rhythm sleep disorder, delayed sleep phase type",6
+G47.3,True,Sleep apnea,6
+T74.02XA,True,"Child neglect or abandonment, confirmed, initial encounter",6
+T74.12XA,True,"Child physical abuse, confirmed, initial encounter",6
+H90.3,True,"Sensorineural hearing loss, bilateral",6
+R40.0,True,Somnolence,6
+M41.125,True,"Adolescent idiopathic scoliosis, thoracolumbar region",6
+R63.32,True,"Pediatric feeding disorder, chronic",6
+Z15.89,True,Genetic susceptibility to other disease,6
+J45.990,True,Exercise induced bronchospasm,6
+R45.86,True,Emotional lability,6
+H66.90,True,"Otitis media, unspecified, unspecified ear",6
+R74.0,True,Nonspecific elevation of levels of transaminase and lactic acid dehydrogenase [LDH],6
+M79.7,True,Fibromyalgia,6
+Z83.3,True,Family history of diabetes mellitus,6
+G89.29,True,Other chronic pain,6
+Z97.5,True,Presence of (intrauterine) contraceptive device,6
+E27.0,True,Other adrenocortical overactivity,6
+M25.562,True,Pain in left knee,6
+F80.82,True,Social pragmatic communication disorder,6
+N94.89,True,Other specified conditions associated with female genital organs and menstrual cycle,6
+T39.1X2A,True,"Poisoning by 4-Aminophenol derivatives, intentional self-harm, initial encounter",6
+F22,True,Delusional disorders,6
+J45,True,Asthma,6
+R10.10,True,"Upper abdominal pain, unspecified",6
+F43.0,True,Acute stress reaction,6
+Z63.79,True,Other stressful life events affecting family and household,6
+D22.9,True,"Melanocytic nevi, unspecified",6
+Q79.62,True,Hypermobile Ehlers-Danlos syndrome,6
+M21.42,True,"Flat foot [pes planus] (acquired), left foot",6
+F51.05,True,Insomnia due to other mental disorder,6
+L50.9,True,"Urticaria, unspecified",6
+F31.81,True,Bipolar II disorder,6
+Z62.898,True,Other specified problems related to upbringing,6
+F50.2,True,Bulimia nervosa,6
+M21.70,True,"Unequal limb length (acquired), unspecified site",6
+R14.0,True,Abdominal distension (gaseous),5
+R29.818,True,Other symptoms and signs involving the nervous system,5
+P07.30,True,"Preterm newborn, unspecified weeks of gestation",5
+R13.14,True,"Dysphagia, pharyngoesophageal phase",5
+R01.0,True,Benign and innocent cardiac murmurs,5
+F63.3,True,Trichotillomania,5
+M22.2X2,True,"Patellofemoral disorders, left knee",5
+R94.01,True,Abnormal electroencephalogram [EEG],5
+R29.898,True,Other symptoms and signs involving the musculoskeletal system,5
+I95.1,True,Orthostatic hypotension,5
+R25.1,True,"Tremor, unspecified",5
+F78,True,Other intellectual disabilities,5
+R69,True,"Illness, unspecified",5
+R53.1,True,Weakness,5
+M21.869,True,Other specified acquired deformities of unspecified lower leg,5
+M22.2X1,True,"Patellofemoral disorders, right knee",5
+H61.23,True,"Impacted cerumen, bilateral",5
+T14.91,True,Suicide attempt,5
+Z97.3,True,Presence of spectacles and contact lenses,5
+K62.5,True,Hemorrhage of anus and rectum,5
+R06.02,True,Shortness of breath,5
+D89.89,True,"Other specified disorders involving the immune mechanism, not elsewhere classified",5
+D84.9,True,"Immunodeficiency, unspecified",5
+F44.9,True,"Dissociative and conversion disorder, unspecified",5
+K75.81,True,Nonalcoholic steatohepatitis (NASH),5
+T74.22XA,True,"Child sexual abuse, confirmed, initial encounter",5
+Z28.39,True,Other underimmunization status,5
+G95.0,True,Syringomyelia and syringobulbia,5
+F44.4,True,Conversion disorder with motor symptom or deficit,5
+Z23,True,Encounter for immunization,5
+H50.112,True,"Monocular exotropia, left eye",5
+N91.5,True,"Oligomenorrhea, unspecified",5
+M79.604,True,Pain in right leg,5
+R06.2,True,Wheezing,5
+F06.8,True,Other specified mental disorders due to known physiological condition,5
+Z87.448,True,Personal history of other diseases of urinary system,5
+H91.90,True,"Unspecified hearing loss, unspecified ear",5
+F95.8,True,Other tic disorders,5
+R41.82,True,"Altered mental status, unspecified",5
+F33.41,True,"Major depressive disorder, recurrent, in partial remission",5
+Z91.52,True,Personal history of nonsuicidal self-harm,5
+Z92.21,True,Personal history of antineoplastic chemotherapy,5
+E78.6,True,Lipoprotein deficiency,5
+R41.89,True,Other symptoms and signs involving cognitive functions and awareness,5
+M25.552,True,Pain in left hip,5
+R74.01,True,Elevation of levels of liver transaminase levels,5
+T78.1XXA,True,"Other adverse food reactions, not elsewhere classified, initial encounter",5
+R63.2,True,Polyphagia,5
+E10.9,True,Type 1 diabetes mellitus without complications,5
+Z62.811,True,Personal history of psychological abuse in childhood,5
+F32.0,True,"Major depressive disorder, single episode, mild",5
+Z91.19,True,Patient's noncompliance with other medical treatment and regimen,5
+Z91.14,True,Patient's other noncompliance with medication regimen,5
+J45.50,True,"Severe persistent asthma, uncomplicated",5
+Z86.79,True,Personal history of other diseases of the circulatory system,5
+G31.84,True,"Mild cognitive impairment, so stated",5
+J35.01,True,Chronic tonsillitis,5
+T74.0,True,"Neglect or abandonment, confirmed",5
+R27.8,True,Other lack of coordination,5
+M62.81,True,Muscle weakness (generalized),4
+D84.821,True,Immunodeficiency due to drugs,4
+R27.9,True,Unspecified lack of coordination,4
+Q67.6,True,Pectus excavatum,4
+H53.032,True,"Strabismic amblyopia, left eye",4
+H02.59,True,Other disorders affecting eyelid function,4
+M62.9,True,"Disorder of muscle, unspecified",4
+L81.3,True,CafÃ© au lait spots,4
+H10.10,True,"Acute atopic conjunctivitis, unspecified eye",4
+B07.8,True,Other viral warts,4
+N13.30,True,Unspecified hydronephrosis,4
+F31.5,True,"Bipolar disorder, current episode depressed, severe, with psychotic features",4
+H50.21,True,"Vertical strabismus, right eye",4
+E22.1,True,Hyperprolactinemia,4
+F43.2,True,Adjustment disorders,4
+H50.15,True,Alternating exotropia,4
+M79.601,True,Pain in right arm,4
+R63.30,True,"Feeding difficulties, unspecified",4
+Q06.8,True,Other specified congenital malformations of spinal cord,4
+J30.89,True,Other allergic rhinitis,4
+M79.605,True,Pain in left leg,4
+E11.65,True,Type 2 diabetes mellitus with hyperglycemia,4
+H50.00,True,Unspecified esotropia,4
+E07.9,True,"Disorder of thyroid, unspecified",4
+R19.4,True,Change in bowel habit,4
+M79.641,True,Pain in right hand,4
+H53.9,True,Unspecified visual disturbance,4
+F42.2,True,Mixed obsessional thoughts and acts,4
+R53.82,True,"Chronic fatigue, unspecified",4
+Q55.22,True,Retractile testis,4
+M79.671,True,Pain in right foot,4
+Z98.890,True,Other specified postprocedural states,4
+Q66.89,True,Other specified congenital deformities of feet,4
+R50.9,True,"Fever, unspecified",4
+Z97.8,True,Presence of other specified devices,4
+T14.91XS,True,"Suicide attempt, sequela",4
+T76.12,True,"Child physical abuse, suspected",4
+Q82.9,True,"Congenital malformation of skin, unspecified",4
+T74.32,True,"Child psychological abuse, confirmed",4
+H92.09,True,"Otalgia, unspecified ear",4
+E66,True,Overweight and obesity,4
+T42.6X5A,True,"Adverse effect of other antiepileptic and sedative-hypnotic drugs, initial encounter",4
+F63.89,True,Other impulse disorders,4
+F50.01,True,"Anorexia nervosa, restricting type",4
+R23.8,True,Other skin changes,4
+F81.89,True,Other developmental disorders of scholastic skills,4
+Z59.01,True,Sheltered homelessness,4
+R44.2,True,Other hallucinations,4
+K21.00,True,"Gastro-esophageal reflux disease with esophagitis, without bleeding",4
+Q76.49,True,"Other congenital malformations of spine, not associated with scoliosis",4
+H92.01,True,"Otalgia, right ear",4
+N76.0,True,Acute vaginitis,4
+Z79.4,True,Long term (current) use of insulin,4
+Z55,True,Problems related to education and literacy,4
+L68.0,True,Hirsutism,4
+J45.90,True,Unspecified asthma,4
+R20.8,True,Other disturbances of skin sensation,4
+Z62.22,True,Institutional upbringing,4
+N94.3,True,Premenstrual tension syndrome,4
+G40.219,True,"Localization-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures, intractable, without status epilepticus",4
+Z91.49,True,"Other personal history of psychological trauma, not elsewhere classified",4
+M25.579,True,Pain in unspecified ankle and joints of unspecified foot,4
+F99,True,"Mental disorder, not otherwise specified",4
+L20.0,True,Besnier's prurigo,4
+Z62.890,True,Parent-child estrangement NEC,4
+T14.8XXA,True,"Other injury of unspecified body region, initial encounter",4
+L70.9,True,"Acne, unspecified",4
+Z73.810,True,"Behavioral insomnia of childhood, sleep-onset association type",4
+J03.01,True,Acute recurrent streptococcal tonsillitis,4
+F51.02,True,Adjustment insomnia,4
+F51.04,True,Psychophysiologic insomnia,4
+Q64.33,True,Congenital stricture of urinary meatus,4
+Z30.41,True,Encounter for surveillance of contraceptive pills,4
+N35.9,True,"Urethral stricture, unspecified",4
+R73.01,True,Impaired fasting glucose,4
+D70.9,True,"Neutropenia, unspecified",4
+G81.90,True,"Hemiplegia, unspecified affecting unspecified side",4
+F50.82,True,Avoidant/restrictive food intake disorder,4
+E88.819,False,,4
+Z30.09,True,Encounter for other general counseling and advice on contraception,4
+G80.9,True,"Cerebral palsy, unspecified",4
+R31.9,True,"Hematuria, unspecified",4
+L60.0,True,Ingrowing nail,4
+R20.2,True,Paresthesia of skin,4
+L80,True,Vitiligo,4
+R45.1,True,Restlessness and agitation,4
+T50.912A,True,"Poisoning by multiple unspecified drugs, medicaments and biological substances, intentional self-harm, initial encounter",3
+M25.539,True,Pain in unspecified wrist,3
+Z98.2,True,Presence of cerebrospinal fluid drainage device,3
+J34.2,True,Deviated nasal septum,3
+T74.12XS,True,"Child physical abuse, confirmed, sequela",3
+I15.8,True,Other secondary hypertension,3
+J32.9,True,"Chronic sinusitis, unspecified",3
+M21.769,True,"Unequal limb length (acquired), unspecified tibia and fibula",3
+H53.19,True,Other subjective visual disturbances,3
+J35.2,True,Hypertrophy of adenoids,3
+R79.1,True,Abnormal coagulation profile,3
+T74.22,True,"Child sexual abuse, confirmed",3
+I49.9,True,"Cardiac arrhythmia, unspecified",3
+T14.90XA,True,"Injury, unspecified, initial encounter",3
+H90.0,True,"Conductive hearing loss, bilateral",3
+M21.069,True,"Valgus deformity, not elsewhere classified, unspecified knee",3
+H55.01,True,Congenital nystagmus,3
+J02.9,True,"Acute pharyngitis, unspecified",3
+M22.2X9,True,"Patellofemoral disorders, unspecified knee",3
+Z86.14,True,Personal history of Methicillin resistant Staphylococcus aureus infection,3
+J45.31,True,Mild persistent asthma with (acute) exacerbation,3
+R80.9,True,"Proteinuria, unspecified",3
+R89.9,True,"Unspecified abnormal finding in specimens from other organs, systems and tissues",3
+T74.92XS,True,"Unspecified child maltreatment, confirmed, sequela",3
+Z86.73,True,"Personal history of transient ischemic attack (TIA), and cerebral infarction without residual deficits",3
+H72.01,True,"Central perforation of tympanic membrane, right ear",3
+T50.901A,True,"Poisoning by unspecified drugs, medicaments and biological substances, accidental (unintentional), initial encounter",3
+H92.02,True,"Otalgia, left ear",3
+H92.03,True,"Otalgia, bilateral",3
+J45.998,True,Other asthma,3
+R63.8,True,Other symptoms and signs concerning food and fluid intake,3
+E66.812,False,,3
+R73.0,True,Abnormal glucose,3
+R44.8,True,Other symptoms and signs involving general sensations and perceptions,3
+H53.042,True,"Amblyopia suspect, left eye",3
+F51.4,True,Sleep terrors [night terrors],3
+R26.2,True,"Difficulty in walking, not elsewhere classified",3
+Q75.3,True,Macrocephaly,3
+F60.9,True,"Personality disorder, unspecified",3
+R10.30,True,"Lower abdominal pain, unspecified",3
+D57.3,True,Sickle-cell trait,3
+Z76.89,True,Persons encountering health services in other specified circumstances,3
+Q21.0,True,Ventricular septal defect,3
+O92.6,True,Galactorrhea,3
+L29.9,True,"Pruritus, unspecified",3
+R35.8,True,Other polyuria,3
+F80.89,True,Other developmental disorders of speech and language,3
+D56.3,True,Thalassemia minor,3
+D50.0,True,Iron deficiency anemia secondary to blood loss (chronic),3
+R10.11,True,Right upper quadrant pain,3
+Z91.010,True,Allergy to peanuts,3
+F12.20,True,"Cannabis dependence, uncomplicated",3
+Z79.52,True,Long term (current) use of systemic steroids,3
+L20.89,True,Other atopic dermatitis,3
+F12.10,True,"Cannabis abuse, uncomplicated",3
+S09.90XA,True,"Unspecified injury of head, initial encounter",3
+F94.2,True,Disinhibited attachment disorder of childhood,3
+F98.0,True,Enuresis not due to a substance or known physiological condition,3
+F98.3,True,Pica of infancy and childhood,3
+F98.8,True,Other specified behavioral and emotional disorders with onset usually occurring in childhood and adolescence,3
+D22.5,True,Melanocytic nevi of trunk,3
+L60.8,True,Other nail disorders,3
+H53.041,True,"Amblyopia suspect, right eye",3
+F54,True,Psychological and behavioral factors associated with disorders or diseases classified elsewhere,3
+F50.89,True,Other specified eating disorder,3
+K90.9,True,"Intestinal malabsorption, unspecified",3
+F50.81,True,Binge eating disorder,3
+Q66.50,True,"Congenital pes planus, unspecified foot",3
+Q66.51,True,"Congenital pes planus, right foot",3
+E22.8,True,Other hyperfunction of pituitary gland,3
+Z87.42,True,Personal history of other diseases of the female genital tract,3
+Z72.810,True,Child and adolescent antisocial behavior,3
+Z87.438,True,Personal history of other diseases of male genital organs,3
+Q66.52,True,"Congenital pes planus, left foot",3
+F31.32,True,"Bipolar disorder, current episode depressed, moderate",3
+Q06.9,True,"Congenital malformation of spinal cord, unspecified",3
+Z72.0,True,Tobacco use,3
+Z71.89,True,Other specified counseling,3
+F31.2,True,"Bipolar disorder, current episode manic severe with psychotic features",3
+L50.1,True,Idiopathic urticaria,3
+R29.6,True,Repeated falls,3
+E10.649,True,Type 1 diabetes mellitus with hypoglycemia without coma,3
+F31.0,True,"Bipolar disorder, current episode hypomanic",3
+Z87.74,True,Personal history of (corrected) congenital malformations of heart and circulatory system,3
+P94.2,True,Congenital hypotonia,3
+E04.1,True,Nontoxic single thyroid nodule,3
+E03.1,True,Congenital hypothyroidism without goiter,3
+Q67.7,True,Pectus carinatum,3
+F43.89,False,,3
+D80.1,True,Nonfamilial hypogammaglobulinemia,3
+F45.22,True,Body dysmorphic disorder,3
+K59.02,True,Outlet dysfunction constipation,3
+Q74.0,True,"Other congenital malformations of upper limb(s), including shoulder girdle",3
+Z88.0,True,Allergy status to penicillin,3
+N92.1,True,Excessive and frequent menstruation with irregular cycle,3
+G25.0,True,Essential tremor,3
+G40.109,True,"Localization-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures, not intractable, without status epilepticus",3
+Z00.3,True,Encounter for examination for adolescent development state,3
+Q66.5,True,Congenital pes planus,3
+Q93.88,True,Other microdeletions,3
+S00.03XA,True,"Contusion of scalp, initial encounter",3
+B35.3,True,Tinea pedis,3
+Z09,True,Encounter for follow-up examination after completed treatment for conditions other than malignant neoplasm,3
+N13.70,True,"Vesicoureteral-reflux, unspecified",3
+Z96.41,True,Presence of insulin pump (external) (internal),3
+Z01.110,True,Encounter for hearing examination following failed hearing screening,3
+B34.9,True,"Viral infection, unspecified",3
+R47.89,True,Other speech disturbances,3
+E30.0,True,Delayed puberty,3
+M85.80,True,"Other specified disorders of bone density and structure, unspecified site",3
+N39.46,True,Mixed incontinence,3
+M79.672,True,Pain in left foot,3
+R52,True,"Pain, unspecified",3
+R53.81,True,Other malaise,3
+H47.033,True,"Optic nerve hypoplasia, bilateral",3
+M79.642,True,Pain in left hand,3
+L85.8,True,Other specified epidermal thickening,3
+H50.32,True,Intermittent alternating esotropia,3
+H50.42,True,Monofixation syndrome,3
+L90.5,True,Scar conditions and fibrosis of skin,3
+B07.9,True,"Viral wart, unspecified",3
+L03.90,True,"Cellulitis, unspecified",3
+G90.A,False,,3
+G98.8,True,Other disorders of nervous system,3
+Z81.3,True,Family history of other psychoactive substance abuse and dependence,3
+G47.5,True,Parasomnia,3
+G44.219,True,"Episodic tension-type headache, not intractable",3
+N62,True,Hypertrophy of breast,3
+K21.0,True,Gastro-esophageal reflux disease with esophagitis,3
+Z81.1,True,Family history of alcohol abuse and dependence,3
+G43.011,True,"Migraine without aura, intractable, with status migrainosus",3
+G44.89,True,Other headache syndrome,3
+Z59.0,True,Homelessness,3
+B96.81,True,Helicobacter pylori [H. pylori] as the cause of diseases classified elsewhere,3
+Z55.4,True,Educational maladjustment and discord with teachers and classmates,3
+R41.3,True,Other amnesia,3
+G47.50,True,"Parasomnia, unspecified",3
+G47.51,True,Confusional arousals,3
+G47.61,True,Periodic limb movement disorder,3
+G47.8,True,Other sleep disorders,3
+Z93.9,True,"Artificial opening status, unspecified",3
+G40.309,True,"Generalized idiopathic epilepsy and epileptic syndromes, not intractable, without status epilepticus",3
+Q10.3,True,Other congenital malformations of eyelid,3
+Z92.25,True,Personal history of immunosuppression therapy,3
+L91.0,True,Hypertrophic scar,2
+K90.4,True,Other malabsorption due to intolerance,2
+S06.0X1A,True,"Concussion with loss of consciousness of 30 minutes or less, initial encounter",2
+S02.0XXA,True,"Fracture of vault of skull, initial encounter for closed fracture",2
+L65.9,True,"Nonscarring hair loss, unspecified",2
+L98.9,True,"Disorder of the skin and subcutaneous tissue, unspecified",2
+S06.9X0A,True,"Unspecified intracranial injury without loss of consciousness, initial encounter",2
+L81.9,True,"Disorder of pigmentation, unspecified",2
+L20.82,True,Flexural eczema,2
+S06.0X0A,True,"Concussion without loss of consciousness, initial encounter",2
+S40.812A,True,"Abrasion of left upper arm, initial encounter",2
+L71.0,True,Perioral dermatitis,2
+M08.80,True,"Other juvenile arthritis, unspecified site",2
+L21.9,True,"Seborrheic dermatitis, unspecified",2
+L50.8,True,Other urticaria,2
+L01.00,True,"Impetigo, unspecified",2
+L73.9,True,"Follicular disorder, unspecified",2
+L20,True,Atopic dermatitis,2
+L30.5,True,Pityriasis alba,2
+L40.9,True,"Psoriasis, unspecified",2
+A04.0,True,Enteropathogenic Escherichia coli infection,2
+M08.90,True,"Juvenile arthritis, unspecified, unspecified site",2
+K64.4,True,Residual hemorrhoidal skin tags,2
+Q36.9,True,"Cleft lip, unilateral",2
+Q27.9,True,"Congenital malformation of peripheral vascular system, unspecified",2
+R22.0,True,"Localized swelling, mass and lump, head",2
+R22.31,True,"Localized swelling, mass and lump, right upper limb",2
+R22.32,True,"Localized swelling, mass and lump, left upper limb",2
+Q25.0,True,Patent ductus arteriosus,2
+Q23.1,True,Congenital insufficiency of aortic valve,2
+Q21.3,True,Tetralogy of Fallot,2
+Q21.1,True,Atrial septal defect,2
+Q17.2,True,Microtia,2
+Q12.0,True,Congenital cataract,2
+Q07.00,True,Arnold-Chiari syndrome without spina bifida or hydrocephalus,2
+Q04.8,True,Other specified congenital malformations of brain,2
+P84,True,Other problems with newborn,2
+R31.2,True,Other microscopic hematuria,2
+P04.6,True,Newborn affected by maternal exposure to environmental chemical substances,2
+P04.40,True,Newborn affected by maternal use of unspecified drugs of addiction,2
+Q43.3,True,Congenital malformations of intestinal fixation,2
+Q53.10,True,"Unspecified undescended testicle, unilateral",2
+Q54.4,True,Congenital chordee,2
+Q79.60,True,"Ehlers-Danlos syndrome, unspecified",2
+Q99.8,True,Other specified chromosome abnormalities,2
+Q89.9,True,"Congenital malformation, unspecified",2
+R05.1,True,Acute cough,2
+Q87.89,True,"Other specified congenital malformation syndromes, not elsewhere classified",2
+R05.9,True,"Cough, unspecified",2
+Q85.01,True,"Neurofibromatosis, type 1",2
+R07.89,True,Other chest pain,2
+R09.89,True,Other specified symptoms and signs involving the circulatory and respiratory systems,2
+R15,True,Fecal incontinence,2
+R10.2,True,Pelvic and perineal pain,2
+Q75.0,True,Craniosynostosis,2
+R10.816,True,Epigastric abdominal tenderness,2
+Q67.4,True,"Other congenital deformities of skull, face and jaw",2
+Q66.6,True,Other congenital valgus deformities of feet,2
+R13.12,True,"Dysphagia, oropharyngeal phase",2
+R14.3,True,Flatulence,2
+N92.2,True,Excessive menstruation at puberty,2
+N90.89,True,Other specified noninflammatory disorders of vulva and perineum,2
+R93.7,True,Abnormal findings on diagnostic imaging of other parts of musculoskeletal system,2
+N89.8,True,Other specified noninflammatory disorders of vagina,2
+R62.59,True,Other lack of expected normal physiological development in childhood,2
+M67.432,True,"Ganglion, left wrist",2
+R63.39,True,Other feeding difficulties,2
+M46.1,True,"Sacroiliitis, not elsewhere classified",2
+R70.0,True,Elevated erythrocyte sedimentation rate,2
+M26.629,True,"Arthralgia of temporomandibular joint, unspecified side",2
+M25.569,True,Pain in unspecified knee,2
+M25.541,True,Pain in joints of right hand,2
+M25.512,True,Pain in left shoulder,2
+M25.511,True,Pain in right shoulder,2
+M25.362,True,"Other instability, left knee",2
+M24.80,True,"Other specific joint derangements of unspecified joint, not elsewhere classified",2
+M21.861,True,Other specified acquired deformities of right lower leg,2
+R89.8,True,"Other abnormal findings in specimens from other organs, systems and tissues",2
+M21.161,True,"Varus deformity, not elsewhere classified, right knee",2
+M21.062,True,"Valgus deformity, not elsewhere classified, left knee",2
+M20.5X9,True,"Other deformities of toe(s) (acquired), unspecified foot",2
+R59.1,True,Generalized enlarged lymph nodes,2
+M79.1,True,Myalgia,2
+R59.0,True,Localized enlarged lymph nodes,2
+N31.9,True,"Neuromuscular dysfunction of bladder, unspecified",2
+N64.4,True,Mastodynia,2
+N50.89,True,Other specified disorders of the male genital organs,2
+N48.9,True,"Disorder of penis, unspecified",2
+N48.89,True,Other specified disorders of penis,2
+N48.1,True,Balanitis,2
+R45.0,True,Nervousness,2
+N39.43,True,Post-void dribbling,2
+N28.1,True,"Cyst of kidney, acquired",2
+M79.2,True,"Neuralgia and neuritis, unspecified",2
+N20.0,True,Calculus of kidney,2
+M92.8,True,Other specified juvenile osteochondrosis,2
+M89.8X1,True,"Other specified disorders of bone, shoulder",2
+R48.8,True,Other symbolic dysfunctions,2
+M79.673,True,Pain in unspecified foot,2
+M79.644,True,Pain in right finger(s),2
+M79.606,True,"Pain in leg, unspecified",2
+K64.9,True,Unspecified hemorrhoids,2
+H66.93,True,"Otitis media, unspecified, bilateral",2
+R00.9,True,Unspecified abnormalities of heart beat,2
+F80.4,True,Speech and language development delay due to hearing loss,2
+J01.90,True,"Acute sinusitis, unspecified",2
+T42.6X5D,True,"Adverse effect of other antiepileptic and sedative-hypnotic drugs, subsequent encounter",2
+F06.34,True,Mood disorder due to known physiological condition with mixed features,2
+H47.293,True,"Other optic atrophy, bilateral",2
+F07.81,True,Postconcussional syndrome,2
+F09,True,Unspecified mental disorder due to known physiological condition,2
+F10.1,True,Alcohol abuse,2
+F10.10,True,"Alcohol abuse, uncomplicated",2
+I77.810,True,Thoracic aortic ectasia,2
+F80.81,True,Childhood onset fluency disorder,2
+U07.1,True,COVID-19,2
+F12.90,True,"Cannabis use, unspecified, uncomplicated",2
+G80.1,True,Spastic diplegic cerebral palsy,2
+H50.22,True,"Vertical strabismus, left eye",2
+F80,True,Specific developmental disorders of speech and language,2
+F17.200,True,"Nicotine dependence, unspecified, uncomplicated",2
+I49.3,True,Ventricular premature depolarization,2
+I49.1,True,Atrial premature depolarization,2
+F02.80,True,Dementia in other diseases classified elsewhere without behavioral disturbance,2
+E88.09,True,"Other disorders of plasma-protein metabolism, not elsewhere classified",2
+F64.8,True,Other gender identity disorders,2
+T18.9XXA,True,"Foreign body of alimentary tract, part unspecified, initial encounter",2
+T14.8,True,Other injury of unspecified body region,2
+H52.523,True,"Paresis of accommodation, bilateral",2
+T16.2XXA,True,"Foreign body in left ear, initial encounter",2
+J34.89,True,Other specified disorders of nose and nasal sinuses,2
+E80.6,True,Other disorders of bilirubin metabolism,2
+J34.1,True,Cyst and mucocele of nose and nasal sinus,2
+J32.8,True,Other chronic sinusitis,2
+X78.9XXS,True,"Intentional self-harm by unspecified sharp object, sequela",2
+H44.23,True,"Degenerative myopia, bilateral",2
+Z82.41,True,Family history of sudden cardiac death,2
+F94.8,True,Other childhood disorders of social functioning,2
+Z83.49,True,"Family history of other endocrine, nutritional and metabolic diseases",2
+J20.6,True,Acute bronchitis due to rhinovirus,2
+Z82.79,True,"Family history of other congenital malformations, deformations and chromosomal abnormalities",2
+J15.7,True,Pneumonia due to Mycoplasma pneumoniae,2
+W19.XXXA,True,"Unspecified fall, initial encounter",2
+F94.0,True,Selective mutism,2
+J05.0,True,Acute obstructive laryngitis [croup],2
+I47.1,True,Supraventricular tachycardia,2
+F19.90,True,"Other psychoactive substance use, unspecified, uncomplicated",2
+J98.4,True,Other disorders of lung,2
+F50.8,True,Other eating disorders,2
+H51.11,True,Convergence insufficiency,2
+F60.5,True,Obsessive-compulsive personality disorder,2
+F40.298,True,Other specified phobia,2
+F41.3,True,Other mixed anxiety disorders,2
+F51.5,True,Nightmare disorder,2
+F45.1,True,Undifferentiated somatoform disorder,2
+H52.00,True,"Hypermetropia, unspecified eye",2
+H57.02,True,Anisocoria,2
+H54.7,True,Unspecified visual loss,2
+F34.89,True,Other specified persistent mood disorders,2
+H53.8,True,Other visual disturbances,2
+T76.3,True,"Psychological abuse, suspected",2
+H53.2,True,Diplopia,2
+T76.32XA,True,"Child psychological abuse, suspected, initial encounter",2
+H53.143,True,"Visual discomfort, bilateral",2
+H53.049,True,"Amblyopia suspect, unspecified eye",2
+H53.031,True,"Strabismic amblyopia, right eye",2
+F50.02,True,"Anorexia nervosa, binge eating/purging type",2
+F40.01,True,Agoraphobia with panic disorder,2
+H69.80,True,"Other specified disorders of Eustachian tube, unspecified ear",2
+F19.982,True,"Other psychoactive substance use, unspecified with psychoactive substance-induced sleep disorder",2
+T71.162A,True,"Asphyxiation due to hanging, intentional self-harm, initial encounter",2
+I44.1,True,"Atrioventricular block, second degree",2
+H50.331,True,"Intermittent monocular exotropia, right eye",2
+F23,True,Brief psychotic disorder,2
+T54.92XA,True,"Toxic effect of unspecified corrosive substance, intentional self-harm, initial encounter",2
+F25.1,True,"Schizoaffective disorder, depressive type",2
+F25.9,True,"Schizoaffective disorder, unspecified",2
+F31.30,True,"Bipolar disorder, current episode depressed, mild or moderate severity, unspecified",2
+T65.91XA,True,"Toxic effect of unspecified substance, accidental (unintentional), initial encounter",2
+F31.60,True,"Bipolar disorder, current episode mixed, unspecified",2
+H50.9,True,Unspecified strabismus,2
+F31.63,True,"Bipolar disorder, current episode mixed, severe, without psychotic features",2
+T74.01XA,True,"Adult neglect or abandonment, confirmed, initial encounter",2
+T74.02,True,"Child neglect or abandonment, confirmed",2
+H90.12,True,"Conductive hearing loss, unilateral, left ear, with unrestricted hearing on the contralateral side",2
+H90.11,True,"Conductive hearing loss, unilateral, right ear, with unrestricted hearing on the contralateral side",2
+F31.89,True,Other bipolar disorder,2
+H69.83,True,"Other specified disorders of Eustachian tube, bilateral",2
+Z72.51,True,High risk heterosexual behavior,2
+G24.01,True,Drug induced subacute dyskinesia,2
+T16.1XXA,True,"Foreign body in right ear, initial encounter",2
+G24.9,True,"Dystonia, unspecified",2
+Z92.29,True,Personal history of other drug therapy,2
+Z13.40,True,Encounter for screening for unspecified developmental delays,2
+K58.1,True,Irritable bowel syndrome with constipation,2
+K58.0,True,Irritable bowel syndrome with diarrhea,2
+Z91.148,False,,2
+Z13.29,True,Encounter for screening for other suspected endocrine disorder,2
+K52.82,True,Eosinophilic colitis,2
+Z91.11,True,Patient's noncompliance with dietary regimen,2
+Z11.3,True,Encounter for screening for infections with a predominantly sexual mode of transmission,2
+Z90.89,True,Acquired absence of other organs,2
+Z02.82,True,Encounter for adoption services,2
+Z60.4,True,Social exclusion and rejection,2
+D46.9,True,"Myelodysplastic syndrome, unspecified",2
+D47.Z1,True,Post-transplant lymphoproliferative disorder (PTLD),2
+Z90.49,True,Acquired absence of other specified parts of digestive tract,2
+D64.81,True,Anemia due to antineoplastic chemotherapy,2
+Z88.8,True,"Allergy status to other drugs, medicaments and biological substances",2
+G43.701,True,"Chronic migraine without aura, not intractable, with status migrainosus",2
+G44.209,True,"Tension-type headache, unspecified, not intractable",2
+B99.9,True,Unspecified infectious disease,2
+D75.0,True,Familial erythrocytosis,2
+Z59.1,True,Inadequate housing,2
+A08.4,True,"Viral intestinal infection, unspecified",2
+A09,True,"Infectious gastroenteritis and colitis, unspecified",2
+Z98.1,True,Arthrodesis status,2
+S52.521D,True,"Torus fracture of lower end of right radius, subsequent encounter for fracture with routine healing",2
+G80.8,True,Other cerebral palsy,2
+B27.90,True,"Infectious mononucleosis, unspecified without complication",2
+G47.59,True,Other parasomnia,2
+G47.0,True,Insomnia,2
+K59.9,True,"Functional intestinal disorder, unspecified",2
+G90.8,True,Other disorders of autonomic nervous system,2
+G44.40,True,"Drug-induced headache, not elsewhere classified, not intractable",2
+G91.9,True,"Hydrocephalus, unspecified",2
+G93.0,True,Cerebral cysts,2
+G44.4,True,"Drug-induced headache, not elsewhere classified",2
+Z93.1,True,Gastrostomy status,2
+K59.2,True,"Neurogenic bowel, not elsewhere classified",2
+G44.329,True,"Chronic post-traumatic headache, not intractable",2
+D72.819,True,"Decreased white blood cell count, unspecified",2
+Z88.9,True,"Allergy status to unspecified drugs, medicaments and biological substances",2
+F50.029,False,,2
+E13.9,True,Other specified diabetes mellitus without complications,2
+G40.011,True,"Localization-related (focal) (partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset, intractable, with status epilepticus",2
+S83.015A,True,"Lateral dislocation of left patella, initial encounter",2
+G43.001,True,"Migraine without aura, not intractable, with status migrainosus",2
+E30.8,True,Other disorders of puberty,2
+K13.79,True,Other lesions of oral mucosa,2
+G43.1,True,Migraine with aura,2
+E34.8,True,Other specified endocrine disorders,2
+G40.A19,True,"Absence epileptic syndrome, intractable, without status epilepticus",2
+E41,True,Nutritional marasmus,2
+E61.1,True,Iron deficiency,2
+E63.9,True,"Nutritional deficiency, unspecified",2
+G40.89,True,Other seizures,2
+Z86.19,True,Personal history of other infectious and parasitic diseases,2
+K08.89,True,Other specified disorders of teeth and supporting structures,2
+K08.9,True,"Disorder of teeth and supporting structures, unspecified",2
+E22.9,True,"Hyperfunction of pituitary gland, unspecified",2
+Z87.39,True,Personal history of other diseases of the musculoskeletal system and connective tissue,2
+E13.65,True,Other specified diabetes mellitus with hyperglycemia,2
+Z62.822,True,Parent-foster child conflict,2
+G43.019,True,"Migraine without aura, intractable, without status migrainosus",2
+J98.8,True,Other specified respiratory disorders,2
+Z87.891,True,Personal history of nicotine dependence,2
+D84.81,True,Immunodeficiency due to conditions classified elsewhere,2
+H17.89,True,Other corneal scars and opacities,2
+G25.69,True,Other tics of organic origin,2
+K31.89,True,Other diseases of stomach and duodenum,2
+E03.2,True,Hypothyroidism due to medicaments and other exogenous substances,2
+E03.8,True,Other specified hypothyroidism,2
+K29.80,True,Duodenitis without bleeding,2
+G25.71,True,Drug induced akathisia,2
+Z01.00,True,Encounter for examination of eyes and vision without abnormal findings,2
+E66.1,True,Drug-induced obesity,2
+R35,True,Polyuria,1
+Z65.3,True,Problems related to other legal circumstances,1
+R39.198,True,Other difficulties with micturition,1
+Z51.89,True,Encounter for other specified aftercare,1
+Z55.2,True,Failed school examinations,1
+Z51.5,True,Encounter for palliative care,1
+R35.1,True,Nocturia,1
+Z63,True,"Other problems related to primary support group, including family circumstances",1
+Z63.3,True,Absence of family member,1
+Z63.72,True,Alcoholism and drug addiction in family,1
+Z59.81,True,"Housing instability, housed",1
+R35.89,True,Other polyuria,1
+Z59.819,True,"Housing instability, housed unspecified",1
+Z60.3,True,Acculturation difficulty,1
+Z63.7,True,Other stressful life events affecting family and household,1
+Z63.6,True,Dependent relative needing care at home,1
+R41.4,True,Neurologic neglect syndrome,1
+Z60.5,True,Target of (perceived) adverse discrimination and persecution,1
+Z62.831,False,,1
+Z60.8,True,Other problems related to social environment,1
+Z62.2,True,Upbringing away from parents,1
+R23.1,True,Pallor,1
+Z65.4,True,Victim of crime and terrorism,1
+Z88.3,True,Allergy status to other anti-infective agents,1
+Z91.1,True,Patient's noncompliance with medical treatment and regimen,1
+Z91.048,True,Other nonmedicinal substance allergy status,1
+R09.A2,False,,1
+Z90.81,True,Acquired absence of spleen,1
+Z90.01,True,Acquired absence of eye,1
+R10.31,True,Right lower quadrant pain,1
+R10.83,True,Colic,1
+Z91.199,False,,1
+Z87.892,True,Personal history of anaphylaxis,1
+Z87.828,True,Personal history of other (healed) physical injury and trauma,1
+Z87.718,True,Personal history of other specified (corrected) congenital malformations of genitourinary system,1
+Z87.01,True,Personal history of pneumonia (recurrent),1
+Z87.0,True,Personal history of diseases of the respiratory system,1
+R11.11,True,Vomiting without nausea,1
+Z91.120,True,Patient's intentional underdosing of medication regimen due to financial hardship,1
+Z91.410,True,Personal history of adult physical and sexual abuse,1
+R14.2,True,Eructation,1
+Z95.0,True,Presence of cardiac pacemaker,1
+Z96.9,True,"Presence of functional implant, unspecified",1
+Z96.89,True,Presence of other specified functional implants,1
+Z96.21,True,Cochlear implant status,1
+Z96.1,True,Presence of intraocular lens,1
+Z95.828,True,Presence of other vascular implants and grafts,1
+R04.2,True,Hemoptysis,1
+Z94.9,True,"Transplanted organ and tissue status, unspecified",1
+R06.81,True,"Apnea, not elsewhere classified",1
+Z94.4,True,Liver transplant status,1
+Z94.1,True,Heart transplant status,1
+Z93.4,True,Other artificial openings of gastrointestinal tract status,1
+R06.00,True,"Dyspnea, unspecified",1
+Z92.89,True,Personal history of other medical treatment,1
+Z92.3,True,Personal history of irradiation,1
+Z86.39,True,"Personal history of other endocrine, nutritional and metabolic disease",1
+Z86.018,True,Personal history of other benign neoplasm,1
+R31.0,True,Gross hematuria,1
+Z73.4,True,"Inadequate social skills, not elsewhere classified",1
+Z79.3,True,Long term (current) use of hormonal contraceptives,1
+Z79.1,True,Long term (current) use of non-steroidal anti-inflammatories (NSAID),1
+R25,True,Abnormal involuntary movements,1
+Z77.29,True,Contact with and (suspected) exposure to other hazardous substances,1
+R25.3,True,Fasciculation,1
+Z73.5,True,"Social role conflict, not elsewhere classified",1
+Z72.4,True,Inappropriate diet and eating habits,1
+Z79.631,False,,1
+R29.2,True,Abnormal reflex,1
+R29.3,True,Abnormal posture,1
+Z69.021,True,Encounter for mental health services for perpetrator of non-parental child abuse,1
+Z68.55,False,,1
+Z68.51,True,"Body mass index [BMI] pediatric, less than 5th percentile for age",1
+Z65.9,True,Problem related to unspecified psychosocial circumstances,1
+R22.41,True,"Localized swelling, mass and lump, right lower limb",1
+R20.9,True,Unspecified disturbances of skin sensation,1
+Z85.89,True,Personal history of malignant neoplasm of other organs and systems,1
+R16.2,True,"Hepatomegaly with splenomegaly, not elsewhere classified",1
+Z85.841,True,Personal history of malignant neoplasm of brain,1
+Z85.840,True,Personal history of malignant neoplasm of eye,1
+Z85.830,True,Personal history of malignant neoplasm of bone,1
+R16.0,True,"Hepatomegaly, not elsewhere classified",1
+Z84.81,True,Family history of carrier of genetic disease,1
+R16.1,True,"Splenomegaly, not elsewhere classified",1
+R17,True,Unspecified jaundice,1
+R20.3,True,Hyperesthesia,1
+R19.00,True,"Intra-abdominal and pelvic swelling, mass and lump, unspecified site",1
+R19.01,True,"Right upper quadrant abdominal swelling, mass and lump",1
+Z84.1,True,Family history of disorders of kidney and ureter,1
+Z82.71,True,Family history of polycystic kidney,1
+Z82.69,True,Family history of other diseases of the musculoskeletal system and connective tissue,1
+R20.0,True,Anesthesia of skin,1
+Z51,True,Encounter for other aftercare and medical care,1
+S50.819,True,Abrasion of unspecified forearm,1
+Z48.23,True,Encounter for aftercare following liver transplant,1
+S00.83XA,True,"Contusion of other part of head, initial encounter",1
+S92.514A,True,"Nondisplaced fracture of proximal phalanx of right lesser toe(s), initial encounter for closed fracture",1
+S92.354D,True,"Nondisplaced fracture of fifth metatarsal bone, right foot, subsequent encounter for fracture with routine healing",1
+S91.302D,True,"Unspecified open wound, left foot, subsequent encounter",1
+R94.7,True,Abnormal results of other endocrine function studies,1
+S91.302A,True,"Unspecified open wound, left foot, initial encounter",1
+S91.301D,True,"Unspecified open wound, right foot, subsequent encounter",1
+S90.935A,True,"Unspecified superficial injury of left lesser toe(s), initial encounter",1
+S00.451A,True,"Superficial foreign body of right ear, initial encounter",1
+S00.81XA,True,"Abrasion of other part of head, initial encounter",1
+S00.90XA,True,"Unspecified superficial injury of unspecified part of head, initial encounter",1
+S01.112A,True,"Laceration without foreign body of left eyelid and periocular area, initial encounter",1
+S89.90XA,True,"Unspecified injury of unspecified lower leg, initial encounter",1
+S83.002A,True,"Unspecified subluxation of left patella, initial encounter",1
+S00.93XA,True,"Contusion of unspecified part of head, initial encounter",1
+S80.812A,True,"Abrasion, left lower leg, initial encounter",1
+S72.421S,True,"Displaced fracture of lateral condyle of right femur, sequela",1
+S01.01XA,True,"Laceration without foreign body of scalp, initial encounter",1
+S70.10XA,True,"Contusion of unspecified thigh, initial encounter",1
+S01.111A,True,"Laceration without foreign body of right eyelid and periocular area, initial encounter",1
+S69.92XA,True,"Unspecified injury of left wrist, hand and finger(s), initial encounter",1
+S92.919A,True,"Unspecified fracture of unspecified toe(s), initial encounter for closed fracture",1
+S93.01XS,True,"Subluxation of right ankle joint, sequela",1
+R94.4,True,Abnormal results of kidney function studies,1
+S99.922A,True,"Unspecified injury of left foot, initial encounter",1
+T42.6X1A,True,"Poisoning by other antiepileptic and sedative-hypnotic drugs, accidental (unintentional), initial encounter",1
+T39.1X4S,True,"Poisoning by 4-Aminophenol derivatives, undetermined, sequela",1
+R82.99,True,Other abnormal findings in urine,1
+T39.1X2S,True,"Poisoning by 4-Aminophenol derivatives, intentional self-harm, sequela",1
+T39.1X2D,True,"Poisoning by 4-Aminophenol derivatives, intentional self-harm, subsequent encounter",1
+T39.1X1A,True,"Poisoning by 4-Aminophenol derivatives, accidental (unintentional), initial encounter",1
+R83.2,True,"Abnormal level of other drugs, medicaments and biological substances in cerebrospinal fluid",1
+T38.3X2A,True,"Poisoning by insulin and oral hypoglycemic [antidiabetic] drugs, intentional self-harm, initial encounter",1
+R89.4,True,"Abnormal immunological findings in specimens from other organs, systems and tissues",1
+T24.112A,True,"Burn of first degree of left thigh, initial encounter",1
+T22.291A,True,"Burn of second degree of multiple sites of right shoulder and upper limb, except wrist and hand, initial encounter",1
+T21.20XA,True,"Burn of second degree of trunk, unspecified site, initial encounter",1
+R90.89,True,Other abnormal findings on diagnostic imaging of central nervous system,1
+T17.1XXA,True,"Foreign body in nostril, initial encounter",1
+R93.2,True,Abnormal findings on diagnostic imaging of liver and biliary tract,1
+R93.8,True,Abnormal findings on diagnostic imaging of other specified body structures,1
+T07.XXXA,True,"Unspecified multiple injuries, initial encounter",1
+R94.120,True,Abnormal auditory function study,1
+R94.131,True,Abnormal electromyogram [EMG],1
+S63.601A,True,"Unspecified sprain of right thumb, initial encounter",1
+S01.81XA,True,"Laceration without foreign body of other part of head, initial encounter",1
+Z48.21,True,Encounter for aftercare following heart transplant,1
+S52.611D,True,"Displaced fracture of right ulna styloid process, subsequent encounter for closed fracture with routine healing",1
+S06.2X9S,True,"Diffuse traumatic brain injury with loss of consciousness of unspecified duration, sequela",1
+S06.300S,True,"Unspecified focal traumatic brain injury without loss of consciousness, sequela",1
+S59.902D,True,"Unspecified injury of left elbow, subsequent encounter",1
+S59.011D,True,"Salter-Harris Type I physeal fracture of lower end of ulna, right arm, subsequent encounter for fracture with routine healing",1
+S09.8XXD,True,"Other specified injuries of head, subsequent encounter",1
+S52.92XA,True,"Unspecified fracture of left forearm, initial encounter for closed fracture",1
+S52.612D,True,"Displaced fracture of left ulna styloid process, subsequent encounter for closed fracture with routine healing",1
+S09.90XS,True,"Unspecified injury of head, sequela",1
+S09.92XA,True,"Unspecified injury of nose, initial encounter",1
+S09.93XA,True,"Unspecified injury of face, initial encounter",1
+S62.647D,True,"Nondisplaced fracture of proximal phalanx of left little finger, subsequent encounter for fracture with routine healing",1
+S09.93XD,True,"Unspecified injury of face, subsequent encounter",1
+S10.81XA,True,"Abrasion of other specified part of neck, initial encounter",1
+S20.219A,True,"Contusion of unspecified front wall of thorax, initial encounter",1
+S32.050A,True,"Wedge compression fracture of fifth lumbar vertebra, initial encounter for closed fracture",1
+S52.552D,True,"Other extraarticular fracture of lower end of left radius, subsequent encounter for closed fracture with routine healing",1
+S39.92XA,True,"Unspecified injury of lower back, initial encounter",1
+S52.5,True,Fracture of lower end of radius,1
+S41.011A,True,"Laceration without foreign body of right shoulder, initial encounter",1
+S42.414D,True,"Nondisplaced simple supracondylar fracture without intercondylar fracture of right humerus, subsequent encounter for fracture with routine healing",1
+S06.0X9S,True,"Concussion with loss of consciousness of unspecified duration, sequela",1
+S06.0X9D,True,"Concussion with loss of consciousness of unspecified duration, subsequent encounter",1
+S06.0X9A,True,"Concussion with loss of consciousness of unspecified duration, initial encounter",1
+S60.221A,True,"Contusion of right hand, initial encounter",1
+S02.31XA,True,"Fracture of orbital floor, right side, initial encounter for closed fracture",1
+S62.647A,True,"Nondisplaced fracture of proximal phalanx of left little finger, initial encounter for closed fracture",1
+S62.625A,True,"Displaced fracture of middle phalanx of left ring finger, initial encounter for closed fracture",1
+S02.42XS,True,"Fracture of alveolus of maxilla, sequela",1
+S62.624A,True,"Displaced fracture of middle phalanx of right ring finger, initial encounter for closed fracture",1
+S02.81XS,True,"Fracture of other specified skull and facial bones, right side, sequela",1
+S62.367D,True,"Nondisplaced fracture of neck of fifth metacarpal bone, left hand, subsequent encounter for fracture with routine healing",1
+S02.832D,True,"Fracture of medial orbital wall, left side, subsequent encounter for fracture with routine healing",1
+S02.9,True,Fracture of unspecified skull and facial bones,1
+S02.91XS,True,"Unspecified fracture of skull, sequela",1
+S05.0,True,Injury of conjunctiva and corneal abrasion without foreign body,1
+S05.12XA,True,"Contusion of eyeball and orbital tissues, left eye, initial encounter",1
+S05.12XS,True,"Contusion of eyeball and orbital tissues, left eye, sequela",1
+S62.314A,True,"Displaced fracture of base of fourth metacarpal bone, right hand, initial encounter for closed fracture",1
+S62.201A,True,"Unspecified fracture of first metacarpal bone, right hand, initial encounter for closed fracture",1
+S62.015D,True,"Nondisplaced fracture of distal pole of navicular [scaphoid] bone of left wrist, subsequent encounter for fracture with routine healing",1
+S61.502A,True,"Unspecified open wound of left wrist, initial encounter",1
+S60.512D,True,"Abrasion of left hand, subsequent encounter",1
+S05.41XA,True,"Penetrating wound of orbit with or without foreign body, right eye, initial encounter",1
+R82.90,True,Unspecified abnormal findings in urine,1
+R82.79,True,Other abnormal findings on microbiological examination of urine,1
+R81,True,Glycosuria,1
+W45.8XXA,True,"Other foreign body or object entering through skin, initial encounter",1
+S50.02XA,True,"Contusion of left elbow, initial encounter",1
+Y28.9XXA,True,"Contact with unspecified sharp object, undetermined intent, initial encounter",1
+R49.0,True,Dysphonia,1
+R50.81,True,Fever presenting with conditions classified elsewhere,1
+Y07.12,True,"Biological mother, perpetrator of maltreatment and neglect",1
+Y07.1,True,"Parent (adoptive) (biological), perpetrator of maltreatment and neglect",1
+X83.8XXD,True,"Intentional self-harm by other specified means, subsequent encounter",1
+X80.XXXA,True,"Intentional self-harm by jumping from a high place, initial encounter",1
+W57.XXXA,True,"Bitten or stung by nonvenomous insect and other nonvenomous arthropods, initial encounter",1
+W34.00XA,True,"Accidental discharge from unspecified firearms or gun, initial encounter",1
+T43.222A,True,"Poisoning by selective serotonin reuptake inhibitors, intentional self-harm, initial encounter",1
+W18.30XA,True,"Fall on same level, unspecified, initial encounter",1
+W18.2XXA,True,"Fall in (into) shower or empty bathtub, initial encounter",1
+W16.41XS,True,"Fall into unspecified water causing drowning and submersion, sequela",1
+W06XXXXA,False,,1
+T88.9XXS,True,"Complication of surgical and medical care, unspecified, sequela",1
+R56.01,True,Complex febrile convulsions,1
+T84.84XA,True,"Pain due to internal orthopedic prosthetic devices, implants and grafts, initial encounter",1
+T83.9XXA,True,"Unspecified complication of genitourinary prosthetic device, implant and graft, initial encounter",1
+T81.89XA,True,"Other complications of procedures, not elsewhere classified, initial encounter",1
+R48.2,True,Apraxia,1
+Z00.70,True,Encounter for examination for period of delayed growth in childhood without abnormal findings,1
+R48.0,True,Dyslexia and alexia,1
+Z00.71,True,Encounter for examination for period of delayed growth in childhood with abnormal findings,1
+R45.81,True,Low self-esteem,1
+Z33.1,True,"Pregnant state, incidental",1
+Z30.42,True,Encounter for surveillance of injectable contraceptive,1
+Z30.011,True,Encounter for initial prescription of contraceptive pills,1
+Z28.82,True,Immunization not carried out because of caregiver refusal,1
+Z22.338,True,Carrier of other streptococcus,1
+Z20.7,True,"Contact with and (suspected) exposure to pediculosis, acariasis and other infestations",1
+Z14.8,True,Genetic carrier of other disease,1
+Z14.1,True,Cystic fibrosis carrier,1
+Z13.828,True,Encounter for screening for other musculoskeletal disorder,1
+Z13.39,True,Encounter for screening examination for other mental health and behavioral disorders,1
+Z04.6,True,"Encounter for general psychiatric examination, requested by authority",1
+R46.2,True,Strange and inexplicable behavior,1
+Z01.818,True,Encounter for other preprocedural examination,1
+Z01.020,True,Encounter for examination of eyes and vision following failed vision screening without abnormal findings,1
+R47,True,"Speech disturbances, not elsewhere classified",1
+R47.1,True,Dysarthria and anarthria,1
+Z01.01,True,Encounter for examination of eyes and vision with abnormal findings,1
+R47.8,True,Other speech disturbances,1
+T80.89XA,True,"Other complications following infusion, transfusion and therapeutic injection, initial encounter",1
+R60.1,True,Generalized edema,1
+T78.40XA,True,"Allergy, unspecified, initial encounter",1
+T71.162D,True,"Asphyxiation due to hanging, intentional self-harm, subsequent encounter",1
+T62.2X2A,True,"Toxic effect of other ingested (parts of) plant(s), intentional self-harm, initial encounter",1
+T56.0X1S,True,"Toxic effect of lead and its compounds, accidental (unintentional), sequela",1
+T54.94XS,True,"Toxic effect of unspecified corrosive substance, undetermined, sequela",1
+T54.91XA,True,"Toxic effect of unspecified corrosive substance, accidental (unintentional), initial encounter",1
+R76.0,True,Raised antibody titer,1
+T54.3X1S,True,"Toxic effect of corrosive alkalis and alkali-like substances, accidental (unintentional), sequela",1
+R76.11,True,Nonspecific reaction to tuberculin skin test without active tuberculosis,1
+T51.0X,True,Toxic effect of ethanol,1
+T50.915A,True,"Adverse effect of multiple unspecified drugs, medicaments and biological substances, initial encounter",1
+T50.905S,True,"Adverse effect of unspecified drugs, medicaments and biological substances, sequela",1
+R79.82,True,Elevated C-reactive protein (CRP),1
+T50.904A,True,"Poisoning by unspecified drugs, medicaments and biological substances, undetermined, initial encounter",1
+T50.2X5D,True,"Adverse effect of carbonic-anhydrase inhibitors, benzothiadiazides and other diuretics, subsequent encounter",1
+T48.6X2A,True,"Poisoning by antiasthmatics, intentional self-harm, initial encounter",1
+T45.1X5S,True,"Adverse effect of antineoplastic and immunosuppressive drugs, sequela",1
+R79.9,True,"Abnormal finding of blood chemistry, unspecified",1
+R80.8,True,Other proteinuria,1
+T43.621A,True,"Poisoning by amphetamines, accidental (unintentional), initial encounter",1
+T43.595S,True,"Adverse effect of other antipsychotics and neuroleptics, sequela",1
+T63.331A,True,"Toxic effect of venom of brown recluse spider, accidental (unintentional), initial encounter",1
+T71.162S,True,"Asphyxiation due to hanging, intentional self-harm, sequela",1
+T78.3XXD,True,"Angioneurotic edema, subsequent encounter",1
+T74.2,True,"Sexual abuse, confirmed",1
+T78.3XXA,True,"Angioneurotic edema, initial encounter",1
+T78.2XXA,True,"Anaphylactic shock, unspecified, initial encounter",1
+T78.1XXD,True,"Other adverse food reactions, not elsewhere classified, subsequent encounter",1
+T78.00XD,True,"Anaphylactic reaction due to unspecified food, subsequent encounter",1
+T76.32,True,"Child psychological abuse, suspected",1
+T76.22XD,True,"Child sexual abuse, suspected, subsequent encounter",1
+T76.22,True,"Child sexual abuse, suspected",1
+T76.2,True,"Sexual abuse, suspected",1
+T76.12XD,True,"Child physical abuse, suspected, subsequent encounter",1
+T76.02XA,True,"Child neglect or abandonment, suspected, initial encounter",1
+T76.02,True,"Child neglect or abandonment, suspected",1
+T75.3,True,Motion sickness,1
+R68.12,True,Fussy infant (baby),1
+T74.92XA,True,"Unspecified child maltreatment, confirmed, initial encounter",1
+T74.4XXS,True,"Shaken infant syndrome, sequela",1
+T74.32XS,True,"Child psychological abuse, confirmed, sequela",1
+T74.3,True,"Psychological abuse, confirmed",1
+T74.22XS,True,"Child sexual abuse, confirmed, sequela",1
+R71.8,True,Other abnormality of red blood cells,1
+Z00.12,True,Encounter for routine child health examination,1
+M25.20,True,"Flail joint, unspecified joint",1
+Q98.4,True,"Klinefelter syndrome, unspecified",1
+H02.889,True,"Meibomian gland dysfunction of unspecified eye, unspecified eyelid",1
+H10.33,True,"Unspecified acute conjunctivitis, bilateral",1
+H10.31,True,"Unspecified acute conjunctivitis, right eye",1
+H10.13,True,"Acute atopic conjunctivitis, bilateral",1
+H10.11,True,"Acute atopic conjunctivitis, right eye",1
+H10.013,True,"Acute follicular conjunctivitis, bilateral",1
+H05.822,True,"Myopathy of extraocular muscles, left orbit",1
+H04.411,True,Chronic dacryocystitis of right lacrimal passage,1
+H02.403,True,Unspecified ptosis of bilateral eyelids,1
+G40.9,True,"Epilepsy, unspecified",1
+H02.402,True,Unspecified ptosis of left eyelid,1
+H01.024,True,Squamous blepharitis left upper eyelid,1
+H01.009,True,"Unspecified blepharitis unspecified eye, unspecified eyelid",1
+H01.004,True,Unspecified blepharitis left upper eyelid,1
+H01.0,True,Blepharitis,1
+H00.15,True,Chalazion left lower eyelid,1
+H00.14,True,Chalazion left upper eyelid,1
+H10.403,True,"Unspecified chronic conjunctivitis, bilateral",1
+H10.89,True,Other conjunctivitis,1
+H11.32,True,"Conjunctival hemorrhage, left eye",1
+H11.422,True,"Conjunctival edema, left eye",1
+H47.10,True,Unspecified papilledema,1
+H47.093,True,"Other disorders of optic nerve, not elsewhere classified, bilateral",1
+H47.011,True,"Ischemic optic neuropathy, right eye",1
+H46.02,True,"Optic papillitis, left eye",1
+H44.22,True,"Degenerative myopia, left eye",1
+H40.053,True,"Ocular hypertension, bilateral",1
+H40.013,True,"Open angle with borderline findings, low risk, bilateral",1
+H40.003,True,"Preglaucoma, unspecified, bilateral",1
+H35.89,True,Other specified retinal disorders,1
+H35.021,True,"Exudative retinopathy, right eye",1
+H33.001,True,"Unspecified retinal detachment with retinal break, right eye",1
+H31.001,True,"Unspecified chorioretinal scars, right eye",1
+H26.493,True,"Other secondary cataract, bilateral",1
+H16.223,True,"Keratoconjunctivitis sicca, not specified as SjÃ¶gren's, bilateral",1
+H11.433,True,"Conjunctival hyperemia, bilateral",1
+H00.11,True,Chalazion right upper eyelid,1
+H00.015,True,Hordeolum externum left lower eyelid,1
+H00.011,True,Hordeolum externum right upper eyelid,1
+G51.8,True,Other disorders of facial nerve,1
+G47.419,True,Narcolepsy without cataplexy,1
+G47.39,True,Other sleep apnea,1
+G47.31,True,Primary central sleep apnea,1
+G47.20,True,"Circadian rhythm sleep disorder, unspecified type",1
+G47.11,True,Idiopathic hypersomnia with long sleep time,1
+G44.86,True,Cervicogenic headache,1
+G44.319,True,"Acute post-traumatic headache, not intractable",1
+G44.309,True,"Post-traumatic headache, unspecified, not intractable",1
+G44.221,True,"Chronic tension-type headache, intractable",1
+G43.E19,False,,1
+G43.E09,False,,1
+G43.919,True,"Migraine, unspecified, intractable, without status migrainosus",1
+G43.801,True,"Other migraine, not intractable, with status migrainosus",1
+G43.719,True,"Chronic migraine without aura, intractable, without status migrainosus",1
+G43.111,True,"Migraine with aura, intractable, with status migrainosus",1
+G51.0,True,Bell's palsy,1
+G60.0,True,Hereditary motor and sensory neuropathy,1
+G97.82,True,Other postprocedural complications and disorders of nervous system,1
+G70.00,True,Myasthenia gravis without (acute) exacerbation,1
+G95.9,True,"Disease of spinal cord, unspecified",1
+G95.89,True,Other specified diseases of spinal cord,1
+G93.89,True,Other specified disorders of brain,1
+G93.81,True,Temporal sclerosis,1
+G91.1,True,Obstructive hydrocephalus,1
+G90.9,True,"Disorder of the autonomic nervous system, unspecified",1
+G90.50,True,"Complex regional pain syndrome I, unspecified",1
+G90.5,True,Complex regional pain syndrome I (CRPS I),1
+G83.31,True,"Monoplegia, unspecified affecting right dominant side",1
+G82.20,True,"Paraplegia, unspecified",1
+G81.94,True,"Hemiplegia, unspecified affecting left nondominant side",1
+G81.91,True,"Hemiplegia, unspecified affecting right dominant side",1
+G80.2,True,Spastic hemiplegic cerebral palsy,1
+G80,True,Cerebral palsy,1
+G70.2,True,Congenital and developmental myasthenia,1
+H47.20,True,Unspecified optic atrophy,1
+H47.323,True,"Drusen of optic disc, bilateral",1
+H50.012,True,"Monocular esotropia, left eye",1
+I45.10,True,Unspecified right bundle-branch block,1
+I42.8,True,Other cardiomyopathies,1
+I37.1,True,Nonrheumatic pulmonary valve insufficiency,1
+I27.21,True,Secondary pulmonary arterial hypertension,1
+I15.1,True,Hypertension secondary to other renal disorders,1
+H93.25,True,Central auditory processing disorder,1
+H93.239,True,"Hyperacusis, unspecified ear",1
+H93.19,True,"Tinnitus, unspecified ear",1
+H93.13,True,"Tinnitus, bilateral",1
+H93.11,True,"Tinnitus, right ear",1
+H92.21,True,"Otorrhagia, right ear",1
+H92.12,True,"Otorrhea, left ear",1
+H92.0,True,Otalgia,1
+H91.8X9,True,"Other specified hearing loss, unspecified ear",1
+H91.8X1,True,"Other specified hearing loss, right ear",1
+H90.5,True,Unspecified sensorineural hearing loss,1
+I44.2,True,"Atrioventricular block, complete",1
+I45.81,True,Long QT syndrome,1
+H90.41,True,"Sensorineural hearing loss, unilateral, right ear, with unrestricted hearing on the contralateral side",1
+I47.2,True,Ventricular tachycardia,1
+J03.00,True,"Acute streptococcal tonsillitis, unspecified",1
+J02.8,True,Acute pharyngitis due to other specified organisms,1
+J01.91,True,"Acute recurrent sinusitis, unspecified",1
+J00,True,Acute nasopharyngitis [common cold],1
+I95.9,True,"Hypotension, unspecified",1
+I86.1,True,Scrotal varices,1
+I85.00,True,Esophageal varices without bleeding,1
+I82.0,True,Budd-Chiari syndrome,1
+I73.89,True,Other specified peripheral vascular diseases,1
+I73.00,True,Raynaud's syndrome without gangrene,1
+I71.9,True,"Aortic aneurysm of unspecified site, without rupture",1
+I69.90,True,Unspecified sequelae of unspecified cerebrovascular disease,1
+I63.9,True,"Cerebral infarction, unspecified",1
+I61.9,True,"Nontraumatic intracerebral hemorrhage, unspecified",1
+I49.5,True,Sick sinus syndrome,1
+H90.42,True,"Sensorineural hearing loss, unilateral, left ear, with unrestricted hearing on the contralateral side",1
+H81.90,True,"Unspecified disorder of vestibular function, unspecified ear",1
+H50.111,True,"Monocular exotropia, right eye",1
+H55.02,True,Latent nystagmus,1
+H54.3,True,"Unqualified visual loss, both eyes",1
+H53.50,True,Unspecified color vision deficiencies,1
+H53.462,True,"Homonymous bilateral field defects, left side",1
+H53.16,True,Psychophysical visual disturbances,1
+H53.003,True,"Unspecified amblyopia, bilateral",1
+H53.002,True,"Unspecified amblyopia, left eye",1
+H52.533,True,"Spasm of accommodation, bilateral",1
+H52.203,True,"Unspecified astigmatism, bilateral",1
+H52.11,True,"Myopia, right eye",1
+H52.10,True,"Myopia, unspecified eye",1
+H51.9,True,Unspecified disorder of binocular movement,1
+H51.8,True,Other specified disorders of binocular movement,1
+H50.51,True,Esophoria,1
+H50.312,True,"Intermittent monocular esotropia, left eye",1
+H50.311,True,"Intermittent monocular esotropia, right eye",1
+H55.00,True,Unspecified nystagmus,1
+H57.03,True,Miosis,1
+H72.92,True,"Unspecified perforation of tympanic membrane, left ear",1
+H57.052,True,"Tonic pupil, left eye",1
+H71.01,True,"Cholesteatoma of attic, right ear",1
+H69.93,True,"Unspecified Eustachian tube disorder, bilateral",1
+H69.81,True,"Other specified disorders of Eustachian tube, right ear",1
+H66.002,True,"Acute suppurative otitis media without spontaneous rupture of ear drum, left ear",1
+H66.001,True,"Acute suppurative otitis media without spontaneous rupture of ear drum, right ear",1
+H65.30,True,"Chronic mucoid otitis media, unspecified ear",1
+H65.07,True,"Acute serous otitis media, recurrent, unspecified ear",1
+H65.01,True,"Acute serous otitis media, right ear",1
+H60.93,True,"Unspecified otitis externa, bilateral",1
+H60.92,True,"Unspecified otitis externa, left ear",1
+H60.399,True,"Other infective otitis externa, unspecified ear",1
+H60.311,True,"Diffuse otitis externa, right ear",1
+H60,True,Otitis externa,1
+H57.89,True,Other specified disorders of eye and adnexa,1
+H57.12,True,"Ocular pain, left eye",1
+G43.0,True,Migraine without aura,1
+G40.419,True,"Other generalized epilepsy and epileptic syndromes, intractable, without status epilepticus",1
+Q93.59,True,Other deletions of part of a chromosome,1
+D63.1,True,Anemia in chronic kidney disease,1
+D89.9,True,"Disorder involving the immune mechanism, unspecified",1
+D84.1,True,Defects in the complement system,1
+D83.9,True,"Common variable immunodeficiency, unspecified",1
+D73.1,True,Hypersplenism,1
+D72.10,True,"Eosinophilia, unspecified",1
+D69.0,True,Allergic purpura,1
+D68.0,True,Von Willebrand's disease,1
+D57.1,True,Sickle-cell disease without crisis,1
+G40.409,True,"Other generalized epilepsy and epileptic syndromes, not intractable, without status epilepticus",1
+D50,True,Iron deficiency anemia,1
+D43.2,True,"Neoplasm of uncertain behavior of brain, unspecified",1
+D36.13,True,"Benign neoplasm of peripheral nerves and autonomic nervous system of lower limb, including hip",1
+D35.2,True,Benign neoplasm of pituitary gland,1
+D23.9,True,"Other benign neoplasm of skin, unspecified",1
+D22.72,True,"Melanocytic nevi of left lower limb, including hip",1
+D22.71,True,"Melanocytic nevi of right lower limb, including hip",1
+E04.9,True,"Nontoxic goiter, unspecified",1
+E05.0,True,Thyrotoxicosis with diffuse goiter,1
+E08,True,Diabetes mellitus due to underlying condition,1
+E16.1,True,Other hypoglycemia,1
+E66.2,True,Morbid (severe) obesity with alveolar hypoventilation,1
+E66.0,True,Obesity due to excess calories,1
+E65,True,Localized adiposity,1
+E63.8,True,Other specified nutritional deficiencies,1
+E56.9,True,"Vitamin deficiency, unspecified",1
+E55,True,Vitamin D deficiency,1
+E50.8,True,Other manifestations of vitamin A deficiency,1
+E30.9,True,"Disorder of puberty, unspecified",1
+E28.9,True,"Ovarian dysfunction, unspecified",1
+E28.39,True,Other primary ovarian failure,1
+E27.49,True,Other adrenocortical insufficiency,1
+E25.0,True,Congenital adrenogenital disorders associated with enzyme deficiency,1
+E21.3,True,"Hyperparathyroidism, unspecified",1
+E21.2,True,Other hyperparathyroidism,1
+E16.2,True,"Hypoglycemia, unspecified",1
+D22.70,True,"Melanocytic nevi of unspecified lower limb, including hip",1
+D22.60,True,"Melanocytic nevi of unspecified upper limb, including shoulder",1
+D22.39,True,Melanocytic nevi of other parts of face,1
+B80,True,Enterobiasis,1
+B38,True,Coccidioidomycosis,1
+B37.9,True,"Candidiasis, unspecified",1
+B37.3,True,Candidiasis of vulva and vagina,1
+B36.9,True,"Superficial mycosis, unspecified",1
+B35.4,True,Tinea corporis,1
+B35.0,True,Tinea barbae and tinea capitis,1
+B30.9,True,"Viral conjunctivitis, unspecified",1
+B27.81,True,Other infectious mononucleosis with polyneuropathy,1
+B20,True,Human immunodeficiency virus [HIV] disease,1
+B07.0,True,Plantar wart,1
+B00.59,True,Other herpesviral disease of eye,1
+B00.51,True,Herpesviral iridocyclitis,1
+A68.9,True,"Relapsing fever, unspecified",1
+A49.3,True,"Mycoplasma infection, unspecified site",1
+A08.32,True,Astrovirus enteritis,1
+B38.2,True,"Pulmonary coccidioidomycosis, unspecified",1
+B85.2,True,"Pediculosis, unspecified",1
+D22,True,Melanocytic nevi,1
+B86,True,Scabies,1
+D18.09,True,Hemangioma of other sites,1
+D18.03,True,Hemangioma of intra-abdominal structures,1
+D18.00,True,Hemangioma unspecified site,1
+D16.22,True,Benign neoplasm of long bones of left lower limb,1
+C96.6,True,Unifocal Langerhans-cell histiocytosis,1
+C76.1,True,Malignant neoplasm of thorax,1
+C71.9,True,"Malignant neoplasm of brain, unspecified",1
+C71.7,True,Malignant neoplasm of brain stem,1
+C71.6,True,Malignant neoplasm of cerebellum,1
+C71.4,True,Malignant neoplasm of occipital lobe,1
+C71.2,True,Malignant neoplasm of temporal lobe,1
+C71.0,True,"Malignant neoplasm of cerebrum, except lobes and ventricles",1
+B97.89,True,Other viral agents as the cause of diseases classified elsewhere,1
+B97.4,True,Respiratory syncytial virus as the cause of diseases classified elsewhere,1
+B96.29,True,Other Escherichia coli [E. coli] as the cause of diseases classified elsewhere,1
+E66.813,False,,1
+E71.0,True,Maple-syrup-urine disease,1
+E73.0,True,Congenital lactase deficiency,1
+F63.1,True,Pyromania,1
+F59,True,Unspecified behavioral syndromes associated with physiological disturbances and physical factors,1
+F51.13,True,Hypersomnia due to other mental disorder,1
+F51.12,True,Insufficient sleep syndrome,1
+F51.01,True,Primary insomnia,1
+F50.23,False,,1
+F50.00,True,"Anorexia nervosa, unspecified",1
+F50.0,True,Anorexia nervosa,1
+F48.8,True,Other specified nonpsychotic mental disorders,1
+F48.1,True,Depersonalization-derealization syndrome,1
+F45.9,True,"Somatoform disorder, unspecified",1
+F45.8,True,Other somatoform disorders,1
+F42.3,True,Hoarding disorder,1
+F40.231,True,Fear of injections and transfusions,1
+F40.220,True,Fear of thunderstorms,1
+F40.0,True,Agoraphobia,1
+F63,True,Impulse disorders,1
+F63.2,True,Kleptomania,1
+F34.0,True,Cyclothymic disorder,1
+F66,True,Other sexual disorders,1
+G40.111,True,"Localization-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures, intractable, with status epilepticus",1
+G40.019,True,"Localization-related (focal) (partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset, intractable, without status epilepticus",1
+G40,True,Epilepsy and recurrent seizures,1
+G37.81,False,,1
+G37.8,True,Other specified demyelinating diseases of central nervous system,1
+G25.9,True,"Extrapyramidal and movement disorder, unspecified",1
+G25.89,True,Other specified extrapyramidal and movement disorders,1
+G25.70,True,"Drug induced movement disorder, unspecified",1
+G25.5,True,Other chorea,1
+G24.09,True,Other drug induced dystonia,1
+G24.02,True,Drug induced acute dystonia,1
+G23.8,True,Other specified degenerative diseases of basal ganglia,1
+F98.29,True,Other feeding disorders of infancy and early childhood,1
+F94.9,True,"Childhood disorder of social functioning, unspecified",1
+F80.8,True,Other developmental disorders of speech and language,1
+F34.9,True,"Persistent mood [affective] disorder, unspecified",1
+F32.8,True,Other depressive episodes,1
+E73.1,True,Secondary lactase deficiency,1
+F06.1,True,Catatonic disorder due to known physiological condition,1
+F03.91,True,Unspecified dementia with behavioral disturbance,1
+E88.810,False,,1
+E87.1,True,Hypo-osmolality and hyponatremia,1
+E86.0,True,Dehydration,1
+E84.9,True,"Cystic fibrosis, unspecified",1
+E83.52,True,Hypercalcemia,1
+E83.51,True,Hypocalcemia,1
+E83.39,True,Other disorders of phosphorus metabolism,1
+E83.31,True,Familial hypophosphatemia,1
+E83.19,True,Other disorders of iron metabolism,1
+E83.110,True,Hereditary hemochromatosis,1
+E80.7,True,"Disorder of bilirubin metabolism, unspecified",1
+E80.4,True,Gilbert syndrome,1
+E78.49,True,Other hyperlipidemia,1
+E74.21,True,Galactosemia,1
+F05,True,Delirium due to known physiological condition,1
+F06.31,True,Mood disorder due to known physiological condition with depressive features,1
+F31.4,True,"Bipolar disorder, current episode depressed, severe, without psychotic features",1
+F10.9,True,"Alcohol use, unspecified",1
+F31,True,Bipolar disorder,1
+F30.9,True,"Manic episode, unspecified",1
+F30.10,True,"Manic episode without psychotic symptoms, unspecified",1
+F25.0,True,"Schizoaffective disorder, bipolar type",1
+F20.9,True,"Schizophrenia, unspecified",1
+F20.89,True,Other schizophrenia,1
+F20.0,True,Paranoid schizophrenia,1
+F19.11,True,"Other psychoactive substance abuse, in remission",1
+F19.1,True,Other psychoactive substance abuse,1
+F15.959,True,"Other stimulant use, unspecified with stimulant-induced psychotic disorder, unspecified",1
+F15.951,True,"Other stimulant use, unspecified with stimulant-induced psychotic disorder with hallucinations",1
+F15.129,True,"Other stimulant abuse with intoxication, unspecified",1
+F12.151,True,Cannabis abuse with psychotic disorder with hallucinations,1
+F12.11,True,"Cannabis abuse, in remission",1
+F12.1,True,Cannabis abuse,1
+J03.91,True,"Acute recurrent tonsillitis, unspecified",1
+J10.1,True,Influenza due to other identified influenza virus with other respiratory manifestations,1
+J12.1,True,Respiratory syncytial virus pneumonia,1
+N50.8,True,Other specified disorders of male genital organs,1
+N83.201,True,"Unspecified ovarian cyst, right side",1
+N80.9,True,"Endometriosis, unspecified",1
+N80.1,True,Endometriosis of ovary,1
+N77.1,True,"Vaginitis, vulvitis and vulvovaginitis in diseases classified elsewhere",1
+N76.1,True,Subacute and chronic vaginitis,1
+N64.89,True,Other specified disorders of breast,1
+N60.12,True,Diffuse cystic mastopathy of left breast,1
+N48.30,True,"Priapism, unspecified",1
+J15.9,True,Unspecified bacterial pneumonia,1
+N48,True,Other disorders of penis,1
+N47.8,True,Other disorders of prepuce,1
+N47.2,True,Paraphimosis,1
+N47.0,True,"Adherent prepuce, newborn",1
+N43.3,True,"Hydrocele, unspecified",1
+N39.498,True,Other specified urinary incontinence,1
+N39.490,True,Overflow incontinence,1
+N83.202,True,"Unspecified ovarian cyst, left side",1
+N83.29,True,Other ovarian cysts,1
+N90.60,True,Unspecified hypertrophy of vulva,1
+N91.2,True,"Amenorrhea, unspecified",1
+Q02,True,Microcephaly,1
+P91.60,True,"Hypoxic ischemic encephalopathy [HIE], unspecified",1
+P78.89,True,Other specified perinatal digestive system disorders,1
+P52.3,True,Unspecified intraventricular (nontraumatic) hemorrhage of newborn,1
+P07.34,True,"Preterm newborn, gestational age 31 completed weeks",1
+P07.3,True,Preterm [premature] newborn [other],1
+P07.00,True,"Extremely low birth weight newborn, unspecified weight",1
+P05.10,True,"Newborn small for gestational age, unspecified weight",1
+P04.14,True,Newborn affected by maternal use of opiates,1
+O36.5995,True,"Maternal care for other known or suspected poor fetal growth, unspecified trimester, fetus 5",1
+O35.4XX0,True,"Maternal care for (suspected) damage to fetus from alcohol, not applicable or unspecified",1
+N94.818,True,Other vulvodynia,1
+N94.8,True,Other specified conditions associated with female genital organs and menstrual cycle,1
+N93.9,True,"Abnormal uterine and vaginal bleeding, unspecified",1
+N91.3,True,Primary oligomenorrhea,1
+N39.42,True,Incontinence without sensory awareness,1
+N32.81,True,Overactive bladder,1
+N31.8,True,Other neuromuscular dysfunction of bladder,1
+M79.89,True,Other specified soft tissue disorders,1
+M79.669,True,Pain in unspecified lower leg,1
+M79.662,True,Pain in left lower leg,1
+M79.661,True,Pain in right lower leg,1
+M79.651,True,Pain in right thigh,1
+M79.645,True,Pain in left finger(s),1
+M79.603,True,"Pain in arm, unspecified",1
+M79.602,True,Pain in left arm,1
+M79.5,True,Residual foreign body in soft tissue,1
+M79.10,True,"Myalgia, unspecified site",1
+M76.822,True,"Posterior tibial tendinitis, left leg",1
+M76.821,True,"Posterior tibial tendinitis, right leg",1
+M76.811,True,"Anterior tibial syndrome, right leg",1
+M76.51,True,"Patellar tendinitis, right knee",1
+M76.50,True,"Patellar tendinitis, unspecified knee",1
+M76.32,True,"Iliotibial band syndrome, left leg",1
+M79.675,True,Pain in left toe(s),1
+M84.30XA,True,"Stress fracture, unspecified site, initial encounter for fracture",1
+N30.90,True,"Cystitis, unspecified without hematuria",1
+M84.374A,True,"Stress fracture, right foot, initial encounter for fracture",1
+N30.00,True,Acute cystitis without hematuria,1
+N18.2,True,"Chronic kidney disease, stage 2 (mild)",1
+N13.71,True,Vesicoureteral-reflux without reflux nephropathy,1
+N05.1,True,Unspecified nephritic syndrome with focal and segmental glomerular lesions,1
+N04.1,True,Nephrotic syndrome with focal and segmental glomerular lesions,1
+N03.A,True,Chronic nephritic syndrome with C3 glomerulonephritis,1
+M94.0,True,Chondrocostal junction syndrome [Tietze],1
+M93.001,True,"Unspecified slipped upper femoral epiphysis (nontraumatic), right hip",1
+M92.60,True,"Juvenile osteochondrosis of tarsus, unspecified ankle",1
+M92.523,True,"Juvenile osteochondrosis of tibia tubercle, bilateral",1
+M92.40,True,"Juvenile osteochondrosis of patella, unspecified knee",1
+M91.11,True,"Juvenile osteochondrosis of head of femur [Legg-CalvÃ©-Perthes], right leg",1
+M86.30,True,"Chronic multifocal osteomyelitis, unspecified site",1
+M85.40,True,"Solitary bone cyst, unspecified site",1
+M84.375A,True,"Stress fracture, left foot, initial encounter for fracture",1
+Q03.1,True,Atresia of foramina of Magendie and Luschka,1
+Q04.9,True,"Congenital malformation of brain, unspecified",1
+Q05.2,True,Lumbar spina bifida with hydrocephalus,1
+Q78.0,True,Osteogenesis imperfecta,1
+Q75.9,True,"Congenital malformation of skull and face bones, unspecified",1
+Q75.8,True,Other specified congenital malformations of skull and face bones,1
+Q74.3,True,Arthrogryposis multiplex congenita,1
+Q74.1,True,Congenital malformation of knee,1
+Q72.899,True,Other reduction defects of unspecified lower limb,1
+Q69.2,True,Accessory toe(s),1
+Q67.1,True,Congenital compression facies,1
+Q66.9,True,"Congenital deformity of feet, unspecified",1
+Q66.7,True,Congenital pes cavus,1
+Q66.2,True,Congenital metatarsus (primus) varus,1
+Q63.1,True,"Lobulated, fused and horseshoe kidney",1
+Q62.5,True,Duplication of ureter,1
+Q62.39,True,Other obstructive defects of renal pelvis and ureter,1
+Q61.9,True,"Cystic kidney disease, unspecified",1
+Q61.5,True,Medullary cystic kidney,1
+Q76.0,True,Spina bifida occulta,1
+Q78.8,True,Other specified osteochondrodysplasias,1
+Q61.00,True,"Congenital renal cyst, unspecified",1
+Q78.9,True,"Osteochondrodysplasia, unspecified",1
+Q92.8,True,Other specified trisomies and partial trisomies of autosomes,1
+Q92.2,True,Partial trisomy,1
+Q89.8,True,Other specified congenital malformations,1
+Q89.4,True,Conjoined twins,1
+Q89.3,True,Situs inversus,1
+Q87.410,True,Marfan's syndrome with aortic dilation,1
+Q87.40,True,"Marfan's syndrome, unspecified",1
+Q87.0,True,Congenital malformation syndromes predominantly affecting facial appearance,1
+Q85.09,True,Other neurofibromatosis,1
+Q85.00,True,"Neurofibromatosis, unspecified",1
+Q83.3,True,Accessory nipple,1
+Q82.5,True,Congenital non-neoplastic nevus,1
+Q80.0,True,Ichthyosis vulgaris,1
+Q79.6,True,Ehlers-Danlos syndromes,1
+Q79.3,True,Gastroschisis,1
+Q61.01,True,Congenital single renal cyst,1
+Q61.0,True,Congenital renal cyst,1
+Q07.8,True,Other specified congenital malformations of nervous system,1
+Q28.3,True,Other malformations of cerebral vessels,1
+Q25.47,True,Right aortic arch,1
+Q25.44,True,Congenital dilation of aorta,1
+Q25.42,True,Hypoplasia of aorta,1
+Q25.1,True,Coarctation of aorta,1
+Q24.0,True,Dextrocardia,1
+Q23.0,True,Congenital stenosis of aortic valve,1
+Q22.1,True,Congenital pulmonary valve stenosis,1
+Q20.4,True,Double inlet ventricle,1
+Q20.1,True,Double outlet right ventricle,1
+Q18.8,True,Other specified congenital malformations of face and neck,1
+Q17.5,True,Prominent ear,1
+Q15.9,True,"Congenital malformation of eye, unspecified",1
+Q14.8,True,Other congenital malformations of posterior segment of eye,1
+Q13.0,True,Coloboma of iris,1
+Q07.9,True,"Congenital malformation of nervous system, unspecified",1
+Q25.6,True,Stenosis of pulmonary artery,1
+Q34.8,True,Other specified congenital malformations of respiratory system,1
+Q60.5,True,"Renal hypoplasia, unspecified",1
+Q37.5,True,Cleft hard and soft palate with unilateral cleft lip,1
+Q60.2,True,"Renal agenesis, unspecified",1
+Q55.9,True,"Congenital malformation of male genital organ, unspecified",1
+Q55.63,True,Congenital torsion of penis,1
+Q55.61,True,Curvature of penis (lateral),1
+Q55.0,True,Absence and aplasia of testis,1
+Q54.0,True,"Hypospadias, balanic",1
+Q53.9,True,"Undescended testicle, unspecified",1
+Q53.21,True,"Abdominal testis, bilateral",1
+Q53.20,True,"Undescended testicle, unspecified, bilateral",1
+Q53.112,True,Unilateral inguinal testis,1
+Q52.4,True,Other congenital malformations of vagina,1
+Q51.9,True,"Congenital malformation of uterus and cervix, unspecified",1
+Q43.1,True,Hirschsprung's disease,1
+Q42.3,True,"Congenital absence, atresia and stenosis of anus without fistula",1
+Q38.1,True,Ankyloglossia,1
+M76.31,True,"Iliotibial band syndrome, right leg",1
+M62.479,True,"Contracture of muscle, unspecified ankle and foot",1
+M62.451,True,"Contracture of muscle, right thigh",1
+K74.00,True,"Hepatic fibrosis, unspecified",1
+K66.8,True,Other specified disorders of peritoneum,1
+K63.9,True,"Disease of intestine, unspecified",1
+K63.8219,False,,1
+K63.821,False,,1
+K60.2,True,"Anal fissure, unspecified",1
+K59.8,True,Other specified functional intestinal disorders,1
+K59.39,True,Other megacolon,1
+K59.3,True,"Megacolon, not elsewhere classified",1
+K58.9,True,Irritable bowel syndrome without diarrhea,1
+K58.2,True,Mixed irritable bowel syndrome,1
+K56.50,True,"Intestinal adhesions [bands], unspecified as to partial versus complete obstruction",1
+K55.1,True,Chronic vascular disorders of intestine,1
+K52.81,True,Eosinophilic gastritis or gastroenteritis,1
+K52.3,True,Indeterminate colitis,1
+K52.2,True,Allergic and dietetic gastroenteritis and colitis,1
+K68.9,True,Other disorders of retroperitoneum,1
+K74.69,True,Other cirrhosis of liver,1
+K51.411,True,Inflammatory polyps of colon with rectal bleeding,1
+K75.9,True,"Inflammatory liver disease, unspecified",1
+L03.042,True,Acute lymphangitis of left toe,1
+L03.032,True,Cellulitis of left toe,1
+L03.011,True,Cellulitis of right finger,1
+L02.82,True,Furuncle of other sites,1
+L02.31,True,Cutaneous abscess of buttock,1
+L02.02,True,Furuncle of face,1
+K91.89,True,Other postprocedural complications and disorders of digestive system,1
+K91.2,True,"Postsurgical malabsorption, not elsewhere classified",1
+K90.89,True,Other intestinal malabsorption,1
+K90.41,True,Non-celiac gluten sensitivity,1
+K83.09,True,Other cholangitis,1
+K82.4,True,Cholesterolosis of gallbladder,1
+K80.20,True,Calculus of gallbladder without cholecystitis without obstruction,1
+K76.89,True,Other specified diseases of liver,1
+K76.6,True,Portal hypertension,1
+K51.919,True,"Ulcerative colitis, unspecified with unspecified complications",1
+K50.90,True,"Crohn's disease, unspecified, without complications",1
+L05.0,True,Pilonidal cyst and sinus with abscess,1
+K04.6,True,Periapical abscess with sinus,1
+J95.3,True,Chronic pulmonary insufficiency following surgery,1
+J45.991,True,Cough variant asthma,1
+J45.901,True,Unspecified asthma with (acute) exacerbation,1
+J45.41,True,Moderate persistent asthma with (acute) exacerbation,1
+J45.2,True,Mild intermittent asthma,1
+J39.8,True,Other specified diseases of upper respiratory tract,1
+J38.7,True,Other diseases of larynx,1
+J38.5,True,Laryngeal spasm,1
+J38.3,True,Other diseases of vocal cords,1
+J34.9,True,Unspecified disorder of nose and nasal sinuses,1
+J31.2,True,Chronic pharyngitis,1
+J30.0,True,Vasomotor rhinitis,1
+J21.9,True,"Acute bronchiolitis, unspecified",1
+J21.1,True,Acute bronchiolitis due to human metapneumovirus,1
+J20.9,True,"Acute bronchitis, unspecified",1
+K02.9,True,"Dental caries, unspecified",1
+K04.7,True,Periapical abscess without sinus,1
+K50.019,True,Crohn's disease of small intestine with unspecified complications,1
+K09.8,True,"Other cysts of oral region, not elsewhere classified",1
+K42.9,True,Umbilical hernia without obstruction or gangrene,1
+K38.9,True,"Disease of appendix, unspecified",1
+K35.80,True,Unspecified acute appendicitis,1
+K35.20,True,"Acute appendicitis with generalized peritonitis, without abscess",1
+K31.84,True,Gastroparesis,1
+K29.60,True,Other gastritis without bleeding,1
+K25.9,True,"Gastric ulcer, unspecified as acute or chronic, without hemorrhage or perforation",1
+K20.90,True,"Esophagitis, unspecified without bleeding",1
+K20.9,True,"Esophagitis, unspecified",1
+K14.8,True,Other diseases of tongue,1
+K13.0,True,Diseases of lips,1
+K12.1,True,Other forms of stomatitis,1
+K11.7,True,Disturbances of salivary secretion,1
+K11.22,True,Acute recurrent sialoadenitis,1
+K11.21,True,Acute sialoadenitis,1
+L04.0,True,"Acute lymphadenitis of face, head and neck",1
+L05.01,True,Pilonidal cyst with abscess,1
+M54.16,True,"Radiculopathy, lumbar region",1
+M30.3,True,Mucocutaneous lymph node syndrome [Kawasaki],1
+M26.609,True,"Unspecified temporomandibular joint disorder, unspecified side",1
+M26.52,True,Limited mandibular range of motion,1
+M25.859,True,"Other specified joint disorders, unspecified hip",1
+M25.559,True,Pain in unspecified hip,1
+M25.549,True,Pain in joints of unspecified hand,1
+M25.542,True,Pain in joints of left hand,1
+M25.529,True,Pain in unspecified elbow,1
+M25.519,True,Pain in unspecified shoulder,1
+M25.429,True,"Effusion, unspecified elbow",1
+M25.376,True,"Other instability, unspecified foot",1
+M25.331,True,"Other instability, right wrist",1
+A08.11,True,Acute gastroenteropathy due to Norwalk agent,1
+M24.573,True,"Contracture, unspecified ankle",1
+M24.572,True,"Contracture, left ankle",1
+M24.561,True,"Contracture, right knee",1
+M27.8,True,Other specified diseases of jaws,1
+M34.9,True,"Systemic sclerosis, unspecified",1
+M21.6X1,True,Other acquired deformities of right foot,1
+M40.00,True,"Postural kyphosis, site unspecified",1
+M53.9,True,"Dorsopathy, unspecified",1
+M53.3,True,"Sacrococcygeal disorders, not elsewhere classified",1
+M51.26,True,"Other intervertebral disc displacement, lumbar region",1
+M51.16,True,"Intervertebral disc disorders with radiculopathy, lumbar region",1
+M43.9,True,"Deforming dorsopathy, unspecified",1
+M43.8X5,True,"Other specified deforming dorsopathies, thoracolumbar region",1
+M43.6,True,Torticollis,1
+M43.17,True,"Spondylolisthesis, lumbosacral region",1
+M43.07,True,"Spondylolysis, lumbosacral region",1
+M43.06,True,"Spondylolysis, lumbar region",1
+M42.05,True,"Juvenile osteochondrosis of spine, thoracolumbar region",1
+M42.00,True,"Juvenile osteochondrosis of spine, site unspecified",1
+M41.54,True,"Other secondary scoliosis, thoracic region",1
+M41.12,True,Adolescent scoliosis,1
+M41,True,Scoliosis,1
+M21.862,True,Other specified acquired deformities of left lower leg,1
+M21.4,True,Flat foot [pes planus] (acquired),1
+L23.89,True,Allergic contact dermatitis due to other agents,1
+L74.519,True,"Primary focal hyperhidrosis, unspecified",1
+L72.0,True,Epidermal cyst,1
+L68.9,True,"Hypertrichosis, unspecified",1
+L63.8,True,Other alopecia areata,1
+L52,True,Erythema nodosum,1
+L50.0,True,Allergic urticaria,1
+L50,True,Urticaria,1
+L44.4,True,Infantile papular acrodermatitis [Gianotti-Crosti],1
+L44.1,True,Lichen nitidus,1
+L30.8,True,Other specified dermatitis,1
+L30.1,True,Dyshidrosis [pompholyx],1
+L28.2,True,Other prurigo,1
+L27.0,True,Generalized skin eruption due to drugs and medicaments taken internally,1
+L25.9,True,"Unspecified contact dermatitis, unspecified cause",1
+L25.8,True,Unspecified contact dermatitis due to other agents,1
+L24.9,True,"Irritant contact dermatitis, unspecified cause",1
+L74.4,True,Anhidrosis,1
+L74.8,True,Other eccrine sweat disorders,1
+M21.371,True,"Foot drop, right foot",1
+L81.0,True,Postinflammatory hyperpigmentation,1
+M21.162,True,"Varus deformity, not elsewhere classified, left knee",1
+M21.072,True,"Valgus deformity, not elsewhere classified, left ankle",1
+M21.061,True,"Valgus deformity, not elsewhere classified, right knee",1
+M20.10,True,"Hallux valgus (acquired), unspecified foot",1
+M20.029,True,BoutonniÃ¨re deformity of unspecified finger(s),1
+M08.00,True,Unspecified juvenile rheumatoid arthritis of unspecified site,1
+M04.2,True,Cryopyrin-associated periodic syndromes,1
+L98.8,True,Other specified disorders of the skin and subcutaneous tissue,1
+L98.2,True,Febrile neutrophilic dermatosis [Sweet],1
+L94.1,True,Linear scleroderma,1
+L94.0,True,Localized scleroderma [morphea],1
+L90.6,True,Striae atrophicae,1
+L89.893,True,"Pressure ulcer of other site, stage 3",1
+L81.8,True,Other specified disorders of pigmentation,1
+L81.4,True,Other melanin hyperpigmentation,1
+Z99.89,True,Dependence on other enabling machines and devices,1

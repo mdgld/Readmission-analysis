@@ -1,0 +1,22 @@
+Predictor,Points
+Depression,19.7
+Psychotic Disorder,16.0
+Medical Comorbidity,13.6
+Physical Restraints,12.6
+Bipolar Disorder,10.7
+Conduct Disorder,8.2
+Anxiety,7.5
+# DSM-5 Categories,7.3
+ASD,6.1
+Trauma/PTSD,5.4
+Public Insurance (AHCCCS),2.9
+ADHD,2.7
+Length of Stay (days),2.2
+ACE Score × Any C-SSRS Flag,1.7
+ACE Score,1.0
+Age × Diagnostic Complexity,0.9
+Male Sex,-1.0
+Any C-SSRS Flag,-2.0
+NSSI Diagnosis,-5.0
+Age at Admission,-5.1
+Medical Comorbidity × LOS,-5.4
