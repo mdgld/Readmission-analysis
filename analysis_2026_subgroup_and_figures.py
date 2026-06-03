@@ -13,20 +13,21 @@ Run:  .venv/bin/python analysis_2026_subgroup_and_figures.py
 Outputs: figures/Fig_Recon_*.png  and  figures/Recon_*.csv
 """
 import warnings; warnings.filterwarnings('ignore')
+from pathlib import Path
 import numpy as np, pandas as pd
 import statsmodels.api as sm, statsmodels.formula.api as smf
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-ROOT = '/Users/matthewgold/code/Readmission-analysis'
-FIG  = f'{ROOT}/figures'
+ROOT = Path(__file__).parent  # portable: works wherever the repo lives
+FIG  = ROOT / 'figures'
 BLUE, ORANGE, GREEN, GRAY = '#2166ac', '#d6604d', '#1a9850', '#999999'
 plt.rcParams.update({'figure.dpi':130, 'savefig.dpi':200, 'font.size':11, 'axes.titlepad':12,
                      'axes.spines.top':False, 'axes.spines.right':False})
 
 # ---------------- feature engineering (mirrors reconciliation script) ----------------
-df = pd.read_csv(f'{ROOT}/annotated_psychiatric_data_complete.csv')
+df = pd.read_csv(ROOT / 'annotated_psychiatric_data_complete.csv')
 df['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)
 df['age'] = pd.to_numeric(df['Pt_Age_Visit'], errors='coerce')
 df['male'] = (df['GenderCode'].astype(str).str.strip().str.lower()=='male').astype(int)
@@ -99,7 +100,7 @@ for cat,label,pat,exact in SUBGROUPS:
                      CI=f"{lo:.2f}-{hi:.2f}" if lo==lo else "—",
                      p=round(p,3) if p==p else np.nan))
 subg = pd.DataFrame(rows)
-subg.to_csv(f'{FIG}/Recon_subgroup_codes.csv', index=False)
+subg.to_csv(FIG / 'Recon_subgroup_codes.csv', index=False)
 print("\n--- within-category subgroup codes ---"); print(subg.to_string(index=False))
 
 # DMDD vs non-DMDD within depression
@@ -122,7 +123,7 @@ fr = pd.DataFrame({'feature':m.params.index,'OR':np.exp(m.params),'lo':np.exp(m.
                    'hi':np.exp(m.conf_int()[1]),'p':m.pvalues}).query("feature!='Intercept'")
 fr['label'] = fr['feature'].map(LAB); fr['sig'] = fr['p']<0.05
 fr = fr.sort_values('OR')
-fr.to_csv(f'{FIG}/Recon_readmission_logit.csv', index=False)
+fr.to_csv(FIG / 'Recon_readmission_logit.csv', index=False)
 
 # ============================================================
 # 3. LOS predictors (OLS) & 4. RESTRAINT-USE predictors (logit)
@@ -130,16 +131,16 @@ fr.to_csv(f'{FIG}/Recon_readmission_logit.csv', index=False)
 mlos = smf.ols('los_days ~ age + male + public_ins + restrained + csrss_any + n_dsm5 + dep + psychotic + bipolar + conduct + asd + nssi', data=df).fit()
 los = pd.DataFrame({'feature':mlos.params.index,'beta':mlos.params,'p':mlos.pvalues}).query("feature!='Intercept'")
 los['label']=los['feature'].map({**LAB}); los['sig']=los['p']<0.05; los=los.sort_values('beta')
-los.to_csv(f'{FIG}/Recon_los_predictors.csv', index=False)
+los.to_csv(FIG / 'Recon_los_predictors.csv', index=False)
 
 mr = smf.logit('restrained ~ age + male + public_ins + los_days + csrss_any + n_dsm5 + dep + psychotic + bipolar + conduct + asd + adhd', data=df).fit(disp=0, maxiter=300)
 rst = pd.DataFrame({'feature':mr.params.index,'OR':np.exp(mr.params),'lo':np.exp(mr.conf_int()[0]),
                     'hi':np.exp(mr.conf_int()[1]),'p':mr.pvalues}).query("feature!='Intercept'")
 rst['label']=rst['feature'].map(LAB); rst['sig']=rst['p']<0.05; rst=rst.sort_values('OR')
-rst.to_csv(f'{FIG}/Recon_restraint_predictors.csv', index=False)
+rst.to_csv(FIG / 'Recon_restraint_predictors.csv', index=False)
 
 # optimism table (from advanced pipeline)
-opt = pd.read_csv(f'{FIG}/AdvStats_optimism_validation.csv')
+opt = pd.read_csv(FIG / 'AdvStats_optimism_validation.csv')
 
 # ============================================================
 # FIGURES
@@ -164,12 +165,12 @@ ax[1].bar(['Patient-level\n(correct)','Event-level\n(prior 10.4%)'], [9.3,10.4],
 ax[1].text(0,9.5,'9.3%\n246–247 patients',ha='center',fontweight='bold',fontsize=9)
 ax[1].text(1,10.6,'10.4%\n275 events',ha='center',fontweight='bold',fontsize=9)
 ax[1].set_ylim(0,12); ax[1].set_ylabel('Rate (%)'); ax[1].set_title('90-day rate: numerator definition', fontweight='bold', fontsize=11)
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_1_rate_correction.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_1_rate_correction.png'); plt.close()
 
 # Fig 2 — corrected multivariable forest plot
 fig, ax = plt.subplots(figsize=(8.5,7))
 forest(ax, fr, 'Corrected multivariable logistic regression:\nindependent predictors of 90-day readmission')
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_2_readmission_forest.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_2_readmission_forest.png'); plt.close()
 
 # Fig 3 — code vs category information loss
 fig, ax = plt.subplots(1,2, figsize=(11,4.4))
@@ -184,7 +185,7 @@ ax[1].bar(['DMDD +','DMDD −'], wvals, color=['#f4a582',BLUE])
 ax[1].axhline(base*100, color='k', ls='--', lw=1)
 for i,k in enumerate(['DMDD+','DMDD-']): ax[1].text(i, within[k][0]+0.25, f"{within[k][0]:.1f}%\nn={within[k][1]}", ha='center', va='bottom', fontsize=9, fontweight='bold')
 ax[1].set_ylim(0, max(wvals)*1.30); ax[1].set_ylabel('Readmission (%)'); ax[1].set_title('Within depressive disorders:\nDMDD (irritability) vs non-DMDD', fontweight='bold', fontsize=11)
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_3_code_vs_category.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_3_code_vs_category.png'); plt.close()
 
 # Fig 4 — within-category subgroup readmission rates
 sg = subg.dropna(subset=['ReadmitPct']).copy().sort_values('ReadmitPct')
@@ -196,7 +197,7 @@ for i,(_,r) in enumerate(sg.iterrows()): ax.text(r['ReadmitPct']+0.25, i, f"{r['
 ax.set_xlim(0, 23); ax.set_xlabel('Readmission (%)'); ax.legend(loc='lower right')
 ax.text(0.5, 1.5, 'Orange = univariate p<0.05', fontsize=9, style='italic', color=ORANGE)
 ax.set_title('Within-category subgroup analysis: which codes drive readmission', fontweight='bold', fontsize=12)
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_4_subgroup_codes.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_4_subgroup_codes.png'); plt.close()
 
 # Fig 5 — LOS predictors (days)
 fig, ax = plt.subplots(figsize=(8,5.5))
@@ -206,12 +207,12 @@ ax.axvline(0, color='k', lw=1)
 for i,(_,r) in enumerate(los.iterrows()):
     if r['sig']: ax.text(r['beta']+(0.05 if r['beta']>=0 else -0.05), i, f"{r['beta']:+.2f}d", va='center', ha='left' if r['beta']>=0 else 'right', fontsize=8, color=GREEN)
 ax.set_xlabel('Change in length of stay (days)'); ax.set_title('Predictors of length of stay (OLS)\ngreen = p<0.05', fontweight='bold', fontsize=12)
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_5_los_predictors.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_5_los_predictors.png'); plt.close()
 
 # Fig 6 — restraint-use predictors (OR)
 fig, ax = plt.subplots(figsize=(8,5.5))
 forest(ax, rst, 'Predictors of physical restraint use (logistic)')
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_6_restraint_predictors.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_6_restraint_predictors.png'); plt.close()
 
 # Fig 7 — predictive ceiling: apparent vs honest AUC
 fig, ax = plt.subplots(figsize=(8.5,5))
@@ -226,9 +227,9 @@ ax.set_title('Predictive ceiling: apparent AUC is optimism-inflated\nHonest out-
 for i,(_,r) in enumerate(opt.iterrows()):
     ax.text(i-w, r['Apparent AUC']+0.01, f"{r['Apparent AUC']:.2f}", ha='center', fontsize=8)
     ax.text(i+w, r['10-fold OOF AUC']+0.01, f"{r['10-fold OOF AUC']:.2f}", ha='center', fontsize=8)
-plt.tight_layout(); plt.savefig(f'{FIG}/Fig_Recon_7_predictive_ceiling.png'); plt.close()
+plt.tight_layout(); plt.savefig(FIG / 'Fig_Recon_7_predictive_ceiling.png'); plt.close()
 
 print("\nSaved figures:")
 import glob, os
-for f in sorted(glob.glob(f'{FIG}/Fig_Recon_*.png')): print("  ", os.path.basename(f))
+for f in sorted(glob.glob(FIG / 'Fig_Recon_*.png')): print("  ", os.path.basename(f))
 print("Saved tables: Recon_subgroup_codes.csv, Recon_readmission_logit.csv, Recon_los_predictors.csv, Recon_restraint_predictors.csv")

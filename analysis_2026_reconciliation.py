@@ -2,8 +2,10 @@ import warnings; warnings.filterwarnings('ignore')
 import pandas as pd, numpy as np
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+from pathlib import Path
 
-df = pd.read_csv('/Users/matthewgold/code/Readmission-analysis/annotated_psychiatric_data_complete.csv')
+ROOT = Path(__file__).parent  # portable: works wherever the repo lives
+df = pd.read_csv(ROOT / 'annotated_psychiatric_data_complete.csv')
 
 # ---------- feature engineering ----------
 df['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)

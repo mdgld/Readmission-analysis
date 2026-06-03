@@ -10,13 +10,13 @@ Predicting 90-Day Psychiatric Rehospitalization in Children Aged 5–12: Machine
 
 ---
 
-## Abstract (278 words / 1,848 non-space characters — within AACAP's 2,000-character limit)
+## Abstract (281 words / 1,881 non-space characters — within AACAP's 2,000-character limit)
 
 **Objectives:** Predictors of psychiatric rehospitalization in school-aged children are poorly characterized, and whether readmission can be predicted at the individual level is unknown. In a cohort of 2,652 children aged 5–12, we used regularized and machine-learning models to identify risk factors for 90-day readmission and to test the achievable ceiling of predictive performance.
 
 **Methods:** Single Arizona site; admissions 2017–2024; 90-day readmission 9.3% (247/2,652, source-verified). The 1,863 ICD-10 codes were aggregated into DSM-5/CCSR categories. We trained regularized logistic regression, random forest, and gradient boosting on 24 features (diagnostic-category burden, ACEs, C-SSRS flags, restraint use, length of stay, demographics) with interaction terms, evaluated by 10-fold cross-validation with bootstrap optimism correction, calibration, and fairness analysis across age, sex, insurance, and ACE strata. Unpenalized logistic regression provided interpretable odds ratios.
 
-**Results:** Independent predictors of readmission were depressive-disorder burden (OR 1.78), diagnostic complexity (OR 1.31 per added category), physical restraint use (OR 1.58), and younger age (OR 0.90/year); adverse childhood experiences and suicidality were non-predictive. Restraint use was also the largest driver of length of stay (+6 days). Despite these signals, honest discrimination was modest (best AUC 0.684; apparent AUC 0.853 fell to 0.752 after optimism correction), with low precision (positive predictive value ~15–20% at the optimal threshold). Equalized-odds disparities were notable by age (0.240) and sex (0.195).
+**Results:** Independent predictors of readmission were depressive-disorder burden (OR 1.78), diagnostic complexity (OR 1.31 per added category), physical restraint use (OR 1.58), and younger age (OR 0.90/year); adverse childhood experiences and suicidality were non-predictive. Restraint use was also the largest driver of length of stay (+6 days). Despite these signals, honest discrimination was modest (Random Forest: best out-of-fold AUC 0.684; apparent AUC 0.853 fell to 0.752 after bootstrap optimism correction), with low precision (positive predictive value ~15–20% at the optimal threshold). Equalized-odds disparities were notable by age (0.240) and sex (0.195).
 
 **Conclusions:** Machine learning identified coherent, clinically interpretable risk factors—depressive burden, diagnostic complexity, restraint use, younger age—yet individual readmission remained hard to predict, showing that feature discovery is easier than building a deployable tool from a small, single-site sample. These findings refine an earlier analysis of this cohort (90-day rate corrected from 10.4% to 9.3%); larger, multi-site data and equity-aware validation are needed before clinical use.
 

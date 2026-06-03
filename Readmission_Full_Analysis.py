@@ -67,6 +67,9 @@ df['ace_high'] = (df['ace_score'] >= 4).astype(float)
 df['had_restraints'] = (pd.to_numeric(df['restraints'], errors='coerce').fillna(0) > 0).astype(int)
 
 # ── C-SSRS flags ─────────────────────────────────────────────────────────────
+# NOTE: The source CSV column is named 'Yellow flags (C-SRSS)' — a known typo in the
+# raw export (letters transposed; should be C-SSRS). The column name must match the CSV
+# exactly or yellow-flag coding silently returns all-zero on a refreshed export.
 df['csrss_yellow'] = df['Yellow flags (C-SRSS)'].notna().astype(int)
 df['csrss_orange'] = df['Orange flags (C-SSRS)'].notna().astype(int)
 df['csrss_red']    = df['Red flags (C-SSRS)'].notna().astype(int)
@@ -116,7 +119,10 @@ def count_csv(s):
     if pd.isna(s) or str(s).strip() == '': return 0
     return len([x for x in str(s).split(',') if x.strip()])
 
-def count_dsm5(s):
+# NOTE: count_dsm5 is defined here for reference but is NOT used downstream.
+# Unique cross-column DSM-5 category counts use unique_dsm5_count() instead,
+# which deduplicates across VisitDiags and ChronicDiags columns.
+def count_dsm5(s):  # unused — see unique_dsm5_count below
     if pd.isna(s) or str(s).strip() == '': return 0
     return len([x for x in str(s).split(';') if x.strip()])
 
@@ -1047,8 +1053,10 @@ y_ml = model_df['readmitted'].values
 
 print(f"Machine Learning feature matrix shape: {X_ml.shape}")
 
-# Stratified 5-Fold Cross-Validation
-cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+# Stratified 10-Fold Cross-Validation
+# (10-fold matches the optimism-correction pipeline in Readmission_PyHealth_Advanced.ipynb
+#  and the Methods section of the AACAP 2026 abstract.)
+cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
 
 
 # In[ ]:
@@ -1280,10 +1288,12 @@ print(f"{'='*55}")
 for f in figs:
     print(f"  {f}")
 print(f"\n  Table 1:  figures/Table1_descriptive.csv")
-print(f"\n  Model AUC Summary:")
-print(f"    Logistic Regression : AUC = {lr_auc:.3f}  |  AP = {lr_ap:.3f}")
-print(f"    Random Forest       : AUC = {rf_auc:.3f}  |  AP = {rf_ap:.3f}")
-print(f"    CatBoost            : AUC = {cat_auc:.3f}  |  AP = {cat_ap:.3f}")
+print(f"\n  Model AUC Summary (10-fold out-of-fold):")
+print(f"    Logistic Regression      : AUC = {lr_auc:.3f}  |  AP = {lr_ap:.3f}")
+print(f"    Random Forest            : AUC = {rf_auc:.3f}  |  AP = {rf_ap:.3f}")
+print(f"    Random Forest (SMOTE)    : AUC = {rf_smote_auc:.3f}  |  AP = {rf_smote_ap:.3f}")
+print(f"    CatBoost (Numeric)       : AUC = {cat_auc:.3f}  |  AP = {cat_ap:.3f}")
+print(f"    CatBoost (Native Cat)    : AUC = {cat_native_auc:.3f}  |  AP = {cat_native_ap:.3f}")
 
 
 # In[ ]:
@@ -1609,55 +1619,6 @@ for col, lbl in zip(loadings_df.columns, pc_col_labels):
     print(f"  {lbl.split(chr(10))[0]}  top feature: {top}  (r={r:+.3f})")
 
 
-# In[ ]:
-
-
-# ── Fig 12c: UMAP overlaid with top correlated features ───────────────────────
-# Pick top 3 |r| for each axis (union, deduplicated)
-top3_u1 = corr_df.reindex(corr_df['r_umap1'].abs().sort_values(ascending=False).index).head(3)['feature'].tolist()
-top3_u2 = corr_df.reindex(corr_df['r_umap2'].abs().sort_values(ascending=False).index).head(3)['feature'].tolist()
-overlay_feats = list(dict.fromkeys(top3_u1 + top3_u2))  # preserve order, deduplicate
-
-n_panels = len(overlay_feats)
-fig, axes = plt.subplots(2, 3, figsize=(18, 11))
-axes = axes.flatten()
-
-for ax, feat in zip(axes[:n_panels], overlay_feats):
-    feat_idx = feat_cols.index(feat)
-    vals     = X_ml_raw[:, feat_idx]
-
-    if len(np.unique(vals)) <= 2:  # Binary feature
-        mask1 = vals == 1
-        mask0 = vals == 0
-        ax.scatter(embedding[mask0, 0], embedding[mask0, 1], c='lightgray', s=10, alpha=0.3, rasterized=True)
-        ax.scatter(embedding[mask1, 0], embedding[mask1, 1], c=ORANGE,      s=15, alpha=0.7, rasterized=True)
-        ax.legend(['0', '1'], loc='upper right', fontsize=9)
-    else:  # Continuous feature
-        sc = ax.scatter(embedding[:, 0], embedding[:, 1], c=vals,
-                        cmap='viridis', alpha=0.6, s=12,
-                        vmin=np.percentile(vals, 5), vmax=np.percentile(vals, 95),
-                        rasterized=True)
-        plt.colorbar(sc, ax=ax, label=feat, shrink=0.8)
-
-    r1 = corr_df.loc[corr_df['feature'] == feat, 'r_umap1'].values[0]
-    r2 = corr_df.loc[corr_df['feature'] == feat, 'r_umap2'].values[0]
-    ax.set_title(f'{feat}\nr(U1)={r1:+.2f}  r(U2)={r2:+.2f}', fontsize=11, fontweight='bold')
-    ax.set_xlabel('UMAP 1')
-    ax.set_ylabel('UMAP 2')
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-
-# Hide unused panels if < 6 features
-for ax in axes[n_panels:]:
-    ax.set_visible(False)
-
-plt.suptitle('UMAP Embedding Colored by Top Feature Correlates\n'
-             '(Top 3 correlates of each axis)',
-             fontsize=14, fontweight='bold', y=1.01)
-plt.tight_layout()
-plt.savefig('figures/Fig12c_UMAP_feature_overlay.png')
-plt.show()
-print("✓ Fig 12c saved")
 
 
 # In[30]:
@@ -1757,14 +1718,15 @@ for cl in sorted(set(cluster_labels)):
         cluster_names[cl] = 'Noise'
         continue
     sub = mdf_r[mdf_r['cluster'] == cl]
-    scores = {}
+    z_scores = {}  # z-score deviations from cohort mean (renamed from 'scores' to avoid
+                   # collision with the 'scores' risk-score array used in later cells)
     for v in cont_vars:
         sd = overall_sd.get(v, 0)
-        scores[v] = (sub[v].mean() - overall_mean[v]) / sd if sd and not np.isnan(sd) else 0
+        z_scores[v] = (sub[v].mean() - overall_mean[v]) / sd if sd and not np.isnan(sd) else 0
     for v in bin_vars:
         sd = overall_bin_sd.get(v, 0)
-        scores[v] = (sub[v].mean() - overall_mean[v]) / sd if sd and not np.isnan(sd) else 0
-    top = sorted(scores.items(), key=lambda kv: abs(kv[1]), reverse=True)[:2]
+        z_scores[v] = (sub[v].mean() - overall_mean[v]) / sd if sd and not np.isnan(sd) else 0
+    top = sorted(z_scores.items(), key=lambda kv: abs(kv[1]), reverse=True)[:2]
     labels = []
     for v, z in top:
         hi, lo = _name_map[v]
@@ -2177,7 +2139,17 @@ plt.grid(True, alpha=0.3)
 plt.show()
 
 
-# ### ── Final Refinement: Imbalance Handling & Risk Score Calculator ──
+# ### ── WARNING: IN-SAMPLE RISK SCORING ─────────────────────────────────────────────
+# The rf_res model below is trained on SMOTE-resampled X_train and then scored on
+# the entire X_ml (training + test). The resulting 'scores' array is used by the
+# threshold analysis and staffing simulation cells further below.
+#
+# These are IN-SAMPLE predictions for the training portion and should be treated
+# as illustrative only — sensitivity/specificity at any quoted threshold will be
+# optimistically biased relative to a held-out cohort. The honest discriminative
+# performance is the 10-fold out-of-fold AUC reported above.
+# ─────────────────────────────────────────────────────────────────────────────────
+# ── Final Refinement: Imbalance Handling & Risk Score Calculator ──
 # To improve clinical utility, we now:
 # 1. Re-train models using **SMOTE** to handle the 9% class imbalance.
 # 2. Construct a **Risk Score** formula based on the standardized coefficients of the Logistic Regression model.
@@ -2209,26 +2181,6 @@ print(f"Test AUC: {roc_auc_score(y_test, rf_res_probs):.3f}")
 # 2. Finalize Clinical Risk Score Table
 # Scaling to a 0-100 total score range for easier clinical use
 
-
-# In[ ]:
-
-
-# 1. Apply the scoring logic to the full dataset (X_ml)
-# We will use the resampled random forest model instead of catboost for scoring logic
-
-risk_probs = rf_res.predict_proba(X_ml)[:, 1]
-rf_res_auc = roc_auc_score(y_ml, risk_probs)
-print(f"Random Forest (Trained on SMOTE) AUC on full dataset: {rf_res_auc:.3f}")
-
-# Map the scores back to the original dataframe
-df_scored = model_df_unscaled.copy()
-df_scored['predicted_risk'] = risk_probs
-df_scored['predicted_score'] = (risk_probs * 100).astype(int)
-df_scored['risk_tier'] = pd.qcut(df_scored['predicted_score'], q=[0, 0.5, 0.85, 1.0], 
-                                 labels=['Low (<50th %ile)', 'Moderate (50-85th)', 'High (>85th)'])
-
-print("\n--- Simplified Risk Point System ---")
-print(df_scored.groupby('risk_tier')['readmitted'].agg(['mean', 'count']).reset_index())
 
 
 # In[ ]:
