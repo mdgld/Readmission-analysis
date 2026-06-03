@@ -1,25 +1,52 @@
 # AACAP 2026 Annual Meeting Submission
 **Meeting:** AACAP Annual Meeting, Atlanta, GA — October 26–31, 2026
-**Format:** New Research Poster
+**Format:** New Research Poster (Traditional); Data Blitz interest — Yes
+**Builds on:** Gold & Ritfeld, AACAP 2025 (Submission #52545), now published (JAACAP special issue)
 
 ---
 
-## Abstract 
+## Working Title
+Predicting 90-Day Psychiatric Rehospitalization in Children Aged 5–12: Machine-Learning Risk Factors and the Limits of Prediction in a Single-Site Cohort
 
-**Objectives:** Pediatric psychiatric rehospitalization is a critical quality indicator, yet validated risk stratification tools for school-aged children are lacking. This study aimed to characterize diagnostic predictors of readmission and evaluate the performance and equity of machine learning models in a pediatric inpatient cohort.
+---
 
-**Methods:** Retrospective cohort study of 2,652 pediatric psychiatric admissions at a single Arizona institution (2017–2024). All 1,863 ICD-10-CM codes were mapped to DSM-5-TR categories using pyhealth and manual regex. Three prediction models (logistic regression, random forest, CatBoost) were trained on 24 features including DSM-5 category burden, ACE scores, C-SSRS severity flags, length of stay, and insurance status. Discrimination was assessed via 10-fold cross-validation and bootstrap-corrected optimism estimates with calibration by Brier score and Hosmer–Lemeshow test. Fairness was evaluated across age, sex, insurance, and ACE-score subgroups using equalized-odds disparity metrics.
+## Abstract (278 words / 1,848 non-space characters — within AACAP's 2,000-character limit)
 
-**Results:** Readmission occurred in 9.3% of patients (246/2,652). The most prevalent DSM-5 categories among them were depressive disorders (67.1%), trauma/stressor-related disorders (53.7%), ADHD (52.7%), and anxiety disorders (43.5%). Diagnostic groups with the highest readmission rates were non-suicidal self-injury behavior (29.2%), other neurodevelopmental disorders (27.7%), and bipolar disorders (21.8%). Random forest achieved the best discrimination (AUC-ROC 0.684, 95% CI 0.649–0.717); apparent AUC was markedly overestimated without cross-validation (0.853 vs. bootstrap-corrected 0.752). The strongest readmission predictors were depressive disorders, psychotic disorders, and medical comorbidity. Fairness analysis revealed meaningful disparities: age-stratified equalized-odds gap of 0.240 and sex-stratified gap of 0.195, with younger children and males disproportionately flagged.
+**Objectives:** Predictors of psychiatric rehospitalization in school-aged children are poorly characterized, and whether readmission can be predicted at the individual level is unknown. In a cohort of 2,652 children aged 5–12, we used regularized and machine-learning models to identify risk factors for 90-day readmission and to test the achievable ceiling of predictive performance.
 
-**Conclusions:** Readmission risk concentrated in our sample among children with comorbid depression, psychosis, neurodevelopmental disorders, and medical complexity. Machine learning models applied to small datasets demonstrate modest honest discrimination and exhibit clinically significant age and sex disparities. These findings highlight the need for use of suitably large data sets and equity-aware validation before implementing algorithmic risk tools in clinical settings.
+**Methods:** Single Arizona site; admissions 2017–2024; 90-day readmission 9.3% (247/2,652, source-verified). The 1,863 ICD-10 codes were aggregated into DSM-5/CCSR categories. We trained regularized logistic regression, random forest, and gradient boosting on 24 features (diagnostic-category burden, ACEs, C-SSRS flags, restraint use, length of stay, demographics) with interaction terms, evaluated by 10-fold cross-validation with bootstrap optimism correction, calibration, and fairness analysis across age, sex, insurance, and ACE strata. Unpenalized logistic regression provided interpretable odds ratios.
+
+**Results:** Independent predictors of readmission were depressive-disorder burden (OR 1.78), diagnostic complexity (OR 1.31 per added category), physical restraint use (OR 1.58), and younger age (OR 0.90/year); adverse childhood experiences and suicidality were non-predictive. Restraint use was also the largest driver of length of stay (+6 days). Despite these signals, honest discrimination was modest (best AUC 0.684; apparent AUC 0.853 fell to 0.752 after optimism correction), with low precision (positive predictive value ~15–20% at the optimal threshold). Equalized-odds disparities were notable by age (0.240) and sex (0.195).
+
+**Conclusions:** Machine learning identified coherent, clinically interpretable risk factors—depressive burden, diagnostic complexity, restraint use, younger age—yet individual readmission remained hard to predict, showing that feature discovery is easier than building a deployable tool from a small, single-site sample. These findings refine an earlier analysis of this cohort (90-day rate corrected from 10.4% to 9.3%); larger, multi-site data and equity-aware validation are needed before clinical use.
 
 ---
 
 ## Learning Objectives
 
-1. **Identify** the DSM-5-TR diagnostic categories associated with the highest 30-day psychiatric readmission risk in a sample of school-aged children, distinguishing the differential risk profiles of neurodevelopmental, internalizing, and self-injurious behavior diagnoses.
+1. **Identify** the clinical and systemic factors independently associated with 90-day psychiatric readmission in children aged 5–12—depressive-disorder burden, diagnostic complexity, physical restraint use, and younger age—and distinguish them from factors that predict length of stay rather than readmission.
 
-2. **Describe** The dangers of overfitting when using small datasets, and how machine learning readmission risk models can substantially overestimate predictive performance in the absence of rigorous cross-validation. Interpret bootstrap-corrected AUC estimates relative to apparent AUC.
+2. **Explain** why machine-learning and regularized models can surface salient risk factors yet fail to achieve clinically useful sensitivity and specificity in small, single-site datasets, interpreting optimism-corrected relative to apparent AUC.
 
-3. **Recognize** age- and sex-based algorithmic disparities that can occur when building prediction models, and discuss their implications for equitable deployment of clinical risk stratification tools.
+3. **Recognize** age- and sex-based algorithmic disparities in pediatric readmission models and their implications for equity-aware validation before any clinical deployment.
+
+---
+
+## Supporting Notes (for poster Discussion / mentor review — NOT part of submitted abstract)
+
+*The poster leads with the new findings and the prediction/ML angle. The reconciliation points below belong in the Discussion as supporting context, not the headline. Full detail and re-derived tables are in `Analysis_Comparison_2025_vs_2026.md`.*
+
+### A. The readmission-rate discrepancy — resolved, source-verified
+The original data export (`1854_…xlsx`, *Summary* sheet) gives the definitive 90-day rate: **247/2,652 = 9.3%** (also 7-day 1.5%, 30-day 4.8%). The previously reported **10.4%** equals the **275 readmission *events*** (219 patients ×1 + 25 ×2 + 2 ×3) ÷ 2,652 — i.e., it counted events, double-counting the 27 children readmitted more than once. The correct **patient-level** rate is **9.3%**, matching the current analysis (246/2,652). This is a numerator-definition correction, not a cohort difference. State 9.3% and cite the export.
+
+### B. Why this year's predictors differ from last year's (supporting, not headline)
+- **Unit of analysis is the dominant factor.** 2025 modeled many sparse, collinear individual ICD codes → inflated standard errors → no independent predictors. The *same* unpenalized logistic regression on aggregated DSM-5/CCSR categories recovers independent predictors (depressive burden OR 1.78; complexity OR 1.31/category; restraint OR 1.58; younger age OR 0.90/yr).
+- **Restraint use was independently associated with readmission** (OR 1.58, p=0.012) in the current model but was not identified in the 2025 multivariable model. The *fact* of restraint carries the signal, not the count (OR 1.01, p=0.59). Worth a direct, collegial conversation with Dr. Ritfeld about the prior model's specification.
+- **Irritability ↔ depression bridge.** Irritability/anger (R45.4; n=31, 19.4%) is nosologically DMDD (F34.81; n=438, 14.2%), filed under Depressive Disorders (n=1,779, 10.7%); collapsing surfaces a category effect yet dilutes the high-risk subgroup (DMDD+ 14.2% vs DMDD− 9.6%).
+- **"Regularized vs multivariable" is prediction vs inference, not this-year-vs-last.** The inferential model is unpenalized `statsmodels` logit (same family as 2025); regularized (L2) LR and tree ensembles served only the predictive arm.
+- **Replication of 2025 nulls.** ACEs (readmission OR 1.04, p=0.35) and suicidality stay non-predictive of readmission, while ACEs/restraint/complexity/public insurance predict longer stays.
+
+### C. Confirmed / remaining items
+- **Outcome window & rate:** confirmed 90-day from initial admission; accrual 2017–2024; rate 9.3% (source-verified). Resolved.
+- **Age range:** verified 5–12 (median 10).
+- **Authorship/order** for the 2026 submission to confirm.
