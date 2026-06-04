@@ -14,7 +14,7 @@
 | Diagnosis unit | **Individual ICD-10 codes** | **Aggregated DSM-5 / CCSR categories** |
 | Models | Multivariable logistic regression (unpenalized) | (a) Unpenalized logistic regression — *inference*; (b) L2-regularized logistic regression, random forest, gradient boosting (CatBoost) — *prediction* |
 | Validation | In-sample p-values | 10-fold CV, bootstrap optimism correction, calibration, fairness panels |
-| Headline | *No* independent multivariate predictors except irritability/anger | Independent predictors **do** emerge once diagnoses are aggregated; discrimination remains modest |
+| Headline | *No* independent multivariate predictors except irritability/anger | Several independent predictors emerge (suicidal ideation, depressive burden, complexity, restraint, younger age; NSSI protective); divergence verified as a model-specification difference on the identical cohort (§8 of reconciliation); discrimination remains modest |
 
 ¹ **Rate discrepancy resolved (source-verified).** The original export (`1854_…xlsx`, *Summary* sheet) states the 90-day rate as **247/2,652 = 9.3%** (7-day 1.5%; 30-day 4.8%). The previously reported **10.4%** equals **275 readmission *events*** (219 patients ×1 + 25 ×2 + 2 ×3) ÷ 2,652 — it counted events, double-counting the 27 children readmitted more than once. The correct **patient-level** 90-day rate is **9.3%** (current analysis: 246/2,652). This is a numerator-definition correction, not a cohort difference.
 
@@ -22,24 +22,29 @@
 
 ## 2. Why the "top predictors" differ — and why it is **not** a contradiction
 
-The divergence is driven by **three design choices**, none of which is "ML vs statistics":
+**Important context (read first).** The original 2025 modeling notebook and its source data were recovered; the source file is the **identical 2,652-patient cohort** used here, so the original models were re-run directly. The divergence in predictors is therefore **verified as a model-specification difference on identical data** — not a difference of cohort, outcome, or sample. See `Reconciliation_2025_vs_2026.md` §8 for the reproduced numbers.
 
-**(a) Unit of analysis — codes vs categories (the dominant factor).**
-2025 entered many sparse, collinear individual ICD codes into one model; collinearity inflated standard errors so almost nothing reached significance. 2026 aggregates to DSM-5/CCSR categories, yielding a smaller, more stable, better-powered feature set. Re-running an **unpenalized** logistic regression (the same inferential method as 2025) on category-level features now recovers independent predictors:
+The re-derived multivariable logistic regression (full cohort, unpenalized — the same inferential method as 2025) identifies the following, with **suicidality measured by ICD code (R45.851), as the original did** — not by the C-SSRS flags, which are a different construct and are non-predictive:
 
-| Predictor (2026 multivariable logit, full cohort) | OR | 95% CI | p |
+| Predictor (2026 multivariable logit, full cohort, N=2,652) | OR | 95% CI | p |
 |---|---|---|---|
-| Depressive-disorder burden | 1.78 | 1.23–2.58 | 0.002 |
-| Diagnostic complexity (per added DSM-5 category) | 1.31 | 1.11–1.53 | 0.001 |
-| Physical restraint use | 1.58 | 1.11–2.27 | 0.012 |
-| Younger age (per additional year) | 0.90 | 0.83–0.97 | 0.009 |
-| ACEs, suicidality (C-SSRS), sex, insurance, LOS | n.s. | — | >0.05 |
+| Suicidal ideation (ICD R45.851) | 2.59 | 1.82–3.66 | <0.001 |
+| Depressive-disorder burden | 1.73 | 1.21–2.46 | 0.003 |
+| Diagnostic complexity (per added DSM-5 category) | 1.34 | 1.19–1.51 | <0.001 |
+| Physical restraint use | 1.52 | 1.06–2.17 | 0.023 |
+| Younger age (per additional year) | 0.91 | 0.84–0.99 | 0.023 |
+| Non-suicidal self-injury (NSSI) | 0.40 | 0.27–0.59 | <0.001 (protective) |
+| ACE score, **C-SSRS flags**, gender (identity at admission), insurance, LOS | n.s. | — | >0.05 |
+
+Three design differences are sometimes invoked to explain why these effects reach significance now. Their explanatory power is limited, and that is stated honestly rather than glossed:
+
+**(a) Unit of analysis — codes vs categories — is insufficient as a general explanation.** Aggregating diagnoses can stabilize the *diagnosis* terms, but it cannot act on the **non-diagnostic** predictors (restraint use, the diagnostic-complexity count, and age), which are null in 2025 yet significant here; and suicidality is predictive under the original's *own* ICD-code measure. The cause is now established directly (§8 of `Reconciliation_2025_vs_2026.md`): re-running the original on its own data shows a **model-specification** difference. Outcome definition and sample size are **excluded** — both analyses use the identical 2,652-patient cohort and the identical outcome (readmission within 90 days of discharge, `Readmissions>0`, verified 97% concordant with the Excel 90-day flag).
 
 **(b) Prediction vs inference.** The same logistic model can be *read for coefficients* (inference) or *cross-validated for AUC* (prediction). The predictive arm additionally used **L2-regularized** LR and tree ensembles. Regularization shrinks coefficients to reduce variance → better generalization, but biases estimates and invalidates naive p-values. Hence: regularized models for prediction; the unpenalized model for the apples-to-apples comparison with 2025.
 
 **(c) Nonlinearity / interactions.** Trees and explicit interaction terms (e.g., complexity×age, ACE×C-SSRS, medical×LOS) capture structure invisible to a main-effects logit.
 
-**The irritability ↔ depression bridge.** 2025's lone signal, *irritability/anger*, is in DSM-5 the core of **Disruptive Mood Dysregulation Disorder (DMDD)**, which this mapping files under **Depressive Disorders** — 2026's leading predictor. The studies detect the **same clinical signal** at different resolutions.
+**The irritability ↔ depression bridge.** 2025's lone signal, *irritability/anger*, is in DSM-5 the core of **Disruptive Mood Dysregulation Disorder (DMDD)**, which this mapping files under **Depressive Disorders** — among 2026's leading predictors. The studies detect the **same clinical signal** at different resolutions.
 
 ---
 
@@ -94,7 +99,7 @@ This justifies reporting **code/subcategory-level results in the full analysis**
 | Restraint **count** (continuous) | OR 1.01, p=0.59 — *not* dose-dependent |
 | 2025 multivariable logit | **Not** an independent predictor |
 
-**Interpretation:** restraint use is a marker of acute behavioral dysregulation. The *fact* of restraint (not its frequency) carries the readmission signal. 2025's null result reflects its code-level specification; once diagnoses are aggregated, the restraint association is no longer absorbed by collinear diagnosis codes. Restraint is also the **largest driver of length of stay** (below).
+**Interpretation:** restraint use is a marker of acute behavioral dysregulation. The *fact* of restraint (not its frequency) carries the readmission signal. Re-running the original model on the same data shows exactly why 2025 found it null: it was entered as a **frequency count** (OR 1.00, p=0.90) and double-counted inside an "externalizing" composite, inside a non-converging model. Coded as a binary flag on the identical cohort, restraint is significant (OR 1.74 univariate, 1.39 adjusted; see `Reconciliation_2025_vs_2026.md` §8). Restraint is also the **largest driver of length of stay** (below).
 
 ---
 
@@ -122,7 +127,7 @@ Logistic regression, outcome = any physical restraint (N=2,652):
 | Predictor | OR | p |
 |---|---|---|
 | ADHD | 2.15 | <0.001 |
-| Male sex | 2.13 | <0.001 |
+| Male gender identity (recorded at admission) | 2.13 | <0.001 |
 | Longer LOS (per day) | 1.18 | <0.001 |
 | Autism spectrum disorder | 1.41 | 0.018 |
 | Younger age (per year) | 0.81 | <0.001 |
@@ -151,7 +156,7 @@ Machine learning and regularized LR **surface salient features**, but a **sensit
 
 ## 8. Equity findings (new in 2026)
 
-Equalized-odds gaps: **age 0.240**, **sex 0.195**, ACE 0.119, insurance 0.023. Younger children and males are flagged at higher true- and false-positive rates. Any future tool requires equity-aware validation before clinical use.
+Equalized-odds gaps: **age 0.240**, **gender 0.195**, ACE 0.119, insurance 0.023. Younger children and male-identifying children are flagged at higher true- and false-positive rates. Any future tool requires equity-aware validation before clinical use.
 
 ---
 
