@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AACAP 2026 Abstract — Pediatric Psychiatric Readmission</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #11182a;
+      --panel-2: #151f35;
+      --text: #edf3ff;
+      --muted: #aebbd4;
+      --line: rgba(255,255,255,.12);
+      --accent: #7dd3fc;
+      --accent-2: #c4b5fd;
+      --accent-3: #f0abfc;
+      --good: #86efac;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(125,211,252,.16), transparent 28rem),
+        radial-gradient(circle at 88% 2%, rgba(196,181,253,.18), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex;
+      gap: .6rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem clamp(1rem, 4vw, 4rem) 0;
+      flex-wrap: wrap;
+    }
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      padding: .5rem .8rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+    }
+    .back-link:hover { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.05); }
+    .venue-badge {
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 6vw, 6rem) 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 800;
+      font-size: .78rem;
+      margin: 0 0 .75rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      letter-spacing: -.045em;
+      line-height: 1.08;
+      margin: 0 0 1.2rem;
+      max-width: 22ch;
+    }
+    .byline {
+      color: var(--muted);
+      font-size: .95rem;
+      margin: 0 0 2.5rem;
+    }
+
+    /* ── Key stats ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .85rem;
+      margin-bottom: 3.5rem;
+    }
+    .stat-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--line);
+    }
+    .stat-label { color: var(--muted); font-size: .8rem; margin: 0 0 .2rem; }
+    .stat-value { font-size: 1.8rem; font-weight: 900; letter-spacing: -.04em; margin: 0; line-height: 1; }
+    .stat-sub { color: var(--muted); font-size: .75rem; margin: .2rem 0 0; }
+
+    /* ── Content panels ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1rem, 6vw, 6rem) 5rem; }
+    .abstract-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: start;
+    }
+    .section-card {
+      border: 1px solid var(--line);
+      border-radius: 1.4rem;
+      background: rgba(17,24,42,.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+    .section-card h2 {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .78rem;
+      font-weight: 800;
+      margin: 0 0 .85rem;
+    }
+    .section-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+      font-size: .97rem;
+    }
+    .section-card p + p { margin-top: .75rem; }
+
+    /* highlight inline findings */
+    .finding-inline {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── Results callouts ── */
+    .result-list {
+      list-style: none;
+      margin: .75rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: .6rem;
+    }
+    .result-list li {
+      padding: .65rem .9rem;
+      border-radius: .75rem;
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+    .result-list li.sig {
+      background: rgba(125,211,252,.08);
+      border: 1px solid rgba(125,211,252,.22);
+      color: var(--text);
+    }
+    .result-list li.null {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .result-list li.warn {
+      background: rgba(240,171,252,.07);
+      border: 1px solid rgba(240,171,252,.22);
+      color: var(--text);
+    }
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: .1rem .45rem;
+      border-radius: 999px;
+      margin-right: .4rem;
+    }
+    .tag.pos { background: rgba(125,211,252,.18); color: var(--accent); }
+    .tag.neg { background: rgba(255,255,255,.08); color: var(--muted); }
+    .tag.perf { background: rgba(196,181,253,.15); color: var(--accent-2); }
+    .tag.equity { background: rgba(240,171,252,.12); color: var(--accent-3); }
+
+    /* ── Learning objectives ── */
+    .objectives-card {
+      border: 1px solid var(--line);
+      border-radius: 1.4rem;
+      background: rgba(17,24,42,.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 1.6rem;
+    }
+    .objectives-card h2 {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .78rem;
+      font-weight: 800;
+      margin: 0 0 1.1rem;
+    }
+    .obj-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+    .obj-list li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: .75rem;
+      align-items: start;
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.65;
+    }
+    .obj-num {
+      font-size: .78rem;
+      font-weight: 900;
+      color: var(--accent);
+      padding-top: .15rem;
+    }
+
+    footer {
+      padding: 2rem clamp(1rem, 6vw, 6rem);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 860px) {
+      .abstract-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="back-link" href="index.html">← Portfolio</a>
+    <span class="venue-badge">AACAP 2026 Annual Meeting</span>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Conference abstract · Poster submission</p>
+    <h1>Estimating Psychiatric Rehospitalization Risk in Children</h1>
+    <p class="byline">Gold &amp; Ritfeld &nbsp;·&nbsp; AACAP 2026 Annual Meeting &nbsp;·&nbsp; Machine learning surfaces predictors but fails at individual prediction</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">Cohort size</p>
+        <p class="stat-value">2,652</p>
+        <p class="stat-sub">children aged 5–12, 2017–2024</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">90-day readmission rate</p>
+        <p class="stat-value" style="color:var(--accent)">9.3%</p>
+        <p class="stat-sub">246 / 2,652 patients</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Best corrected AUC</p>
+        <p class="stat-value" style="color:var(--accent-2)">0.748</p>
+        <p class="stat-sub">RF after bootstrap optimism correction</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">PPV at optimal threshold</p>
+        <p class="stat-value" style="color:var(--accent-3)">≈20%</p>
+        <p class="stat-sub">insufficient for individual triage</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="abstract-grid">
+
+      <!-- Left column: main abstract sections -->
+      <div>
+        <div class="section-card">
+          <h2>Objectives</h2>
+          <p>Predictors of psychiatric rehospitalization in children are poorly characterized, and predicting readmission in any cohort remains a lofty goal. Standard regression models failed to identify readmission predictors in our prior analysis of 2,652 children aged 5–12. In the current analysis, we used regularized and machine-learning models to identify risk factors for 90-day readmission and test their predictive performance on a small dataset.</p>
+        </div>
+
+        <div class="section-card">
+          <h2>Methods</h2>
+          <p>Patient records for the biobehavioral unit were collected from 2017–2024 at one Arizona hospital. ICD-10 codes were analyzed and aggregated into DSM-5 and Clinical Classifications Software Refined (CCSR) categories. Unpenalized logistic regression provided interpretable odds ratios; regularized logistic regression, random forest (RF), and gradient boosting models were trained on clinical and demographic features with interaction terms and evaluated via bootstrap optimism correction, calibration, and fairness analysis across age, gender, insurance, and adverse childhood experience (ACE) strata.</p>
+        </div>
+
+        <div class="section-card">
+          <h2>Results</h2>
+          <p>Independent associations with readmission were identified:</p>
+          <ul class="result-list">
+            <li class="sig"><span class="tag pos">↑ Risk</span> Suicidal ideation — OR 1.50, p = 0.006</li>
+            <li class="sig"><span class="tag pos">↑ Risk</span> Diagnostic complexity — OR 1.39 per DSM-5 category, p &lt; 0.001</li>
+            <li class="sig"><span class="tag pos">↑ Risk</span> Physical restraint use — OR 1.60, p = 0.008; also largest driver of LOS (+6 days)</li>
+            <li class="sig"><span class="tag pos">↑ Risk</span> Younger age — OR 1.10 per year, p = 0.010</li>
+            <li class="null"><span class="tag neg">Null</span> Modified ACE category — not associated with readmission</li>
+            <li class="null"><span class="tag neg">Null</span> C-SSRS flags, NSSI, chronic medical comorbidity — not associated</li>
+            <li class="warn"><span class="tag perf">Model</span> RF apparent AUC 0.844 → 0.748 after bootstrap optimism correction</li>
+            <li class="warn"><span class="tag perf">Model</span> PPV ≈ 20% at optimal threshold — insufficient for individual triage</li>
+            <li class="warn"><span class="tag equity">Equity</span> Equalized-odds disparities: age gap 0.240, gender gap 0.136</li>
+          </ul>
+        </div>
+
+        <div class="section-card">
+          <h2>Conclusions</h2>
+          <p>The models surfaced risk factors that standard regression techniques failed to identify, yet individual readmission remains hard to predict — feature discovery is necessary but not sufficient for creating a useful risk measure.</p>
+          <p>These findings refine a previous report from this cohort: re-analysis shows that predictors previously reported as null emerge once a non-converging model specification was corrected. Larger, multi-site data and equity-aware validation are needed before clinical use.</p>
+        </div>
+      </div>
+
+      <!-- Right column: learning objectives -->
+      <div class="objectives-card">
+        <h2>Learning objectives</h2>
+        <ol class="obj-list">
+          <li>
+            <span class="obj-num">01</span>
+            <span>Identify the clinical factors independently associated with 90-day psychiatric readmission in children aged 5–12 — suicidal ideation, number of DSM-5-TR categories diagnosed, physical restraint use, and younger age — and distinguish them from factors not independently associated: length of stay, modified ACE risk category, C-SSRS flags, chronic medical comorbidity, and NSSI.</span>
+          </li>
+          <li>
+            <span class="obj-num">02</span>
+            <span>Explain how and why predictive models can surface salient risk factors yet fail to achieve clinically useful sensitivity and specificity when trained on small datasets.</span>
+          </li>
+          <li>
+            <span class="obj-num">03</span>
+            <span>Evaluate predictive model performance via calibration and bootstrap-corrected optimism by interpreting isotonic regression, Platt scaling, and apparent AUC relative to optimism-corrected AUC.</span>
+          </li>
+          <li>
+            <span class="obj-num">04</span>
+            <span>Recognize the basis of demographic-based algorithmic disparities that may arise in machine learning models, and the necessity of equity-aware validation before clinical deployment.</span>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Gold &amp; Ritfeld · AACAP 2026 Annual Meeting · Patient-level data intentionally excluded from this web artifact.</p>
+  </footer>
+
+</body>
+</html>

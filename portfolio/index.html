@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pediatric Psychiatric Readmission Analytics | Data Portfolio</title>
+  <meta name="description" content="Interactive portfolio case study for pediatric psychiatric rehospitalization analytics, ICD-10 to DSM-5 mapping, and readmission risk modeling." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#overview">Overview</a>
+      <a href="#findings">Findings</a>
+      <a href="#subgroups">Subgroups</a>
+      <a href="#models">Model limits</a>
+      <a href="#figures">Figures</a>
+    </nav>
+    <div class="hero-grid">
+      <section>
+        <p class="eyebrow">Clinical data science portfolio</p>
+        <h1>Pediatric psychiatric readmission: from ICD-10 mapping to clinically honest prediction</h1>
+        <p class="lede">
+          A single-site cohort analysis of children aged 5–12 admitted for inpatient psychiatric care
+          from 2017–2024. The project turns raw diagnosis exports into DSM-5/ICD-informed features,
+          publication-ready figures, and an explicit assessment of what machine learning can — and
+          cannot — predict in small clinical datasets.
+        </p>
+        <div class="cta-row">
+          <a class="button" href="#figures">View visualizations</a>
+          <a class="button secondary" href="abstract.html">Read abstract</a>
+          <a class="button secondary" href="visualizations/">Interactive analyses ↗</a>
+        </div>
+      </section>
+      <aside class="hero-card" aria-label="Project summary">
+        <h2>Project snapshot</h2>
+        <dl class="snapshot" id="snapshot"></dl>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview" class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Why this matters</p>
+        <h2>Readmission is clinically important, but individual prediction is hard.</h2>
+      </div>
+      <div class="two-col" style="align-items: center">
+        <div>
+          <p>
+            The analysis asks a practical question: can routine clinical, demographic, and diagnosis
+            data identify children at higher risk for psychiatric rehospitalization? The answer is
+            nuanced. Several interpretable factors are associated with readmission, but discrimination
+            remains modest after out-of-fold and optimism-corrected evaluation.
+          </p>
+          <p>
+            This portfolio page intentionally exports only aggregate statistics and generated figures.
+            Patient-level rows, identifiers, and source CSVs are not shipped with the web build.
+          </p>
+        </div>
+        <div class="method-card">
+          <h3>Workflow</h3>
+          <ol>
+            <li>Cleaned raw visit-level exports into canonical patient and diagnosis tables.</li>
+            <li>Mapped 1,863 ICD-10-CM codes to descriptions, ICD chapters, and DSM-5 categories.</li>
+            <li>Built interpretable regression, regularized ML, bootstrap, calibration, and fairness analyses.</li>
+            <li>Generated conference-facing figures and narrative summaries.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="findings" class="panel dark">
+      <div class="section-heading">
+        <p class="eyebrow">Exploratory findings</p>
+        <h2>Aggregate readmission patterns</h2>
+      </div>
+      <div class="chart-grid">
+        <article class="chart-card">
+          <h3>Readmission rate by age band</h3>
+          <div id="ageChart" class="chart" role="img" aria-label="Readmission rate by age band"></div>
+        </article>
+        <article class="chart-card">
+          <h3>Readmission rate by gender identity</h3>
+          <div id="genderChart" class="chart" role="img" aria-label="Readmission rate by gender identity"></div>
+        </article>
+        <a class="chart-card viz-link-card wide" href="visualizations/dsm5_readmission_rates.html" target="_blank" rel="noopener">
+          <h3>Readmission risk across the full diagnostic spectrum</h3>
+          <p>All DSM-5 categories (n&nbsp;≥&nbsp;20) ranked by 90-day readmission rate with Wilson 95% CIs. Hover any bar for patient counts and raw readmitted numbers.</p>
+          <span class="open-label">Open interactive chart ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="subgroups" class="panel dark">
+      <div class="section-heading">
+        <p class="eyebrow">Within-category heterogeneity</p>
+        <h2>Aggregate diagnostic categories conceal opposite risk signals.</h2>
+        <p>
+          A single DSM-5 label can bundle high-risk and low-risk subtypes. The interactive
+          chart below uses a dropdown to reveal how individual ICD-10 subgroups diverge
+          from the cohort average of 9.3%.
+        </p>
+      </div>
+      <div class="chart-grid single">
+        <a class="chart-card viz-link-card wide" href="visualizations/subgroup_heterogeneity.html" target="_blank" rel="noopener">
+          <h3>Subgroup risk within each DSM-5 category</h3>
+          <p>Select any diagnostic category from the dropdown to see readmission rates for individual ICD-10 codes within it. Pink bars indicate elevated risk vs. cohort average; sky bars are protective; gray is non-significant.</p>
+          <p class="caption" style="margin-top:.5rem">Example: within Depressive Disorders, DMDD carries 14.2% readmission (OR 1.82) while single-episode MDD is flat at 9.0% (OR 0.96, n.s.).</p>
+          <span class="open-label">Open interactive chart ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="models" class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Modeling takeaway</p>
+        <h2>Feature discovery worked better than individual-level prediction.</h2>
+      </div>
+      <div class="chart-grid">
+        <a class="chart-card viz-link-card" href="visualizations/forest_plot.html" target="_blank" rel="noopener">
+          <h3>Independent predictors of readmission</h3>
+          <p>Multivariable logistic regression forest plot — hover for exact odds ratios, 95% CIs, and p-values for each predictor and non-predictor.</p>
+          <span class="open-label">Open interactive chart ↗</span>
+        </a>
+        <a class="chart-card viz-link-card" href="visualizations/model_performance.html" target="_blank" rel="noopener">
+          <h3>Apparent vs. optimism-corrected AUC</h3>
+          <p>Grouped bar chart comparing apparent, bootstrap-corrected, and out-of-fold AUC for logistic regression, random forest, and CatBoost.</p>
+          <span class="open-label">Open interactive chart ↗</span>
+        </a>
+      </div>
+      <div class="callout">
+        <strong>Clinical interpretation:</strong>
+        Apparent tree-model AUCs looked strong in-sample, but out-of-fold AUCs clustered near 0.64–0.68.
+        The honest conclusion is not “deploy a readmission predictor”; it is “use modeling to surface
+        clinically plausible risk factors, then validate in larger multi-site data.”
+      </div>
+      <div class="chart-grid single">
+        <article class="chart-card wide">
+          <h3>Fairness / subgroup gaps</h3>
+          <div id="fairnessChart" class="chart" role="img" aria-label="Fairness gaps by subgroup pairing"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="figures" class="panel dark">
+      <div class="section-heading">
+        <p class="eyebrow">Existing analysis outputs</p>
+        <h2>Publication-ready visualization gallery</h2>
+      </div>
+      <div id="figureGallery" class="gallery"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Pediatric Psychiatric Readmission Analytics · 2026</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

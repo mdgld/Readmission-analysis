@@ -20,3 +20,13 @@ catboost_info/
 
 # Claude/Gemini CLI workspace files
 .claude/
+
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.bmp
+*.ico
