@@ -1,0 +1,6 @@
+insurance_cat5,n,readmit_pct,LOS_median,ACE_median,highACE_pct
+Commercial,896,9.3,8.0,2.0,29.4
+Military,65,6.2,8.0,2.0,27.7
+Other/unknown,45,4.4,7.0,2.5,22.2
+Public,1631,9.6,9.0,4.0,43.1
+Tribal/IHS,15,0.0,9.0,5.0,13.3

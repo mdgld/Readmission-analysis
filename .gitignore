@@ -21,7 +21,7 @@ catboost_info/
 # Claude/Gemini CLI workspace files
 .claude/
 
-# Images (exclude bulk figures; allow portfolio assets)
+# Images (exclude bulk figures; allow portfolio assets below)
 *.png
 *.jpg
 *.jpeg
@@ -30,4 +30,6 @@ catboost_info/
 *.webp
 *.bmp
 *.ico
+
+# Allow portfolio static assets for GitHub Pages
 !portfolio/assets/*.png

@@ -1,0 +1,3 @@
+measure,OR_readmit,p_readmit,rho_LOS,p_LOS
+Distinct ICD diagnoses,1.058,<0.001,0.121,<0.001
+DSM-5 categories,1.446,<0.001,0.122,<0.001

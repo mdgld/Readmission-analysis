@@ -1,0 +1,37 @@
+prefix,n,readmit_pct,prefix_label
+R45,1557,11.2,R45 — Suicidal ideation
+R46,620,12.3,R46 — Other symptoms and signs involving appearance and behavior
+R44,186,11.8,R44 — Disturbance of awareness of identity
+R10,157,7.6,R10 — Unspecified abdominal pain
+R63,108,8.3,R63 — Abnormal weight loss
+R11,97,10.3,R11 — Nausea
+R62,93,11.8,R62 — Unspecified lack of expected physiological development
+R41,70,8.6,R41 — Attention and concentration deficit
+R94,70,14.3,R94 — Abnormal results of thyroid function studies
+R06,62,19.4,R06 — Apnea
+R51,61,9.8,"R51 — Headache, unspecified"
+R19,52,5.8,R19 — Diarrhea
+R00,51,5.9,"R00 — Tachycardia, unspecified"
+R40,51,19.6,R40 — Stupor
+R73,50,16.0,R73 — Prediabetes
+R32,45,8.9,R32 — Unspecified urinary incontinence
+R25,33,12.1,R25 — Unspecified abnormal involuntary movements
+R15,30,16.7,"R15 — Fecal incontinence, unspecified"
+R56,30,16.7,R56 — Unspecified convulsions
+R42,29,0.0,R42 — R42 [description unavailable]
+R68,26,15.4,R68 — Other general symptoms and signs
+R05,26,3.8,R05 — Fever of other and unknown origin
+R35,26,11.5,R35 — Frequency of micturition
+R26,26,3.8,R26 — Other inability to walk
+R07,25,0.0,"R07 — Chest pain, unspecified"
+R01,25,8.0,"R01 — Cardiac murmur, unspecified"
+R55,24,16.7,R55 — Syncope and collapse
+R13,22,4.5,"R13 — Dysphagia, unspecified"
+R53,22,4.5,R53 — Other fatigue
+R74,21,19.0,R74 — Abnormality of levels of other serum enzymes
+R09,21,9.5,R09 — Nasal congestion
+R04,20,10.0,R04 — Epistaxis
+R03,18,0.0,"R03 — Elevated blood-pressure reading, without diagnosis of hypertension"
+R79,18,5.6,R79 — Other specified abnormal serum chemical findings
+R47,15,6.7,R47 — Unspecified speech disturbance
+R76,15,6.7,R76 — Other specified abnormal serum immunological findings
