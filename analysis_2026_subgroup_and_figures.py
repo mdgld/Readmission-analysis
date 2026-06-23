@@ -27,7 +27,7 @@ plt.rcParams.update({'figure.dpi':130, 'savefig.dpi':200, 'font.size':11, 'axes.
                      'axes.spines.top':False, 'axes.spines.right':False})
 
 # ---------------- feature engineering (mirrors reconciliation script) ----------------
-df = pd.read_csv(ROOT / 'annotated_psychiatric_data_complete.csv')
+df = pd.read_csv(ROOT / 'data' / 'annotated_psychiatric_data_complete.csv')
 df['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)
 df['age'] = pd.to_numeric(df['Pt_Age_Visit'], errors='coerce')
 df['male'] = (df['GenderCode'].astype(str).str.strip().str.lower()=='male').astype(int)

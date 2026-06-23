@@ -398,7 +398,7 @@ def make_model_performance() -> None:
 # ── 4. DSM-5 Readmission Rates ────────────────────────────────────────────────
 
 def make_dsm5_rates() -> None:
-    df = pd.read_csv(BASE / "annotated_psychiatric_data_complete.csv")
+    df = pd.read_csv(BASE / "data" / "annotated_psychiatric_data_complete.csv")
     df["readmitted"] = (df["Readmissions"] > 0).astype(int)
 
     cat_cols = [

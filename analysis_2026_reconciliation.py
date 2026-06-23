@@ -5,7 +5,7 @@ import statsmodels.formula.api as smf
 from pathlib import Path
 
 ROOT = Path(__file__).parent  # portable: works wherever the repo lives
-df = pd.read_csv(ROOT / 'annotated_psychiatric_data_complete.csv')
+df = pd.read_csv(ROOT / 'data' / 'annotated_psychiatric_data_complete.csv')
 
 # ---------- feature engineering ----------
 df['readmitted'] = (df['Readmissions'].fillna(0) > 0).astype(int)

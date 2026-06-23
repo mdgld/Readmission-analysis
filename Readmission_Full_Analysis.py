@@ -45,7 +45,7 @@ print("✓ Libraries loaded. Figures will save to ./figures/")
 
 
 # ── Load data ────────────────────────────────────────────────────────────────
-df = pd.read_csv('annotated_psychiatric_data_complete.csv')
+df = pd.read_csv('data/annotated_psychiatric_data_complete.csv')
 
 # ── Outcome ──────────────────────────────────────────────────────────────────
 print("Readmissions value counts:")
@@ -507,7 +507,7 @@ print("✓ Fig 2b saved")
 
 
 # ── Fig 3: Readmission rate by DSM-5 category (horizontal dot plot) ────────────
-dsm5_long = pd.read_csv('DSM5_Readmission_Analysis.csv')
+dsm5_long = pd.read_csv('data/DSM5_Readmission_Analysis.csv')
 dsm5_long.columns = ['category', 'readmit_n', 'total_n', 'rate']
 dsm5_long = dsm5_long.dropna(subset=['rate'])
 dsm5_long = dsm5_long[dsm5_long['total_n'] >= 15]
