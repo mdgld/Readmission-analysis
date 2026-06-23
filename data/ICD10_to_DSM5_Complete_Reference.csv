@@ -1,0 +1,1864 @@
+ICD_Code,Description,Category,DSM5_Category,DSM5_Code,Frequency
+R45.851,Suicidal ideation,Unclassified,Non-Suicidal Self-Injury Behavior,T17.8XXA,2968
+F90.2,"ADHD, combined type",Unclassified,ADHD,F90.9,1243
+F43.10,"PTSD, unspecified",Unclassified,Trauma and Stressor-Related Disorders,F43.10,1124
+F90.9,"ADHD, unspecified",Unclassified,ADHD,F90.9,845
+F41.9,"Anxiety disorder, unspecified",Unclassified,Anxiety Disorders,F41.9,810
+F84.0,Autism spectrum disorder,Unclassified,Autism Spectrum Disorder,F84.0,756
+F32.9,"Major depressive disorder, single episode, unspecified",Unclassified,Depressive Disorders,F32.9,733
+F41.1,Generalized anxiety disorder,Unclassified,Anxiety Disorders,F41.1,718
+R46.89,Other symptoms and signs involving appearance and behavior,Symptoms/Signs/Abnormal Findings,,,706
+F34.81,Disruptive mood dysregulation disorder,Unclassified,Depressive Disorders,F34.81,637
+F39,Unspecified mood disorder,Unclassified,Depressive Disorders,F39,455
+F91.3,Adolescent-onset type conduct disorder,Unclassified,Conduct Disorder,F91.3,444
+R45.850,Homicidal ideation,Unclassified,Other Mental Disorder,R45.850,384
+F43.9,Unspecified trauma- and stressor-related disorder,Unclassified,Trauma and Stressor-Related Disorders,F43.9,345
+F33.2,"Major depressive disorder, recurrent, severe without psychotic features",Unclassified,Depressive Disorders,F33.2,265
+F32.2,"Major depressive disorder, single episode, severe without psychotic features",Unclassified,Depressive Disorders,F32.2,259
+Z65.8,Other specified problems related to psychosocial circumstances,Factors Influencing Health Status,,,224
+K59.00,"Constipation, unspecified",Digestive System,,,224
+F43.25,"Adjustment disorder with mixed disturbance of emotions and conduct, with prolonged duration",Unclassified,Trauma and Stressor-Related Disorders,F43.25,203
+Z62.820,Parent-child relational problem,Factors Influencing Health Status,,,200
+F33.1,"Major depressive disorder, recurrent, moderate",Unclassified,Depressive Disorders,F33.1,195
+Z63.5,Disruption of family by separation and divorce,Factors Influencing Health Status,,,192
+F91.9,"Conduct disorder, unspecified",Unclassified,Conduct Disorder,F91.9,187
+Z62.21,Child in custody of social service agency,Factors Influencing Health Status,,,182
+T14.91XA,"Unspecified injury of unspecified body region, initial encounter",Injury/Poisoning,,,182
+F43.12,"PTSD, chronic",Unclassified,Trauma and Stressor-Related Disorders,F43.12,179
+F43.20,Adjustment disorder with depressed mood,Unclassified,Trauma and Stressor-Related Disorders,F43.20,178
+E66.9,Unspecified obesity,Endocrine/Metabolic,,,175
+F31.9,"Bipolar I disorder, unspecified",Unclassified,Bipolar and Related Disorders,F31.9,166
+P04.9,Newborn affected by maternal unspecified condition,Perinatal Conditions,,,162
+Z63.8,Other specified problems related to primary support group,Factors Influencing Health Status,,,158
+F43.23,Adjustment disorder with mixed disturbance of emotions and conduct,Unclassified,Trauma and Stressor-Related Disorders,F43.23,150
+F94.1,Reactive attachment disorder of infancy or early childhood,Unclassified,Trauma and Stressor-Related Disorders,F94.1,143
+Z62.810,Personal history of sexual abuse in childhood,Factors Influencing Health Status,,,141
+R44.0,Disturbance of awareness of identity,Symptoms/Signs/Abnormal Findings,,,137
+F34.8,Other persistent mood disorders,Unclassified,Depressive Disorders,F34.8,133
+Z86.59,Personal history of other specified disease,Factors Influencing Health Status,,,124
+F88,Other disorders of psychological development,Unclassified,Other Neurodevelopmental Disorder,F88,120
+F42.9,"OCD, unspecified",Unclassified,Obsessive-Compulsive and Related Disorders,F42.9,119
+F90.1,"ADHD, predominantly hyperactive-impulsive type",Unclassified,ADHD,F90.2,114
+N39.44,Nocturnal enuresis,Genitourinary System,,,103
+F90.0,"ADHD, predominantly inattentive type",Unclassified,ADHD,F90.1,102
+Z62.812,Personal history of psychological abuse in childhood,Factors Influencing Health Status,,,102
+F93.9,"Childhood emotional disorder, unspecified",Unclassified,Anxiety Disorders,F93.9,101
+Z91.89,Other specified personal risk factors,Factors Influencing Health Status,,,99
+F32.1,"Major depressive disorder, single episode, moderate",Unclassified,Depressive Disorders,F32.1,96
+R10.9,Unspecified abdominal pain,Symptoms/Signs/Abnormal Findings,,,85
+F33.3,"Major depressive disorder, recurrent, severe with psychotic features",Unclassified,Depressive Disorders,F33.3,82
+F98.9,Unspecified behavioral or emotional disorder with onset usually in childhood or adolescence,Unclassified,Other Specified Mental Disorder,F98.9,80
+F43.21,Adjustment disorder with anxiety,Unclassified,Trauma and Stressor-Related Disorders,F43.21,78
+F32.A,"Major depressive disorder, single episode, with anxious distress",Unclassified,Depressive Disorders,F32.A,78
+F32.3,"Major depressive disorder, single episode, severe with psychotic features",Unclassified,Depressive Disorders,F32.3,77
+H53.043,"Amblyopia, bilateral",Eye/Ear Disorders,,,77
+F60.89,Other specific personality disorder,Unclassified,Personality Disorder,F60.89,77
+R45.88,Other symptoms and signs involving emotional state,Symptoms/Signs/Abnormal Findings,,,76
+R45.5,Hostility,Symptoms/Signs/Abnormal Findings,,,76
+F33.9,"Major depressive disorder, recurrent, unspecified",Unclassified,Depressive Disorders,F33.9,75
+G47.9,"Sleep disorder, unspecified",Nervous System Disorders,,,75
+F93.0,Separation anxiety disorder of childhood,Unclassified,Anxiety Disorders,F93.0,73
+E66.3,Overweight,Endocrine/Metabolic,,,72
+F80.9,"Developmental disorder of speech or language, unspecified",Unclassified,Communication Disorders,F80.9,71
+F81.9,"Learning disorder, unspecified",Unclassified,Specific Learning Disorder,F81.9,69
+J30.9,"Allergic rhinitis, unspecified",Respiratory System,,,69
+G47.33,"Obstructive sleep apnea, severe",Nervous System Disorders,,,69
+K21.9,Gastro-esophageal reflux disease without esophagitis,Digestive System,,,66
+F50.9,Unspecified feeding or eating disorder,Unclassified,Feeding and Eating Disorders,F50.9,65
+F40.10,Social anxiety disorder,Unclassified,Anxiety Disorders,F40.10,65
+E78.2,Mixed hyperlipidemia,Endocrine/Metabolic,,,63
+Z62.821,Child neglect by parent,Factors Influencing Health Status,,,59
+F29,Unspecified psychosis not due to a substance or known physiological condition,Unclassified,Psychotic Disorders,F29,56
+G43.009,G43.009 [description unavailable],Nervous System Disorders,,,55
+R06.83,Apnea,Symptoms/Signs/Abnormal Findings,,,54
+F41.0,Panic disorder,Unclassified,Anxiety Disorders,F41.0,54
+R32,Unspecified urinary incontinence,Symptoms/Signs/Abnormal Findings,,,53
+F81.0,Specific learning disorder with impairment in reading,Unclassified,Specific Learning Disorder,F81.0,53
+Z63.4,Disappearance and death of family member,Factors Influencing Health Status,,,53
+Z55.9,"Problems associated with education and literacy, unspecified",Factors Influencing Health Status,,,53
+J45.909,Unspecified asthma with (acute) exacerbation,Respiratory System,,,52
+Z62.819,Personal history of unspecified abuse,Factors Influencing Health Status,,,51
+R94.6,Abnormal results of thyroid function studies,Symptoms/Signs/Abnormal Findings,,,49
+Z03.89,Encounter for observation for other suspected conditions ruled out,Factors Influencing Health Status,,,48
+R40.4,Stupor,Symptoms/Signs/Abnormal Findings,,,48
+R44.3,Hyperacusis,Symptoms/Signs/Abnormal Findings,,,47
+J45.20,Mild intermittent asthma,Respiratory System,,,47
+F63.81,Intermittent explosive disorder,Unclassified,Disruptive Behavior Disorder,F63.81,46
+F91.1,Childhood-onset type conduct disorder,Unclassified,Conduct Disorder,F91.1,45
+R44.1,Disturbance of sensation of smell and taste,Symptoms/Signs/Abnormal Findings,,,45
+R41.840,Attention and concentration deficit,Symptoms/Signs/Abnormal Findings,,,44
+F60.3,Borderline personality disorder (features),Unclassified,Personality Disorder,F60.3,44
+Z72.89,Other problems associated with lifestyle,Factors Influencing Health Status,,,44
+F40.11,"Social anxiety disorder, generalized",Unclassified,Anxiety Disorders,F40.10,43
+F43.1,Post-traumatic stress disorder (PTSD),Unclassified,Trauma and Stressor-Related Disorders,F43.10,43
+J45.30,Mild persistent asthma,Respiratory System,,,41
+F64.2,"Gender identity disorder of adolescence or adulthood, nontranssexual type",Unclassified,Gender Identity Disorders,F64.2,40
+Z81,Family history of mental and behavioral disorders,Factors Influencing Health Status,,,40
+Z81.8,Family history of other specified mental and behavioral disorders,Factors Influencing Health Status,,,40
+Z68.54,"Obesity, BMI 50-59.9, child or adolescent",Factors Influencing Health Status,,,40
+R45.87,Excessive crying,Symptoms/Signs/Abnormal Findings,,,40
+R10.84,Generalized abdominal pain,Symptoms/Signs/Abnormal Findings,,,39
+H52.7,Unspecified refractive error,Eye/Ear Disorders,,,39
+F42,Obsessive-compulsive disorder,Unclassified,Obsessive-Compulsive and Related Disorders,F42,39
+R11.0,Nausea,Symptoms/Signs/Abnormal Findings,,,39
+F89,Unspecified disorder of psychological development,Unclassified,Other Neurodevelopmental Disorder,F89,39
+E03.9,E03.9 [description unavailable],Endocrine/Metabolic,,,39
+R62.50,Unspecified lack of expected physiological development,Symptoms/Signs/Abnormal Findings,,,38
+Z87.898,Personal history of other substance abuse,Factors Influencing Health Status,,,37
+R63.5,Abnormal weight loss,Symptoms/Signs/Abnormal Findings,,,37
+R45.85,Homicidal and suicidal ideation,Symptoms/Signs/Abnormal Findings,,,37
+R45.89,Other symptoms and signs involving appearance and behavior,Symptoms/Signs/Abnormal Findings,,,36
+R73.03,Prediabetes,Symptoms/Signs/Abnormal Findings,,,36
+F95.2,Tourette disorder,Unclassified,Tic Disorders,F95.2,36
+Z91.5,Noncompliance with medical treatment and regimen,Factors Influencing Health Status,,,36
+E66.01,Drug-induced obesity with BMI 30-34.9,Endocrine/Metabolic,,,35
+R45.4,Irritability and anger,Symptoms/Signs/Abnormal Findings,,,34
+G47.00,"Insomnia, unspecified",Nervous System Disorders,,,33
+R51.9,"Headache, unspecified",Symptoms/Signs/Abnormal Findings,,,32
+R51,Headache,Symptoms/Signs/Abnormal Findings,,,32
+R11.10,"Vomiting, unspecified",Symptoms/Signs/Abnormal Findings,,,32
+L30.9,Other dermatitis,Skin/Subcutaneous,,,32
+L83,Acanthosis nigricans,Skin/Subcutaneous,,,32
+F43.22,Adjustment disorder with mixed anxiety and depression,Unclassified,Trauma and Stressor-Related Disorders,F43.22,32
+R11.2,"Nausea with vomiting, unspecified",Symptoms/Signs/Abnormal Findings,,,32
+R42,R42 [description unavailable],Symptoms/Signs/Abnormal Findings,,,31
+X83.8XXA,X83.8XXA [description unavailable],External Causes,,,31
+F95.9,F95.9 [description unavailable],Unclassified,,,31
+F41.8,Other specified anxiety disorder,Unclassified,Anxiety Disorders,F41.8,31
+R10.33,Right lower quadrant pain,Symptoms/Signs/Abnormal Findings,,,30
+F79,"Intellectual disability (intellectual developmental disorder), unspecified",Unclassified,Intellectual Disability,F79,30
+Z62.891,Sibling rivalry,Factors Influencing Health Status,,,30
+R56.9,Unspecified convulsions,Symptoms/Signs/Abnormal Findings,,,30
+E55.9,E55.9 [description unavailable],Endocrine/Metabolic,,,29
+F90.8,"ADHD, other type",Unclassified,ADHD,F90.9,29
+F43.24,Adjustment disorder with disturbance of conduct,Unclassified,Trauma and Stressor-Related Disorders,F43.24,29
+T76.12XA,"Child physical abuse, confirmed, initial encounter",Injury/Poisoning,,,29
+G43.709,G43.709 [description unavailable],Nervous System Disorders,,,29
+Z00.129,Encounter for screening for other developmental delays,Factors Influencing Health Status,,,28
+F48.9,Unspecified neurotic disorder,Unclassified,Anxiety Disorders,F48.9,28
+F33.0,"Major depressive disorder, recurrent, mild",Unclassified,Depressive Disorders,F33.0,28
+G89.4,G89.4 [description unavailable],Nervous System Disorders,,,28
+G40.909,G40.909 [description unavailable],Nervous System Disorders,,,28
+F93.8,Other childhood emotional disorders,Unclassified,Anxiety Disorders,F93.8,28
+R19.7,Diarrhea,Symptoms/Signs/Abnormal Findings,,,28
+F70,"Intellectual disability (intellectual developmental disorder), mild",Unclassified,Intellectual Disability,F70,28
+T50.902A,"Toxic effect of unspecified drug or medicinal substance, accidental (unintentional), initial encounter",Injury/Poisoning,,,27
+F80.0,Speech sound disorder,Unclassified,Communication Disorders,F80.0,26
+R62.0,Delayed milestone in childhood,Symptoms/Signs/Abnormal Findings,,,26
+R55,Syncope and collapse,Symptoms/Signs/Abnormal Findings,,,26
+R00.0,"Tachycardia, unspecified",Symptoms/Signs/Abnormal Findings,,,25
+H52.13,"Myopia, bilateral",Eye/Ear Disorders,,,24
+M79.18,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,24
+J35.3,Hypertrophy of tonsils and adenoids,Respiratory System,,,24
+J30.1,Allergic rhinitis due to animal (cat) (dog) hair and dander,Respiratory System,,,24
+G93.40,G93.40 [description unavailable],Nervous System Disorders,,,24
+R63.3,Feeding difficulties and mismanagement,Symptoms/Signs/Abnormal Findings,,,24
+K59.09,Other constipation,Digestive System,,,24
+R62.52,Short stature (child),Symptoms/Signs/Abnormal Findings,,,23
+E10.65,E10.65 [description unavailable],Endocrine/Metabolic,,,23
+F63.9,"Impulse disorder, unspecified",Unclassified,Disruptive Behavior Disorder,F63.9,23
+R07.9,"Chest pain, unspecified",Symptoms/Signs/Abnormal Findings,,,23
+N39.41,Urge incontinence,Genitourinary System,,,23
+Z63.9,"Problem related to primary support group, unspecified",Factors Influencing Health Status,,,23
+E11.9,E11.9 [description unavailable],Endocrine/Metabolic,,,23
+H52.223,H52.223 [description unavailable],Eye/Ear Disorders,,,22
+R15.9,"Fecal incontinence, unspecified",Symptoms/Signs/Abnormal Findings,,,22
+R35.0,Frequency of micturition,Symptoms/Signs/Abnormal Findings,,,22
+R62.51,Failure to thrive (child),Symptoms/Signs/Abnormal Findings,,,22
+R46.81,Obsessive and compulsive behaviors,Symptoms/Signs/Abnormal Findings,,,22
+Z62.82,Parent-child relational problem,Factors Influencing Health Status,,,22
+F69,Unspecified disorder of adult personality and behavior,Unclassified,Personality Disorder,F69,22
+R01.1,"Cardiac murmur, unspecified",Symptoms/Signs/Abnormal Findings,,,22
+F64.9,Unspecified gender identity disorder,Unclassified,Gender Identity Disorders,F64.9,21
+R41.83,"Altered mental status, unspecified",Symptoms/Signs/Abnormal Findings,,,21
+F81.2,Specific learning disorder with impairment in mathematics,Unclassified,Specific Learning Disorder,F81.2,21
+R68.89,Other general symptoms and signs,Symptoms/Signs/Abnormal Findings,,,21
+R00.2,Palpitations,Symptoms/Signs/Abnormal Findings,,,21
+R63.4,Abnormality of stool consistency,Symptoms/Signs/Abnormal Findings,,,21
+E78.5,"Lipoid storage disorder, unspecified",Endocrine/Metabolic,,,21
+J31.0,Chronic nasopharyngitis,Respiratory System,,,21
+F91.8,Other conduct disorder,Unclassified,Conduct Disorder,F91.8,20
+M35.7,Other systemic involvement of connective tissue,Musculoskeletal System,,,20
+Z78.9,"Problem related to housing and economic circumstances, unspecified",Factors Influencing Health Status,,,20
+R04.0,Epistaxis,Symptoms/Signs/Abnormal Findings,,,20
+F43.11,"PTSD, acute",Unclassified,Trauma and Stressor-Related Disorders,F43.11,20
+G93.9,G93.9 [description unavailable],Nervous System Disorders,,,20
+M25.50,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,19
+P04.49,Newborn affected by maternal use of other drugs of addiction,Perinatal Conditions,,,19
+F32.89,Other specified depressive episode,Unclassified,Depressive Disorders,F32.89,19
+R03.0,"Elevated blood-pressure reading, without diagnosis of hypertension",Symptoms/Signs/Abnormal Findings,,,19
+Z71.3,Dietary counseling and surveillance,Factors Influencing Health Status,,,19
+G47.10,"Hypersomnia, unspecified",Nervous System Disorders,,,19
+H52.31,"Anisometropia, right eye",Eye/Ear Disorders,,,19
+F64.0,Transsexualism,Unclassified,Gender Identity Disorders,F64.0,19
+F95.1,Chronic motor or vocal tic disorder,Unclassified,Tic Disorders,F95.1,18
+R09.81,Nasal congestion,Symptoms/Signs/Abnormal Findings,,,18
+E78.1,Pure hyperglyceridemia,Endocrine/Metabolic,,,18
+T74.32XA,"Child sexual abuse, suspected, initial encounter",Injury/Poisoning,,,18
+Z86.69,Personal history of other specified diseases and conditions,Factors Influencing Health Status,,,17
+E44.0,E44.0 [description unavailable],Endocrine/Metabolic,,,17
+I10,Essential (primary) hypertension,Circulatory System,,,17
+Z00.121,Encounter for screening for developmental delays (performance testing),Factors Influencing Health Status,,,17
+H69.90,Unspecified Eustachian tube disorder,Eye/Ear Disorders,,,17
+Z91.018,Other food allergy status,Factors Influencing Health Status,,,17
+F84.9,"Autism spectrum disorder, unspecified",Unclassified,Autism Spectrum Disorder,F84.9,17
+Z87.19,Personal history of other allergies,Factors Influencing Health Status,,,16
+H50.43,"Strabismus, convergent, accommodative component",Eye/Ear Disorders,,,16
+Z68.53,"Obesity, BMI 40-49.9, child or adolescent",Factors Influencing Health Status,,,16
+R13.10,"Dysphagia, unspecified",Symptoms/Signs/Abnormal Findings,,,16
+H53.023,"Hyperopia, bilateral",Eye/Ear Disorders,,,16
+N92.6,"Irregular menstruation, unspecified",Genitourinary System,,,16
+H10.45,"Conjunctivitis, acute, left eye",Eye/Ear Disorders,,,16
+R45.6,Violent behavior,Symptoms/Signs/Abnormal Findings,,,15
+R25.9,Unspecified abnormal involuntary movements,Symptoms/Signs/Abnormal Findings,,,15
+M54.2,Dorsalgia (back pain),Musculoskeletal System,,,15
+M54.9,Dorsalgia (back pain),Musculoskeletal System,,,15
+K92.1,Melena,Digestive System,,,15
+G43.109,G43.109 [description unavailable],Nervous System Disorders,,,15
+T76.22XA,"Child neglect, confirmed, initial encounter",Injury/Poisoning,,,15
+E66.09,Other drug-induced obesity,Endocrine/Metabolic,,,15
+Z79.899,Other long term (current) drug therapy,Factors Influencing Health Status,,,15
+Z81.4,Family history of tic disorders,Factors Influencing Health Status,,,15
+Z13.41,Encounter for screening for metabolic syndrome,Factors Influencing Health Status,,,15
+H52.03,"Hyperopia, right eye",Eye/Ear Disorders,,,15
+R26.89,Other inability to walk,Symptoms/Signs/Abnormal Findings,,,15
+Q99.9,"Chromatic abnormality, unspecified",Congenital Anomalies,,,15
+R21,Rash and other nonspecific skin eruption,Symptoms/Signs/Abnormal Findings,,,15
+R76.8,Other specified abnormal serum immunological findings,Symptoms/Signs/Abnormal Findings,,,14
+F40.1,Social anxiety disorder (social phobia),Unclassified,Anxiety Disorders,F40.10,14
+F71,"Intellectual disability (intellectual developmental disorder), moderate",Unclassified,Intellectual Disability,F71,14
+N39.0,"Urinary tract infection, site not specified",Genitourinary System,,,14
+R79.89,Other specified abnormal serum chemical findings,Symptoms/Signs/Abnormal Findings,,,14
+F43.8,Other specified trauma- and stressor-related disorder,Unclassified,Trauma and Stressor-Related Disorders,F43.8,14
+R94.31,Abnormal result of kidney function study,Symptoms/Signs/Abnormal Findings,,,14
+F81.81,Specific learning disorder with impairment in writing,Unclassified,Specific Learning Disorder,F81.81,14
+F98.1,Encopresis (continuous or discontinuous),Unclassified,Elimination Disorders,F98.1,14
+X78.9XXA,"Intentional self-harm by unspecified means, initial encounter",Unclassified,Non-Suicidal Self-Injury Behavior,T17.8XXA,14
+R05,Fever of other and unknown origin,Symptoms/Signs/Abnormal Findings,,,14
+M54.89,Dorsalgia (back pain),Musculoskeletal System,,,14
+E28.2,E28.2 [description unavailable],Endocrine/Metabolic,,,14
+Z00.8,Encounter for other general adult medical examination,Factors Influencing Health Status,,,14
+R26.9,Unspecified inability to walk,Symptoms/Signs/Abnormal Findings,,,14
+R25.8,Other abnormal involuntary movements,Symptoms/Signs/Abnormal Findings,,,14
+E06.3,E06.3 [description unavailable],Endocrine/Metabolic,,,13
+Q86.0,Q86.0 [description unavailable],Congenital Anomalies,,,13
+T14.91XD,"Unspecified injury of unspecified body region, subsequent encounter",Injury/Poisoning,,,13
+F43.2,Adjustment disorder,Unclassified,Trauma and Stressor-Related Disorders,F43.20,13
+R39.15,Incomplete bladder emptying,Symptoms/Signs/Abnormal Findings,,,13
+Z82.49,Family history of ischemic heart disease and other diseases of the heart,Factors Influencing Health Status,,,13
+F44.5,Conversion disorder with sensory symptom or deficit,Unclassified,Dissociative Disorders,F44.5,13
+Z02.89,Encounter for other special examination and evaluation,Factors Influencing Health Status,,,13
+E23.0,E23.0 [description unavailable],Endocrine/Metabolic,,,13
+Z62.81,Personal history of abuse in childhood,Factors Influencing Health Status,,,13
+F31.64,"Bipolar I disorder, current or most recent episode mixed, severe with psychotic features",Unclassified,Bipolar and Related Disorders,F31.64,13
+E44.1,E44.1 [description unavailable],Endocrine/Metabolic,,,13
+K90.0,Celiac disease,Digestive System,,,13
+F32.81,Depressive episode with predominantly dissociative symptoms,Unclassified,Depressive Disorders,F32.8,12
+P04.3,Newborn affected by maternal use of psychoactive substance,Perinatal Conditions,,,12
+F82,Developmental coordination disorder,Unclassified,Developmental Coordination Disorder,F82,12
+K76.0,"Fatty (change of) liver, not elsewhere classified",Digestive System,,,12
+F84.8,Other specified autism spectrum disorder,Unclassified,Autism Spectrum Disorder,F84.8,12
+Z55.8,Other problems associated with education and literacy,Factors Influencing Health Status,,,12
+F43.29,Adjustment disorder with other disturbance,Unclassified,Trauma and Stressor-Related Disorders,F43.29,12
+L20.9,Atopic dermatitis,Skin/Subcutaneous,,,12
+E30.1,E30.1 [description unavailable],Endocrine/Metabolic,,,12
+Z87.09,Personal history of exposure to other hazardous substances,Factors Influencing Health Status,,,12
+G93.5,G93.5 [description unavailable],Nervous System Disorders,,,12
+K56.41,Fecal impaction,Digestive System,,,12
+R63.0,Anorexia,Symptoms/Signs/Abnormal Findings,,,12
+J45.40,Moderate persistent asthma,Respiratory System,,,12
+R74.8,Abnormality of levels of other serum enzymes,Symptoms/Signs/Abnormal Findings,,,12
+J34.3,Hypertrophy of nasal turbinates,Respiratory System,,,12
+N47.1,Paraphimosis,Genitourinary System,,,12
+R10.13,Epigastric pain,Symptoms/Signs/Abnormal Findings,,,12
+B85.0,"Pediculosis, acariasis and other infestations",Infectious Diseases,,,12
+J35.1,Hypertrophy of tonsils alone,Respiratory System,,,12
+J02.0,Streptococcal pharyngitis,Respiratory System,,,11
+Z91.51,Noncompliance with dietary regimen,Factors Influencing Health Status,,,11
+F80.2,Mixed receptive-expressive language disorder,Unclassified,Communication Disorders,F80.2,11
+M25.571,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,11
+G47.3,"Sleep apnea, unspecified",Unclassified,Sleep-Wake Disorders,G47.3,11
+R19.5,Abnormal bowel sounds,Symptoms/Signs/Abnormal Findings,,,11
+Z98.89,Other specified postprocedural states,Factors Influencing Health Status,,,11
+G40.209,G40.209 [description unavailable],Nervous System Disorders,,,11
+N94.6,Dyspareunia,Genitourinary System,,,11
+M25.532,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,11
+F34.1,Dysthymia (persistent depressive disorder),Unclassified,Depressive Disorders,F34.1,11
+L85.3,Other epidermal thickening,Skin/Subcutaneous,,,10
+R73.09,Other abnormal glucose,Symptoms/Signs/Abnormal Findings,,,10
+R53.83,Other fatigue,Symptoms/Signs/Abnormal Findings,,,10
+M41.9,Scoliosis,Musculoskeletal System,,,10
+N91.1,Secondary amenorrhea,Genitourinary System,,,10
+Z63.79,Other problems related to living in an institutional environment,Factors Influencing Health Status,,,10
+M21.40,Other acquired deformities of limbs,Musculoskeletal System,,,10
+Z72.82,Practice of safe sex,Factors Influencing Health Status,,,10
+J30.2,Allergic rhinitis due to other animal allergens,Respiratory System,,,10
+R05.3,"Fever, unspecified",Symptoms/Signs/Abnormal Findings,,,10
+Z87.820,Personal history of anemia,Factors Influencing Health Status,,,10
+L70.0,Acne,Skin/Subcutaneous,,,10
+R19.8,"Other intra-abdominal and pelvic swellings, masses and lumps",Symptoms/Signs/Abnormal Findings,,,10
+M25.551,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,10
+D64.9,Other anemias,Neoplasms/Blood Disorders,,,10
+F95.0,Transient tic disorder,Unclassified,Tic Disorders,F95.0,10
+R47.9,Unspecified speech disturbance,Symptoms/Signs/Abnormal Findings,,,10
+J30.81,Allergic rhinitis due to food,Respiratory System,,,10
+K59.04,Slow transit constipation,Digestive System,,,10
+Z63.32,Awaiting foster care placement,Factors Influencing Health Status,,,10
+H50.34,"Strabismus, divergent, with A pattern",Eye/Ear Disorders,,,10
+F32.4,"Major depressive disorder, single episode, in partial remission",Unclassified,Depressive Disorders,F32.4,10
+F22,Delusional disorder,Unclassified,Psychotic Disorders,F22,10
+Z55.3,Underachievement in school,Factors Influencing Health Status,,,10
+Z60.9,"Problem related to housing and economic circumstances, unspecified",Factors Influencing Health Status,,,10
+H50.52,"Vertical heterophoria, left eye",Eye/Ear Disorders,,,10
+F06.30,Mood disorder due to known physiological condition,Unclassified,Mental Disorders Due to Medical Condition,F06.30,10
+F44.7,Conversion disorder with mixed symptom presentation,Unclassified,Dissociative Disorders,F44.7,9
+F80.1,Expressive language disorder,Unclassified,Communication Disorders,F80.1,9
+H53.022,"Hyperopia, left eye",Eye/Ear Disorders,,,9
+R63.6,Underweight,Symptoms/Signs/Abnormal Findings,,,9
+E88.81,Metabolic syndrome,Endocrine/Metabolic,,,9
+M21.6X9,Other acquired deformities of limbs,Musculoskeletal System,,,9
+E66.8,Other obesity,Endocrine/Metabolic,,,9
+F84.5,Asperger syndrome,Unclassified,Autism Spectrum Disorder,F84.5,9
+G43.909,G43.909 [description unavailable],Nervous System Disorders,,,9
+Z82.0,Family history of epilepsy and other diseases of the nervous system,Factors Influencing Health Status,,,9
+R00.1,"Bradycardia, unspecified",Symptoms/Signs/Abnormal Findings,,,9
+R30.0,Dysuria,Symptoms/Signs/Abnormal Findings,,,9
+Z84.89,Family history of other specified conditions,Factors Influencing Health Status,,,9
+D50.9,Iron deficiency anemia,Neoplasms/Blood Disorders,,,9
+D89.89,"Other disorders involving the immune mechanism, not elsewhere classified",Neoplasms/Blood Disorders,,,9
+K29.70,"Gastritis, unspecified, without bleeding",Digestive System,,,9
+Z51.81,Encounter for therapeutic drug monitoring,Factors Influencing Health Status,,,9
+T74.12XA,"Child physical abuse, suspected, initial encounter",Injury/Poisoning,,,9
+R93.0,"Abnormal findings on diagnostic imaging of skull and head, not elsewhere classified",Symptoms/Signs/Abnormal Findings,,,9
+E78.00,"Pure hypercholesterolemia, unspecified",Endocrine/Metabolic,,,9
+K52.9,"Noninfective colitis, unspecified",Digestive System,,,9
+E73.9,"Lactose intolerance, unspecified",Endocrine/Metabolic,,,9
+T74.02XA,"Child maltreatment by parent or guardian, suspected, initial encounter",Injury/Poisoning,,,8
+T14.91XS,"Unspecified injury of unspecified body region, sequela",Injury/Poisoning,,,8
+Z62.890,Other specified circumstances related to child,Factors Influencing Health Status,,,8
+G40.009,G40.009 [description unavailable],Nervous System Disorders,,,8
+E46,E46 [description unavailable],Endocrine/Metabolic,,,8
+R68.81,Early satiety,Symptoms/Signs/Abnormal Findings,,,8
+R41.844,Problem with memory disturbance,Symptoms/Signs/Abnormal Findings,,,8
+F98.4,Stereotyped movement disorder,Unclassified,Stereotypic Movement Disorder,F98.4,8
+Z62.898,Other specified problems related to upbringing,Factors Influencing Health Status,,,8
+F51.3,Sleepwalking disorder,Unclassified,Sleep-Wake Disorders,F51.3,8
+Q55.64,Congenital absence of vas deferens,Congenital Anomalies,,,8
+Z83.2,Family history of asthma and other chronic lower respiratory diseases,Factors Influencing Health Status,,,8
+N94.4,Primary dysmenorrhea,Genitourinary System,,,8
+Z96.22,Presence of pseudophakia,Factors Influencing Health Status,,,8
+E43,E43 [description unavailable],Endocrine/Metabolic,,,8
+T65.92XA,"Toxic effect of unspecified substance, undetermined, initial encounter",Injury/Poisoning,,,8
+E34.3,E34.3 [description unavailable],Endocrine/Metabolic,,,8
+M21.41,Other acquired deformities of limbs,Musculoskeletal System,,,8
+J06.9,"Acute upper respiratory infection, unspecified",Respiratory System,,,8
+R45.86,Emotional lability,Symptoms/Signs/Abnormal Findings,,,8
+M25.531,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,8
+T74.12,"Child physical abuse, suspected",Injury/Poisoning,,,8
+G93.2,G93.2 [description unavailable],Nervous System Disorders,,,7
+G47.30,"Sleep apnea, unspecified",Nervous System Disorders,,,7
+Z98.890,Other specified postprocedural state,Factors Influencing Health Status,,,7
+I49.8,Other cardiac arrhythmias,Circulatory System,,,7
+P04.1,Newborn affected by maternal thyroid condition,Perinatal Conditions,,,7
+K59.0,Constipation,Digestive System,,,7
+Z87.440,Personal history of sudden cardiac arrest,Factors Influencing Health Status,,,7
+F42.4,OCD with mixed obsessive thoughts and compulsive acts,Unclassified,Obsessive-Compulsive and Related Disorders,F42.4,7
+G47.19,"Hypersomnia, unspecified, specified type",Nervous System Disorders,,,7
+Z15.89,Encounter for screening for other genetic predisposition to disease,Factors Influencing Health Status,,,7
+J45,J45 [description unavailable],Respiratory System,,,7
+H66.90,Unspecified disorder of tympanum,Eye/Ear Disorders,,,7
+G40.A09,G40.A09 [description unavailable],Nervous System Disorders,,,7
+B08.1,Other viral infections characterized by skin and mucous membrane lesions,Infectious Diseases,,,7
+G80.9,G80.9 [description unavailable],Nervous System Disorders,,,7
+R12,Heartburn,Symptoms/Signs/Abnormal Findings,,,7
+G44.229,G44.229 [description unavailable],Nervous System Disorders,,,7
+G43.711,G43.711 [description unavailable],Nervous System Disorders,,,7
+R94.02,Abnormal results of cardiac ultrasound,Symptoms/Signs/Abnormal Findings,,,7
+G89.29,G89.29 [description unavailable],Nervous System Disorders,,,7
+M24.9,Other specific joint derangements,Musculoskeletal System,,,7
+F80.82,F80.82 [description unavailable],Unclassified,,,7
+K20.0,Esophagitis without bleeding,Digestive System,,,7
+M25.572,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,7
+H53.021,"Hyperopia, right eye",Eye/Ear Disorders,,,7
+N92.0,Excessive and frequent menstruation with regular cycle,Genitourinary System,,,7
+F78,"Intellectual disability (intellectual developmental disorder), other specified",Unclassified,Intellectual Disability,F78,7
+Z59.3,Problem related to lack of adequate food and safe drinking water,Factors Influencing Health Status,,,7
+F06.8,F06.8 [description unavailable],Unclassified,,,7
+Z72.821,Use of sunscreen,Factors Influencing Health Status,,,7
+Z62.811,Personal history of physical abuse,Factors Influencing Health Status,,,7
+R15.1,Fecal urgency,Symptoms/Signs/Abnormal Findings,,,7
+K30,Functional dyspepsia,Digestive System,,,7
+M25.561,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,7
+E10.9,E10.9 [description unavailable],Endocrine/Metabolic,,,7
+Q65.89,Other specified congenital deformities of hip,Congenital Anomalies,,,7
+F51.05,"Sleep apnea, unspecified",Unclassified,Sleep-Wake Disorders,F51.05,7
+R41.82,"Altered mental status, unspecified",Symptoms/Signs/Abnormal Findings,,,6
+F95.8,F95.8 [description unavailable],Unclassified,,,6
+R10.10,Acute abdomen,Symptoms/Signs/Abnormal Findings,,,6
+R40.0,Somnolence,Symptoms/Signs/Abnormal Findings,,,6
+Z92.21,Personal history of antineoplastic therapy,Factors Influencing Health Status,,,6
+M79.7,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,6
+F33.41,"Major depressive disorder, recurrent, in partial remission",Unclassified,Depressive Disorders,F33.41,6
+M54.50,Dorsalgia (back pain),Musculoskeletal System,,,6
+F31.81,"Bipolar I disorder, in partial remission",Unclassified,Bipolar and Related Disorders,F31.81,6
+G47.21,Narcolepsy with cataplexy,Nervous System Disorders,,,6
+R73.9,"Hyperglycemia, unspecified",Symptoms/Signs/Abnormal Findings,,,6
+M54.5,Dorsalgia (back pain),Musculoskeletal System,,,6
+E27.0,E27.0 [description unavailable],Endocrine/Metabolic,,,6
+R94.5,Abnormal results of liver function studies,Symptoms/Signs/Abnormal Findings,,,6
+R25.1,"Tremor, unspecified",Symptoms/Signs/Abnormal Findings,,,6
+R74.0,Elevation of levels of transaminase and lactic acid dehydrogenase (LDH),Symptoms/Signs/Abnormal Findings,,,6
+G47.01,"Insomnia, unspecified, with sleep onset difficulty",Nervous System Disorders,,,6
+E78.6,Lipoprotein deficiency and other lipidemias,Endocrine/Metabolic,,,6
+H90.3,Unspecified conductive and sensorineural hearing loss,Eye/Ear Disorders,,,6
+R69,"Illness, unspecified",Symptoms/Signs/Abnormal Findings,,,6
+Q79.62,Q79.62 [description unavailable],Congenital Anomalies,,,6
+F50.2,Bulimia nervosa,Unclassified,Feeding and Eating Disorders,F50.2,6
+Z97.5,Dependence on oxygen,Factors Influencing Health Status,,,6
+M41.125,Scoliosis,Musculoskeletal System,,,6
+N94.89,Other specified conditions associated with female genital organs and menstrual cycle,Genitourinary System,,,6
+P07.30,"Preterm newborn, unspecified, less than 28 complete weeks",Perinatal Conditions,,,6
+G31.84,G31.84 [description unavailable],Nervous System Disorders,,,6
+Z86.79,Personal history of diseases of the circulatory system,Factors Influencing Health Status,,,6
+D22.9,Blood disorder D22.9,Neoplasms/Blood Disorders,,,6
+H02.59,Other disorders of eyelid function,Eye/Ear Disorders,,,6
+Z83.79,Family history of other diseases of the musculoskeletal system and connective tissue,Factors Influencing Health Status,,,6
+Z83.3,Family history of hay fever and other allergic conditions,Factors Influencing Health Status,,,6
+F43.0,Acute stress disorder,Unclassified,Trauma and Stressor-Related Disorders,F43.0,6
+Z87.448,Personal history of other diseases of the circulatory system,Factors Influencing Health Status,,,6
+R27.8,Other lack of coordination,Symptoms/Signs/Abnormal Findings,,,6
+T39.1X2A,"Poisoning by ibuprofen, intentional self-harm, initial encounter",Injury/Poisoning,,,6
+T78.1XXA,"Other adverse effects, not elsewhere classified, initial encounter",Injury/Poisoning,,,6
+H53.10,"Visual field defect, unspecified",Eye/Ear Disorders,,,6
+M21.869,Other acquired deformities of limbs,Musculoskeletal System,,,6
+G25.81,G25.81 [description unavailable],Nervous System Disorders,,,6
+J45.990,"Asthma, unspecified, without (acute) exacerbation",Respiratory System,,,6
+H50.05,"Exotropia, left eye",Eye/Ear Disorders,,,6
+M21.42,Other acquired deformities of limbs,Musculoskeletal System,,,6
+L50.9,Urticaria,Skin/Subcutaneous,,,6
+R63.1,Polydipsia,Symptoms/Signs/Abnormal Findings,,,6
+F44.9,"Conversion disorder, unspecified",Unclassified,Dissociative Disorders,F44.9,6
+M21.70,Other acquired deformities of limbs,Musculoskeletal System,,,6
+R63.32,"Difficulty swallowing, unspecified",Symptoms/Signs/Abnormal Findings,,,6
+J45.50,Severe persistent asthma,Respiratory System,,,6
+M25.562,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,6
+G95.0,G95.0 [description unavailable],Nervous System Disorders,,,5
+I95.1,Hypotension,Circulatory System,,,5
+R29.818,Unspecified neuromuscular dysfunction,Symptoms/Signs/Abnormal Findings,,,5
+Q66.89,Other specified congenital deformities of feet,Congenital Anomalies,,,5
+R13.14,"Dysphagia, pharyngeal phase",Symptoms/Signs/Abnormal Findings,,,5
+R29.898,Other specified symptoms and signs involving the nervous system,Symptoms/Signs/Abnormal Findings,,,5
+R53.1,Weakness,Symptoms/Signs/Abnormal Findings,,,5
+R41.89,Other symptoms and signs involving cognitive functions and awareness,Symptoms/Signs/Abnormal Findings,,,5
+R14.0,Abdominal distention (bloating),Symptoms/Signs/Abnormal Findings,,,5
+R45.1,Restlessness,Symptoms/Signs/Abnormal Findings,,,5
+R27.9,Unspecified lack of coordination,Symptoms/Signs/Abnormal Findings,,,5
+H50.112,"Esotropia, left eye",Eye/Ear Disorders,,,5
+H91.90,Unspecified hearing loss,Eye/Ear Disorders,,,5
+R63.2,Excessive salivation,Symptoms/Signs/Abnormal Findings,,,5
+R06.02,Shortness of breath,Symptoms/Signs/Abnormal Findings,,,5
+R06.2,Wheezing,Symptoms/Signs/Abnormal Findings,,,5
+H61.23,H61.23 [description unavailable],Eye/Ear Disorders,,,5
+R01.0,Abnormal heart sounds,Symptoms/Signs/Abnormal Findings,,,5
+G47.5,"Parasomnia, unspecified",Nervous System Disorders,,,5
+T74.0,Maltreatment syndromes,Injury/Poisoning,,,5
+Z79.4,Long term (current) use of insulin,Factors Influencing Health Status,,,5
+F50.01,"Anorexia nervosa, restrictive type",Unclassified,Feeding and Eating Disorders,F50.01,5
+Z81.3,Family history of schizophrenia spectrum disorder,Factors Influencing Health Status,,,5
+N91.5,"Oligomenorrhea, unspecified",Genitourinary System,,,5
+F63.89,Other specified impulse disorder,Unclassified,Disruptive Behavior Disorder,F63.89,5
+F63.3,Trichotillomania (hair-pulling),Unclassified,Body-Focused Repetitive Behavior Disorder,F63.3,5
+F60.9,"Personality disorder, unspecified",Unclassified,Personality Disorder,F60.9,5
+T74.12XS,T74.12XS [description unavailable],Injury/Poisoning,,,5
+E11.65,E11.65 [description unavailable],Endocrine/Metabolic,,,5
+E66,E66 [description unavailable],Endocrine/Metabolic,,,5
+Z62.22,Institutional upbringing,Factors Influencing Health Status,,,5
+T74.22XA,"Child neglect, suspected, initial encounter",Injury/Poisoning,,,5
+T74.32,"Child sexual abuse, suspected",Injury/Poisoning,,,5
+K75.81,"Granulomatous hepatitis, not elsewhere classified",Digestive System,,,5
+D84.9,Other immunodeficiencies,Neoplasms/Blood Disorders,,,5
+Z59.0,Homelessness,Factors Influencing Health Status,,,5
+F44.4,Conversion disorder with motor symptom or deficit,Unclassified,Dissociative Disorders,F44.4,5
+M79.604,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,5
+K62.5,Polyp of colon,Digestive System,,,5
+F32.0,"Major depressive disorder, single episode, mild",Unclassified,Depressive Disorders,F32.0,5
+F31.5,"Bipolar I disorder, current or most recent episode depressed, severe with psychotic features",Unclassified,Bipolar and Related Disorders,F31.5,5
+N13.70,"Vesicoureteral reflux, unspecified",Genitourinary System,,,5
+N13.30,"Other obstructive and reflux uropathy, unspecified",Genitourinary System,,,5
+F31.2,"Bipolar I disorder, current or most recent episode manic, severe without psychotic features",Unclassified,Bipolar and Related Disorders,F31.2,5
+Z23,Encounter for immunization,Factors Influencing Health Status,,,5
+Z28.39,Unspecified reason for non-immunization,Factors Influencing Health Status,,,5
+F98.3,Pica of infancy and childhood,Unclassified,Feeding and Eating Disorders,F98.3,5
+R73.01,Impaired glucose tolerance (oral),Symptoms/Signs/Abnormal Findings,,,5
+T14.91,Unspecified injury of unspecified body region,Injury/Poisoning,,,5
+M22.2X2,Disorder of patella,Musculoskeletal System,,,5
+J45.90,"Asthma, unspecified",Respiratory System,,,5
+L80,Vitiligo,Skin/Subcutaneous,,,5
+Z91.52,Noncompliance with medication regimen,Factors Influencing Health Status,,,5
+M22.2X1,Disorder of patella,Musculoskeletal System,,,5
+Z97.3,Dependence on wheelchair,Factors Influencing Health Status,,,5
+Z97.8,Dependence on other enabling machines and devices,Factors Influencing Health Status,,,5
+J35.01,Chronic tonsillitis,Respiratory System,,,5
+R94.01,Abnormal electrocardiogram (ECG),Symptoms/Signs/Abnormal Findings,,,5
+Z91.14,Radiographic dye allergy status,Factors Influencing Health Status,,,5
+Z91.19,Allergy status to unspecified nonmedicinal agents,Factors Influencing Health Status,,,5
+Z91.49,Other specified personal risk factors,Factors Influencing Health Status,,,5
+R74.01,Elevation of levels of transaminase,Symptoms/Signs/Abnormal Findings,,,5
+M25.552,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,5
+Q76.49,Q76.49 [description unavailable],Congenital Anomalies,,,4
+M79.601,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,4
+L70.9,Acne,Skin/Subcutaneous,,,4
+H92.01,"Otalgia, right ear",Eye/Ear Disorders,,,4
+Z59.01,Sheltered homelessness,Factors Influencing Health Status,,,4
+M79.605,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,4
+M79.641,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,4
+Q93.88,Other unbalanced rearrangements and structural abnormalities,Congenital Anomalies,,,4
+B07.8,Viral warts,Infectious Diseases,,,4
+F12.10,Cannabis abuse with complications,Unclassified,Substance-Related and Addictive Disorders,F12.1,4
+L81.3,Other disorders of pigmentation,Skin/Subcutaneous,,,4
+Z55,Problems associated with education and literacy,Factors Influencing Health Status,,,4
+F12.20,"Cannabis dependence, uncomplicated",Unclassified,Substance-Related and Addictive Disorders,F12.20,4
+F12.90,"Cannabis use disorder, unspecified",Unclassified,Substance-Related and Addictive Disorders,F12.90,4
+H50.21,"Vertical strabismus, right eye",Eye/Ear Disorders,,,4
+H50.15,"Exotropia, left eye",Eye/Ear Disorders,,,4
+Z30.41,Encounter for surveillance of contraceptive device,Factors Influencing Health Status,,,4
+Z98.2,Presence of cerebrospinal fluid (CSF) drainage device,Factors Influencing Health Status,,,4
+R31.9,"Hematuria, unspecified",Symptoms/Signs/Abnormal Findings,,,4
+E88.819,Metabolic syndrome with hypertriglyceridemia,Endocrine/Metabolic,,,4
+L68.0,Hypertrichosis,Skin/Subcutaneous,,,4
+M62.9,Other disorders of muscle,Musculoskeletal System,,,4
+D84.821,Other immunodeficiencies,Neoplasms/Blood Disorders,,,4
+D70.9,Neutropenia,Neoplasms/Blood Disorders,,,4
+H53.9,Unspecified visual disturbance,Eye/Ear Disorders,,,4
+L20.0,Atopic dermatitis,Skin/Subcutaneous,,,4
+R19.4,Visible peristalsis,Symptoms/Signs/Abnormal Findings,,,4
+E03.1,E03.1 [description unavailable],Endocrine/Metabolic,,,4
+Z81.1,Family history of psychoactive substance abuse and dependence,Factors Influencing Health Status,,,4
+I15.8,Secondary hypertension,Circulatory System,,,4
+Z87.74,Personal history of arthritis,Factors Influencing Health Status,,,4
+R20.2,Paresthesia of skin,Symptoms/Signs/Abnormal Findings,,,4
+E07.9,E07.9 [description unavailable],Endocrine/Metabolic,,,4
+R20.8,Other disturbances of skin sensation,Symptoms/Signs/Abnormal Findings,,,4
+Z30.09,Encounter for other general counseling and advice on contraception,Factors Influencing Health Status,,,4
+E10.649,E10.649 [description unavailable],Endocrine/Metabolic,,,4
+H53.032,"Astigmatism, left eye",Eye/Ear Disorders,,,4
+L60.0,Nail disorders,Skin/Subcutaneous,,,4
+M25.579,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,4
+Z73.810,Excessive stress,Factors Influencing Health Status,,,4
+E22.1,E22.1 [description unavailable],Endocrine/Metabolic,,,4
+Q82.9,Q82.9 [description unavailable],Congenital Anomalies,,,4
+Z71.89,Other specified counseling and medical advice,Factors Influencing Health Status,,,4
+R23.8,Other skin changes,Symptoms/Signs/Abnormal Findings,,,4
+H92.09,"Otalgia, unspecified ear",Eye/Ear Disorders,,,4
+M62.81,Other disorders of muscle,Musculoskeletal System,,,4
+J30.89,Other allergic rhinitis,Respiratory System,,,4
+H50.00,"Esotropia, unspecified, with A pattern",Eye/Ear Disorders,,,4
+M79.671,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,4
+T42.6X5A,"Adverse effect of anticonvulsants, initial encounter",Injury/Poisoning,,,4
+F51.02,"Primary insomnia, episodic",Unclassified,Sleep-Wake Disorders,F51.02,4
+F51.04,"Primary insomnia, unspecified",Unclassified,Sleep-Wake Disorders,F51.04,4
+R50.9,"Fever, unspecified",Symptoms/Signs/Abnormal Findings,,,4
+K21.00,Gastro-esophageal reflux disease with esophagitis without bleeding,Digestive System,,,4
+Q66.5,Congenital pes planus,Congenital Anomalies,,,4
+F60.5,Obsessive-compulsive personality disorder (features),Unclassified,Personality Disorder,F60.5,4
+R53.82,"Chronic fatigue, unspecified",Symptoms/Signs/Abnormal Findings,,,4
+G98.8,G98.8 [description unavailable],Nervous System Disorders,,,4
+Q74.0,Other specified limb malformations,Congenital Anomalies,,,4
+N94.3,"Dysmenorrhea, unspecified",Genitourinary System,,,4
+F81.89,Other specified learning disorder,Unclassified,Specific Learning Disorder,F81.89,4
+F99,"Mental disorder, not otherwise specified",Unclassified,Other Specified Mental Disorder,F99,4
+Q55.22,"Congenital absence of testis, bilateral",Congenital Anomalies,,,4
+F50.89,Other specified feeding or eating disorder,Unclassified,Feeding and Eating Disorders,F50.89,4
+J45.998,"Asthma, unspecified, with other complications",Respiratory System,,,4
+P04.6,Newborn affected by maternal endocrine and metabolic disorders,Perinatal Conditions,,,4
+T14.90XA,"Unspecified injury of unspecified body region, initial encounter",Injury/Poisoning,,,4
+T14.8XXA,"Other injury of unspecified body region, initial encounter",Injury/Poisoning,,,4
+G40.219,G40.219 [description unavailable],Nervous System Disorders,,,4
+R63.30,"Feeding problem, unspecified",Symptoms/Signs/Abnormal Findings,,,4
+G81.90,G81.90 [description unavailable],Nervous System Disorders,,,4
+P84,Other problems with newborn,Perinatal Conditions,,,4
+J03.01,Acute streptococcal pharyngitis,Respiratory System,,,4
+P94.2,Transient neonatal myasthenia gravis,Perinatal Conditions,,,4
+Q06.8,Other specified inborn errors of amino-acid metabolism,Congenital Anomalies,,,4
+Q21.0,Ventricular septal defect,Congenital Anomalies,,,4
+T74.22,"Child neglect, suspected",Injury/Poisoning,,,4
+Q64.33,Cloacal exstrophy,Congenital Anomalies,,,4
+F31.0,"Bipolar I disorder, current or most recent episode hypomanic",Unclassified,Bipolar and Related Disorders,F31.0,4
+T74.92XS,"Unspecified maltreatment of child, suspected, sequela",Injury/Poisoning,,,4
+F40.01,Agoraphobia with panic disorder,Unclassified,Anxiety Disorders,F40.01,4
+N35.9,"Urethral stricture, unspecified",Genitourinary System,,,4
+F45.22,Illness anxiety disorder,Unclassified,Somatic Symptom and Related Disorders,F45.22,4
+Q67.6,Lambdoid craniosynostosis,Congenital Anomalies,,,4
+T76.12,"Child physical abuse, confirmed",Injury/Poisoning,,,4
+F42.2,OCD with predominantly intrusive thoughts or images,Unclassified,Obsessive-Compulsive and Related Disorders,F42.2,4
+H10.10,"Conjunctivitis, acute mucopurulent, unspecified eye",Eye/Ear Disorders,,,4
+N76.0,Acute vulvovaginitis,Genitourinary System,,,4
+F50.81,Binge eating disorder,Unclassified,Feeding and Eating Disorders,F50.81,4
+F50.82,Avoidant/restrictive food intake disorder,Unclassified,Feeding and Eating Disorders,F50.82,4
+R44.2,"Paresthesia, unspecified",Symptoms/Signs/Abnormal Findings,,,4
+M21.769,Other acquired deformities of limbs,Musculoskeletal System,,,3
+M79.642,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,3
+M85.80,Other disorders of bone density and structure,Musculoskeletal System,,,3
+L60.8,Nail disorders,Skin/Subcutaneous,,,3
+H92.03,"Otalgia, bilateral",Eye/Ear Disorders,,,3
+J45.31,Mild persistent asthma with (acute) exacerbation,Respiratory System,,,3
+H92.02,"Otalgia, left ear",Eye/Ear Disorders,,,3
+K90.9,Unspecified malabsorption,Digestive System,,,3
+K59.02,Outlet dysfunction constipation,Digestive System,,,3
+I49.9,Other cardiac arrhythmias,Circulatory System,,,3
+Q67.7,Sagittal craniosynostosis,Congenital Anomalies,,,3
+J35.2,Hypertrophy of adenoids alone,Respiratory System,,,3
+M21.069,Other acquired deformities of limbs,Musculoskeletal System,,,3
+J34.2,Deviated nasal septum,Respiratory System,,,3
+Q06.9,Unspecified inborn error of amino-acid metabolism,Congenital Anomalies,,,3
+L81.9,Other disorders of pigmentation,Skin/Subcutaneous,,,3
+Q23.1,Congenital mitral valve insufficiency,Congenital Anomalies,,,3
+J32.9,"Chronic sinusitis, unspecified",Respiratory System,,,3
+M79.672,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,3
+Q10.3,Congenital ectropion,Congenital Anomalies,,,3
+L50.1,Urticaria,Skin/Subcutaneous,,,3
+L29.9,Pruritus and related conditions,Skin/Subcutaneous,,,3
+Q75.3,Macrocephaly,Congenital Anomalies,,,3
+K08.89,Other specified disorders of teeth and supporting structures,Digestive System,,,3
+Q66.50,"Clubfoot, unspecified foot",Congenital Anomalies,,,3
+Q87.89,Other specified genetic syndromes,Congenital Anomalies,,,3
+N62,Hypertrophy of breast,Genitourinary System,,,3
+K21.0,Gastro-esophageal reflux disease with esophagitis,Digestive System,,,3
+Q66.51,"Clubfoot, right foot",Congenital Anomalies,,,3
+L03.90,Cellulitis and acute lymphangitis,Skin/Subcutaneous,,,3
+Q79.60,Q79.60 [description unavailable],Congenital Anomalies,,,3
+N92.1,Excessive and frequent menstruation with irregular cycle,Genitourinary System,,,3
+N48.89,Other specified disorders of penis,Genitourinary System,,,3
+O92.6,Unspecified disorders of lactation,Pregnancy/Childbirth,,,3
+M22.2X9,Disorder of patella,Musculoskeletal System,,,3
+P04.40,Newborn affected by maternal use of unspecified drugs of addiction,Perinatal Conditions,,,3
+Q66.52,"Clubfoot, left foot",Congenital Anomalies,,,3
+N39.46,Mixed incontinence,Genitourinary System,,,3
+L20,Atopic dermatitis,Skin/Subcutaneous,,,3
+J02.9,"Acute pharyngitis, unspecified",Respiratory System,,,3
+L20.89,Atopic dermatitis,Skin/Subcutaneous,,,3
+M25.539,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,3
+I47.1,Paroxysmal tachycardia,Circulatory System,,,3
+L30.5,Other dermatitis,Skin/Subcutaneous,,,3
+R79.1,Abnormality of coagulation profile,Symptoms/Signs/Abnormal Findings,,,3
+L85.8,Other epidermal thickening,Skin/Subcutaneous,,,3
+S02.0XXA,S02.0XXA [description unavailable],Injury/Poisoning,,,3
+G44.219,G44.219 [description unavailable],Nervous System Disorders,,,3
+G40.89,G40.89 [description unavailable],Nervous System Disorders,,,3
+S09.90XA,"Unspecified injury of head, initial encounter",Injury/Poisoning,,,3
+Z62.822,Abandonment or desertion of child,Factors Influencing Health Status,,,3
+S06.9X0A,"Unspecified injury of brain, without loss of consciousness, initial encounter",Injury/Poisoning,,,3
+F43.89,F43.89 [description unavailable],Unclassified,,,3
+D56.3,Thalassemia,Neoplasms/Blood Disorders,,,3
+G43.011,G43.011 [description unavailable],Nervous System Disorders,,,3
+S06.0X0A,"Concussion without loss of consciousness, initial encounter",Injury/Poisoning,,,3
+F17.200,"Nicotine dependence, unspecified",Unclassified,Substance-Related and Addictive Disorders,F17.200,3
+D50.0,Iron deficiency anemia,Neoplasms/Blood Disorders,,,3
+S00.03XA,S00.03XA [description unavailable],Injury/Poisoning,,,3
+R89.9,Unspecified abnormal cytological findings,Symptoms/Signs/Abnormal Findings,,,3
+D22.5,Blood disorder D22.5,Neoplasms/Blood Disorders,,,3
+Z86.14,Personal history of psychiatric disorder,Factors Influencing Health Status,,,3
+R80.9,"Proteinuria, unspecified",Symptoms/Signs/Abnormal Findings,,,3
+L90.5,Atrophic disorders of skin,Skin/Subcutaneous,,,3
+G44.89,G44.89 [description unavailable],Nervous System Disorders,,,3
+G47.50,"Parasomnia, unspecified",Nervous System Disorders,,,3
+G47.51,Confusional arousals,Nervous System Disorders,,,3
+R73.0,Abnormal glucose,Symptoms/Signs/Abnormal Findings,,,3
+G47.61,Periodic breathing related to general medical condition,Nervous System Disorders,,,3
+F40.298,Other specified phobia,Unclassified,Anxiety Disorders,F40.298,3
+Z60.4,Problem related to living alone,Factors Influencing Health Status,,,3
+G47.8,Other sleep disorders,Nervous System Disorders,,,3
+D57.3,Sickle-cell disease,Neoplasms/Blood Disorders,,,3
+E66.812,Other obesity with alveolar hypoventilation,Endocrine/Metabolic,,,3
+T76.32XA,"Child sexual abuse, confirmed, initial encounter",Injury/Poisoning,,,3
+G40.309,G40.309 [description unavailable],Nervous System Disorders,,,3
+E30.0,E30.0 [description unavailable],Endocrine/Metabolic,,,3
+F64.8,Other specified gender identity disorder,Unclassified,Gender Identity Disorders,F64.8,3
+F54,Psychological factors associated with medical conditions,Unclassified,Somatic Symptom and Related Disorders,F54,3
+F80,F80 [description unavailable],Unclassified,,,3
+Z72.810,Bed confinement status,Factors Influencing Health Status,,,3
+E22.8,E22.8 [description unavailable],Endocrine/Metabolic,,,3
+F51.4,Sleep terror disorder,Unclassified,Sleep-Wake Disorders,F51.4,3
+F80.89,F80.89 [description unavailable],Unclassified,,,3
+F50.8,Other specified feeding or eating disorder,Unclassified,Feeding and Eating Disorders,F50.8,3
+F94.2,Disinhibited social engagement disorder,Unclassified,Trauma and Stressor-Related Disorders,F94.2,3
+T50.912A,"Toxic effect of unspecified drug or medicinal substance, undetermined, initial encounter",Injury/Poisoning,,,3
+E16.2,E16.2 [description unavailable],Endocrine/Metabolic,,,3
+F98.0,Enuresis (nocturnal or diurnal),Unclassified,Elimination Disorders,F98.0,3
+F98.8,Other specified behavioral or emotional disorders with onset usually in childhood or adolescence,Unclassified,Other Specified Mental Disorder,F98.8,3
+T50.901A,"Toxic effect of unspecified drug or medicinal substance, accidental (unintentional), initial encounter",Injury/Poisoning,,,3
+Z76.89,Encounter for other specified reason,Factors Influencing Health Status,,,3
+T39.1X2D,"Poisoning by ibuprofen, intentional self-harm, subsequent encounter",Injury/Poisoning,,,3
+G25.0,G25.0 [description unavailable],Nervous System Disorders,,,3
+Z79.52,Long term (current) use of systemic steroids,Factors Influencing Health Status,,,3
+G25.71,G25.71 [description unavailable],Nervous System Disorders,,,3
+E04.1,E04.1 [description unavailable],Endocrine/Metabolic,,,3
+G40.109,G40.109 [description unavailable],Nervous System Disorders,,,3
+D80.1,Immunodeficiency with predominantly antibody defects,Neoplasms/Blood Disorders,,,3
+X78.9XXS,"Intentional self-harm by unspecified means, sequela",Unclassified,Non-Suicidal Self-Injury Behavior,T17.8XXA,3
+Z86.73,"Personal history of transient ischemic attack (TIA), and cerebral infarction without residual deficits",Factors Influencing Health Status,,,3
+R63.8,Other symptoms and signs concerning food and fluid intake,Symptoms/Signs/Abnormal Findings,,,3
+R35.8,Other polyuria,Symptoms/Signs/Abnormal Findings,,,3
+H50.32,"Strabismus, divergent, intermittent",Eye/Ear Disorders,,,3
+H50.42,"Strabismus, convergent, intermittent",Eye/Ear Disorders,,,3
+R29.6,Repeated falls,Symptoms/Signs/Abnormal Findings,,,3
+R26.2,"Difficulty in walking, not elsewhere classified",Symptoms/Signs/Abnormal Findings,,,3
+B35.3,Dermatophytosis,Infectious Diseases,,,3
+Z92.29,Personal history of other specified medical treatment,Factors Influencing Health Status,,,3
+B34.9,Viral infection of unspecified site,Infectious Diseases,,,3
+F10.1,Alcohol abuse,Unclassified,Substance-Related and Addictive Disorders,F10.1,3
+H53.041,"Amblyopia, right eye",Eye/Ear Disorders,,,3
+H53.042,"Amblyopia, left eye",Eye/Ear Disorders,,,3
+Z01.110,Encounter for screening for malignant neoplasm of skin,Factors Influencing Health Status,,,3
+H53.19,Other visual disturbances,Eye/Ear Disorders,,,3
+F10.10,Alcohol abuse with complications,Unclassified,Substance-Related and Addictive Disorders,F10.1,3
+Z02.82,Encounter for examination for entry into prison,Factors Influencing Health Status,,,3
+F25.9,"Schizoaffective disorder, unspecified",Unclassified,Psychotic Disorders,F25.9,3
+F25.1,"Schizoaffective disorder, depressive type",Unclassified,Psychotic Disorders,F25.1,3
+H55.01,"Nystagmus, right eye",Eye/Ear Disorders,,,3
+Z93.9,Presence of unspecified artificial opening,Factors Influencing Health Status,,,3
+Z09,Encounter for follow-up examination after completed treatment for conditions other than malignant neoplasm,Factors Influencing Health Status,,,3
+R10.30,Right upper quadrant pain,Symptoms/Signs/Abnormal Findings,,,3
+B07.9,Viral warts,Infectious Diseases,,,3
+R10.11,Right upper quadrant pain,Symptoms/Signs/Abnormal Findings,,,3
+Z96.41,Presence of insulin pump (external) (internal),Factors Influencing Health Status,,,3
+H72.01,"Perforation of tympanum, attic, right ear",Eye/Ear Disorders,,,3
+H90.0,"Conductive hearing loss, bilateral",Eye/Ear Disorders,,,3
+F31.30,"Bipolar I disorder, current or most recent episode depressed, mild or moderate",Unclassified,Bipolar and Related Disorders,F31.30,3
+Z92.25,Personal history of immunosuppression therapy,Factors Influencing Health Status,,,3
+H47.033,"Unspecified optic nerve disorder, left eye",Eye/Ear Disorders,,,3
+Z00.3,Encounter for examination of eyes and vision,Factors Influencing Health Status,,,3
+Z87.42,Personal history of sudden cardiac arrest,Factors Influencing Health Status,,,3
+Z87.438,Personal history of other venous thrombosis and embolism,Factors Influencing Health Status,,,3
+Z59.1,Inadequate housing,Factors Influencing Health Status,,,3
+Z87.891,Personal history of nicotine dependence,Factors Influencing Health Status,,,3
+G90.A,G90.A [description unavailable],Nervous System Disorders,,,3
+G93.0,G93.0 [description unavailable],Nervous System Disorders,,,3
+Z88.0,Allergy to penicillin,Factors Influencing Health Status,,,3
+F07.81,F07.81 [description unavailable],Unclassified,,,3
+R53.81,Other malaise,Symptoms/Signs/Abnormal Findings,,,3
+R41.3,"Delirium, unspecified",Symptoms/Signs/Abnormal Findings,,,3
+R52,"Pain, unspecified",Symptoms/Signs/Abnormal Findings,,,3
+Z72.0,Tobacco use,Factors Influencing Health Status,,,3
+B96.81,Bacterial agent as the cause of diseases classified elsewhere,Infectious Diseases,,,3
+R47.89,Other specified speech disturbances,Symptoms/Signs/Abnormal Findings,,,3
+Z55.4,Problem related to underachievement in school,Factors Influencing Health Status,,,3
+F31.32,"Bipolar I disorder, current or most recent episode depressed, moderate",Unclassified,Bipolar and Related Disorders,F31.32,3
+Z91.010,"Food allergy status, initial encounter",Factors Influencing Health Status,,,3
+R44.8,Other symptoms and signs involving general perception and sensation,Symptoms/Signs/Abnormal Findings,,,3
+Z91.11,Latex allergy status,Factors Influencing Health Status,,,3
+M67.432,Other disorders of synovium and tendon,Musculoskeletal System,,,2
+M79.1,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,2
+Z51,Encounter for other aftercare and medical care,Factors Influencing Health Status,,,2
+M51.16,"Thoracic, thoracolumbar and lumbosacral intervertebral disc disorders",Musculoskeletal System,,,2
+Z59.819,Other housing instability,Factors Influencing Health Status,,,2
+Z65.3,Problems related to living alone,Factors Influencing Health Status,,,2
+Z55.2,Problem related to inadequate teaching,Factors Influencing Health Status,,,2
+Z68.51,Overweight,Factors Influencing Health Status,,,2
+Z63.72,Awaiting change of foster or adoptive home,Factors Influencing Health Status,,,2
+Z62.2,Inappropriate (excessive) parental pressure,Factors Influencing Health Status,,,2
+M79.606,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,2
+Z60.5,Problem related to poverty,Factors Influencing Health Status,,,2
+M79.2,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,2
+R05.1,Persistent fever,Symptoms/Signs/Abnormal Findings,,,2
+M46.1,Other inflammatory spondylopathies,Musculoskeletal System,,,2
+Z87.828,Personal history of other specified conditions,Factors Influencing Health Status,,,2
+Z88.8,"Allergy to other drug, medicament and biological substance",Factors Influencing Health Status,,,2
+Z88.9,Unspecified allergy status,Factors Influencing Health Status,,,2
+Z90.49,Acquired absence of other parts of alimentary tract,Factors Influencing Health Status,,,2
+Z90.89,Acquired absence of other organs,Factors Influencing Health Status,,,2
+Z91.148,Other specified allergy status,Factors Influencing Health Status,,,2
+M21.161,Other acquired deformities of limbs,Musculoskeletal System,,,2
+Z92.3,Personal history of irradiation,Factors Influencing Health Status,,,2
+M21.062,Other acquired deformities of limbs,Musculoskeletal System,,,2
+M20.5X9,Deformities of toe(s),Musculoskeletal System,,,2
+M08.90,Juvenile arthritis,Musculoskeletal System,,,2
+Z93.1,Presence of gastrostomy,Factors Influencing Health Status,,,2
+M08.80,Juvenile arthritis,Musculoskeletal System,,,2
+L98.9,"Other disorders of skin and subcutaneous tissue, not elsewhere classified",Skin/Subcutaneous,,,2
+L91.0,Hypertrophic disorders of skin,Skin/Subcutaneous,,,2
+Z98.1,Arthrodesis status,Factors Influencing Health Status,,,2
+M21.861,Other acquired deformities of limbs,Musculoskeletal System,,,2
+M24.80,Other specific joint derangements,Musculoskeletal System,,,2
+Z72.51,High risk alcohol use,Factors Influencing Health Status,,,2
+Z87.39,Personal history of diseases of the eye and ear,Factors Influencing Health Status,,,2
+Z73.5,"Social role conflict, not elsewhere classified",Factors Influencing Health Status,,,2
+M26.629,Dentofacial anomalies [including malocclusion],Musculoskeletal System,,,2
+Z77.29,Contact with and (suspected) exposure to other hazardous substances,Factors Influencing Health Status,,,2
+M25.569,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,2
+Z82.41,Family history of sudden cardiac death,Factors Influencing Health Status,,,2
+Z82.79,"Family history of other specified endocrine, metabolic and immunological diseases",Factors Influencing Health Status,,,2
+Z83.49,Family history of other diseases of the eye and ear,Factors Influencing Health Status,,,2
+M25.541,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,2
+Z85.830,Personal history of malignant neoplasm of brain,Factors Influencing Health Status,,,2
+Z85.840,Personal history of malignant neoplasm of thyroid,Factors Influencing Health Status,,,2
+M25.512,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,2
+M25.511,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,2
+Z86.19,Personal history of other nervous system and sense organ diseases,Factors Influencing Health Status,,,2
+M25.362,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,2
+Z87.0,Personal history of in-situ and benign neoplasm and colorectal polyps,Factors Influencing Health Status,,,2
+M79.644,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,2
+N64.4,Other fat necrosis of breast,Genitourinary System,,,2
+Z13.40,Encounter for screening for unspecified metabolic disorder,Factors Influencing Health Status,,,2
+Q04.8,Other specified congenital malformations of brain,Congenital Anomalies,,,2
+R45.81,Low self-esteem,Symptoms/Signs/Abnormal Findings,,,2
+R48.8,Other symptoms and signs involving cognitive functions,Symptoms/Signs/Abnormal Findings,,,2
+R59.0,Localized enlarged lymph nodes,Symptoms/Signs/Abnormal Findings,,,2
+R59.1,Generalized enlarged lymph nodes,Symptoms/Signs/Abnormal Findings,,,2
+R62.59,Other lack of expected physiological development,Symptoms/Signs/Abnormal Findings,,,2
+Q54.4,"Congenital malformation of urinary meatus, unspecified",Congenital Anomalies,,,2
+R63.39,Other feeding difficulties,Symptoms/Signs/Abnormal Findings,,,2
+Q53.10,Unilateral intra-abdominal cryptorchid testis,Congenital Anomalies,,,2
+Q43.3,"Congenital adhesions, peritoneum and mesentery",Congenital Anomalies,,,2
+Q36.9,Unspecified cleft lip,Congenital Anomalies,,,2
+Q27.9,"Congenital malformation of peripheral vascular system, unspecified",Congenital Anomalies,,,2
+Q25.0,Patent ductus arteriosus,Congenital Anomalies,,,2
+R70.0,Elevation of erythrocyte sedimentation rate,Symptoms/Signs/Abnormal Findings,,,2
+Q21.3,Tetralogy of Fallot,Congenital Anomalies,,,2
+Q21.1,Atrial septal defect,Congenital Anomalies,,,2
+Q17.2,Microtia,Congenital Anomalies,,,2
+Q12.0,Congenital cataract,Congenital Anomalies,,,2
+Q07.00,Arnold-Chiari syndrome without spina bifida or hydrocephalus,Congenital Anomalies,,,2
+R89.8,Other abnormal findings on cytological examination,Symptoms/Signs/Abnormal Findings,,,2
+R45.0,Nervousness,Symptoms/Signs/Abnormal Findings,,,2
+Q66.6,Congenital vertical talus,Congenital Anomalies,,,2
+Q66.9,Unspecified talipes,Congenital Anomalies,,,2
+R15,Incontinence of feces,Symptoms/Signs/Abnormal Findings,,,2
+R07.89,Other chest pain,Symptoms/Signs/Abnormal Findings,,,2
+R09.89,Other specified symptoms and signs involving the circulatory and respiratory systems,Symptoms/Signs/Abnormal Findings,,,2
+R10.2,Pelvic and perineal pain,Symptoms/Signs/Abnormal Findings,,,2
+R00.9,Unspecified abnormalities of heart beat,Symptoms/Signs/Abnormal Findings,,,2
+R10.816,Periumbilical pain,Symptoms/Signs/Abnormal Findings,,,2
+R13.12,"Dysphagia, oropharyngeal phase",Symptoms/Signs/Abnormal Findings,,,2
+Q99.8,Other specified chromosome abnormalities,Congenital Anomalies,,,2
+R14.3,Flatulence,Symptoms/Signs/Abnormal Findings,,,2
+Q92.8,Other specified trisomies and partial trisomies of autosomes,Congenital Anomalies,,,2
+Q67.4,Frontal plagiocephaly,Congenital Anomalies,,,2
+Q89.9,Q89.9 [description unavailable],Congenital Anomalies,,,2
+Q85.01,"Neurofibromatosis (nonmalignant), NF1",Congenital Anomalies,,,2
+Q85.00,"Neurofibromatosis, unspecified",Congenital Anomalies,,,2
+R22.0,"Localized swelling, mass and lump, head",Symptoms/Signs/Abnormal Findings,,,2
+R22.31,"Localized swelling, mass and lump, right lower limb",Symptoms/Signs/Abnormal Findings,,,2
+R22.32,"Localized swelling, mass and lump, left lower limb",Symptoms/Signs/Abnormal Findings,,,2
+Q75.0,Hydrocephalus,Congenital Anomalies,,,2
+R31.2,Other microscopic hematuria,Symptoms/Signs/Abnormal Findings,,,2
+R93.7,Abnormal findings on diagnostic imaging of female genitalia,Symptoms/Signs/Abnormal Findings,,,2
+S06.0X1A,"Concussion with loss of consciousness of 30 minutes or less, initial encounter",Injury/Poisoning,,,2
+M79.673,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,2
+S06.300S,"Epidural hemorrhage with loss of consciousness of unspecified duration, sequela",Injury/Poisoning,,,2
+T76.2,Neglect,Injury/Poisoning,,,2
+T76.3,Sexual abuse,Injury/Poisoning,,,2
+N50.89,Other specified disorders of male genital organs,Genitourinary System,,,2
+N48.9,"Disorder of penis, unspecified",Genitourinary System,,,2
+N48.1,Balanitis,Genitourinary System,,,2
+U07.1,U07.1 [description unavailable],External Cause,,,2
+W19.XXXA,W19.XXXA [description unavailable],External Causes,,,2
+N39.43,Post-void dribbling,Genitourinary System,,,2
+Y07.1,Y07.1 [description unavailable],External Causes,,,2
+Y07.12,Y07.12 [description unavailable],External Causes,,,2
+N31.9,"Neuromuscular dysfunction of bladder, unspecified",Genitourinary System,,,2
+N28.1,"Cyst of kidney, acquired",Genitourinary System,,,2
+N20.0,Calculus of kidney,Genitourinary System,,,2
+Z01.00,Encounter for general adult medical examination without abnormal findings,Factors Influencing Health Status,,,2
+M92.8,Other juvenile osteochondrosis,Musculoskeletal System,,,2
+M89.8X1,Other disorders of bone,Musculoskeletal System,,,2
+M85.40,Other disorders of bone density and structure,Musculoskeletal System,,,2
+Z11.3,Encounter for screening for infections with a predominantly sexual mode of transmission,Factors Influencing Health Status,,,2
+Z13.29,Encounter for screening for other genetic and metabolic conditions,Factors Influencing Health Status,,,2
+R05.9,"Fever, unspecified",Symptoms/Signs/Abnormal Findings,,,2
+T74.02,"Child maltreatment by parent or guardian, suspected",Injury/Poisoning,,,2
+N89.8,Other specified noninflammatory disorders of vagina,Genitourinary System,,,2
+T16.2XXA,"Foreign body in bilateral ears, initial encounter",Injury/Poisoning,,,2
+P52.3,Unspecified intraventricular (nontraumatic) hemorrhage of newborn,Perinatal Conditions,,,2
+P07.3,"Preterm newborn, unspecified number of weeks",Perinatal Conditions,,,2
+S40.812A,"Contusion of left shoulder, initial encounter",Injury/Poisoning,,,2
+S52.521D,"Displaced fracture of distal radius, left arm, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,2
+S83.015A,"Anterior subluxation of left tibia, initial encounter",Injury/Poisoning,,,2
+P07.00,"Extremely preterm newborn, gestational age less than 22 complete weeks",Perinatal Conditions,,,2
+T14.8,Other injury of unspecified body region,Injury/Poisoning,,,2
+T16.1XXA,"Foreign body in left ear, initial encounter",Injury/Poisoning,,,2
+T18.9XXA,"Foreign body of unspecified part of alimentary tract, initial encounter",Injury/Poisoning,,,2
+N90.89,Other specified noninflammatory disorders of vulva and perineum,Genitourinary System,,,2
+T42.6X5D,"Adverse effect of anticonvulsants, subsequent encounter",Injury/Poisoning,,,2
+T50.904A,"Toxic effect of unspecified drug or medicinal substance, undetermined, initial encounter",Injury/Poisoning,,,2
+T54.92XA,"Corrosive substance, unspecified, undetermined, initial encounter",Injury/Poisoning,,,2
+T56.0X1S,T56.0X1S [description unavailable],Injury/Poisoning,,,2
+N92.2,Excessive menstruation at puberty,Genitourinary System,,,2
+T65.91XA,"Toxic effect of unspecified substance, intentional self-harm, initial encounter",Injury/Poisoning,,,2
+T71.162A,"Asphyxiation due to hanging, initial encounter",Injury/Poisoning,,,2
+T74.01XA,"Child maltreatment by parent or guardian, confirmed, initial encounter",Injury/Poisoning,,,2
+A04.0,Bacterial diarrhea,Infectious Diseases,,,2
+Z99.89,Dependence on other enabling machines and devices,Factors Influencing Health Status,,,2
+F41.3,Panic disorder with agoraphobia,Unclassified,Anxiety Disorders,F40.01,2
+E22.9,E22.9 [description unavailable],Endocrine/Metabolic,,,2
+F31.63,"Bipolar I disorder, current or most recent episode mixed, severe without psychotic features",Unclassified,Bipolar and Related Disorders,F31.63,2
+H52.523,"Presbyopia, bilateral",Eye/Ear Disorders,,,2
+E13.65,E13.65 [description unavailable],Endocrine/Metabolic,,,2
+E13.9,E13.9 [description unavailable],Endocrine/Metabolic,,,2
+K64.9,Unspecified hemorrhoids,Digestive System,,,2
+E21.2,E21.2 [description unavailable],Endocrine/Metabolic,,,2
+K64.4,Residual hemorrhoidal skin tags,Digestive System,,,2
+F31.60,"Bipolar I disorder, current or most recent episode mixed, mild",Unclassified,Bipolar and Related Disorders,F31.60,2
+E25.0,E25.0 [description unavailable],Endocrine/Metabolic,,,2
+G43.001,G43.001 [description unavailable],Nervous System Disorders,,,2
+K59.9,"Functional intestinal disorder, unspecified",Digestive System,,,2
+G40.A19,G40.A19 [description unavailable],Nervous System Disorders,,,2
+F31.4,"Bipolar I disorder, current or most recent episode depressed, severe without psychotic features",Unclassified,Bipolar and Related Disorders,F31.4,2
+H53.031,"Astigmatism, right eye",Eye/Ear Disorders,,,2
+E30.8,E30.8 [description unavailable],Endocrine/Metabolic,,,2
+H53.049,H53.049 [description unavailable],Eye/Ear Disorders,,,2
+E34.8,E34.8 [description unavailable],Endocrine/Metabolic,,,2
+H53.143,"Homonymous bilateral field defects, unspecified",Eye/Ear Disorders,,,2
+F31.89,Other bipolar I disorder,Unclassified,Bipolar and Related Disorders,F31.89,2
+G43.019,G43.019 [description unavailable],Nervous System Disorders,,,2
+G43.1,G43.1 [description unavailable],Nervous System Disorders,,,2
+D72.819,Other disorders of white blood cells,Neoplasms/Blood Disorders,,,2
+G25.5,G25.5 [description unavailable],Nervous System Disorders,,,2
+F34.89,Other specified persistent mood disorder,Unclassified,Depressive Disorders,F34.89,2
+J32.8,Other chronic sinusitis,Respiratory System,,,2
+D64.81,Other anemias,Neoplasms/Blood Disorders,,,2
+H50.331,"Strabismus, divergent, with A pattern, right eye",Eye/Ear Disorders,,,2
+K90.4,"Malabsorption due to intolerance, not elsewhere classified",Digestive System,,,2
+J34.1,"Nasal polyps, unspecified",Respiratory System,,,2
+J34.89,Other specified disorders of nose and nasal sinuses,Respiratory System,,,2
+H69.83,"Other specified disorders of Eustachian tube, bilateral",Eye/Ear Disorders,,,2
+F32.8,Other depressive episodes,Unclassified,Depressive Disorders,F32.8,2
+H50.9,Unspecified strabismus,Eye/Ear Disorders,,,2
+H51.11,Convergence insufficiency,Eye/Ear Disorders,,,2
+D75.0,Other and unspecified diseases of blood and blood-forming organs,Neoplasms/Blood Disorders,,,2
+G25.69,G25.69 [description unavailable],Nervous System Disorders,,,2
+D84.81,Other immunodeficiencies,Neoplasms/Blood Disorders,,,2
+H52.00,"Refractive error, unspecified",Eye/Ear Disorders,,,2
+E03.2,E03.2 [description unavailable],Endocrine/Metabolic,,,2
+E03.8,E03.8 [description unavailable],Endocrine/Metabolic,,,2
+K59.2,"Neurogenic bowel, not elsewhere classified",Digestive System,,,2
+E41,E41 [description unavailable],Endocrine/Metabolic,,,2
+E50.8,E50.8 [description unavailable],Endocrine/Metabolic,,,2
+F02.80,F02.80 [description unavailable],Unclassified,,,2
+F19.982,Other psychoactive substance use disorder with psychotic disorder,Unclassified,Substance-Related and Addictive Disorders,F19.9,2
+K08.9,Unspecified disorder of teeth and supporting structures,Digestive System,,,2
+H90.5,Unspecified hearing loss,Eye/Ear Disorders,,,2
+F19.90,"Other psychoactive substance use disorder, unspecified",Unclassified,Substance-Related and Addictive Disorders,F19.90,2
+E88.09,Other specified metabolic disorders,Endocrine/Metabolic,,,2
+H90.12,"Conductive hearing loss, unilateral, with restricted hearing on the contralateral side, left ear",Eye/Ear Disorders,,,2
+H90.11,"Conductive hearing loss, unilateral, with restricted hearing on the contralateral side, right ear",Eye/Ear Disorders,,,2
+K13.79,Other oral mucosa polyps,Digestive System,,,2
+K31.89,Other diseases of stomach and duodenum,Digestive System,,,2
+G40,G40 [description unavailable],Nervous System Disorders,,,2
+F06.34,Dissociative disorder due to known physiological condition,Unclassified,Mental Disorders Due to Medical Condition,F06.34,2
+K29.80,Duodenitis without bleeding,Digestive System,,,2
+F09,Unspecified major neurocognitive disorder,Unclassified,Neurocognitive Disorders,F09,2
+F10.9,"Alcohol use disorder, unspecified",Unclassified,Substance-Related and Addictive Disorders,F10.9,2
+K25.9,"Gastric ulcer, unspecified as acute or chronic",Digestive System,,,2
+F12.1,Cannabis abuse,Unclassified,Substance-Related and Addictive Disorders,F12.1,2
+H66.93,"Unspecified disorder of tympanum, bilateral",Eye/Ear Disorders,,,2
+H69.80,"Other specified disorders of Eustachian tube, unspecified ear",Eye/Ear Disorders,,,2
+H57.02,"Ocular pain, left eye",Eye/Ear Disorders,,,2
+E80.6,E80.6 [description unavailable],Endocrine/Metabolic,,,2
+E74.21,E74.21 [description unavailable],Endocrine/Metabolic,,,2
+H54.7,Unspecified visual loss,Eye/Ear Disorders,,,2
+H53.16,Simultanagnosia,Eye/Ear Disorders,,,2
+H53.2,Diplopia,Eye/Ear Disorders,,,2
+G40.011,G40.011 [description unavailable],Nervous System Disorders,,,2
+E61.1,E61.1 [description unavailable],Endocrine/Metabolic,,,2
+K58.1,Irritable bowel syndrome with constipation,Digestive System,,,2
+F30.9,"Bipolar I disorder, current or most recent episode manic, unspecified",Unclassified,Bipolar and Related Disorders,F30.9,2
+E63.9,E63.9 [description unavailable],Endocrine/Metabolic,,,2
+E65,E65 [description unavailable],Endocrine/Metabolic,,,2
+E66.0,Obesity due to excess calories,Endocrine/Metabolic,,,2
+K58.0,Irritable bowel syndrome with diarrhea,Digestive System,,,2
+F51.5,Nightmare disorder,Unclassified,Sleep-Wake Disorders,F51.5,2
+E66.1,Drug-induced obesity,Endocrine/Metabolic,,,2
+J98.4,"Chronic airways obstruction, not elsewhere classified",Respiratory System,,,2
+J98.8,Other specified respiratory disorders,Respiratory System,,,2
+H53.8,Other specified visual disturbances,Eye/Ear Disorders,,,2
+F23,Brief psychotic disorder,Unclassified,Psychotic Disorders,F23,2
+K52.82,"Colitis, unspecified",Digestive System,,,2
+H50.22,"Vertical strabismus, left eye",Eye/Ear Disorders,,,2
+F15.129,Stimulant abuse with intoxication,Unclassified,Substance-Related and Addictive Disorders,F15.1,2
+G44.4,G44.4 [description unavailable],Nervous System Disorders,,,2
+C71.6,"Cerebellum, unspecified",Neoplasms/Blood Disorders,,,2
+F63.2,Kleptomania (stealing),Unclassified,Disruptive Behavior Disorder,F63.2,2
+G44.209,G44.209 [description unavailable],Nervous System Disorders,,,2
+L20.82,Atopic dermatitis,Skin/Subcutaneous,,,2
+F50.00,"Anorexia nervosa, unspecified",Unclassified,Feeding and Eating Disorders,F50.0,2
+I49.3,Other cardiac arrhythmias,Circulatory System,,,2
+B99.9,Other infectious diseases,Infectious Diseases,,,2
+F50.029,F50.029 [description unavailable],Unclassified,,,2
+F45.1,Somatic symptom disorder,Unclassified,Somatic Symptom and Related Disorders,F45.1,2
+F94.8,F94.8 [description unavailable],Unclassified,,,2
+F45.8,Other specified somatic symptom and related disorder,Unclassified,Somatic Symptom and Related Disorders,F45.8,2
+F50.02,"Anorexia nervosa, binge eating/purging type",Unclassified,Feeding and Eating Disorders,F50.02,2
+J05.0,Acute obstructive laryngitis [croup],Respiratory System,,,2
+L73.9,Other follicular disorders,Skin/Subcutaneous,,,2
+G44.329,G44.329 [description unavailable],Nervous System Disorders,,,2
+G44.40,G44.40 [description unavailable],Nervous System Disorders,,,2
+L40.9,Psoriasis,Skin/Subcutaneous,,,2
+L44.1,Other papulosquamous disorders,Skin/Subcutaneous,,,2
+F94.0,Selective mutism,Unclassified,Anxiety Disorders,F94.0,2
+F80.4,Speech and language development delay due to hearing loss,Unclassified,Communication Disorders,F80.4,2
+F80.81,F80.81 [description unavailable],Unclassified,,,2
+G47.0,"Insomnia, unspecified",Unclassified,Sleep-Wake Disorders,F51.01,2
+L50.8,Urticaria,Skin/Subcutaneous,,,2
+G47.59,"Parasomnia, unspecified, other specified type",Nervous System Disorders,,,2
+I77.810,Other disorders of arteries and arterioles,Circulatory System,,,2
+F80.8,Other developmental disorders of speech or language,Unclassified,Communication Disorders,F80.8,2
+L65.9,Other non-scarring hair loss,Skin/Subcutaneous,,,2
+B27.90,Infectious mononucleosis,Infectious Diseases,,,2
+G80,G80 [description unavailable],Nervous System Disorders,,,2
+L21.9,Seborrheic dermatitis,Skin/Subcutaneous,,,2
+L71.0,Rosacea,Skin/Subcutaneous,,,2
+A08.4,Viral and other specified intestinal infections,Infectious Diseases,,,2
+G90.8,G90.8 [description unavailable],Nervous System Disorders,,,2
+L01.00,Impetigo,Skin/Subcutaneous,,,2
+J01.90,"Acute sinusitis, unspecified",Respiratory System,,,2
+G24.9,G24.9 [description unavailable],Nervous System Disorders,,,2
+G80.8,G80.8 [description unavailable],Nervous System Disorders,,,2
+I49.1,Other cardiac arrhythmias,Circulatory System,,,2
+G91.9,G91.9 [description unavailable],Nervous System Disorders,,,2
+H44.23,Pars planitis,Eye/Ear Disorders,,,2
+G43.701,G43.701 [description unavailable],Nervous System Disorders,,,2
+J20.6,Acute bronchitis caused by rhinovirus,Respiratory System,,,2
+G24.01,G24.01 [description unavailable],Nervous System Disorders,,,2
+I44.1,Atrioventricular and left bundle-branch block,Circulatory System,,,2
+H47.293,"Other disorders of optic chiasm, bilateral",Eye/Ear Disorders,,,2
+F63,Impulse disorders,Unclassified,Disruptive Behavior Disorder,F63,2
+H35.021,H35.021 [description unavailable],Eye/Ear Disorders,,,2
+D46.9,Blood disorder D46.9,Neoplasms/Blood Disorders,,,2
+D47.Z1,Blood disorder D47.Z1,Neoplasms/Blood Disorders,,,2
+J15.7,Pneumonia due to Mycoplasma pneumoniae,Respiratory System,,,2
+G80.1,G80.1 [description unavailable],Nervous System Disorders,,,2
+H17.89,H17.89 [description unavailable],Eye/Ear Disorders,,,2
+A09,Unspecified gastroenteritis and colitis,Infectious Diseases,,,2
+S70.10XA,"Contusion of left hip, initial encounter",Injury/Poisoning,,,1
+S92.514A,"Nondisplaced fracture of proximal phalanx of left little toe, initial encounter for closed fracture",Injury/Poisoning,,,1
+S92.919A,"Unspecified fracture of unspecified toe(s), initial encounter for closed fracture",Injury/Poisoning,,,1
+S92.354D,"Nondisplaced fracture of distal phalanx of right middle toe, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,1
+S69.92XA,S69.92XA [description unavailable],Injury/Poisoning,,,1
+G40.111,G40.111 [description unavailable],Nervous System Disorders,,,1
+S91.302D,S91.302D [description unavailable],Injury/Poisoning,,,1
+S91.302A,S91.302A [description unavailable],Injury/Poisoning,,,1
+S91.301D,S91.301D [description unavailable],Injury/Poisoning,,,1
+F63.1,Pyromania (fire-setting),Unclassified,Disruptive Behavior Disorder,F63.1,1
+S90.935A,S90.935A [description unavailable],Injury/Poisoning,,,1
+S89.90XA,"Unspecified injury of unspecified lower leg, initial encounter",Injury/Poisoning,,,1
+S72.421S,"Displaced transverse fracture of right femoral shaft, sequela",Injury/Poisoning,,,1
+S80.812A,"Contusion of left knee, initial encounter",Injury/Poisoning,,,1
+T71.162D,"Asphyxiation due to hanging, subsequent encounter",Injury/Poisoning,,,1
+T71.162S,"Asphyxiation due to hanging, sequela",Injury/Poisoning,,,1
+S83.002A,"Lateral subluxation of right tibia, initial encounter",Injury/Poisoning,,,1
+F66,F66 [description unavailable],Unclassified,,,1
+T21.20XA,"Burn of second degree of trunk, unspecified site, initial encounter",Injury/Poisoning,,,1
+S93.01XS,S93.01XS [description unavailable],Injury/Poisoning,,,1
+T63.331A,T63.331A [description unavailable],Injury/Poisoning,,,1
+G25.89,G25.89 [description unavailable],Nervous System Disorders,,,1
+T48.6X2A,"Adverse effect of other agents primarily affecting gastrointestinal function, initial encounter",Injury/Poisoning,,,1
+T45.1X5S,"Adverse effect of anticoagulants, sequela",Injury/Poisoning,,,1
+T43.621A,T43.621A [description unavailable],Injury/Poisoning,,,1
+T43.595S,"Adverse effect of other antipsychotics and neuroleptics, sequela",Injury/Poisoning,,,1
+T43.222A,"Poisoning by selective serotonin reuptake inhibitors, intentional self-harm, initial encounter",Injury/Poisoning,,,1
+G25.70,G25.70 [description unavailable],Nervous System Disorders,,,1
+G24.02,G24.02 [description unavailable],Nervous System Disorders,,,1
+T42.6X1A,"Poisoning by anticonvulsants, accidental (unintentional), initial encounter",Injury/Poisoning,,,1
+T39.1X4S,"Poisoning by ibuprofen, undetermined, sequela",Injury/Poisoning,,,1
+T39.1X2S,"Poisoning by ibuprofen, intentional self-harm, sequela",Injury/Poisoning,,,1
+G24.09,G24.09 [description unavailable],Nervous System Disorders,,,1
+T39.1X1A,"Poisoning by ibuprofen, accidental (unintentional), initial encounter",Injury/Poisoning,,,1
+T38.3X2A,"Adverse effect of insulin and oral hypoglycemic [antidiabetic] drugs, initial encounter",Injury/Poisoning,,,1
+T24.112A,"Burn of first degree of left wrist and hand, initial encounter",Injury/Poisoning,,,1
+T50.2X5D,"Adverse effect of other agents primarily acting on smooth and skeletal muscle and the respiratory system, subsequent encounter",Injury/Poisoning,,,1
+G25.9,G25.9 [description unavailable],Nervous System Disorders,,,1
+G23.8,G23.8 [description unavailable],Nervous System Disorders,,,1
+T54.91XA,"Corrosive substance, unspecified, intentional self-harm, initial encounter",Injury/Poisoning,,,1
+T62.2X2A,"Toxic effect of ingested mushrooms, intentional self-harm, initial encounter",Injury/Poisoning,,,1
+S99.922A,"Unspecified fracture of left foot, initial encounter for closed fracture",Injury/Poisoning,,,1
+T07.XXXA,"Unspecified multiple injuries, initial encounter",Injury/Poisoning,,,1
+G40.019,G40.019 [description unavailable],Nervous System Disorders,,,1
+T54.94XS,"Corrosive substance, unspecified, sequela",Injury/Poisoning,,,1
+T22.291A,"Burn of first degree of left shoulder, initial encounter",Injury/Poisoning,,,1
+T54.3X1S,"Corrosive organic compounds, intentional self-harm, sequela",Injury/Poisoning,,,1
+F98.29,Other feeding or eating disorder of infancy or early childhood,Unclassified,Feeding and Eating Disorders,F98.29,1
+T51.0X,Toxic effect of ethanol,Injury/Poisoning,,,1
+T50.915A,"Adverse effect of unspecified drug or medicinal substance, initial encounter",Injury/Poisoning,,,1
+G37.81,G37.81 [description unavailable],Nervous System Disorders,,,1
+T50.905S,"Adverse effect of unspecified drug or medicinal substance, sequela",Injury/Poisoning,,,1
+F94.9,F94.9 [description unavailable],Unclassified,,,1
+G37.8,G37.8 [description unavailable],Nervous System Disorders,,,1
+T17.1XXA,Foreign body in pharynx,Injury/Poisoning,,,1
+S20.219A,"Blister (nonthermal) of left front wall of thorax with penetration into thoracic cavity, initial encounter",Injury/Poisoning,,,1
+S63.601A,"Unspecified sprain of right wrist, initial encounter",Injury/Poisoning,,,1
+R94.120,Abnormal result of thyroid function study,Symptoms/Signs/Abnormal Findings,,,1
+R83.2,Cytologic evidence of malignancy,Symptoms/Signs/Abnormal Findings,,,1
+R89.4,Cytologic evidence of malignancy,Symptoms/Signs/Abnormal Findings,,,1
+G44.309,G44.309 [description unavailable],Nervous System Disorders,,,1
+G44.221,G44.221 [description unavailable],Nervous System Disorders,,,1
+R90.89,Other abnormal findings on diagnostic imaging of central nervous system,Symptoms/Signs/Abnormal Findings,,,1
+R93.2,Abnormal findings on diagnostic imaging of liver and biliary tract,Symptoms/Signs/Abnormal Findings,,,1
+G43.E19,G43.E19 [description unavailable],Nervous System Disorders,,,1
+R93.8,Abnormal findings on diagnostic imaging of other body structures,Symptoms/Signs/Abnormal Findings,,,1
+G43.E09,G43.E09 [description unavailable],Nervous System Disorders,,,1
+G43.919,G43.919 [description unavailable],Nervous System Disorders,,,1
+R94.131,Abnormal result of endocrine study,Symptoms/Signs/Abnormal Findings,,,1
+R82.90,Unspecified abnormal findings on cytological examination of urine,Symptoms/Signs/Abnormal Findings,,,1
+G43.801,G43.801 [description unavailable],Nervous System Disorders,,,1
+R94.4,Abnormal results of endocrine function studies,Symptoms/Signs/Abnormal Findings,,,1
+G43.719,G43.719 [description unavailable],Nervous System Disorders,,,1
+R94.7,Abnormal histological findings,Symptoms/Signs/Abnormal Findings,,,1
+G43.111,G43.111 [description unavailable],Nervous System Disorders,,,1
+S00.451A,S00.451A [description unavailable],Injury/Poisoning,,,1
+S00.81XA,S00.81XA [description unavailable],Injury/Poisoning,,,1
+S00.83XA,S00.83XA [description unavailable],Injury/Poisoning,,,1
+S00.90XA,S00.90XA [description unavailable],Injury/Poisoning,,,1
+S00.93XA,S00.93XA [description unavailable],Injury/Poisoning,,,1
+R82.99,Other chromic abnormalities of urine,Symptoms/Signs/Abnormal Findings,,,1
+R82.79,Other abnormal findings on cytological examination of urine,Symptoms/Signs/Abnormal Findings,,,1
+S62.647D,"Nondisplaced fracture of distal phalanx of right middle finger, subsequent encounter for fracture with routine healing",Injury/Poisoning,,,1
+G47.419,Narcolepsy type 2,Nervous System Disorders,,,1
+G81.94,G81.94 [description unavailable],Nervous System Disorders,,,1
+G81.91,G81.91 [description unavailable],Nervous System Disorders,,,1
+G80.2,G80.2 [description unavailable],Nervous System Disorders,,,1
+G70.2,G70.2 [description unavailable],Nervous System Disorders,,,1
+R68.12,Fussy infant (baby),Symptoms/Signs/Abnormal Findings,,,1
+G70.00,G70.00 [description unavailable],Nervous System Disorders,,,1
+G60.0,G60.0 [description unavailable],Nervous System Disorders,,,1
+G51.8,G51.8 [description unavailable],Nervous System Disorders,,,1
+G51.0,G51.0 [description unavailable],Nervous System Disorders,,,1
+R71.8,"Abnormality of white blood cell count, unspecified",Symptoms/Signs/Abnormal Findings,,,1
+G47.39,"Obstructive sleep apnea, unspecified",Nervous System Disorders,,,1
+R81,Glycosuria,Symptoms/Signs/Abnormal Findings,,,1
+G47.31,"Obstructive sleep apnea, mild",Nervous System Disorders,,,1
+G47.20,Narcolepsy without cataplexy,Nervous System Disorders,,,1
+G47.11,G47.11 [description unavailable],Nervous System Disorders,,,1
+G44.86,G44.86 [description unavailable],Nervous System Disorders,,,1
+R76.0,Raised antibody titer,Symptoms/Signs/Abnormal Findings,,,1
+R76.11,Positive tuberculin skin test,Symptoms/Signs/Abnormal Findings,,,1
+R79.82,Abnormality of albumin,Symptoms/Signs/Abnormal Findings,,,1
+R79.9,"Abnormality of serum chemical level, unspecified",Symptoms/Signs/Abnormal Findings,,,1
+R80.8,"Proteinuria, unspecified",Symptoms/Signs/Abnormal Findings,,,1
+G44.319,G44.319 [description unavailable],Nervous System Disorders,,,1
+S01.01XA,"Laceration without foreign body of scalp, initial encounter",Injury/Poisoning,,,1
+S01.111A,"Laceration without foreign body of right eyelid and periocular area, initial encounter",Injury/Poisoning,,,1
+S01.112A,"Laceration without foreign body of left eyelid and periocular area, initial encounter",Injury/Poisoning,,,1
+S59.011D,"Salter-Harris Type I physeal fracture of right radius, subsequent encounter",Injury/Poisoning,,,1
+S41.011A,"Unspecified open wound of right shoulder, initial encounter",Injury/Poisoning,,,1
+S42.414D,"Nondisplaced fracture of surgical neck of right humerus, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,1
+S50.02XA,"Contusion of right forearm, initial encounter",Injury/Poisoning,,,1
+S50.819,Other contusion of unspecified forearm,Injury/Poisoning,,,1
+S52.5,Fracture of lower end of radius,Injury/Poisoning,,,1
+G40.409,G40.409 [description unavailable],Nervous System Disorders,,,1
+S52.552D,"Nondisplaced fracture of distal radioulnar joint of left radius, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,1
+S52.611D,"Displaced fracture of distal radius, right arm, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,1
+S52.612D,"Displaced fracture of distal radius, left arm, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,1
+S52.92XA,"Unspecified fracture of unspecified forearm, initial encounter for closed fracture",Injury/Poisoning,,,1
+S59.902D,"Unspecified injury of unspecified forearm, subsequent encounter",Injury/Poisoning,,,1
+S01.81XA,"Unspecified open wound of other part of head, initial encounter",Injury/Poisoning,,,1
+S60.221A,"Contusion of left index finger, initial encounter",Injury/Poisoning,,,1
+S60.512D,"Contusion of left middle finger with damage to nail, subsequent encounter",Injury/Poisoning,,,1
+S61.502A,"Unspecified open wound of left wrist, initial encounter",Injury/Poisoning,,,1
+S62.015D,"Nondisplaced fracture of distal phalanx of left thumb, subsequent encounter for fracture with routine healing",Injury/Poisoning,,,1
+S62.201A,"Displaced fracture of distal phalanx of left index finger, initial encounter for closed fracture",Injury/Poisoning,,,1
+S62.314A,"Displaced fracture of distal phalanx of left middle finger, initial encounter for closed fracture",Injury/Poisoning,,,1
+S62.367D,"Nondisplaced fracture of distal phalanx of left ring finger, subsequent encounter for fracture with routine healing",Injury/Poisoning,,,1
+S62.624A,"Displaced fracture of distal phalanx of left ring finger, initial encounter for closed fracture",Injury/Poisoning,,,1
+S62.625A,"Displaced fracture of distal phalanx of left little finger, initial encounter for closed fracture",Injury/Poisoning,,,1
+S62.647A,"Nondisplaced fracture of distal phalanx of right middle finger, initial encounter for closed fracture",Injury/Poisoning,,,1
+G40.419,G40.419 [description unavailable],Nervous System Disorders,,,1
+S39.92XA,"Unspecified injury of abdomen, lower back, pelvis and external genitals, initial encounter",Injury/Poisoning,,,1
+S32.050A,"Fracture of right ilium, initial encounter for closed fracture",Injury/Poisoning,,,1
+S10.81XA,"Contusion of other specified part of neck, initial encounter",Injury/Poisoning,,,1
+S02.31XA,"Fracture of orbital roof, initial encounter for closed fracture",Injury/Poisoning,,,1
+S02.42XS,"Fracture of orbit of eye, unspecified side, sequela",Injury/Poisoning,,,1
+S02.81XS,"Fracture of other parts of mandible, sequela",Injury/Poisoning,,,1
+S02.832D,"Fracture of condyle of right mandible, subsequent encounter for closed fracture with routine healing",Injury/Poisoning,,,1
+S02.9,"Unspecified fracture of skull and facial bones, initial encounter for closed fracture",Injury/Poisoning,,,1
+S02.91XS,"Unspecified fracture of skull, sequela",Injury/Poisoning,,,1
+S05.0,Injury of conjunctiva and corneal abrasion without foreign body,Injury/Poisoning,,,1
+S05.12XA,"Contusion of eyeball and orbital tissues with hyphema, initial encounter",Injury/Poisoning,,,1
+S05.12XS,"Contusion of eyeball and orbital tissues with hyphema, sequela",Injury/Poisoning,,,1
+S05.41XA,"Hyphema of left eye, initial encounter",Injury/Poisoning,,,1
+S06.0X9A,"Concussion with loss of consciousness of unspecified duration, initial encounter",Injury/Poisoning,,,1
+S06.0X9D,"Concussion with loss of consciousness of unspecified duration, subsequent encounter",Injury/Poisoning,,,1
+S06.0X9S,"Concussion with loss of consciousness of unspecified duration, sequela",Injury/Poisoning,,,1
+S06.2X9S,"Traumatic subdural hemorrhage with loss of consciousness of unspecified duration, sequela",Injury/Poisoning,,,1
+G43.0,G43.0 [description unavailable],Nervous System Disorders,,,1
+S09.8XXD,"Other specified injuries of head, subsequent encounter",Injury/Poisoning,,,1
+G40.9,G40.9 [description unavailable],Nervous System Disorders,,,1
+S09.90XS,"Unspecified injury of head, sequela",Injury/Poisoning,,,1
+S09.92XA,"Unspecified injury of ear, initial encounter",Injury/Poisoning,,,1
+S09.93XA,"Unspecified injury of nose, initial encounter",Injury/Poisoning,,,1
+S09.93XD,"Unspecified injury of nose, subsequent encounter",Injury/Poisoning,,,1
+F59,Unspecified behavioral syndromes associated with physiological disturbances and physical factors,Unclassified,Other Specified Mental Disorder,F59,1
+L89.893,Pressure ulcer (decubitus ulcer),Skin/Subcutaneous,,,1
+F51.13,Narcolepsy,Unclassified,Sleep-Wake Disorders,F51.13,1
+Z86.018,Personal history of other effects of external causes,Factors Influencing Health Status,,,1
+Z82.71,Family history of diabetes mellitus,Factors Influencing Health Status,,,1
+D72.10,Other disorders of white blood cells,Neoplasms/Blood Disorders,,,1
+D69.0,Purpura and other hemorrhagic conditions,Neoplasms/Blood Disorders,,,1
+D68.0,Other coagulation defects,Neoplasms/Blood Disorders,,,1
+Z84.1,Family history of stroke,Factors Influencing Health Status,,,1
+Z84.81,Family history of sudden infant death syndrome,Factors Influencing Health Status,,,1
+D63.1,Anemia in chronic diseases classified elsewhere,Neoplasms/Blood Disorders,,,1
+D57.1,Sickle-cell disease,Neoplasms/Blood Disorders,,,1
+D50,Iron deficiency anemia,Neoplasms/Blood Disorders,,,1
+Z85.841,"Personal history of malignant neoplasm of lymphoid, hematopoietic and related tissue",Factors Influencing Health Status,,,1
+Z85.89,Personal history of malignant neoplasm of other sites,Factors Influencing Health Status,,,1
+Z86.39,Personal history of diseases of the nervous system and sense organs,Factors Influencing Health Status,,,1
+E66.2,Morbid (severe) obesity with alveolar hypoventilation,Endocrine/Metabolic,,,1
+D43.2,Blood disorder D43.2,Neoplasms/Blood Disorders,,,1
+D36.13,Blood disorder D36.13,Neoplasms/Blood Disorders,,,1
+D35.2,Blood disorder D35.2,Neoplasms/Blood Disorders,,,1
+D23.9,Blood disorder D23.9,Neoplasms/Blood Disorders,,,1
+D22.72,Blood disorder D22.72,Neoplasms/Blood Disorders,,,1
+Z87.01,Personal history of contact with and exposure to lead,Factors Influencing Health Status,,,1
+D22.71,Blood disorder D22.71,Neoplasms/Blood Disorders,,,1
+D22.70,Blood disorder D22.70,Neoplasms/Blood Disorders,,,1
+D22.60,Blood disorder D22.60,Neoplasms/Blood Disorders,,,1
+D22.39,Blood disorder D22.39,Neoplasms/Blood Disorders,,,1
+D22,Blood disorder D22,Neoplasms/Blood Disorders,,,1
+Z82.69,Family history of other specified genetic diseases,Factors Influencing Health Status,,,1
+D73.1,Diseases of spleen,Neoplasms/Blood Disorders,,,1
+D83.9,Common variable immunodeficiency,Neoplasms/Blood Disorders,,,1
+D84.1,Other immunodeficiencies,Neoplasms/Blood Disorders,,,1
+Z63.7,Other stressful life events affecting the family and household,Factors Influencing Health Status,,,1
+E63.8,E63.8 [description unavailable],Endocrine/Metabolic,,,1
+Z65.4,Acculturation difficulty,Factors Influencing Health Status,,,1
+E56.9,E56.9 [description unavailable],Endocrine/Metabolic,,,1
+Z65.9,Problem related to unspecified psychosocial circumstances,Factors Influencing Health Status,,,1
+E55,E55 [description unavailable],Endocrine/Metabolic,,,1
+Z68.55,"Obesity, BMI 60 or greater, child or adolescent",Factors Influencing Health Status,,,1
+Z69.021,"Encounter for perpetrator of child abuse counseling and treatment, parent",Factors Influencing Health Status,,,1
+E30.9,E30.9 [description unavailable],Endocrine/Metabolic,,,1
+Z72.4,Inappropriate diet and eating habits,Factors Influencing Health Status,,,1
+E28.9,E28.9 [description unavailable],Endocrine/Metabolic,,,1
+E28.39,E28.39 [description unavailable],Endocrine/Metabolic,,,1
+E27.49,E27.49 [description unavailable],Endocrine/Metabolic,,,1
+Z73.4,"Inadequate social skills, not elsewhere classified",Factors Influencing Health Status,,,1
+E21.3,E21.3 [description unavailable],Endocrine/Metabolic,,,1
+E16.1,E16.1 [description unavailable],Endocrine/Metabolic,,,1
+Z79.1,Long term (current) use of antithrombotics/anticoagulants,Factors Influencing Health Status,,,1
+Z79.3,Long term (current) use of hormonal contraceptives,Factors Influencing Health Status,,,1
+E08,E08 [description unavailable],Endocrine/Metabolic,,,1
+E05.0,E05.0 [description unavailable],Endocrine/Metabolic,,,1
+Z79.631,Long term (current) use of selective serotonin reuptake inhibitors (SSRIs),Factors Influencing Health Status,,,1
+E04.9,E04.9 [description unavailable],Endocrine/Metabolic,,,1
+D89.9,"Other disorders involving the immune mechanism, not elsewhere classified",Neoplasms/Blood Disorders,,,1
+D18.09,Blood disorder D18.09,Neoplasms/Blood Disorders,,,1
+D18.03,Blood disorder D18.03,Neoplasms/Blood Disorders,,,1
+Z87.718,Personal history of peptic ulcer disease,Factors Influencing Health Status,,,1
+B37.9,Candidiasis,Infectious Diseases,,,1
+B36.9,Other superficial mycoses,Infectious Diseases,,,1
+B35.4,Dermatophytosis,Infectious Diseases,,,1
+B35.0,Dermatophytosis,Infectious Diseases,,,1
+B30.9,Viral conjunctivitis,Infectious Diseases,,,1
+Z92.89,Personal history of other medical treatment,Factors Influencing Health Status,,,1
+Z93.4,Presence of other artificial openings of urinary tract,Factors Influencing Health Status,,,1
+B27.81,Infectious mononucleosis,Infectious Diseases,,,1
+Z94.1,Heart transplant status,Factors Influencing Health Status,,,1
+Z94.4,Liver transplant status,Factors Influencing Health Status,,,1
+Z94.9,Other transplanted organ and tissue status,Factors Influencing Health Status,,,1
+Z95.0,Presence of cardiac pacemaker,Factors Influencing Health Status,,,1
+Z95.828,Presence of other cardiac implants and grafts,Factors Influencing Health Status,,,1
+Z96.1,Presence of intraocular lens,Factors Influencing Health Status,,,1
+Z96.21,Presence of intraocular lens,Factors Influencing Health Status,,,1
+B20,Human immunodeficiency virus [HIV] disease,Infectious Diseases,,,1
+B07.0,Viral warts,Infectious Diseases,,,1
+Z96.89,Presence of other specified functional implants,Factors Influencing Health Status,,,1
+Z96.9,Presence of unspecified functional implant,Factors Influencing Health Status,,,1
+B00.59,Herpesviral [herpes simplex] infection,Infectious Diseases,,,1
+B00.51,Herpesviral [herpes simplex] infection,Infectious Diseases,,,1
+A68.9,Relapsing fever,Infectious Diseases,,,1
+A49.3,Bacterial infection of unspecified site,Infectious Diseases,,,1
+A08.32,Viral and other specified intestinal infections,Infectious Diseases,,,1
+B37.3,Candidiasis,Infectious Diseases,,,1
+B38,Coccidioidomycosis,Infectious Diseases,,,1
+D18.00,Blood disorder D18.00,Neoplasms/Blood Disorders,,,1
+B38.2,Coccidioidomycosis,Infectious Diseases,,,1
+D16.22,Blood disorder D16.22,Neoplasms/Blood Disorders,,,1
+C96.6,"Langerhans cell histiocytosis, unspecified",Neoplasms/Blood Disorders,,,1
+C76.1,"Thorax, unspecified",Neoplasms/Blood Disorders,,,1
+Z87.892,Personal history of alcohol dependence,Factors Influencing Health Status,,,1
+C71.9,"Brain, unspecified",Neoplasms/Blood Disorders,,,1
+C71.7,"Brain stem, unspecified",Neoplasms/Blood Disorders,,,1
+Z88.3,Allergy to other antibiotics,Factors Influencing Health Status,,,1
+C71.4,"Ventricles, unspecified",Neoplasms/Blood Disorders,,,1
+Z90.01,Acquired absence of bilateral fingers,Factors Influencing Health Status,,,1
+C71.2,"Temporal lobe, unspecified",Neoplasms/Blood Disorders,,,1
+Z90.81,Acquired absence of rib(s),Factors Influencing Health Status,,,1
+C71.0,"Cerebrum, unspecified",Neoplasms/Blood Disorders,,,1
+B97.89,Viral agent as the cause of diseases classified elsewhere,Infectious Diseases,,,1
+Z91.048,Other medication allergy status,Factors Influencing Health Status,,,1
+Z91.1,Allergy status to nonmedicinal agents,Factors Influencing Health Status,,,1
+B97.4,Viral agent as the cause of diseases classified elsewhere,Infectious Diseases,,,1
+Z91.120,Latex allergy status,Factors Influencing Health Status,,,1
+B96.29,Bacterial agent as the cause of diseases classified elsewhere,Infectious Diseases,,,1
+B86,Scabies,Infectious Diseases,,,1
+B85.2,"Pediculosis, acariasis and other infestations",Infectious Diseases,,,1
+Z91.199,Other nonmedicinal substance allergy status,Factors Influencing Health Status,,,1
+Z91.410,Z91.410 [description unavailable],Factors Influencing Health Status,,,1
+B80,Infectious disease B80,Infectious Diseases,,,1
+Z63.6,Dependent relative needing care at home,Factors Influencing Health Status,,,1
+E66.813,E66.813 [description unavailable],Endocrine/Metabolic,,,1
+F51.12,Hypersomnolence disorder,Unclassified,Sleep-Wake Disorders,F51.12,1
+W45.8XXA,W45.8XXA [description unavailable],External Causes,,,1
+T81.89XA,"Other complications of procedures, not elsewhere classified, initial encounter",Injury/Poisoning,,,1
+T83.9XXA,"Unspecified complication of genitourinary prosthetic device, implant and graft, initial encounter",Injury/Poisoning,,,1
+T84.84XA,"Periprosthetic fracture around internal prosthetic knee joint, initial encounter",Injury/Poisoning,,,1
+T88.9XXS,T88.9XXS [description unavailable],Injury/Poisoning,,,1
+G83.31,G83.31 [description unavailable],Nervous System Disorders,,,1
+W06XXXXA,W06XXXXA [description unavailable],External Causes,,,1
+W16.41XS,W16.41XS [description unavailable],External Causes,,,1
+W18.2XXA,W18.2XXA [description unavailable],External Causes,,,1
+W18.30XA,W18.30XA [description unavailable],External Causes,,,1
+F40.231,Fear of injections and transfusions,Unclassified,Anxiety Disorders,F40.231,1
+W34.00XA,W34.00XA [description unavailable],External Causes,,,1
+W57.XXXA,W57.XXXA [description unavailable],External Causes,,,1
+Z63.3,Absence from home and problems of boarding school,Factors Influencing Health Status,,,1
+F40.220,Fear of blood,Unclassified,Anxiety Disorders,F40.230,1
+F40.0,Agoraphobia,Unclassified,Anxiety Disorders,F40.00,1
+X80.XXXA,X80.XXXA [description unavailable],External Causes,,,1
+F34.9,"Persistent mood disorder, unspecified",Unclassified,Depressive Disorders,F34.9,1
+X83.8XXD,X83.8XXD [description unavailable],External Causes,,,1
+F34.0,Cyclothymic disorder,Unclassified,Depressive Disorders,F34.0,1
+Y28.9XXA,Y28.9XXA [description unavailable],External Causes,,,1
+Z00.12,Encounter for screening for developmental delays,Factors Influencing Health Status,,,1
+Z00.70,Encounter for examination of ears and hearing,Factors Influencing Health Status,,,1
+Z00.71,Encounter for screening for hearing disorder,Factors Influencing Health Status,,,1
+Z01.01,Encounter for examination of blood pressure with abnormal findings,Factors Influencing Health Status,,,1
+T80.89XA,"Other complications following infusion, transfusion and therapeutic injection, initial encounter",Injury/Poisoning,,,1
+T78.40XA,"Anaphylaxis due to unspecified food, initial encounter",Injury/Poisoning,,,1
+T78.3XXD,"Angioneurotic edema, subsequent encounter",Injury/Poisoning,,,1
+T78.3XXA,"Angioneurotic edema, initial encounter",Injury/Poisoning,,,1
+T74.2,Neglect,Injury/Poisoning,,,1
+F51.01,"Primary insomnia, persistent",Unclassified,Sleep-Wake Disorders,F51.01,1
+F50.23,"Bulimia nervosa, in remission",Unclassified,Feeding and Eating Disorders,F50.2,1
+T74.22XS,T74.22XS [description unavailable],Injury/Poisoning,,,1
+T74.3,Sexual abuse,Injury/Poisoning,,,1
+T74.32XS,"Child sexual abuse, suspected, sequela",Injury/Poisoning,,,1
+T74.4XXS,"Shaken infant syndrome, sequela",Injury/Poisoning,,,1
+T74.92XA,"Unspecified maltreatment of child, suspected, initial encounter",Injury/Poisoning,,,1
+T75.3,Immersion and submersion,Injury/Poisoning,,,1
+T76.02,"Maltreatment of child, confirmed, initial encounter",Injury/Poisoning,,,1
+T76.02XA,"Child maltreatment by parent or guardian, confirmed, initial encounter",Injury/Poisoning,,,1
+F50.0,Anorexia nervosa,Unclassified,Feeding and Eating Disorders,F50.0,1
+F48.8,Other specified neurotic disorders,Unclassified,Anxiety Disorders,F48.8,1
+T76.12XD,"Child physical abuse, confirmed, subsequent encounter",Injury/Poisoning,,,1
+F48.1,Depersonalization/derealization disorder,Unclassified,Dissociative Disorders,F48.1,1
+T76.22,"Child neglect, confirmed",Injury/Poisoning,,,1
+F45.9,Unspecified somatic symptom and related disorder,Unclassified,Somatic Symptom and Related Disorders,F45.9,1
+T76.22XD,"Child neglect, confirmed, subsequent encounter",Injury/Poisoning,,,1
+T76.32,"Child sexual abuse, confirmed",Injury/Poisoning,,,1
+T78.00XD,"Anaphylaxis due to unspecified food, subsequent encounter",Injury/Poisoning,,,1
+F42.3,OCD with predominantly compulsive acts (rituals),Unclassified,Obsessive-Compulsive and Related Disorders,F42.3,1
+T78.1XXD,"Other adverse effects, not elsewhere classified, subsequent encounter",Injury/Poisoning,,,1
+T78.2XXA,"Anaphylactic shock, unspecified, initial encounter",Injury/Poisoning,,,1
+Z01.020,Encounter for examination of eyes and vision with abnormal findings,Factors Influencing Health Status,,,1
+F31,Bipolar I disorder,Unclassified,Bipolar and Related Disorders,F31,1
+Z01.818,Encounter for other specified special examination,Factors Influencing Health Status,,,1
+F06.31,Anxiety disorder due to known physiological condition,Unclassified,Mental Disorders Due to Medical Condition,F06.31,1
+F05,F05 [description unavailable],Unclassified,,,1
+F03.91,Unspecified major neurocognitive disorder,Unclassified,Neurocognitive Disorders,F03.91,1
+Z59.81,"Housing instability, unspecified",Factors Influencing Health Status,,,1
+E88.810,Metabolic syndrome with or without hypertriglyceridemia,Endocrine/Metabolic,,,1
+Z60.3,Problem related to living in residential institution,Factors Influencing Health Status,,,1
+E87.1,E87.1 [description unavailable],Endocrine/Metabolic,,,1
+Z60.8,Other problems related to housing and economic circumstances,Factors Influencing Health Status,,,1
+E86.0,E86.0 [description unavailable],Endocrine/Metabolic,,,1
+E84.9,E84.9 [description unavailable],Endocrine/Metabolic,,,1
+E83.52,E83.52 [description unavailable],Endocrine/Metabolic,,,1
+E83.51,E83.51 [description unavailable],Endocrine/Metabolic,,,1
+E83.39,E83.39 [description unavailable],Endocrine/Metabolic,,,1
+E83.31,E83.31 [description unavailable],Endocrine/Metabolic,,,1
+E83.19,E83.19 [description unavailable],Endocrine/Metabolic,,,1
+E83.110,E83.110 [description unavailable],Endocrine/Metabolic,,,1
+E80.7,E80.7 [description unavailable],Endocrine/Metabolic,,,1
+E80.4,E80.4 [description unavailable],Endocrine/Metabolic,,,1
+E78.49,Other dyslipidemia,Endocrine/Metabolic,,,1
+Z62.831,Physical abuse of child,Factors Influencing Health Status,,,1
+E73.1,Secondary lactose intolerance,Endocrine/Metabolic,,,1
+E73.0,Lactase deficiency,Endocrine/Metabolic,,,1
+E71.0,E71.0 [description unavailable],Endocrine/Metabolic,,,1
+Z63,"Problems related to primary support group, including family circumstances",Factors Influencing Health Status,,,1
+F06.1,F06.1 [description unavailable],Unclassified,,,1
+F12.11,Cannabis abuse with intoxication,Unclassified,Substance-Related and Addictive Disorders,F12.1,1
+F30.10,"Bipolar I disorder, manic episode, mild, without psychotic features",Unclassified,Bipolar and Related Disorders,F30.10,1
+Z51.89,Other specified aftercare,Factors Influencing Health Status,,,1
+F25.0,"Schizoaffective disorder, bipolar type",Unclassified,Psychotic Disorders,F25.0,1
+Z04.6,Z04.6 [description unavailable],Factors Influencing Health Status,,,1
+F20.9,"Schizophrenia, unspecified",Unclassified,Psychotic Disorders,F20.9,1
+F20.89,Other schizophrenia,Unclassified,Psychotic Disorders,F20.89,1
+Z13.39,Encounter for screening for other endocrine disorder,Factors Influencing Health Status,,,1
+F20.0,"Schizophrenia, paranoid type",Unclassified,Psychotic Disorders,F20.0,1
+Z13.828,"Encounter for screening for other suspected conditions, not found",Factors Influencing Health Status,,,1
+Z14.1,Encounter for genetic counseling for female carrier of X-linked recessive genetic disorder,Factors Influencing Health Status,,,1
+Z14.8,Encounter for genetic counseling for other genetic risk factors,Factors Influencing Health Status,,,1
+Z20.7,Contact with and (suspected) exposure to cholera,Factors Influencing Health Status,,,1
+Z22.338,Carrier or suspected carrier of other infectious disease,Factors Influencing Health Status,,,1
+F19.11,Other psychoactive substance abuse with intoxication,Unclassified,Substance-Related and Addictive Disorders,F19.1,1
+F19.1,Other psychoactive substance abuse,Unclassified,Substance-Related and Addictive Disorders,F19.1,1
+Z28.82,Immunization not carried out due to patient refusal for unspecified reason,Factors Influencing Health Status,,,1
+Z30.011,Encounter for general counseling and advice on contraception,Factors Influencing Health Status,,,1
+F15.959,"Stimulant use disorder, unspecified",Unclassified,Substance-Related and Addictive Disorders,F15.9,1
+F15.951,Stimulant use disorder with stimulant-induced psychotic disorder,Unclassified,Substance-Related and Addictive Disorders,F15.9,1
+Z30.42,Encounter for surveillance of injectable contraceptive,Factors Influencing Health Status,,,1
+Z33.1,"Pregnant state, incidental",Factors Influencing Health Status,,,1
+Z48.21,Encounter for removal of sutures,Factors Influencing Health Status,,,1
+Z48.23,Encounter for removal of staples,Factors Influencing Health Status,,,1
+Z51.5,Encounter for palliative care,Factors Influencing Health Status,,,1
+F12.151,Cannabis abuse with psychotic disorder,Unclassified,Substance-Related and Addictive Disorders,F12.1,1
+G82.20,G82.20 [description unavailable],Nervous System Disorders,,,1
+R47,Speech disturbances not elsewhere classified,Symptoms/Signs/Abnormal Findings,,,1
+G90.5,G90.5 [description unavailable],Nervous System Disorders,,,1
+N76.1,Subacute and chronic vulvovaginitis,Genitourinary System,,,1
+N31.8,Other neuromuscular dysfunction of bladder,Genitourinary System,,,1
+K52.3,Indeterminate colitis,Digestive System,,,1
+N32.81,Overactive bladder,Genitourinary System,,,1
+K52.2,Allergic and dietetic colitis,Digestive System,,,1
+K51.919,"Ulcerative colitis, unspecified with complications",Digestive System,,,1
+K51.411,Inflammatory polyps of colon,Digestive System,,,1
+N39.42,Incontinence without sensory awareness,Genitourinary System,,,1
+K50.90,"Crohn disease, unspecified, without complications",Digestive System,,,1
+K50.019,Crohn disease of small intestine with complications,Digestive System,,,1
+K42.9,Umbilical hernia without obstruction or gangrene,Digestive System,,,1
+N39.490,Unspecified urinary incontinence,Genitourinary System,,,1
+N39.498,Other specified urinary incontinence,Genitourinary System,,,1
+N43.3,Unspecified hydrocele,Genitourinary System,,,1
+N47.0,Phimosis,Genitourinary System,,,1
+K38.9,Unspecified disease of appendix,Digestive System,,,1
+N47.2,Redundant prepuce,Genitourinary System,,,1
+N47.8,Other disorders of prepuce,Genitourinary System,,,1
+N48,Other disorders of penis,Genitourinary System,,,1
+K35.80,Unspecified appendicitis,Digestive System,,,1
+N48.30,Other disorders of penis,Genitourinary System,,,1
+K35.20,Unspecified acute appendicitis,Digestive System,,,1
+N50.8,Other specified disorders of male genital organs,Genitourinary System,,,1
+K31.84,Gastroparesis,Digestive System,,,1
+N60.12,Diffuse cystic mastopathy of left breast,Genitourinary System,,,1
+K29.60,"Gastritis, unspecified, with bleeding",Digestive System,,,1
+N30.90,"Cystitis, unspecified without hematuria",Genitourinary System,,,1
+N30.00,Acute cystitis without hematuria,Genitourinary System,,,1
+K52.81,Eosinophilic colitis,Digestive System,,,1
+M86.30,Osteomyelitis,Musculoskeletal System,,,1
+M79.669,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+K59.8,Other specified functional intestinal disorders,Digestive System,,,1
+K59.39,Other megacolon,Digestive System,,,1
+K59.3,"Megacolon, not elsewhere classified",Digestive System,,,1
+M79.675,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+M79.89,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+M84.30XA,Disorder of continuity of bone,Musculoskeletal System,,,1
+M84.374A,Disorder of continuity of bone,Musculoskeletal System,,,1
+M84.375A,Disorder of continuity of bone,Musculoskeletal System,,,1
+K58.9,Irritable bowel syndrome without diarrhea,Digestive System,,,1
+K58.2,Mixed irritable bowel syndrome,Digestive System,,,1
+M91.11,Juvenile osteochondrosis of hip and pelvis,Musculoskeletal System,,,1
+N18.2,"Chronic kidney disease, stage 2 (mild)",Genitourinary System,,,1
+M92.40,Other juvenile osteochondrosis,Musculoskeletal System,,,1
+M92.523,Other juvenile osteochondrosis,Musculoskeletal System,,,1
+M92.60,Other juvenile osteochondrosis,Musculoskeletal System,,,1
+M93.001,Other osteochondropathies,Musculoskeletal System,,,1
+M94.0,Other disorders of cartilage,Musculoskeletal System,,,1
+N03.A,"Chronic glomerulonephritis, unspecified",Genitourinary System,,,1
+N04.1,Membranous glomerulonephritis,Genitourinary System,,,1
+N05.1,Focal segmental glomerulosclerosis,Genitourinary System,,,1
+K56.50,Unspecified intestinal obstruction,Digestive System,,,1
+K55.1,Chronic vascular insufficiency of intestine,Digestive System,,,1
+N13.71,Vesicoureteral reflux without reflux nephropathy,Genitourinary System,,,1
+N64.89,Other specified disorders of breast,Genitourinary System,,,1
+N77.1,Vulvovaginitis in infectious and parasitic diseases classified elsewhere,Genitourinary System,,,1
+M79.661,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+N80.1,Endometriosis of ovary,Genitourinary System,,,1
+P05.10,"Newborn light for gestational age, birth weight less than 500 grams",Perinatal Conditions,,,1
+J45.41,Moderate persistent asthma with (acute) exacerbation,Respiratory System,,,1
+J45.2,Mild intermittent asthma,Respiratory System,,,1
+J39.8,Other specified diseases of pharynx,Respiratory System,,,1
+P07.34,"Preterm newborn, 31 to 33 complete weeks of gestation",Perinatal Conditions,,,1
+J38.7,"Other diseases of larynx, not elsewhere classified",Respiratory System,,,1
+P78.89,Other specified perinatal digestive system disorders,Perinatal Conditions,,,1
+J38.5,Laryngeal stenosis,Respiratory System,,,1
+P91.60,"Hypoxic ischemic encephalopathy (HIE), unspecified",Perinatal Conditions,,,1
+J38.3,Laryngeal papillomatosis,Respiratory System,,,1
+Q02,Microcephaly,Congenital Anomalies,,,1
+Q03.1,Agenesis of fourth ventricle,Congenital Anomalies,,,1
+J34.9,Unspecified disorder of nose and nasal sinuses,Respiratory System,,,1
+Q04.9,Unspecified congenital malformation of brain,Congenital Anomalies,,,1
+Q05.2,"Spina bifida, lumbosacral region",Congenital Anomalies,,,1
+Q07.8,Other specified congenital malformations of spinal cord,Congenital Anomalies,,,1
+Q07.9,Unspecified congenital malformation of spinal cord,Congenital Anomalies,,,1
+J31.2,Chronic pharyngitis,Respiratory System,,,1
+J30.0,Allergic rhinitis due to pollen,Respiratory System,,,1
+Q13.0,Coloboma of iris,Congenital Anomalies,,,1
+Q14.8,Other specified congenital malformations of posterior segment of eye,Congenital Anomalies,,,1
+Q15.9,Unspecified congenital malformation of eye,Congenital Anomalies,,,1
+J21.9,"Acute bronchiolitis, unspecified",Respiratory System,,,1
+Q17.5,Congenital malformation of ear causing impairment of hearing,Congenital Anomalies,,,1
+Q18.8,Q18.8 [description unavailable],Congenital Anomalies,,,1
+J45.901,Unspecified asthma with (acute) exacerbation,Respiratory System,,,1
+J45.991,"Asthma, unspecified, with (acute) exacerbation",Respiratory System,,,1
+J95.3,Postprocedural hemorrhage and hematoma of respiratory system organ or structure following a respiratory system procedure,Respiratory System,,,1
+K12.1,Other forms of stomatitis,Digestive System,,,1
+N80.9,"Endometriosis, unspecified",Genitourinary System,,,1
+N83.201,"Unspecified ovarian cyst, right side",Genitourinary System,,,1
+N83.202,"Unspecified ovarian cyst, left side",Genitourinary System,,,1
+N83.29,Other ovarian cysts,Genitourinary System,,,1
+K20.90,"Esophagitis, unspecified without bleeding",Digestive System,,,1
+N90.60,Unspecified vulvodynia,Genitourinary System,,,1
+K20.9,"Esophagitis, unspecified",Digestive System,,,1
+K14.8,Other specified diseases of tongue,Digestive System,,,1
+N91.2,"Amenorrhea, unspecified",Genitourinary System,,,1
+N91.3,Primary oligomenorrhea,Genitourinary System,,,1
+K13.0,Cheek and lip biting,Digestive System,,,1
+K11.7,Disturbance of salivary secretion,Digestive System,,,1
+P04.14,Newborn affected by maternal use of anticonvulsants,Perinatal Conditions,,,1
+K11.22,Sialoadenitis of submandibular gland,Digestive System,,,1
+N93.9,Unspecified abnormal uterine and vaginal bleeding,Genitourinary System,,,1
+K11.21,Sialoadenitis of parotid gland,Digestive System,,,1
+K09.8,"Other cysts of oral region, not elsewhere classified",Digestive System,,,1
+N94.8,Other specified conditions associated with female genital organs and menstrual cycle,Genitourinary System,,,1
+N94.818,Other specified postprocedural complications of genitourinary tract,Genitourinary System,,,1
+K04.7,Periapical abscess with sinus,Digestive System,,,1
+O35.4XX0,"Maternal care for (suspected) central nervous system malformation in fetus, not applicable or unspecified",Pregnancy/Childbirth,,,1
+O36.5995,"Maternal care for selective fetal growth restriction, third trimester, other fetal abnormality noted",Pregnancy/Childbirth,,,1
+K04.6,Periapical abscess without sinus,Digestive System,,,1
+K02.9,Unspecified dental caries,Digestive System,,,1
+M79.662,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+M79.651,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+Q20.4,Double outlet right ventricle,Congenital Anomalies,,,1
+L02.82,"Skin and subcutaneous tissue abscess, furuncle and carbuncle",Skin/Subcutaneous,,,1
+M24.561,Other specific joint derangements,Musculoskeletal System,,,1
+M24.572,Other specific joint derangements,Musculoskeletal System,,,1
+M24.573,Other specific joint derangements,Musculoskeletal System,,,1
+L30.8,Other dermatitis,Skin/Subcutaneous,,,1
+L30.1,Other dermatitis,Skin/Subcutaneous,,,1
+A08.11,Viral and other specified intestinal infections,Infectious Diseases,,,1
+M25.331,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+L28.2,Lichen simplex chronicus and prurigo,Skin/Subcutaneous,,,1
+M25.376,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+M25.429,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+L27.0,Dermatitis due to substances taken internally,Skin/Subcutaneous,,,1
+L25.9,Unspecified contact dermatitis,Skin/Subcutaneous,,,1
+L25.8,Unspecified contact dermatitis,Skin/Subcutaneous,,,1
+M25.519,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+M25.529,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+L24.9,Irritant contact dermatitis,Skin/Subcutaneous,,,1
+L23.89,Allergic contact dermatitis,Skin/Subcutaneous,,,1
+M25.542,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+M25.549,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+L05.01,Pilonidal cyst and sinus,Skin/Subcutaneous,,,1
+L05.0,Pilonidal cyst and sinus,Skin/Subcutaneous,,,1
+M25.559,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+L04.0,Acute lymphadenitis,Skin/Subcutaneous,,,1
+L03.042,Cellulitis and acute lymphangitis,Skin/Subcutaneous,,,1
+L03.032,Cellulitis and acute lymphangitis,Skin/Subcutaneous,,,1
+L44.4,Other papulosquamous disorders,Skin/Subcutaneous,,,1
+L50,Urticaria,Skin/Subcutaneous,,,1
+M21.862,Other acquired deformities of limbs,Musculoskeletal System,,,1
+M20.10,Deformities of toe(s),Musculoskeletal System,,,1
+L81.8,Other disorders of pigmentation,Skin/Subcutaneous,,,1
+L94.0,Localized scleroderma [morphea] and linear scleroderma,Skin/Subcutaneous,,,1
+L94.1,Localized scleroderma [morphea] and linear scleroderma,Skin/Subcutaneous,,,1
+L98.2,"Other disorders of skin and subcutaneous tissue, not elsewhere classified",Skin/Subcutaneous,,,1
+L98.8,"Other disorders of skin and subcutaneous tissue, not elsewhere classified",Skin/Subcutaneous,,,1
+L81.4,Other disorders of pigmentation,Skin/Subcutaneous,,,1
+M04.2,Musculoskeletal disorder M04.2,Musculoskeletal System,,,1
+M08.00,Juvenile arthritis,Musculoskeletal System,,,1
+L81.0,Other disorders of pigmentation,Skin/Subcutaneous,,,1
+L74.8,Eccrine sweat gland disorders,Skin/Subcutaneous,,,1
+M20.029,Deformities of toe(s),Musculoskeletal System,,,1
+L74.519,Eccrine sweat gland disorders,Skin/Subcutaneous,,,1
+L50.0,Urticaria,Skin/Subcutaneous,,,1
+M21.061,Other acquired deformities of limbs,Musculoskeletal System,,,1
+L74.4,Eccrine sweat gland disorders,Skin/Subcutaneous,,,1
+M21.072,Other acquired deformities of limbs,Musculoskeletal System,,,1
+L72.0,Follicular cysts of skin and subcutaneous tissue,Skin/Subcutaneous,,,1
+M21.162,Other acquired deformities of limbs,Musculoskeletal System,,,1
+M21.371,Other acquired deformities of limbs,Musculoskeletal System,,,1
+M21.4,Other acquired deformities of limbs,Musculoskeletal System,,,1
+L68.9,Hypertrichosis,Skin/Subcutaneous,,,1
+M21.6X1,Other acquired deformities of limbs,Musculoskeletal System,,,1
+L63.8,Alopecia areata,Skin/Subcutaneous,,,1
+L52,Erythema nodosum,Skin/Subcutaneous,,,1
+L03.011,Cellulitis and acute lymphangitis,Skin/Subcutaneous,,,1
+L02.31,"Skin and subcutaneous tissue abscess, furuncle and carbuncle",Skin/Subcutaneous,,,1
+M79.645,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+M25.859,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
+K80.20,Calculus of gallbladder without cholecystitis with obstruction,Digestive System,,,1
+K76.89,Other specified diseases of liver,Digestive System,,,1
+M62.451,Other disorders of muscle,Musculoskeletal System,,,1
+M62.479,Other disorders of muscle,Musculoskeletal System,,,1
+K76.6,Portal hypertension,Digestive System,,,1
+K75.9,Unspecified inflammatory liver disease,Digestive System,,,1
+K74.69,Other and unspecified cirrhosis of liver,Digestive System,,,1
+M76.31,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+M76.32,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+M76.50,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+M76.51,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+M76.811,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+M76.821,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+M76.822,"Enthesopathies, lower limb, excluding foot",Musculoskeletal System,,,1
+K74.00,Unspecified cirrhosis of liver,Digestive System,,,1
+M79.10,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+K68.9,Unspecified disorder of peritoneum,Digestive System,,,1
+K66.8,Other specified disorders of peritoneum,Digestive System,,,1
+M79.5,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+M79.602,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+M79.603,"Other and unspecified soft tissue disorders, not elsewhere classified",Musculoskeletal System,,,1
+K63.9,"Disease of colon, unspecified",Digestive System,,,1
+K63.8219,Dieulafoy lesion of colon,Digestive System,,,1
+K63.821,Dieulafoy lesion of intestine,Digestive System,,,1
+K60.2,Unspecified fissure and ulcer of anus and rectum,Digestive System,,,1
+K82.4,Perforation of gallbladder,Digestive System,,,1
+K83.09,Obstruction of bile duct,Digestive System,,,1
+M54.16,Dorsalgia (back pain),Musculoskeletal System,,,1
+K91.2,Postsurgical malabsorption,Digestive System,,,1
+M26.52,Dentofacial anomalies [including malocclusion],Musculoskeletal System,,,1
+M26.609,Dentofacial anomalies [including malocclusion],Musculoskeletal System,,,1
+L02.02,"Skin and subcutaneous tissue abscess, furuncle and carbuncle",Skin/Subcutaneous,,,1
+M27.8,Other diseases of jaws,Musculoskeletal System,,,1
+M30.3,Polyarteritis nodosa and related conditions,Musculoskeletal System,,,1
+M34.9,Systemic sclerosis [scleroderma],Musculoskeletal System,,,1
+M40.00,Kyphosis and lordosis,Musculoskeletal System,,,1
+M41,Scoliosis,Musculoskeletal System,,,1
+M41.12,Scoliosis,Musculoskeletal System,,,1
+K91.89,"Other postprocedural complications and disorders of digestive system, not elsewhere classified",Digestive System,,,1
+M41.54,Scoliosis,Musculoskeletal System,,,1
+M42.00,Spinal osteochondrosis,Musculoskeletal System,,,1
+M53.9,Other and unspecified dorsopathies,Musculoskeletal System,,,1
+M42.05,Spinal osteochondrosis,Musculoskeletal System,,,1
+M43.06,Other deforming dorsopathies,Musculoskeletal System,,,1
+M43.07,Other deforming dorsopathies,Musculoskeletal System,,,1
+M43.17,Other deforming dorsopathies,Musculoskeletal System,,,1
+M43.6,Other deforming dorsopathies,Musculoskeletal System,,,1
+M43.8X5,Other deforming dorsopathies,Musculoskeletal System,,,1
+M43.9,Other deforming dorsopathies,Musculoskeletal System,,,1
+K90.89,Other specified malabsorption,Digestive System,,,1
+K90.41,Non-celiac gluten sensitivity,Digestive System,,,1
+M51.26,"Thoracic, thoracolumbar and lumbosacral intervertebral disc disorders",Musculoskeletal System,,,1
+M53.3,Other and unspecified dorsopathies,Musculoskeletal System,,,1
+Q20.1,Levoposition of heart,Congenital Anomalies,,,1
+J21.1,Acute bronchiolitis due to respiratory syncytial virus,Respiratory System,,,1
+G90.50,G90.50 [description unavailable],Nervous System Disorders,,,1
+R39.198,Other symptoms and signs involving the genitourinary system,Symptoms/Signs/Abnormal Findings,,,1
+R20.9,Unspecified disturbances of skin sensation,Symptoms/Signs/Abnormal Findings,,,1
+H53.003,H53.003 [description unavailable],Eye/Ear Disorders,,,1
+H53.002,H53.002 [description unavailable],Eye/Ear Disorders,,,1
+H52.533,"Presbyopia, left eye",Eye/Ear Disorders,,,1
+R22.41,"Localized swelling, mass and lump, right hand",Symptoms/Signs/Abnormal Findings,,,1
+R23.1,Pallor,Symptoms/Signs/Abnormal Findings,,,1
+R25,Abnormal involuntary movements,Symptoms/Signs/Abnormal Findings,,,1
+H52.203,"Astigmatism, bilateral",Eye/Ear Disorders,,,1
+R25.3,Fasciculation,Symptoms/Signs/Abnormal Findings,,,1
+H52.11,"Myopia, right eye",Eye/Ear Disorders,,,1
+H52.10,"Myopia, unspecified eye",Eye/Ear Disorders,,,1
+H51.9,Unspecified disorder of conjugate eye movements,Eye/Ear Disorders,,,1
+H51.8,Other specified disorders of conjugate eye movements,Eye/Ear Disorders,,,1
+R29.2,Abnormal gait,Symptoms/Signs/Abnormal Findings,,,1
+R29.3,"Lack of coordination, unspecified",Symptoms/Signs/Abnormal Findings,,,1
+H50.51,"Vertical heterophoria, right eye",Eye/Ear Disorders,,,1
+H50.312,"Strabismus, divergent, intermittent, left eye",Eye/Ear Disorders,,,1
+H50.311,"Strabismus, divergent, intermittent, right eye",Eye/Ear Disorders,,,1
+R31.0,Gross hematuria,Symptoms/Signs/Abnormal Findings,,,1
+H50.111,"Esotropia, right eye",Eye/Ear Disorders,,,1
+H50.012,"Esotropia, left eye",Eye/Ear Disorders,,,1
+R35,Polyuria,Symptoms/Signs/Abnormal Findings,,,1
+H47.323,"Optic tract syndrome, bilateral",Eye/Ear Disorders,,,1
+R35.1,Polyuria,Symptoms/Signs/Abnormal Findings,,,1
+R35.89,Other polyuria,Symptoms/Signs/Abnormal Findings,,,1
+R20.3,Hyperesthesia,Symptoms/Signs/Abnormal Findings,,,1
+R20.0,Anesthesia of skin,Symptoms/Signs/Abnormal Findings,,,1
+H53.462,Achromatopsia,Eye/Ear Disorders,,,1
+H57.12,"Ocular surface pain, left eye",Eye/Ear Disorders,,,1
+H65.07,"Acute suppurative otitis media without spontaneous rupture of ear drum, bilateral",Eye/Ear Disorders,,,1
+R10.31,Right lower quadrant pain,Symptoms/Signs/Abnormal Findings,,,1
+H65.01,"Acute suppurative otitis media without spontaneous rupture of ear drum, right ear",Eye/Ear Disorders,,,1
+H60.93,"Unspecified otitis externa, bilateral",Eye/Ear Disorders,,,1
+R10.83,R10.83 [description unavailable],Symptoms/Signs/Abnormal Findings,,,1
+H60.92,Unspecified otitis externa with unspecified ear,Eye/Ear Disorders,,,1
+H60.399,Other otitis externa of unspecified ear,Eye/Ear Disorders,,,1
+H60.311,"Otitis externa (acute), right ear, with cellulitis",Eye/Ear Disorders,,,1
+H60,Otitis externa,Eye/Ear Disorders,,,1
+R11.11,Vomiting without nausea,Symptoms/Signs/Abnormal Findings,,,1
+H57.89,Other specified disorders of eye and adnexa,Eye/Ear Disorders,,,1
+H57.052,"Foreign body sensation, left eye",Eye/Ear Disorders,,,1
+H53.50,Unspecified color vision deficiency,Eye/Ear Disorders,,,1
+H57.03,"Ocular pain, bilateral",Eye/Ear Disorders,,,1
+H55.02,"Nystagmus, left eye",Eye/Ear Disorders,,,1
+R14.2,Eructation,Symptoms/Signs/Abnormal Findings,,,1
+H55.00,"Nystagmus, unspecified eye",Eye/Ear Disorders,,,1
+H54.3,H54.3 [description unavailable],Eye/Ear Disorders,,,1
+R16.0,"Hepatomegaly, not elsewhere classified",Symptoms/Signs/Abnormal Findings,,,1
+R16.1,"Splenomegaly, not elsewhere classified",Symptoms/Signs/Abnormal Findings,,,1
+R16.2,Hepatomegaly with splenomegaly,Symptoms/Signs/Abnormal Findings,,,1
+R17,Unspecified jaundice,Symptoms/Signs/Abnormal Findings,,,1
+R19.00,"Intra-abdominal and pelvic swelling, mass and lump, unspecified site",Symptoms/Signs/Abnormal Findings,,,1
+R19.01,"Intra-abdominal and pelvic swelling, mass and lump, epigastric",Symptoms/Signs/Abnormal Findings,,,1
+H47.20,Unspecified disorder of optic nerve,Eye/Ear Disorders,,,1
+H47.10,"Optic disc swelling, unspecified eye",Eye/Ear Disorders,,,1
+H66.001,"Perforation of tympanum, central, right ear",Eye/Ear Disorders,,,1
+H47.093,"Unspecified optic nerve disorder, bilateral",Eye/Ear Disorders,,,1
+R47.8,Other speech disturbances,Symptoms/Signs/Abnormal Findings,,,1
+H02.403,"Eyelid ptosis, bilateral",Eye/Ear Disorders,,,1
+H02.402,"Eyelid ptosis, left eyelid",Eye/Ear Disorders,,,1
+R48.0,Dyslexia and alexia,Symptoms/Signs/Abnormal Findings,,,1
+R48.2,Difficulty in concentration,Symptoms/Signs/Abnormal Findings,,,1
+H01.024,"Blepharitis, left lower eyelid",Eye/Ear Disorders,,,1
+R49.0,Dysphonia,Symptoms/Signs/Abnormal Findings,,,1
+R50.81,Fever presenting with conditions classified elsewhere,Symptoms/Signs/Abnormal Findings,,,1
+H01.009,"Blepharitis, unspecified eye, unspecified eyelid",Eye/Ear Disorders,,,1
+H01.004,"Blepharitis, left upper eyelid",Eye/Ear Disorders,,,1
+H01.0,Blepharitis,Eye/Ear Disorders,,,1
+H00.15,Dacryoadenitis,Eye/Ear Disorders,,,1
+H00.14,Abscess of lacrimal sac,Eye/Ear Disorders,,,1
+H00.11,Preseptal cellulitis of right eye,Eye/Ear Disorders,,,1
+H00.015,Hordeolum internum of right upper eyelid,Eye/Ear Disorders,,,1
+H00.011,Hordeolum externum of right upper eyelid,Eye/Ear Disorders,,,1
+G97.82,G97.82 [description unavailable],Nervous System Disorders,,,1
+R56.01,Febrile seizure (simple),Symptoms/Signs/Abnormal Findings,,,1
+G95.9,G95.9 [description unavailable],Nervous System Disorders,,,1
+G95.89,G95.89 [description unavailable],Nervous System Disorders,,,1
+G93.89,G93.89 [description unavailable],Nervous System Disorders,,,1
+R60.1,Pulmonary edema,Symptoms/Signs/Abnormal Findings,,,1
+G93.81,G93.81 [description unavailable],Nervous System Disorders,,,1
+G91.1,G91.1 [description unavailable],Nervous System Disorders,,,1
+G90.9,G90.9 [description unavailable],Nervous System Disorders,,,1
+R47.1,Dysarthria,Symptoms/Signs/Abnormal Findings,,,1
+L90.6,Atrophic disorders of skin,Skin/Subcutaneous,,,1
+H02.889,Other specified disorders of eyelid,Eye/Ear Disorders,,,1
+H16.223,"Keratitis, superficial, left eye",Eye/Ear Disorders,,,1
+H47.011,"Ischemic optic neuropathy, right eye",Eye/Ear Disorders,,,1
+R41.4,Unspecified global cognitive dysfunction,Symptoms/Signs/Abnormal Findings,,,1
+H46.02,"Optic neuritis, left eye",Eye/Ear Disorders,,,1
+H44.22,Sympathetic uveitis,Eye/Ear Disorders,,,1
+H40.053,"Pigmentary glaucoma, left eye",Eye/Ear Disorders,,,1
+H40.013,"Open angle glaucoma, left eye",Eye/Ear Disorders,,,1
+H40.003,"Suspect glaucoma, left eye",Eye/Ear Disorders,,,1
+H35.89,Other specified retinal disorders,Eye/Ear Disorders,,,1
+H33.001,"Unspecified retinal detachment, right eye",Eye/Ear Disorders,,,1
+H31.001,"Unspecified choroidal detachment, right eye",Eye/Ear Disorders,,,1
+H26.493,"Nuclear sclerosis of lens, bilateral",Eye/Ear Disorders,,,1
+H11.433,"Conjunctival xerosis, bilateral",Eye/Ear Disorders,,,1
+H04.411,"Granuloma of lacrimal passage, right lacrimal passage",Eye/Ear Disorders,,,1
+H11.422,"Conjunctival concretions, left eye",Eye/Ear Disorders,,,1
+H11.32,Conjunctival scars,Eye/Ear Disorders,,,1
+H10.89,Other conjunctivitis,Eye/Ear Disorders,,,1
+H10.403,"Conjunctivitis, acute, bilateral",Eye/Ear Disorders,,,1
+H10.33,"Conjunctivitis, acute, left eye",Eye/Ear Disorders,,,1
+H10.31,"Conjunctivitis, acute, left eye",Eye/Ear Disorders,,,1
+H10.13,"Conjunctivitis, acute mucopurulent, left eye",Eye/Ear Disorders,,,1
+H10.11,"Conjunctivitis, acute mucopurulent, unspecified eye",Eye/Ear Disorders,,,1
+H10.013,"Mucopurulent conjunctivitis, right eye",Eye/Ear Disorders,,,1
+H05.822,Edema of bilateral orbits,Eye/Ear Disorders,,,1
+R46.2,Abnormality of gait and mobility,Symptoms/Signs/Abnormal Findings,,,1
+H65.30,Unspecified chronic suppurative otitis media,Eye/Ear Disorders,,,1
+H66.002,"Perforation of tympanum, central, left ear",Eye/Ear Disorders,,,1
+J20.9,"Acute bronchitis, unspecified",Respiratory System,,,1
+I63.9,Cerebral infarction,Circulatory System,,,1
+Q55.61,Congenital absence of penis,Congenital Anomalies,,,1
+Q55.63,Congenital absence of scrotum,Congenital Anomalies,,,1
+J01.91,"Acute recurrent sinusitis, unspecified",Respiratory System,,,1
+Q55.9,Unspecified congenital malformation of male genital organ,Congenital Anomalies,,,1
+Q60.2,Bilateral renal agenesis,Congenital Anomalies,,,1
+Q60.5,Unilateral renal agenesis,Congenital Anomalies,,,1
+Q61.0,Congenital renal cyst,Congenital Anomalies,,,1
+Q61.00,Cystic dilatation of collecting ducts,Congenital Anomalies,,,1
+Q61.01,Congenital single renal cyst,Congenital Anomalies,,,1
+Q61.5,Medullary cystic kidney,Congenital Anomalies,,,1
+Q61.9,Unspecified cystic kidney disease,Congenital Anomalies,,,1
+Q62.39,Other obstructive defects of renal pelvis and ureter,Congenital Anomalies,,,1
+Q62.5,Agenesis of ureter,Congenital Anomalies,,,1
+Q63.1,"Cystic kidney disease, unspecified",Congenital Anomalies,,,1
+J00,Acute nasopharyngitis (common cold),Respiratory System,,,1
+Q66.2,Congenital metatarsus varus,Congenital Anomalies,,,1
+I95.9,Hypotension,Circulatory System,,,1
+I86.1,Varicose veins of other sites,Circulatory System,,,1
+I85.00,Esophageal varices,Circulatory System,,,1
+I82.0,Other venous embolism and thrombosis,Circulatory System,,,1
+Q66.7,Congenital pes planus,Congenital Anomalies,,,1
+I73.89,Peripheral vascular diseases,Circulatory System,,,1
+I73.00,Peripheral vascular diseases,Circulatory System,,,1
+Q67.1,Pectus excavatum,Congenital Anomalies,,,1
+I71.9,Aortic aneurysm and dissection,Circulatory System,,,1
+J02.8,Acute pharyngitis caused by other specified organisms,Respiratory System,,,1
+Q55.0,Hypospadias,Congenital Anomalies,,,1
+J03.00,Acute suppurative otitis media without spontaneous rupture of ear drum,Respiratory System,,,1
+Q34.8,Q34.8 [description unavailable],Congenital Anomalies,,,1
+Q22.1,Congenital pulmonary valve insufficiency,Congenital Anomalies,,,1
+Q23.0,Congenital stenosis of aortic valve,Congenital Anomalies,,,1
+J15.9,Unspecified bacterial pneumonia,Respiratory System,,,1
+Q24.0,Dextrocardia,Congenital Anomalies,,,1
+Q25.1,Coarctation of aorta,Congenital Anomalies,,,1
+Q25.42,Hypoplastic left heart syndrome,Congenital Anomalies,,,1
+Q25.44,Congenital stenosis of pulmonary artery,Congenital Anomalies,,,1
+Q25.47,Congenital stenosis of aorta,Congenital Anomalies,,,1
+Q25.6,Stenosis of Pulmonary artery,Congenital Anomalies,,,1
+J12.1,Respiratory syncytial virus pneumonia,Respiratory System,,,1
+Q28.3,Q28.3 [description unavailable],Congenital Anomalies,,,1
+J10.1,Influenza with other respiratory manifestation with identified novel influenza A virus,Respiratory System,,,1
+Q54.0,Glandular hypospadias,Congenital Anomalies,,,1
+Q37.5,"Unilateral cleft palate with unilateral cleft lip, right",Congenital Anomalies,,,1
+Q38.1,Ankyloglossia,Congenital Anomalies,,,1
+Q42.3,"Congenital absence, atresia and stenosis of anus with fistula",Congenital Anomalies,,,1
+Q43.1,Meckel diverticulum,Congenital Anomalies,,,1
+Q51.9,"Müllerian anomaly of uterus and vagina, unspecified",Congenital Anomalies,,,1
+Q52.4,Agenesis and aplasia of uterus,Congenital Anomalies,,,1
+J03.91,"Acute otitis media, unspecified",Respiratory System,,,1
+Q53.112,Bilateral intra-abdominal cryptorchid testes,Congenital Anomalies,,,1
+Q53.20,Unilateral cryptorchid testis,Congenital Anomalies,,,1
+Q53.21,Descended testicle with persistent processus vaginalis,Congenital Anomalies,,,1
+Q53.9,Q53.9 [description unavailable],Congenital Anomalies,,,1
+I69.90,Sequelae of cerebrovascular disease,Circulatory System,,,1
+Q69.2,Q69.2 [description unavailable],Congenital Anomalies,,,1
+R09.A2,Hypoxemia,Symptoms/Signs/Abnormal Findings,,,1
+Q72.899,Q72.899 [description unavailable],Congenital Anomalies,,,1
+I27.21,Other pulmonary heart diseases,Circulatory System,,,1
+Q92.2,Partial trisomy of chromosome 5,Congenital Anomalies,,,1
+I15.1,Secondary hypertension,Circulatory System,,,1
+Q93.59,Other duplications of part of chromosome,Congenital Anomalies,,,1
+H93.25,Auditory recruitment,Eye/Ear Disorders,,,1
+Q98.4,Q98.4 [description unavailable],Congenital Anomalies,,,1
+H93.239,"Unspecified abnormal auditory perception, unspecified ear",Eye/Ear Disorders,,,1
+H93.19,"Tinnitus, unspecified ear",Eye/Ear Disorders,,,1
+H93.13,"Tinnitus, bilateral",Eye/Ear Disorders,,,1
+H93.11,"Tinnitus, right ear",Eye/Ear Disorders,,,1
+H92.21,"Otorrhagia, right ear",Eye/Ear Disorders,,,1
+H92.12,"Otorrhea, left ear",Eye/Ear Disorders,,,1
+H92.0,Otalgia,Eye/Ear Disorders,,,1
+H91.8X9,"Other specified hearing loss, unspecified ear",Eye/Ear Disorders,,,1
+H91.8X1,"Other specified hearing loss, right ear",Eye/Ear Disorders,,,1
+R04.2,Hemoptysis,Symptoms/Signs/Abnormal Findings,,,1
+H90.42,"Sensorineural hearing loss, bilateral",Eye/Ear Disorders,,,1
+H90.41,"Sensorineural hearing loss, unilateral, with unrestricted hearing on the contralateral side",Eye/Ear Disorders,,,1
+R06.00,"Dyspnea, unspecified",Symptoms/Signs/Abnormal Findings,,,1
+H81.90,H81.90 [description unavailable],Eye/Ear Disorders,,,1
+H72.92,"Perforation of tympanum, unspecified, left ear",Eye/Ear Disorders,,,1
+R06.81,Orthopnea,Symptoms/Signs/Abnormal Findings,,,1
+H71.01,"Cholesteatoma of external ear canal, right ear",Eye/Ear Disorders,,,1
+H69.93,"Unspecified Eustachian tube disorder, bilateral",Eye/Ear Disorders,,,1
+H69.81,"Other specified disorders of Eustachian tube, right ear",Eye/Ear Disorders,,,1
+Q89.8,Q89.8 [description unavailable],Congenital Anomalies,,,1
+Q89.4,Q89.4 [description unavailable],Congenital Anomalies,,,1
+Q89.3,Q89.3 [description unavailable],Congenital Anomalies,,,1
+Q79.6,Q79.6 [description unavailable],Congenital Anomalies,,,1
+I61.9,Nontraumatic intracerebral hemorrhage,Circulatory System,,,1
+Q74.1,Congenital deformity of finger(s) and toe(s),Congenital Anomalies,,,1
+Q74.3,Arthrogryposis multiplex congenita,Congenital Anomalies,,,1
+I49.5,Other cardiac arrhythmias,Circulatory System,,,1
+Q75.8,Other specified osteochondrodysplasias,Congenital Anomalies,,,1
+Q75.9,Unspecified osteochondrodysplasia,Congenital Anomalies,,,1
+Q76.0,Q76.0 [description unavailable],Congenital Anomalies,,,1
+Q78.0,Q78.0 [description unavailable],Congenital Anomalies,,,1
+Q78.8,Q78.8 [description unavailable],Congenital Anomalies,,,1
+Q78.9,Q78.9 [description unavailable],Congenital Anomalies,,,1
+Q79.3,Q79.3 [description unavailable],Congenital Anomalies,,,1
+I47.2,Paroxysmal tachycardia,Circulatory System,,,1
+I37.1,Pulmonary valve disorders,Circulatory System,,,1
+I45.81,Other conduction disorders,Circulatory System,,,1
+Q80.0,Q80.0 [description unavailable],Congenital Anomalies,,,1
+Q82.5,Q82.5 [description unavailable],Congenital Anomalies,,,1
+I45.10,Other conduction disorders,Circulatory System,,,1
+Q83.3,Q83.3 [description unavailable],Congenital Anomalies,,,1
+I44.2,Atrioventricular and left bundle-branch block,Circulatory System,,,1
+Q85.09,Q85.09 [description unavailable],Congenital Anomalies,,,1
+I42.8,Cardiomyopathy,Circulatory System,,,1
+Q87.0,Congenital malformation syndromes predominantly affecting facial and limb development,Congenital Anomalies,,,1
+Q87.40,"Marfan syndrome, unspecified",Congenital Anomalies,,,1
+Q87.410,Marfan syndrome with aortic dilation,Congenital Anomalies,,,1
+M25.20,"Other joint disorder, not elsewhere classified",Musculoskeletal System,,,1
