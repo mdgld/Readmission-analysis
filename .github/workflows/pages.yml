@@ -19,10 +19,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build allowlisted _site artifact
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp data.json _site/
+          cp -r assets _site/
+          cp .nojekyll _site/
+          if find _site -name '*.csv' -o -name '*.ipynb' -o -name '*.py' | grep -q .; then
+            echo "ERROR: forbidden file types found in _site/"
+            find _site -name '*.csv' -o -name '*.ipynb' -o -name '*.py'
+            exit 1
+          fi
+          if [ -d "_site/data" ]; then
+            echo "ERROR: data/ directory found in _site/"
+            exit 1
+          fi
+          echo "_site artifact built successfully:"
+          find _site -type f | sort
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./portfolio
+          publish_dir: ./_site
           enable_jekyll: false
           force_orphan: true

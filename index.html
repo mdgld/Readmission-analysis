@@ -1,782 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<title>Pediatric Psychiatric Readmission Analytics — Gold & Ritfeld</title>
+<meta name="description" content="A single-site cohort of 2,652 children aged 5–12 admitted for inpatient psychiatric care. DSM-5-informed features, interactive figures, and an honest assessment of what machine learning can — and cannot — predict.">
+<meta property="og:title" content="Pediatric Psychiatric Readmission Analytics">
+<meta property="og:description" content="From ICD-10 mapping to clinically honest prediction. 2,652 children, 2017–2024, single Arizona unit.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/motion.css">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
-<x-dc>
-<helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --sans:'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
-      --mono:'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-      --bg:#0b0d13; --bg-2:#0e1119;
-      --panel:rgba(255,255,255,.022); --panel-2:rgba(255,255,255,.045);
-      --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.055);
-      --text:#e8ecf4; --muted:#98a3ba; --faint:#646f88;
-      --accent:#6fb2f0;
-      --risk:#e8927c; --protect:#7cc0a6; --warn:#d8b06a;
-    }
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-      background-image:radial-gradient(rgba(255,255,255,.028) 1px, transparent 1px);
-      background-size:24px 24px;
-      -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.25) 60%, transparent);
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.25) 60%, transparent);}
-    body::after{content:'';position:fixed;top:-30vh;left:50%;width:120vw;height:80vh;transform:translateX(-50%);pointer-events:none;z-index:0;
-      background:radial-gradient(60% 60% at 50% 0%, rgba(111,178,240,.10), transparent 70%);}
-    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-    ::selection{background:rgba(111,178,240,.28);color:#fff;}
-    a{color:inherit;}
-  </style>
-</helmet>
+<a class="skip-link" href="#methods">Skip to content</a>
 
-<main style="position:relative;z-index:1;--accent:{{ accent }}">
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-name">MDGLD</span>
+    <span class="brand-sub">/ pediatric&nbsp;psychiatry&nbsp;analytics</span>
+  </div>
+  <nav class="site-nav" data-nav aria-label="Section navigation">
+    <a href="#findings">findings</a>
+    <a href="#spectrum">spectrum</a>
+    <a href="#models">models</a>
+    <a href="#equity">equity</a>
+    <a href="#abstract">abstract</a>
+  </nav>
+  <span class="site-status">single-site · 2017–2024 · n=2,652</span>
+</header>
 
-  <template id="__bundler_thumbnail">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" fill="#0b0d13"></rect>
-      <rect x="0" y="0" width="100" height="100" fill="url(#g)" opacity="0.5"></rect>
-      <radialGradient id="g" cx="50%" cy="0%" r="80%"><stop offset="0%" stop-color="#6fb2f0" stop-opacity="0.35"></stop><stop offset="70%" stop-color="#6fb2f0" stop-opacity="0"></stop></radialGradient>
-      <g transform="translate(31,32)">
-        <rect x="0" y="22" width="9" height="16" rx="2" fill="#6fb2f0"></rect>
-        <rect x="13" y="10" width="9" height="28" rx="2" fill="#e8927c"></rect>
-        <rect x="26" y="0" width="9" height="38" rx="2" fill="#6fb2f0"></rect>
-      </g>
-    </svg>
-  </template>
-
-  <!-- ░░ TOP BAR ░░ -->
-  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:1.5rem;padding:.8rem clamp(1rem,4vw,3rem);background:rgba(11,13,19,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)">
-    <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.02em;white-space:nowrap">
-      <span style="width:7px;height:7px;border-radius:2px;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2.6s ease-in-out infinite"></span>
-      <span style="font-weight:600">MDGLD</span>
-      <span style="color:var(--faint)">/ pediatric&nbsp;psychiatry&nbsp;analytics</span>
-    </div>
-    <nav style="display:none;gap:.2rem;margin-left:auto;font-family:var(--mono);font-size:.74rem" data-nav="">
-      <a href="#findings" style="text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:6px">findings</a>
-      <a href="#spectrum" style="text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:6px">spectrum</a>
-      <a href="#models" style="text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:6px">models</a>
-      <a href="#equity" style="text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:6px">equity</a>
-      <a href="#abstract" style="text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:6px">abstract</a>
-    </nav>
-    <span style="margin-left:auto;font-family:var(--mono);font-size:.72rem;color:var(--faint);white-space:nowrap" data-status="">single-site · 2017–2024 · n=2,652</span>
-  </header>
-
-  <!-- ░░ HERO ░░ -->
-  <section data-screen-label="Hero" style="padding:clamp(3.5rem,7vw,6rem) clamp(1rem,6vw,5rem) clamp(2.5rem,5vw,4.5rem);border-bottom:1px solid var(--line)">
-    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(1.6rem,4vw,3.5rem);align-items:end">
-      <div style="min-width:0">
-        <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.4rem">
-          <span style="width: 1.6rem; height: 1px; background: var(--accent);"></span><b>Clinical data-science case study
-        </b></div>
-        <h1 style="font-size:clamp(2.3rem,4.6vw,4rem);line-height:1.04;letter-spacing:-.035em;font-weight:600;margin:0 0 1.4rem;max-width:18ch">{{ headline }}</h1>
-        <p style="color:var(--muted);font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.7;max-width:62ch;margin:0 0 2rem">A single-site cohort of <span style="color: var(--text);">2,652 children aged 5–12</span> admitted for inpatient psychiatric care. Raw EHR data became DSM-5-informed features, native interactive figures, and an explicit assessment of what machine learning can — and cannot — predict in small clinical datasets.</p>
-        <div style="display:flex;gap:.7rem;flex-wrap:wrap">
-          <a href="#spectrum" style="display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.82rem;font-weight:500;text-decoration:none;color:#08111c;background:var(--accent);padding:.7rem 1.1rem;border-radius:8px">View the analysis <span style="font-size:.9em">↓</span></a>
-          <a href="#abstract" style="display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.82rem;font-weight:500;text-decoration:none;color:var(--text);background:transparent;padding:.7rem 1.1rem;border-radius:8px;border:1px solid var(--line)">Read abstract</a>
-          <a href="#methods" style="display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.82rem;font-weight:500;text-decoration:none;color:var(--muted);background:transparent;padding:.7rem 1.1rem;border-radius:8px;border:1px solid var(--line)">Methods</a>
+<main>
+  <section class="hero" data-screen-label="Hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow"><span class="eyebrow-rule" aria-hidden="true"></span><b>Clinical data-science case study</b></div>
+        <h1 class="hero-title">From ICD&#8209;10 mapping to clinically honest prediction</h1>
+        <p class="hero-lead">A single-site cohort of <span class="hl">2,652 children aged 5–12</span> admitted for inpatient psychiatric care. Raw EHR data became DSM-5-informed features, native interactive figures, and an explicit assessment of what machine learning can — and cannot — predict in small clinical datasets.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#spectrum">View the analysis <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" href="#abstract">Read abstract</a>
+          <a class="btn btn-outline" href="#methods">Methods</a>
         </div>
       </div>
-
-      <!-- cohort readout -->
-      <aside style="border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));overflow:hidden">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)">
-          <span style="display:flex;align-items:center;gap:.5rem"><span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent);"></span><b>Descriptive Statistics</b></span>
-          
-        </div>
-        <div>
-          <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="6">
-            <div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;padding:.7rem 1.1rem;border-bottom:1px solid var(--line-2)">
-              <div style="min-width:0">
-                <div style="font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--faint);text-transform:uppercase">{{ m.k }}</div>
-                <sc-if value="{{ m.bar }}" hint-placeholder-val="{{ true }}">
-                  
-                </sc-if>
-              </div>
-              <div style="text-align:right">
-                <div style="font-family:var(--mono);font-size:1.15rem;font-weight:500;letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ m.v }}</div>
-                <sc-if value="{{ m.sub }}" hint-placeholder-val="{{ true }}"><div style="font-family:var(--mono);font-size:.66rem;color:var(--faint)">{{ m.sub }}</div></sc-if>
-              </div>
-            </div>
-          </sc-for>
-        </div>
+      <aside class="readout-panel" data-metrics aria-label="Descriptive statistics">
+        <div class="readout-head"><span class="readout-dot" aria-hidden="true"></span><b>Descriptive Statistics</b></div>
+        <div class="readout-body" data-metrics-body></div>
       </aside>
     </div>
   </section>
 
-  <!-- ░░ OVERVIEW / METHODS ░░ -->
-  <section id="methods" data-screen-label="Overview" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:2.2rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§01</span>
-        
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>Premise</b></span><span style="flex:1;height:1px;background:var(--line)"></span>
+  <section id="methods" class="section" data-screen-label="Overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§01</span>
+        <span class="section-label">Premise</span>
+        <span class="section-rule" aria-hidden="true"></span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;align-items:start">
-        <div>
-          <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.12;letter-spacing:-.025em;font-weight:600;margin:0 0 1.1rem">Readmission is clinically important, but individual prediction is hard</h2>
-          <p style="color:var(--muted);line-height:1.75;margin:0 0 1rem">Can routine clinical, demographic, and diagnosis data identify children at higher risk for psychiatric rehospitalization? Several interpretable factors are associated with readmission — yet discrimination stays modest after out-of-fold and optimism-corrected evaluation.</p>
-          <p style="color:var(--muted);line-height:1.75;margin:0 0 1rem">The work catalogued here treats inference and prediction as complementary: machine learning is used to surface risk factors that standard regression missed, while honest out-of-fold and bootstrap-corrected metrics keep the deployment claim modest.</p>
-          <p style="color:var(--faint);line-height:1.75;margin:0;font-size:.92rem">This website implements only aggregate statistics and generated figures. Patient-level rows, identifiers, and source CSVs are never exposed.</p>
-        </div>
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden">
-          <div style="padding:.85rem 1.2rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)"><b>Analysis pipeline</b></div>
-          <sc-for list="{{ pipeline }}" as="step" hint-placeholder-count="4">
-            <div style="display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line-2)">
-              <span style="font-family:var(--mono);font-size:.74rem;color:var(--accent);padding-top:.1rem">{{ step.n }}</span>
-              <span style="color:var(--muted);line-height:1.6;font-size:.93rem">{{ step.t }}</span>
-            </div>
-          </sc-for>
-        </div>
+      <div class="two-col">
+        <div data-methods-prose></div>
+        <div class="pipeline-panel" data-pipeline aria-label="Analysis pipeline"></div>
       </div>
     </div>
   </section>
 
-  <!-- ░░ FINDINGS — demographic small multiples ░░ -->
-  <section id="findings" data-screen-label="Findings" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem);background:rgba(255,255,255,.012);border-block:1px solid var(--line)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§02</span>
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>Exploratory findings</b></span>
-        <span style="flex:1;height:1px;background:var(--line)"></span>
+  <section id="findings" class="section section-alt" data-screen-label="Findings">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§02</span>
+        <span class="section-label">Exploratory findings</span>
+        <span class="section-rule" aria-hidden="true"></span>
       </div>
-      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2rem">
-        <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.025em;font-weight:600;margin:0">Aggregate readmission patterns</h2>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.2rem;font-family:var(--mono);font-size:.72rem;color:var(--faint)">
-          <span style="display:flex;align-items:center;gap:.4rem"><span style="width:18px;height:8px;border-radius:2px;background:var(--risk)"></span>above cohort</span>
-          <span style="display:flex;align-items:center;gap:.4rem"><span style="width:18px;height:8px;border-radius:2px;background:var(--protect)"></span>below</span>
-          <span style="display:flex;align-items:center;gap:.4rem"><span style="width: 1px; height: 13px; background: var(--accent);"></span>cohort 9.3% readmission rate</span>
-          <span style="color:var(--line)">·</span>
-          <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--text);font-weight:600">*</span>p&lt;.05</span>
-          <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--text);font-weight:600">**</span>p&lt;.01</span>
-          <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--text);font-weight:600">***</span>p&lt;.001</span>
+      <div class="findings-head">
+        <h2 class="section-h2">Aggregate readmission patterns</h2>
+        <div class="findings-legend">
+          <span class="legend-item"><span class="swatch swatch-risk" aria-hidden="true"></span>above cohort</span>
+          <span class="legend-item"><span class="swatch swatch-protect" aria-hidden="true"></span>below</span>
+          <span class="legend-item"><span class="swatch swatch-baseline" aria-hidden="true"></span>cohort 9.3% readmission rate</span>
+          <span class="legend-sep" aria-hidden="true">·</span>
+          <span class="legend-item"><span class="star star-1" aria-hidden="true">*</span>p&lt;.05</span>
+          <span class="legend-item"><span class="star star-2" aria-hidden="true">**</span>p&lt;.01</span>
+          <span class="legend-item"><span class="star star-3" aria-hidden="true">***</span>p&lt;.001</span>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(0,1fr) minmax(0,1fr);grid-auto-flow:column;gap:1rem;align-items:stretch">
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;grid-row:1 / 3">
-          <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 1.3rem">By age band</h3>
-          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.1rem">
-            <sc-for list="{{ ageBars }}" as="b" hint-placeholder-count="8">
-              <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}<sup style="font-size:.75em;color:var(--accent);margin-left:.15em;font-weight:600">{{ b.mark }}</sup></span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
-                <div style="position:relative;height:.62rem;background:rgba(255,255,255,.05);border-radius:3px">
-                  <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
-                  <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
-                </div>
-                <span style="font-family:var(--mono);font-size:.82rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                <span style="font-family:var(--mono);font-size:.82rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
-              </div>
-            </sc-for>
-          </div>
-          <p style="margin:1.2rem 0 0;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.64rem;line-height:1.5;color:var(--faint)"><span style="color: var(--accent);">†</span> Unit age cap is 12; 12-year-olds aging out of eligibility cannot be readmitted to this site, which is a plausible explanation of the observed rate depression.</p>
-        </div>
-
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;min-width:0;min-height:0">
-          <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By gender identity</h3>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
-              <sc-for list="{{ genderBars }}" as="b" hint-placeholder-count="2">
-                <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
-                    <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
-                    <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
-                  </div>
-                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
-                </div>
-              </sc-for>
-            </div>
-            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-              <span>OR <span style="color:var(--text)">{{ groupStats.gender.or }}</span></span>
-              <span>95% CI <span style="color:var(--text)">{{ groupStats.gender.ci }}</span></span>
-              <span>p <span style="color:var(--text)">{{ groupStats.gender.p }}</span></span>
-            </div>
-          </div>
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;flex:1">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By C-SSRS flag</h3>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
-              <sc-for list="{{ cssrsBars }}" as="b" hint-placeholder-count="2">
-                <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
-                    <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
-                    <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
-                  </div>
-                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
-                </div>
-              </sc-for>
-            </div>
-            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-              <span>OR <span style="color:var(--text)">{{ groupStats.cssrs.or }}</span></span>
-              <span>95% CI <span style="color:var(--text)">{{ groupStats.cssrs.ci }}</span></span>
-              <span>p <span style="color:var(--text)">{{ groupStats.cssrs.p }}</span></span>
-            </div>
-          </div>
-
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;min-width:0;min-height:0">
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.6rem">
-              <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By insurance</h3>
-              <span style="font-family:var(--mono);font-size:.6rem;color:var(--faint)">n=39 unknown excluded</span>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
-              <sc-for list="{{ insBars }}" as="b" hint-placeholder-count="2">
-                <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
-                    <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
-                    <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
-                  </div>
-                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
-                </div>
-              </sc-for>
-            </div>
-            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-              <span>OR <span style="color:var(--text)">{{ groupStats.ins.or }}</span></span>
-              <span>95% CI <span style="color:var(--text)">{{ groupStats.ins.ci }}</span></span>
-              <span>p <span style="color:var(--text)">{{ groupStats.ins.p }}</span></span>
-            </div>
-          </div>
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;flex:1">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By physical restraint</h3>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
-              <sc-for list="{{ restraintBars }}" as="b" hint-placeholder-count="2">
-                <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
-                    <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
-                    <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
-                  </div>
-                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
-                </div>
-              </sc-for>
-            </div>
-            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-              <span>OR <span style="color:var(--text)">{{ groupStats.restraint.or }}</span></span>
-              <span>95% CI <span style="color:var(--text)">{{ groupStats.restraint.ci }}</span></span>
-              <span>p <span style="color:var(--text)">{{ groupStats.restraint.p }}</span></span>
-            </div>
-          </div>
-      </div>
+      <div class="demo-grid" data-charts-demographics></div>
     </div>
   </section>
 
-  <!-- ░░ DIAGNOSTIC RISK SPECTRUM ░░ -->
-  <section id="spectrum" data-screen-label="Diagnostic spectrum" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§03</span>
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>Within-category heterogeneity</b></span>
-        <span style="flex:1;height:1px;background:var(--line)"></span>
+  <section id="spectrum" class="section" data-screen-label="Diagnostic spectrum">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§03</span>
+        <span class="section-label">Within-category heterogeneity</span>
+        <span class="section-rule" aria-hidden="true"></span>
       </div>
-      <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.025em;font-weight:600;margin:0 0 .8rem;max-width:24ch">Readmission risk across the full diagnostic spectrum</h2>
-      <p style="color:var(--muted);line-height:1.7;max-width:64ch;margin:0 0 2.2rem">Every DSM-5 category (n&nbsp;≥&nbsp;20) ranked by 90-day readmission rate. A single label can bundle high-risk and low-risk subtypes — within Depressive Disorders, DMDD carries 14.2% (OR&nbsp;1.82) while single-episode MDD is flat at 9.0% (n.s.).</p>
+      <h2 class="section-h2">Readmission risk across the full diagnostic spectrum</h2>
+      <p class="section-lead" data-spectrum-intro></p>
+      <div class="panel" data-charts-spectrum></div>
+    </div>
+  </section>
 
-      <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:clamp(1rem,2.5vw,1.8rem)">
-        <div style="display:grid;gap:.55rem">
-          <sc-for list="{{ dxBars }}" as="b" hint-placeholder-count="12">
-            <div style="display:grid;grid-template-columns:minmax(9rem,14rem) 1fr auto 1.7rem;align-items:center;gap:clamp(.5rem,1.3vw,1rem)">
-              <div style="min-width:0;display:flex;flex-direction:column">
-                <span style="font-size:.86rem;color:var(--text);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ b.label }}</span>
-                <span style="font-family:var(--mono);font-size:.66rem;color:var(--faint)">{{ b.sub }}</span>
-              </div>
-              <div style="position:relative;height:1.4rem;display:flex;align-items:center">
-                <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);height:.62rem;background:rgba(255,255,255,.05);width:100%;border-radius:3px"></div>
-                <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);height:.62rem;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
-                <div style="position:absolute;top:0;bottom:0;left:{{ dxBaseCss }};width:1px;background:var(--accent);opacity:.55"></div>
-              </div>
-              <span style="font-family:var(--mono);font-size:.85rem;color:var(--text);font-variant-numeric:tabular-nums;min-width:3.2rem;text-align:right">{{ b.valueText }}</span>
-              <span style="font-family:var(--mono);font-size:.85rem;font-weight:600;color:var(--risk);text-align:left;letter-spacing:.03em">{{ b.stars }}</span>
-            </div>
-          </sc-for>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.3rem;margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.7rem;color:var(--faint)">
-          <span style="display:flex;align-items:center;gap:.45rem"><span style="width: 1px; height: 12px; background: var(--accent);"></span>cohort 9.3%</span>
-          <span style="display:flex;align-items:center;gap:.45rem"><span style="width:16px;height:8px;border-radius:2px;background:rgba(232,146,124,1)"></span>significant</span>
-          <span style="display:flex;align-items:center;gap:.45rem"><span style="width:16px;height:8px;border-radius:2px;background:rgba(152,163,186,.22)"></span>n.s.</span>
-          <span style="color:var(--line)">·</span>
-          <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">*</span>p&lt;0.05</span>
-          <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">**</span>p&lt;0.01</span>
-          <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">***</span>p&lt;0.001</span>
-          <span style="color:var(--line)">·</span>
-          <span>vs cohort · two-proportion z-test</span>
+  <section id="models" class="section section-alt" data-screen-label="Predictors and models">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§04</span>
+        <span class="section-label">Modeling takeaway</span>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <h2 class="section-h2">Feature discovery worked better than individual-level prediction</h2>
+      <div class="models-grid">
+        <div class="panel" data-charts-forest></div>
+        <div class="panel" data-charts-models></div>
+      </div>
+      <div class="clinical-read" data-clinical-read></div>
+    </div>
+  </section>
+
+  <section id="equity" class="section" data-screen-label="Equity">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§05</span>
+        <span class="section-label">Equity audit</span>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="two-col">
+        <div data-equity-prose></div>
+        <div class="panel" data-charts-equity></div>
+      </div>
+      <div class="panel subgroup-explorer-panel" data-subgroup-explorer></div>
+    </div>
+  </section>
+
+  <section id="figures" class="section section-alt" data-screen-label="Figures">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§06</span>
+        <span class="section-label">Static outputs for publication</span>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="findings-head">
+        <h2 class="section-h2">Publication-ready figure catalogue</h2>
+        <span class="fig-count">12 figures · matplotlib pipeline</span>
+      </div>
+      <div class="gallery-grid" data-gallery></div>
+    </div>
+  </section>
+
+  <section id="abstract" class="section" data-screen-label="Abstract">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">§07</span>
+        <span class="section-label">AACAP 2026 Annual Meeting · Abstract &amp; Poster Submission</span>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <h2 class="abstract-title">Estimating psychiatric rehospitalization risk in children</h2>
+      <p class="abstract-byline">Gold &amp; Ritfeld · AACAP 2026 Annual Meeting · <em>ML surfaces Predictors But Fails At Individual Prediction</em></p>
+      <div class="abstract-grid">
+        <div class="abstract-col" data-abstract></div>
+        <div class="abstract-col">
+          <div class="panel" data-results></div>
+          <div class="objectives-panel" data-objectives></div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ░░ FOREST PLOT — independent predictors ░░ -->
-  <section id="models" data-screen-label="Predictors and models" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem);background:rgba(255,255,255,.012);border-block:1px solid var(--line)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§04</span>
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>Modeling takeaway</b></span>
-        <span style="flex:1;height:1px;background:var(--line)"></span>
-      </div>
-      <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.025em;font-weight:600;margin:0 0 2rem;max-width:26ch">Feature discovery worked better than individual-level prediction</h2>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1rem">
-        <!-- forest -->
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:clamp(1rem,2.2vw,1.6rem);min-width:0">
-          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.5rem">
-            <h3 style="font-size:1.02rem;font-weight:600;margin:0">Independent predictors of readmission</h3>
-            <span style="font-family:var(--mono);font-size:.68rem;color:var(--faint)">multivariable logistic regression<br></span>
-          </div>
-          <div style="display:grid;gap:.85rem">
-            <sc-for list="{{ forest }}" as="f" hint-placeholder-count="6">
-              <div style="display:grid;grid-template-columns:1fr;gap:.4rem">
-                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem">
-                  <span style="font-size:.85rem;color:var(--text)">{{ f.label }} <span style="font-family:var(--mono);font-size:.66rem;color:{{ f.tagColor }}">{{ f.tag }}</span></span>
-                  <span style="font-family:var(--mono);font-size:.74rem;color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap">{{ f.stat }}</span>
-                </div>
-                <div style="position:relative;height:1.1rem">
-                  <div style="position:absolute;top:0;bottom:0;left:{{ orOneCss }};width:1px;background:var(--line)"></div>
-                  <div style="position:absolute;top:50%;transform:translateY(-50%);left:{{ f.loCss }};width:{{ f.ciCss }};height:2px;background:{{ f.color }};opacity:.55"></div>
-                  <div style="position:absolute;top:50%;left:{{ f.loCss }};transform:translate(-50%,-50%);width:1px;height:8px;background:{{ f.color }};opacity:.55"></div>
-                  <div style="position:absolute;top:50%;left:{{ f.hiCss }};transform:translate(-50%,-50%);width:1px;height:8px;background:{{ f.color }};opacity:.55"></div>
-                  <div style="position:absolute;top:50%;left:{{ f.pointCss }};transform:translate(-50%,-50%);width:9px;height:9px;background:{{ f.color }};border-radius:2px"></div>
-                </div>
-              </div>
-            </sc-for>
-            <div style="position:relative;height:1.1rem;margin-top:.2rem;border-top:1px solid var(--line-2)">
-              <sc-for list="{{ forestTicks }}" as="t" hint-placeholder-count="5">
-                <div style="position:absolute;left:{{ t.pctCss }};top:4px;transform:translateX(-50%);font-family:var(--mono);font-size:.66rem;color:var(--faint)">{{ t.label }}</div>
-              </sc-for>
-            </div>
-            <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:.2rem">odds ratio (log scale) · ◼ point estimate, line = 95% CI</div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem 1rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">*</span>p&lt;.05</span>
-              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">**</span>p&lt;.01</span>
-              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">***</span>p&lt;.001</span>
-              <span style="color:var(--line)">·</span>
-              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">red</span> = risk ↑</span>
-              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--protect);font-weight:600">green</span> = protective ↓</span>
-              <span style="display:flex;align-items:center;gap:.3rem">n.s. = not significant</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- model performance -->
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:clamp(1rem,2.2vw,1.6rem);min-width:0">
-          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem">
-            <h3 style="font-size:1.02rem;font-weight:600;margin:0">Apparent vs. honest AUC</h3>
-            
-          </div>
-          <div style="display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem;font-family:var(--mono);font-size:.68rem;color:var(--muted)">
-            <span style="display:flex;align-items:center;gap:.4rem"><span style="width:11px;height:11px;border-radius:2px;background:rgba(255,255,255,.16);border:1px solid var(--line)"></span>apparent</span>
-            <span style="display:flex;align-items:center;gap:.4rem"><span style="width:11px;height:11px;border-radius:2px;background:var(--accent);opacity:.5"></span>corrected</span>
-            <span style="display:flex;align-items:center;gap:.4rem"><span style="width:11px;height:11px;border-radius:2px;background:var(--accent)"></span>out-of-fold</span>
-          </div>
-          <div style="display:grid;grid-template-columns:2.6rem 1fr;gap:.5rem">
-            <div style="position:relative;height:320px">
-              <sc-for list="{{ modelTicks }}" as="t" hint-placeholder-count="5">
-                <div style="position:absolute;right:.3rem;bottom:{{ t.pctCss }};transform:translateY(50%);font-family:var(--mono);font-size:.66rem;color:var(--faint)">{{ t.label }}</div>
-              </sc-for>
-            </div>
-            <div style="position:relative;height:320px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)">
-              <sc-for list="{{ modelTicks }}" as="t" hint-placeholder-count="5">
-                <div style="position:absolute;left:0;right:0;bottom:{{ t.pctCss }};height:1px;background:var(--line-2)"></div>
-              </sc-for>
-              <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 .4rem">
-                <sc-for list="{{ models }}" as="g" hint-placeholder-count="3">
-                  <div style="flex:1;display:flex;align-items:flex-end;justify-content:center;gap:3px;height:100%">
-                    <sc-for list="{{ g.bars }}" as="bar" hint-placeholder-count="3">
-                      <div style="position:relative;width:18%;display:flex;justify-content:center;height:{{ bar.hCss }};background:{{ bar.color }};opacity:{{ bar.op }};border-radius:3px 3px 0 0;border-top:1px solid rgba(255,255,255,.18)">
-                        <span style="position:absolute;top:-1.1rem;font-family:var(--mono);font-size:.6rem;color:var(--faint);white-space:nowrap">{{ bar.aucText }}</span>
-                      </div>
-                    </sc-for>
-                  </div>
-                </sc-for>
-              </div>
-            </div>
-            <div></div>
-            <div style="display:flex;padding:0 .4rem">
-              <sc-for list="{{ models }}" as="g" hint-placeholder-count="3">
-                <div style="flex:1;text-align:center;font-family:var(--mono);font-size:.68rem;color:var(--muted);padding-top:.55rem">{{ g.name }}</div>
-              </sc-for>
-            </div>
-          </div>
-          <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:1rem">AUROC · 5-fold CV · bootstrap optimism correction (1,000 iterations)</div>
-          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem 1.2rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-            <span style="display:flex;align-items:center;gap:.35rem">Logistic <span style="color:var(--text)">Δ=0.047</span></span>
-            <span style="display:flex;align-items:center;gap:.35rem">Random Forest <span style="color:var(--text)">Δ=0.169</span></span>
-            <span style="display:flex;align-items:center;gap:.35rem">CatBoost <span style="color:var(--risk);font-weight:600">Δ=0.263</span></span>
-            <span style="color:var(--line)">·</span>
-            <span>Δ = apparent − out-of-fold (optimism)</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:1rem;border:1px solid rgba(111,178,240,.3);background:rgba(111,178,240,.06);border-radius:12px;padding:1.2rem 1.4rem;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start">
-        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.1em;padding-top:.15rem;white-space:nowrap">CLINICAL READ</span>
-        <p style="margin:0;color:var(--muted);line-height:1.7"><span style="color: var(--text);">Apparent tree-model AUCs looked strong in-sample</span> — CatBoost reached 0.90 — but out-of-fold AUCs clustered near 0.64–0.68. The honest conclusion is not "deploy these readmission predictors immediately as a clinical tool”; it is "use modeling to surface clinically plausible risk factors, then validate in larger, multi-site cohorts over longer time-frames.“</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ FAIRNESS ░░ -->
-  <section id="equity" data-screen-label="Equity" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§05</span>
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>Equity audit</b></span>
-        <span style="flex:1;height:1px;background:var(--line)"></span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;align-items:start">
-        <div>
-          <h2 style="font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.02em;font-weight:600;margin:0 0 1rem">Surface subgroup disparities before deployment</h2>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 1rem">Equalized-odds gaps quantify how unevenly errors fall across subgroups. Age and ACE strata show the widest gaps — equity-aware validation should be a precondition to implementation.</p>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 1rem">A model with respectable aggregate AUC can still systematically over- or under-flag a subgroup. Reporting the worst-case gap alongside the headline metric frames bias mitigation as the crucial calibration step that it is.</p>
-          <p style="color:var(--faint);line-height:1.7;margin:0;font-size:.9rem;font-family:var(--mono)">metric: max(|ΔTPR|, |ΔFPR|) across pairing</p>
-        </div>
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:clamp(1.2rem,2.4vw,1.8rem)">
-          <div style="display:grid;gap:1.5rem">
-            <sc-for list="{{ fairBars }}" as="b" hint-placeholder-count="4">
-              <div style="display:grid;gap:.45rem">
-                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem">
-                  <span style="font-size:.88rem;color:var(--text)">{{ b.label }}</span>
-                  <span style="font-family:var(--mono);font-size:.82rem;color:var(--warn);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                </div>
-                <div style="position:relative;height:.55rem;background:rgba(255,255,255,.05);border-radius:3px">
-                  <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:var(--warn);border-radius:3px;opacity:.85"></div>
-                </div>
-                <span style="font-family:var(--mono);font-size:.66rem;color:var(--faint)">{{ b.sub }}</span>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ FIGURE INDEX ░░ -->
-  <section id="figures" data-screen-label="Figures" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem);background:rgba(255,255,255,.012);border-block:1px solid var(--line)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§06</span>
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>STATIC OUTPUTS FOR PUBLICATION</b></span>
-        <span style="flex:1;height:1px;background:var(--line)"></span>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2rem">
-        <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.025em;font-weight:600;margin:0">Publication-ready figure catalogue</h2>
-        <span style="font-family:var(--mono);font-size:.72rem;color:var(--faint)">12 figures · matplotlib pipeline</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem">
-        <sc-for list="{{ figures }}" as="fig" hint-placeholder-count="12">
-          <a href="figures/{{ fig.file }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden" style-hover="border-color:var(--accent)">
-            <div style="position:relative;aspect-ratio:4/3;background:repeating-linear-gradient(135deg, rgba(255,255,255,.035) 0 8px, transparent 8px 16px), var(--bg)">
-              <img src="figures/{{ fig.file }}" alt="{{ fig.title }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff">
-              <span style="position:absolute;top:.5rem;left:.5rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:#475569;background:rgba(255,255,255,.82);padding:.12rem .4rem;border-radius:5px">{{ fig.id }}</span>
-            </div>
-            <div style="padding:.75rem .9rem;border-top:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem">
-              <div style="min-width:0">
-                <div style="font-size:.84rem;color:var(--text);font-weight:500;line-height:1.3">{{ fig.title }}</div>
-                <div style="font-family:var(--mono);font-size:.64rem;color:var(--accent);margin-top:.35rem;text-transform:uppercase;letter-spacing:.08em">{{ fig.tag }}</div>
-              </div>
-              <span style="font-family:var(--mono);font-size:.8rem;color:var(--faint);flex-shrink:0">↗</span>
-            </div>
-          </a>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ ABSTRACT ░░ -->
-  <section id="abstract" data-screen-label="Abstract" style="padding:clamp(3rem,6vw,5.5rem) clamp(1rem,6vw,5rem)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem">
-        <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent)">§07</span>
-        <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>AACAP 2026 ANNUAL MEETING · ABSTRACT &amp; POSTER SUBMISSION</b></span>
-        <span style="flex:1;height:1px;background:var(--line)"></span>
-      </div>
-      <h2 style="font-size:clamp(1.6rem,2.6vw,2.3rem);letter-spacing:-.03em;font-weight:600;margin:0 0 .6rem;max-width:24ch">Estimating psychiatric rehospitalization risk in children</h2>
-      <p style="font-family:var(--mono);font-size:.82rem;color:var(--faint);margin:0 0 2.5rem">Gold &amp; Ritfeld · AACAP 2026 Annual Meeting · <i>ML surfaces Predictors But Fails At Individual Prediction</i></p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;align-items:start">
-        <div style="display:grid;gap:1rem;min-width:0">
-          <sc-for list="{{ abstract }}" as="sec" hint-placeholder-count="3">
-            <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.5rem">
-              <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .9rem">{{ sec.h }}</h3>
-              <p style="color:var(--muted);line-height:1.75;margin:0;font-size:.95rem">{{ sec.body }}</p>
-            </div>
-          </sc-for>
-        </div>
-
-        <div style="display:grid;gap:1rem;align-content:start;min-width:0">
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.5rem">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .9rem">Results</h3>
-            <div style="display:grid;gap:.55rem">
-              <sc-for list="{{ results }}" as="r" hint-placeholder-count="6">
-                <div style="display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;padding:.6rem .85rem;border-radius:8px;background:{{ r.bg }};border:1px solid {{ r.border }}">
-                  <span style="font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:{{ r.tagColor }};padding:.1rem .4rem;border-radius:5px;background:{{ r.tagBg }};white-space:nowrap">{{ r.tag }}</span>
-                  <span style="color:{{ r.textColor }};font-size:.88rem;line-height:1.5">{{ r.text }}</span>
-                </div>
-              </sc-for>
-            </div>
-          </div>
-          <div style="border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));padding:1.25rem 1.5rem">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .9rem">Learning objectives</h3>
-          <div style="display:grid;gap:.55rem">
-            <sc-for list="{{ objectives }}" as="o" hint-placeholder-count="4">
-              <div style="display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start">
-                <span style="font-family:var(--mono);font-size:.74rem;font-weight:600;color:var(--accent);padding-top:.1rem">{{ o.n }}</span>
-                <span style="color:var(--muted);font-size:.88rem;line-height:1.5">{{ o.t }}</span>
-              </div>
-            </sc-for>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░ FOOTER ░░ -->
-  <footer style="padding:2.5rem clamp(1rem,6vw,5rem);border-top:1px solid var(--line)">
-    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:.74rem;color:var(--faint)">
-      <span style="display:flex;align-items:center;gap:.6rem"><span style="width:6px;height:6px;border-radius:2px;background:var(--accent)"></span>Pediatric Psychiatric Readmission Analytics · 2026</span>
-      <span>Gold &amp; Ritfeld · patient-level data intentionally excluded from this web artifact</span>
-    </div>
-  </footer>
-
 </main>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#6fb2f0&quot;},&quot;headline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;From ICD‑10 mapping to clinically honest prediction&quot;}}">
-class Component extends DCLogic {
-  fmt(n){ return Number(n).toLocaleString('en-US'); }
-  logScale(or){ const lo=Math.log(0.6), hi=Math.log(3.0); return ((Math.log(or)-lo)/(hi-lo))*100; }
-  // two-sided p-value, one-proportion z-test vs baseline p0 (Zelen-Severo normal tail approx)
-  pTwoSided(phat, p0, n){
-    const se=Math.sqrt(p0*(1-p0)/n);
-    const z=Math.abs((phat-p0)/se);
-    const t=1/(1+0.2316419*z), d=0.3989423*Math.exp(-z*z/2);
-    const upper=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));
-    return 2*upper;
-  }
 
-  renderVals(){
-    const accent = this.props.accent || '#6fb2f0';
-    const headline = this.props.headline || 'From ICD‑10 mapping to clinically honest prediction';
-    const baseline = 9.3;
-    const RISK='var(--risk)', PROT='var(--protect)', NEUT='rgba(255,255,255,.22)';
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-brand"><span class="footer-dot" aria-hidden="true"></span>Pediatric Psychiatric Readmission Analytics · 2026</span>
+    <span class="footer-note">Gold &amp; Ritfeld · patient-level data intentionally excluded from this web artifact</span>
+  </div>
+</footer>
 
-    // ── hero readout ──
-    const metrics = [
-      { k:'Patients', v:'2,652' },
-      { k:'90-day readmission rate', v:'9.3%', sub:'246 events', bar:true, barCss:(9.3/20*100)+'%' },
-      { k:'ICD-10-CM codes mapped', v:'1,863' },
-      { k:'Diagnosis records', v:'27,884' },
-      { k:'DSM-5 categories', v:'31' },
-      { k:'Best OOF AUC', v:'0.684', sub:'honest ceiling', bar:true, barCss:((0.684-0.5)/0.45*100)+'%' },
-      { k:'Mean age', v:'9.7', sub:'range 5–12 yrs' },
-      { k:'Study period', v:'2017–2024', sub:'single AZ unit' },
-    ];
-
-    const pipeline = [
-      { n:'01', t:'Cleaned raw visit-level exports into canonical patient and diagnosis tables.' },
-      { n:'02', t:'Mapped 1,863 ICD-10-CM codes to descriptions, ICD chapters, and DSM-5 categories.' },
-      { n:'03', t:'Built interpretable regression, regularized ML, bootstrap, calibration, and fairness analyses.' },
-      { n:'04', t:'Stress-tested with bootstrap optimism correction, out-of-fold validation, and equity-aware subgroup audits.' },
-      { n:'05', t:'Generated conference-facing figures, native interactive visualizations, and narrative summaries.' },
-    ];
-
-    // ── demographic small multiples ──
-    const demoMax = 15;
-    const demoBaseCss = (baseline/demoMax*100)+'%';
-    const demoColor = r => r > baseline+0.4 ? RISK : (r < baseline-0.4 ? PROT : NEUT);
-    const mkDemo = (arr, opts={}) => arr.map(d=>{
-      const p = this.pTwoSided(d.r/d.n, baseline/100, d.n);
-      const lvl = p<0.001 ? 3 : p<0.01 ? 2 : p<0.05 ? 1 : 0;
-      const sub = opts.showR
-        ? 'n='+this.fmt(d.n)+' · '+d.r+' readmit'
-        : 'n='+this.fmt(d.n);
-      return {
-        label:d.label, sub, mark:d.mark||'',
-        valueText:d.rate.toFixed(1)+'%',
-        stars:'*'.repeat(lvl),
-        starColor: d.rate>=baseline ? 'var(--risk)' : 'var(--protect)',
-        widthCss:Math.max(3, d.rate/demoMax*100)+'%',
-        color:demoColor(d.rate),
-      };
-    });
-    const groupStats = {
-      gender:    { or:'1.13', ci:'0.87–1.48', p:'.349' },
-      cssrs:     { or:'0.92', ci:'0.71–1.20', p:'.546' },
-      ins:       { or:'1.12', ci:'0.85–1.48', p:'.402' },
-      restraint: { or:'1.58', ci:'1.10–2.26', p:'.013' },
-    };
-    const ageRaw = [
-      {label:'5 yrs',  n:82,  r:13, rate:15.9},
-      {label:'6 yrs',  n:126, r:18, rate:14.3},
-      {label:'7 yrs',  n:208, r:26, rate:12.5},
-      {label:'8 yrs',  n:305, r:29, rate:9.5},
-      {label:'9 yrs',  n:368, r:33, rate:9.0},
-      {label:'10 yrs', n:496, r:47, rate:9.5},
-      {label:'11 yrs', n:538, r:49, rate:9.1},
-      {label:'12 yrs', n:529, r:31, rate:5.9, mark:'†'},
-    ];
-    const genderRaw = [
-      {label:'Male', n:1369, r:134, rate:9.8}, {label:'Female', n:1283, r:112, rate:8.7},
-    ];
-    const insRaw = [
-      {label:'Public', n:1595, r:155, rate:9.7}, {label:'Private / other', n:1018, r:89, rate:8.7},
-    ];
-    const cssrsRaw = [
-      {label:'Any flag', n:1180, r:105, rate:8.9}, {label:'No flag', n:1472, r:141, rate:9.6},
-    ];
-    const restraintRaw = [
-      {label:'Restrained', n:312, r:41, rate:13.1}, {label:'Not restrained', n:2340, r:205, rate:8.8},
-    ];
-
-    // ── diagnostic spectrum ──
-    const dxRaw = [
-      {label:'Tic Disorders', n:51, r:11, rate:21.6},
-      {label:'Other Neurodevelopmental', n:101, r:19, rate:18.8},
-      {label:'Dissociative Disorders', n:32, r:6, rate:18.8},
-      {label:'Psychotic Disorders', n:55, r:10, rate:18.2},
-      {label:'Other Mental Disorder', n:232, r:41, rate:17.7},
-      {label:'Bipolar & Related', n:147, r:23, rate:15.6},
-      {label:'Specific Learning Disorder', n:93, r:14, rate:15.1},
-      {label:'Personality Disorder', n:138, r:20, rate:14.5},
-      {label:'Obsessive-Compulsive', n:114, r:16, rate:14.0},
-      {label:'Intellectual Disability', n:57, r:8, rate:14.0},
-      {label:'Autism Spectrum', n:513, r:70, rate:13.6},
-      {label:'Conduct Disorder', n:484, r:66, rate:13.6},
-      {label:'ADHD', n:1399, r:159, rate:11.4},
-      {label:'Non-Suicidal Self-Injury', n:1348, r:154, rate:11.4},
-      {label:'Anxiety Disorders', n:1154, r:125, rate:10.8},
-      {label:'Depressive Disorders', n:1779, r:191, rate:10.7},
-      {label:'Trauma & Stressor-Related', n:1424, r:146, rate:10.3},
-    ];
-    const dxMax = 24;
-    const dxBaseCss = (baseline/dxMax*100)+'%';
-    const p0 = baseline/100;
-    const dxColors = ['rgba(152,163,186,.22)','rgba(232,146,124,.55)','rgba(232,146,124,.80)','rgba(232,146,124,1)'];
-    const dxBars = dxRaw.map(d=>{
-      const p = this.pTwoSided(d.r/d.n, p0, d.n);
-      const lvl = p<0.001 ? 3 : p<0.01 ? 2 : p<0.05 ? 1 : 0;
-      return {
-        label:d.label, sub:'n='+this.fmt(d.n)+' · '+d.r+' readmit',
-        valueText:d.rate.toFixed(1)+'%',
-        stars:'*'.repeat(lvl),
-        widthCss:Math.max(3, d.rate/dxMax*100)+'%',
-        color:dxColors[lvl],
-      };
-    });
-
-    // ── forest plot ──
-    const orOneCss = this.logScale(1)+'%';
-    const fRaw = [
-      {label:'Depressive disorders', or:1.78, lo:1.23, hi:2.58, stat:'1.78 [1.23–2.58]', kind:'risk',    stars:'**' },
-      {label:'Physical restraint use', or:1.58, lo:1.11, hi:2.27, stat:'1.58 [1.11–2.27]', kind:'risk',    stars:'*'  },
-      {label:'Diagnostic complexity / category', or:1.31, lo:1.11, hi:1.53, stat:'1.31 [1.11–1.53]', kind:'risk',    stars:'**' },
-      {label:'Older age (per year)', or:0.90, lo:0.83, hi:0.97, stat:'0.90 [0.83–0.97]', kind:'protect', stars:'**' },
-      {label:'Any C-SSRS flag', or:0.91, lo:0.68, hi:1.23, stat:'0.91 [0.68–1.23]', kind:'null',    stars:'n.s.' },
-      {label:'Male sex', or:0.98, lo:0.72, hi:1.33, stat:'0.98 [0.72–1.33]', kind:'null',    stars:'n.s.' },
-    ];
-    const fColor = { risk:RISK, protect:PROT, null:'rgba(255,255,255,.32)' };
-    const forest = fRaw.map(f=>{
-      const loP=this.logScale(f.lo), hiP=this.logScale(f.hi);
-      return {
-        label:f.label, stat:f.stat, tag:f.stars, color:fColor[f.kind],
-        tagColor: f.kind==='null' ? 'var(--faint)' : (f.kind==='protect' ? 'var(--protect)' : 'var(--risk)'),
-        loCss:loP+'%', hiCss:hiP+'%', ciCss:(hiP-loP)+'%', pointCss:this.logScale(f.or)+'%',
-      };
-    });
-    const forestTicks = [0.6,1,1.5,2,3].map(v=>({ label:v===1?'1.0':String(v), pctCss:this.logScale(v)+'%' }));
-
-    // ── model performance ──
-    const hPct = a => ((a-0.5)/0.45*100);
-    const modelRaw = [
-      { name:'Logistic', app:0.712, corr:0.685, oof:0.665 },
-      { name:'Random Forest', app:0.853, corr:0.752, oof:0.684 },
-      { name:'CatBoost', app:0.904, corr:0.789, oof:0.641 },
-    ];
-    const models = modelRaw.map(m=>({
-      name:m.name,
-      bars:[
-        { aucText:m.app.toFixed(2), hCss:hPct(m.app)+'%', color:'rgba(255,255,255,.16)', op:1 },
-        { aucText:m.corr.toFixed(2), hCss:hPct(m.corr)+'%', color:'var(--accent)', op:0.5 },
-        { aucText:m.oof.toFixed(2), hCss:hPct(m.oof)+'%', color:'var(--accent)', op:1 },
-      ],
-    }));
-    const modelTicks = [0.5,0.6,0.7,0.8,0.9].map(v=>({ label:v.toFixed(1), pctCss:hPct(v)+'%' }));
-
-    // ── fairness ──
-    const fairMax = 30;
-    const fairRaw = [
-      { label:'Age (≤9 vs ≥10)', gap:25.7, auc:4.8 },
-      { label:'ACE (high vs not)', gap:21.6, auc:1.9 },
-      { label:'Insurance (public vs private)', gap:20.7, auc:5.8 },
-      { label:'Sex (M vs F)', gap:10.0, auc:4.4 },
-    ];
-    const fairBars = fairRaw.map(d=>({
-      label:d.label, valueText:d.gap.toFixed(1)+'%',
-      widthCss:Math.max(3, d.gap/fairMax*100)+'%',
-      sub:'AUC gap '+d.auc.toFixed(1)+' pt',
-    }));
-
-    // ── figures ──
-    const figures = [
-      { id:'F01', title:'Cohort descriptive overview', tag:'Descriptive', file:'Cohort_Descriptive_Overview.png' },
-      { id:'F02', title:'Demographics panel', tag:'Descriptive', file:'Fig2_demographics_panel.png' },
-      { id:'F03', title:'Readmission by DSM-5', tag:'Findings', file:'Fig3_readmission_by_dsm5.png' },
-      { id:'F07', title:'Forest plot of predictors', tag:'Inference', file:'Fig7_forest_plot.png' },
-      { id:'F08', title:'ROC curves', tag:'Modeling', file:'Fig8_ROC_curves.png' },
-      { id:'F11', title:'Optimism validation', tag:'Validation', file:'AdvStats_optimism_validation.png' },
-      { id:'F12', title:'Fairness audit', tag:'Equity', file:'AdvStats_fairness.png' },
-      { id:'F14', title:'Flagging thresholds', tag:'Deployment', file:'Fig14_flagging_thresholds.png' },
-      { id:'F16', title:'Predictive ceiling', tag:'Modeling', file:'Fig_Recon_7_predictive_ceiling.png' },
-      { id:'F09', title:'Feature importance', tag:'Explainability', file:'Fig9_Feature_Importance_SideBySide.png' },
-      { id:'F10', title:'SHAP summary', tag:'Explainability', file:'Fig10_SHAP_summary.png' },
-      { id:'F18', title:'Calibration curves', tag:'Validation', file:'Fig_Calibration.png' },
-    ];
-
-    // ── abstract ──
-    const abstract = [
-      { h:'Objectives', body:'Predictors of psychiatric rehospitalization in children are poorly characterized, and prediction in any cohort remains a lofty goal. Standard regression failed to identify predictors in our prior analysis of 2,652 children aged 5–12. Here we use regularized and machine-learning models to identify 90-day readmission risk factors and test predictive performance on a small dataset.' },
-      { h:'Methods', body:'Records from one Arizona biobehavioral unit (2017–2024) were collected; ICD-10 codes were aggregated into DSM-5 and CCSR categories. Unpenalized logistic regression gave interpretable odds ratios; regularized logistic, random forest, and gradient boosting were evaluated via bootstrap optimism correction, calibration, and fairness analysis across age, gender, insurance, and ACE strata.' },
-      { h:'Conclusions', body:'The models surfaced risk factors that standard regression failed to identify, yet individual readmission remains hard to predict — feature discovery is necessary but not sufficient for a useful risk measure. Larger, multi-site data and equity-aware validation are needed before clinical use.' },
-    ];
-    const RB={ sig:'rgba(111,178,240,.08)', sigB:'rgba(111,178,240,.22)', null:'rgba(255,255,255,.03)', nullB:'var(--line)', warn:'rgba(216,176,106,.07)', warnB:'rgba(216,176,106,.24)' };
-    const results = [
-      { tag:'↑ Risk', text:'Diagnostic complexity — OR 1.31 per DSM-5 category, p < 0.001', bg:RB.sig, border:RB.sigB, tagColor:'var(--accent)', tagBg:'rgba(111,178,240,.16)', textColor:'var(--text)' },
-      { tag:'↑ Risk', text:'Physical restraint use — OR 1.58, p = 0.012; also the largest driver of length of stay', bg:RB.sig, border:RB.sigB, tagColor:'var(--accent)', tagBg:'rgba(111,178,240,.16)', textColor:'var(--text)' },
-      { tag:'↑ Risk', text:'Depressive disorders — OR 1.78, p = 0.002; younger age — OR 1.10 per year', bg:RB.sig, border:RB.sigB, tagColor:'var(--accent)', tagBg:'rgba(111,178,240,.16)', textColor:'var(--text)' },
-      { tag:'Null', text:'Modified ACE category, C-SSRS flags, NSSI, chronic comorbidity — not independently associated', bg:RB.null, border:RB.nullB, tagColor:'var(--faint)', tagBg:'rgba(255,255,255,.06)', textColor:'var(--muted)' },
-      { tag:'Model', text:'RF apparent AUC 0.853 → 0.752 after bootstrap optimism correction; PPV ≈ 20% at optimal threshold', bg:RB.warn, border:RB.warnB, tagColor:'var(--warn)', tagBg:'rgba(216,176,106,.15)', textColor:'var(--text)' },
-      { tag:'Equity', text:'Equalized-odds disparities — age gap 0.257, insurance 0.207, ACE 0.216', bg:RB.warn, border:RB.warnB, tagColor:'var(--warn)', tagBg:'rgba(216,176,106,.15)', textColor:'var(--text)' },
-    ];
-    const objectives = [
-      { n:'01', t:'Identify the clinical factors independently associated with 90-day psychiatric readmission in children 5–12, and distinguish them from factors that are not.' },
-      { n:'02', t:'Explain how predictive models can surface salient risk factors yet fail to achieve clinically useful sensitivity and specificity on small datasets.' },
-      { n:'03', t:'Evaluate model performance via calibration and bootstrap-corrected optimism — apparent AUC relative to optimism-corrected AUC.' },
-      { n:'04', t:'Recognize the basis of demographic algorithmic disparities and the necessity of equity-aware validation before deployment.' },
-    ];
-
-    return {
-      accent, headline, metrics, pipeline,
-      demoBaseCss, ageBars:mkDemo(ageRaw),
-      genderBars:mkDemo(genderRaw,{showR:true}), insBars:mkDemo(insRaw,{showR:true}),
-      cssrsBars:mkDemo(cssrsRaw,{showR:true}), restraintBars:mkDemo(restraintRaw,{showR:true}),
-      groupStats,
-      dxBars, dxBaseCss,
-      forest, forestTicks, orOneCss,
-      models, modelTicks,
-      fairBars,
-      figures, abstract, results, objectives,
-    };
-  }
-}
-</script>
+<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

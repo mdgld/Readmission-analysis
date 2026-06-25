@@ -1,0 +1,228 @@
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#6fb2f0&quot;},&quot;headline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;From ICD‑10 mapping to clinically honest prediction&quot;}}">
+class Component extends DCLogic {
+  fmt(n){ return Number(n).toLocaleString('en-US'); }
+  logScale(or){ const lo=Math.log(0.6), hi=Math.log(3.0); return ((Math.log(or)-lo)/(hi-lo))*100; }
+  // two-sided p-value, one-proportion z-test vs baseline p0 (Zelen-Severo normal tail approx)
+  pTwoSided(phat, p0, n){
+    const se=Math.sqrt(p0*(1-p0)/n);
+    const z=Math.abs((phat-p0)/se);
+    const t=1/(1+0.2316419*z), d=0.3989423*Math.exp(-z*z/2);
+    const upper=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));
+    return 2*upper;
+  }
+
+  renderVals(){
+    const accent = this.props.accent || '#6fb2f0';
+    const headline = this.props.headline || 'From ICD‑10 mapping to clinically honest prediction';
+    const baseline = 9.3;
+    const RISK='var(--risk)', PROT='var(--protect)', NEUT='rgba(255,255,255,.22)';
+
+    // ── hero readout ──
+    const metrics = [
+      { k:'Patients', v:'2,652' },
+      { k:'90-day readmission rate', v:'9.3%', sub:'246 events', bar:true, barCss:(9.3/20*100)+'%' },
+      { k:'ICD-10-CM codes mapped', v:'1,863' },
+      { k:'Diagnosis records', v:'27,884' },
+      { k:'DSM-5 categories', v:'31' },
+      { k:'Best OOF AUC', v:'0.684', sub:'honest ceiling', bar:true, barCss:((0.684-0.5)/0.45*100)+'%' },
+      { k:'Mean age', v:'9.7', sub:'range 5–12 yrs' },
+      { k:'Study period', v:'2017–2024', sub:'single AZ unit' },
+    ];
+
+    const pipeline = [
+      { n:'01', t:'Cleaned raw visit-level exports into canonical patient and diagnosis tables.' },
+      { n:'02', t:'Mapped 1,863 ICD-10-CM codes to descriptions, ICD chapters, and DSM-5 categories.' },
+      { n:'03', t:'Built interpretable regression, regularized ML, bootstrap, calibration, and fairness analyses.' },
+      { n:'04', t:'Stress-tested with bootstrap optimism correction, out-of-fold validation, and equity-aware subgroup audits.' },
+      { n:'05', t:'Generated conference-facing figures, native interactive visualizations, and narrative summaries.' },
+    ];
+
+    // ── demographic small multiples ──
+    const demoMax = 15;
+    const demoBaseCss = (baseline/demoMax*100)+'%';
+    const demoColor = r => r > baseline+0.4 ? RISK : (r < baseline-0.4 ? PROT : NEUT);
+    const mkDemo = (arr, opts={}) => arr.map(d=>{
+      const p = this.pTwoSided(d.r/d.n, baseline/100, d.n);
+      const lvl = p<0.001 ? 3 : p<0.01 ? 2 : p<0.05 ? 1 : 0;
+      const sub = opts.showR
+        ? 'n='+this.fmt(d.n)+' · '+d.r+' readmit'
+        : 'n='+this.fmt(d.n);
+      return {
+        label:d.label, sub, mark:d.mark||'',
+        valueText:d.rate.toFixed(1)+'%',
+        stars:'*'.repeat(lvl),
+        starColor: d.rate>=baseline ? 'var(--risk)' : 'var(--protect)',
+        widthCss:Math.max(3, d.rate/demoMax*100)+'%',
+        color:demoColor(d.rate),
+      };
+    });
+    const groupStats = {
+      gender:    { or:'1.13', ci:'0.87–1.48', p:'.349' },
+      cssrs:     { or:'0.92', ci:'0.71–1.20', p:'.546' },
+      ins:       { or:'1.12', ci:'0.85–1.48', p:'.402' },
+      restraint: { or:'1.58', ci:'1.10–2.26', p:'.013' },
+    };
+    const ageRaw = [
+      {label:'5 yrs',  n:82,  r:13, rate:15.9},
+      {label:'6 yrs',  n:126, r:18, rate:14.3},
+      {label:'7 yrs',  n:208, r:26, rate:12.5},
+      {label:'8 yrs',  n:305, r:29, rate:9.5},
+      {label:'9 yrs',  n:368, r:33, rate:9.0},
+      {label:'10 yrs', n:496, r:47, rate:9.5},
+      {label:'11 yrs', n:538, r:49, rate:9.1},
+      {label:'12 yrs', n:529, r:31, rate:5.9, mark:'†'},
+    ];
+    const genderRaw = [
+      {label:'Male', n:1369, r:134, rate:9.8}, {label:'Female', n:1283, r:112, rate:8.7},
+    ];
+    const insRaw = [
+      {label:'Public', n:1595, r:155, rate:9.7}, {label:'Private / other', n:1018, r:89, rate:8.7},
+    ];
+    const cssrsRaw = [
+      {label:'Any flag', n:1180, r:105, rate:8.9}, {label:'No flag', n:1472, r:141, rate:9.6},
+    ];
+    const restraintRaw = [
+      {label:'Restrained', n:312, r:41, rate:13.1}, {label:'Not restrained', n:2340, r:205, rate:8.8},
+    ];
+
+    // ── diagnostic spectrum ──
+    const dxRaw = [
+      {label:'Tic Disorders', n:51, r:11, rate:21.6},
+      {label:'Other Neurodevelopmental', n:101, r:19, rate:18.8},
+      {label:'Dissociative Disorders', n:32, r:6, rate:18.8},
+      {label:'Psychotic Disorders', n:55, r:10, rate:18.2},
+      {label:'Other Mental Disorder', n:232, r:41, rate:17.7},
+      {label:'Bipolar & Related', n:147, r:23, rate:15.6},
+      {label:'Specific Learning Disorder', n:93, r:14, rate:15.1},
+      {label:'Personality Disorder', n:138, r:20, rate:14.5},
+      {label:'Obsessive-Compulsive', n:114, r:16, rate:14.0},
+      {label:'Intellectual Disability', n:57, r:8, rate:14.0},
+      {label:'Autism Spectrum', n:513, r:70, rate:13.6},
+      {label:'Conduct Disorder', n:484, r:66, rate:13.6},
+      {label:'ADHD', n:1399, r:159, rate:11.4},
+      {label:'Non-Suicidal Self-Injury', n:1348, r:154, rate:11.4},
+      {label:'Anxiety Disorders', n:1154, r:125, rate:10.8},
+      {label:'Depressive Disorders', n:1779, r:191, rate:10.7},
+      {label:'Trauma & Stressor-Related', n:1424, r:146, rate:10.3},
+    ];
+    const dxMax = 24;
+    const dxBaseCss = (baseline/dxMax*100)+'%';
+    const p0 = baseline/100;
+    const dxColors = ['rgba(152,163,186,.22)','rgba(232,146,124,.55)','rgba(232,146,124,.80)','rgba(232,146,124,1)'];
+    const dxBars = dxRaw.map(d=>{
+      const p = this.pTwoSided(d.r/d.n, p0, d.n);
+      const lvl = p<0.001 ? 3 : p<0.01 ? 2 : p<0.05 ? 1 : 0;
+      return {
+        label:d.label, sub:'n='+this.fmt(d.n)+' · '+d.r+' readmit',
+        valueText:d.rate.toFixed(1)+'%',
+        stars:'*'.repeat(lvl),
+        widthCss:Math.max(3, d.rate/dxMax*100)+'%',
+        color:dxColors[lvl],
+      };
+    });
+
+    // ── forest plot ──
+    const orOneCss = this.logScale(1)+'%';
+    const fRaw = [
+      {label:'Depressive disorders', or:1.78, lo:1.23, hi:2.58, stat:'1.78 [1.23–2.58]', kind:'risk',    stars:'**' },
+      {label:'Physical restraint use', or:1.58, lo:1.11, hi:2.27, stat:'1.58 [1.11–2.27]', kind:'risk',    stars:'*'  },
+      {label:'Diagnostic complexity / category', or:1.31, lo:1.11, hi:1.53, stat:'1.31 [1.11–1.53]', kind:'risk',    stars:'**' },
+      {label:'Older age (per year)', or:0.90, lo:0.83, hi:0.97, stat:'0.90 [0.83–0.97]', kind:'protect', stars:'**' },
+      {label:'Any C-SSRS flag', or:0.91, lo:0.68, hi:1.23, stat:'0.91 [0.68–1.23]', kind:'null',    stars:'n.s.' },
+      {label:'Male sex', or:0.98, lo:0.72, hi:1.33, stat:'0.98 [0.72–1.33]', kind:'null',    stars:'n.s.' },
+    ];
+    const fColor = { risk:RISK, protect:PROT, null:'rgba(255,255,255,.32)' };
+    const forest = fRaw.map(f=>{
+      const loP=this.logScale(f.lo), hiP=this.logScale(f.hi);
+      return {
+        label:f.label, stat:f.stat, tag:f.stars, color:fColor[f.kind],
+        tagColor: f.kind==='null' ? 'var(--faint)' : (f.kind==='protect' ? 'var(--protect)' : 'var(--risk)'),
+        loCss:loP+'%', hiCss:hiP+'%', ciCss:(hiP-loP)+'%', pointCss:this.logScale(f.or)+'%',
+      };
+    });
+    const forestTicks = [0.6,1,1.5,2,3].map(v=>({ label:v===1?'1.0':String(v), pctCss:this.logScale(v)+'%' }));
+
+    // ── model performance ──
+    const hPct = a => ((a-0.5)/0.45*100);
+    const modelRaw = [
+      { name:'Logistic', app:0.712, corr:0.685, oof:0.665 },
+      { name:'Random Forest', app:0.853, corr:0.752, oof:0.684 },
+      { name:'CatBoost', app:0.904, corr:0.789, oof:0.641 },
+    ];
+    const models = modelRaw.map(m=>({
+      name:m.name,
+      bars:[
+        { aucText:m.app.toFixed(2), hCss:hPct(m.app)+'%', color:'rgba(255,255,255,.16)', op:1 },
+        { aucText:m.corr.toFixed(2), hCss:hPct(m.corr)+'%', color:'var(--accent)', op:0.5 },
+        { aucText:m.oof.toFixed(2), hCss:hPct(m.oof)+'%', color:'var(--accent)', op:1 },
+      ],
+    }));
+    const modelTicks = [0.5,0.6,0.7,0.8,0.9].map(v=>({ label:v.toFixed(1), pctCss:hPct(v)+'%' }));
+
+    // ── fairness ──
+    const fairMax = 30;
+    const fairRaw = [
+      { label:'Age (≤9 vs ≥10)', gap:25.7, auc:4.8 },
+      { label:'ACE (high vs not)', gap:21.6, auc:1.9 },
+      { label:'Insurance (public vs private)', gap:20.7, auc:5.8 },
+      { label:'Sex (M vs F)', gap:10.0, auc:4.4 },
+    ];
+    const fairBars = fairRaw.map(d=>({
+      label:d.label, valueText:d.gap.toFixed(1)+'%',
+      widthCss:Math.max(3, d.gap/fairMax*100)+'%',
+      sub:'AUC gap '+d.auc.toFixed(1)+' pt',
+    }));
+
+    // ── figures ──
+    const figures = [
+      { id:'F01', title:'Cohort descriptive overview', tag:'Descriptive', file:'Cohort_Descriptive_Overview.png' },
+      { id:'F02', title:'Demographics panel', tag:'Descriptive', file:'Fig2_demographics_panel.png' },
+      { id:'F03', title:'Readmission by DSM-5', tag:'Findings', file:'Fig3_readmission_by_dsm5.png' },
+      { id:'F07', title:'Forest plot of predictors', tag:'Inference', file:'Fig7_forest_plot.png' },
+      { id:'F08', title:'ROC curves', tag:'Modeling', file:'Fig8_ROC_curves.png' },
+      { id:'F11', title:'Optimism validation', tag:'Validation', file:'AdvStats_optimism_validation.png' },
+      { id:'F12', title:'Fairness audit', tag:'Equity', file:'AdvStats_fairness.png' },
+      { id:'F14', title:'Flagging thresholds', tag:'Deployment', file:'Fig14_flagging_thresholds.png' },
+      { id:'F16', title:'Predictive ceiling', tag:'Modeling', file:'Fig_Recon_7_predictive_ceiling.png' },
+      { id:'F09', title:'Feature importance', tag:'Explainability', file:'Fig9_Feature_Importance_SideBySide.png' },
+      { id:'F10', title:'SHAP summary', tag:'Explainability', file:'Fig10_SHAP_summary.png' },
+      { id:'F18', title:'Calibration curves', tag:'Validation', file:'Fig_Calibration.png' },
+    ];
+
+    // ── abstract ──
+    const abstract = [
+      { h:'Objectives', body:'Predictors of psychiatric rehospitalization in children are poorly characterized, and prediction in any cohort remains a lofty goal. Standard regression failed to identify predictors in our prior analysis of 2,652 children aged 5–12. Here we use regularized and machine-learning models to identify 90-day readmission risk factors and test predictive performance on a small dataset.' },
+      { h:'Methods', body:'Records from one Arizona biobehavioral unit (2017–2024) were collected; ICD-10 codes were aggregated into DSM-5 and CCSR categories. Unpenalized logistic regression gave interpretable odds ratios; regularized logistic, random forest, and gradient boosting were evaluated via bootstrap optimism correction, calibration, and fairness analysis across age, gender, insurance, and ACE strata.' },
+      { h:'Conclusions', body:'The models surfaced risk factors that standard regression failed to identify, yet individual readmission remains hard to predict — feature discovery is necessary but not sufficient for a useful risk measure. Larger, multi-site data and equity-aware validation are needed before clinical use.' },
+    ];
+    const RB={ sig:'rgba(111,178,240,.08)', sigB:'rgba(111,178,240,.22)', null:'rgba(255,255,255,.03)', nullB:'var(--line)', warn:'rgba(216,176,106,.07)', warnB:'rgba(216,176,106,.24)' };
+    const results = [
+      { tag:'↑ Risk', text:'Diagnostic complexity — OR 1.31 per DSM-5 category, p < 0.001', bg:RB.sig, border:RB.sigB, tagColor:'var(--accent)', tagBg:'rgba(111,178,240,.16)', textColor:'var(--text)' },
+      { tag:'↑ Risk', text:'Physical restraint use — OR 1.58, p = 0.012; also the largest driver of length of stay', bg:RB.sig, border:RB.sigB, tagColor:'var(--accent)', tagBg:'rgba(111,178,240,.16)', textColor:'var(--text)' },
+      { tag:'↑ Risk', text:'Depressive disorders — OR 1.78, p = 0.002; younger age — OR 1.10 per year', bg:RB.sig, border:RB.sigB, tagColor:'var(--accent)', tagBg:'rgba(111,178,240,.16)', textColor:'var(--text)' },
+      { tag:'Null', text:'Modified ACE category, C-SSRS flags, NSSI, chronic comorbidity — not independently associated', bg:RB.null, border:RB.nullB, tagColor:'var(--faint)', tagBg:'rgba(255,255,255,.06)', textColor:'var(--muted)' },
+      { tag:'Model', text:'RF apparent AUC 0.853 → 0.752 after bootstrap optimism correction; PPV ≈ 20% at optimal threshold', bg:RB.warn, border:RB.warnB, tagColor:'var(--warn)', tagBg:'rgba(216,176,106,.15)', textColor:'var(--text)' },
+      { tag:'Equity', text:'Equalized-odds disparities — age gap 0.257, insurance 0.207, ACE 0.216', bg:RB.warn, border:RB.warnB, tagColor:'var(--warn)', tagBg:'rgba(216,176,106,.15)', textColor:'var(--text)' },
+    ];
+    const objectives = [
+      { n:'01', t:'Identify the clinical factors independently associated with 90-day psychiatric readmission in children 5–12, and distinguish them from factors that are not.' },
+      { n:'02', t:'Explain how predictive models can surface salient risk factors yet fail to achieve clinically useful sensitivity and specificity on small datasets.' },
+      { n:'03', t:'Evaluate model performance via calibration and bootstrap-corrected optimism — apparent AUC relative to optimism-corrected AUC.' },
+      { n:'04', t:'Recognize the basis of demographic algorithmic disparities and the necessity of equity-aware validation before deployment.' },
+    ];
+
+    return {
+      accent, headline, metrics, pipeline,
+      demoBaseCss, ageBars:mkDemo(ageRaw),
+      genderBars:mkDemo(genderRaw,{showR:true}), insBars:mkDemo(insRaw,{showR:true}),
+      cssrsBars:mkDemo(cssrsRaw,{showR:true}), restraintBars:mkDemo(restraintRaw,{showR:true}),
+      groupStats,
+      dxBars, dxBaseCss,
+      forest, forestTicks, orOneCss,
+      models, modelTicks,
+      fairBars,
+      figures, abstract, results, objectives,
+    };
+  }
+}
+</script>

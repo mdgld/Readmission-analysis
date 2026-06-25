@@ -98,9 +98,7 @@
               <div style="min-width:0">
                 <div style="font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--faint);text-transform:uppercase">{{ m.k }}</div>
                 <sc-if value="{{ m.bar }}" hint-placeholder-val="{{ true }}">
-                  <div style="margin-top:.4rem;height:3px;border-radius:2px;background:rgba(255,255,255,.07);overflow:hidden">
-                    <div style="height:100%;width:{{ m.barCss }};background:var(--accent);border-radius:2px"></div>
-                  </div>
+                  
                 </sc-if>
               </div>
               <div style="text-align:right">
@@ -124,7 +122,7 @@
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;align-items:start">
         <div>
-          <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.12;letter-spacing:-.025em;font-weight:600;margin:0 0 1.1rem">Readmission is clinically important, but individual prediction is hard.</h2>
+          <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.12;letter-spacing:-.025em;font-weight:600;margin:0 0 1.1rem">Readmission is clinically important, but individual prediction is hard</h2>
           <p style="color:var(--muted);line-height:1.75;margin:0 0 1rem">Can routine clinical, demographic, and diagnosis data identify children at higher risk for psychiatric rehospitalization? Several interpretable factors are associated with readmission — yet discrimination stays modest after out-of-fold and optimism-corrected evaluation.</p>
           <p style="color:var(--muted);line-height:1.75;margin:0 0 1rem">The work catalogued here treats inference and prediction as complementary: machine learning is used to surface risk factors that standard regression missed, while honest out-of-fold and bootstrap-corrected metrics keep the deployment claim modest.</p>
           <p style="color:var(--faint);line-height:1.75;margin:0;font-size:.92rem">This website implements only aggregate statistics and generated figures. Patient-level rows, identifiers, and source CSVs are never exposed.</p>
@@ -162,13 +160,13 @@
           <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--text);font-weight:600">***</span>p&lt;.001</span>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem;align-items:stretch">
-        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(0,1fr) minmax(0,1fr);grid-auto-flow:column;gap:1rem;align-items:stretch">
+        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;grid-row:1 / 3">
           <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 1.3rem">By age band</h3>
           <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.1rem">
-            <sc-for list="{{ ageBars }}" as="b" hint-placeholder-count="4">
+            <sc-for list="{{ ageBars }}" as="b" hint-placeholder-count="8">
               <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
+                <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}<sup style="font-size:.75em;color:var(--accent);margin-left:.15em;font-weight:600">{{ b.mark }}</sup></span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
                 <div style="position:relative;height:.62rem;background:rgba(255,255,255,.05);border-radius:3px">
                   <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
                   <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
@@ -178,80 +176,97 @@
               </div>
             </sc-for>
           </div>
+          <p style="margin:1.2rem 0 0;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.64rem;line-height:1.5;color:var(--faint)"><span style="color: var(--accent);">†</span> Unit age cap is 12; 12-year-olds aging out of eligibility cannot be readmitted to this site, which is a plausible explanation of the observed rate depression.</p>
         </div>
 
-        <div style="display:flex;flex-direction:column;gap:1rem;min-width:0">
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;flex:1">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 1.1rem">By gender identity</h3>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.1rem">
+        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;min-width:0;min-height:0">
+          <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By gender identity</h3>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
               <sc-for list="{{ genderBars }}" as="b" hint-placeholder-count="2">
                 <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:.62rem;background:rgba(255,255,255,.05);border-radius:3px">
+                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
+                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
                     <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
                     <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
                   </div>
-                  <span style="font-family:var(--mono);font-size:.82rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.82rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
+                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
+                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
                 </div>
               </sc-for>
             </div>
+            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+              <span>OR <span style="color:var(--text)">{{ groupStats.gender.or }}</span></span>
+              <span>95% CI <span style="color:var(--text)">{{ groupStats.gender.ci }}</span></span>
+              <span>p <span style="color:var(--text)">{{ groupStats.gender.p }}</span></span>
+            </div>
           </div>
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;flex:1">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 1.1rem">By C-SSRS flag</h3>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.1rem">
+          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;flex:1">
+            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By C-SSRS flag</h3>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
               <sc-for list="{{ cssrsBars }}" as="b" hint-placeholder-count="2">
                 <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:.62rem;background:rgba(255,255,255,.05);border-radius:3px">
+                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
+                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
                     <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
                     <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
                   </div>
-                  <span style="font-family:var(--mono);font-size:.82rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.82rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
+                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
+                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
                 </div>
               </sc-for>
             </div>
+            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+              <span>OR <span style="color:var(--text)">{{ groupStats.cssrs.or }}</span></span>
+              <span>95% CI <span style="color:var(--text)">{{ groupStats.cssrs.ci }}</span></span>
+              <span>p <span style="color:var(--text)">{{ groupStats.cssrs.p }}</span></span>
+            </div>
           </div>
-        </div>
 
-        <div style="display:flex;flex-direction:column;gap:1rem;min-width:0">
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;flex:1">
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 1.1rem">
+        <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;min-width:0;min-height:0">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.6rem">
               <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By insurance</h3>
               <span style="font-family:var(--mono);font-size:.6rem;color:var(--faint)">n=39 unknown excluded</span>
             </div>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.1rem">
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
               <sc-for list="{{ insBars }}" as="b" hint-placeholder-count="2">
                 <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:.62rem;background:rgba(255,255,255,.05);border-radius:3px">
+                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
+                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
                     <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
                     <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
                   </div>
-                  <span style="font-family:var(--mono);font-size:.82rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.82rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
+                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
+                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
                 </div>
               </sc-for>
             </div>
+            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+              <span>OR <span style="color:var(--text)">{{ groupStats.ins.or }}</span></span>
+              <span>95% CI <span style="color:var(--text)">{{ groupStats.ins.ci }}</span></span>
+              <span>p <span style="color:var(--text)">{{ groupStats.ins.p }}</span></span>
+            </div>
           </div>
-          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;flex:1">
-            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 1.1rem">By physical restraint</h3>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.1rem">
+          <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem;display:flex;flex-direction:column;gap:1.3rem;flex:1">
+            <h3 style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0">By physical restraint</h3>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6rem">
               <sc-for list="{{ restraintBars }}" as="b" hint-placeholder-count="2">
                 <div style="display:grid;grid-template-columns:5.5rem 1fr 3.4rem 1.1rem;align-items:center;gap:.7rem">
-                  <div style="min-width:0"><span style="font-size:.85rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block">{{ b.sub }}</span></div>
-                  <div style="position:relative;height:.62rem;background:rgba(255,255,255,.05);border-radius:3px">
+                  <div style="min-width:0"><span style="font-size:.92rem;color:var(--text)">{{ b.label }}</span><span style="font-family:var(--mono);font-size:.64rem;color:var(--faint);display:block;margin-top:.2rem">{{ b.sub }}</span></div>
+                  <div style="position:relative;height:1.05rem;background:rgba(255,255,255,.05);border-radius:3px">
                     <div style="position:absolute;inset:0 auto 0 0;width:{{ b.widthCss }};background:{{ b.color }};border-radius:3px"></div>
                     <div style="position:absolute;top:-3px;bottom:-3px;left:{{ demoBaseCss }};width:1px;background:var(--accent);opacity:.6"></div>
                   </div>
-                  <span style="font-family:var(--mono);font-size:.82rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
-                  <span style="font-family:var(--mono);font-size:.82rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
+                  <span style="font-family:var(--mono);font-size:.92rem;text-align:right;color:var(--text);font-variant-numeric:tabular-nums">{{ b.valueText }}</span>
+                  <span style="font-family:var(--mono);font-size:.88rem;font-weight:600;text-align:left;color:{{ b.starColor }}">{{ b.stars }}</span>
                 </div>
               </sc-for>
             </div>
+            <div style="display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+              <span>OR <span style="color:var(--text)">{{ groupStats.restraint.or }}</span></span>
+              <span>95% CI <span style="color:var(--text)">{{ groupStats.restraint.ci }}</span></span>
+              <span>p <span style="color:var(--text)">{{ groupStats.restraint.p }}</span></span>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -308,7 +323,7 @@
         <span style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--faint)"><b>Modeling takeaway</b></span>
         <span style="flex:1;height:1px;background:var(--line)"></span>
       </div>
-      <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.025em;font-weight:600;margin:0 0 2rem;max-width:26ch">Feature discovery worked better than individual-level prediction.</h2>
+      <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem);letter-spacing:-.025em;font-weight:600;margin:0 0 2rem;max-width:26ch">Feature discovery worked better than individual-level prediction</h2>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1rem">
         <!-- forest -->
@@ -338,7 +353,16 @@
                 <div style="position:absolute;left:{{ t.pctCss }};top:4px;transform:translateX(-50%);font-family:var(--mono);font-size:.66rem;color:var(--faint)">{{ t.label }}</div>
               </sc-for>
             </div>
-            <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center">odds ratio (log scale) · ◼ point estimate, line = 95% CI</div>
+            <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:.2rem">odds ratio (log scale) · ◼ point estimate, line = 95% CI</div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem 1rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">*</span>p&lt;.05</span>
+              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">**</span>p&lt;.01</span>
+              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">***</span>p&lt;.001</span>
+              <span style="color:var(--line)">·</span>
+              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--risk);font-weight:600">red</span> = risk ↑</span>
+              <span style="display:flex;align-items:center;gap:.3rem"><span style="color:var(--protect);font-weight:600">green</span> = protective ↓</span>
+              <span style="display:flex;align-items:center;gap:.3rem">n.s. = not significant</span>
+            </div>
           </div>
         </div>
 
@@ -346,7 +370,7 @@
         <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:clamp(1rem,2.2vw,1.6rem);min-width:0">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem">
             <h3 style="font-size:1.02rem;font-weight:600;margin:0">Apparent vs. honest AUC</h3>
-            <span style="font-family:var(--mono);font-size:.68rem;color:var(--faint)">discrimination shrinks</span>
+            
           </div>
           <div style="display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem;font-family:var(--mono);font-size:.68rem;color:var(--muted)">
             <span style="display:flex;align-items:center;gap:.4rem"><span style="width:11px;height:11px;border-radius:2px;background:rgba(255,255,255,.16);border:1px solid var(--line)"></span>apparent</span>
@@ -363,28 +387,39 @@
               <sc-for list="{{ modelTicks }}" as="t" hint-placeholder-count="5">
                 <div style="position:absolute;left:0;right:0;bottom:{{ t.pctCss }};height:1px;background:var(--line-2)"></div>
               </sc-for>
-              <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-around;padding:0 .4rem">
+              <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 .4rem">
                 <sc-for list="{{ models }}" as="g" hint-placeholder-count="3">
-                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:.45rem;height:100%;justify-content:flex-end">
-                    <div style="display:flex;align-items:flex-end;justify-content:center;gap:3px;width:100%;height:100%">
-                      <sc-for list="{{ g.bars }}" as="bar" hint-placeholder-count="3">
-                        <div style="position:relative;width:18%;display:flex;justify-content:center;height:{{ bar.hCss }};background:{{ bar.color }};opacity:{{ bar.op }};border-radius:3px 3px 0 0;border-top:1px solid rgba(255,255,255,.18)">
-                          <span style="position:absolute;top:-1.1rem;font-family:var(--mono);font-size:.6rem;color:var(--faint);white-space:nowrap">{{ bar.aucText }}</span>
-                        </div>
-                      </sc-for>
-                    </div>
-                    <span style="font-family:var(--mono);font-size:.68rem;color:var(--muted);text-align:center;line-height:1.2">{{ g.name }}</span>
+                  <div style="flex:1;display:flex;align-items:flex-end;justify-content:center;gap:3px;height:100%">
+                    <sc-for list="{{ g.bars }}" as="bar" hint-placeholder-count="3">
+                      <div style="position:relative;width:18%;display:flex;justify-content:center;height:{{ bar.hCss }};background:{{ bar.color }};opacity:{{ bar.op }};border-radius:3px 3px 0 0;border-top:1px solid rgba(255,255,255,.18)">
+                        <span style="position:absolute;top:-1.1rem;font-family:var(--mono);font-size:.6rem;color:var(--faint);white-space:nowrap">{{ bar.aucText }}</span>
+                      </div>
+                    </sc-for>
                   </div>
                 </sc-for>
               </div>
             </div>
+            <div></div>
+            <div style="display:flex;padding:0 .4rem">
+              <sc-for list="{{ models }}" as="g" hint-placeholder-count="3">
+                <div style="flex:1;text-align:center;font-family:var(--mono);font-size:.68rem;color:var(--muted);padding-top:.55rem">{{ g.name }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:1rem">AUROC · 5-fold CV · bootstrap optimism correction (1,000 iterations)</div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem 1.2rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+            <span style="display:flex;align-items:center;gap:.35rem">Logistic <span style="color:var(--text)">Δ=0.047</span></span>
+            <span style="display:flex;align-items:center;gap:.35rem">Random Forest <span style="color:var(--text)">Δ=0.169</span></span>
+            <span style="display:flex;align-items:center;gap:.35rem">CatBoost <span style="color:var(--risk);font-weight:600">Δ=0.263</span></span>
+            <span style="color:var(--line)">·</span>
+            <span>Δ = apparent − out-of-fold (optimism)</span>
           </div>
         </div>
       </div>
 
-      <div style="margin-top:1.4rem;border:1px solid rgba(111,178,240,.3);background:rgba(111,178,240,.06);border-radius:12px;padding:1.2rem 1.4rem;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start">
+      <div style="margin-top:1rem;border:1px solid rgba(111,178,240,.3);background:rgba(111,178,240,.06);border-radius:12px;padding:1.2rem 1.4rem;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start">
         <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.1em;padding-top:.15rem;white-space:nowrap">CLINICAL READ</span>
-        <p style="margin:0;color:var(--muted);line-height:1.7"><span style="color: var(--text);">Apparent tree-model AUCs looked strong in-sample</span> — CatBoost reached 0.90 — but out-of-fold AUCs clustered near 0.64–0.68. The honest conclusion is not "deploy these readmission predictors as a clinical tool”; it is "use modeling to surface clinically plausible risk factors, then validate in larger, multi-site data over longer time-frames.“</p>
+        <p style="margin:0;color:var(--muted);line-height:1.7"><span style="color: var(--text);">Apparent tree-model AUCs looked strong in-sample</span> — CatBoost reached 0.90 — but out-of-fold AUCs clustered near 0.64–0.68. The honest conclusion is not "deploy these readmission predictors immediately as a clinical tool”; it is "use modeling to surface clinically plausible risk factors, then validate in larger, multi-site cohorts over longer time-frames.“</p>
       </div>
     </div>
   </section>
@@ -399,9 +434,9 @@
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;align-items:start">
         <div>
-          <h2 style="font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.02em;font-weight:600;margin:0 0 1rem">Surface subgroup disparities before any deployment.</h2>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 1rem">Equalized-odds gaps quantify how unevenly errors fall across subgroups. Age and ACE strata show the widest gaps — equity-aware validation is a precondition to implementation, not an afterthought.</p>
-          <p style="color:var(--muted);line-height:1.7;margin:0 0 1rem">A model with respectable aggregate AUC can still systematically over- or under-flag a subgroup. Reporting the worst-case gap alongside the headline metric frames bias mitigation as a calibration step, not an afterthought.</p>
+          <h2 style="font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.02em;font-weight:600;margin:0 0 1rem">Surface subgroup disparities before deployment</h2>
+          <p style="color:var(--muted);line-height:1.7;margin:0 0 1rem">Equalized-odds gaps quantify how unevenly errors fall across subgroups. Age and ACE strata show the widest gaps — equity-aware validation should be a precondition to implementation.</p>
+          <p style="color:var(--muted);line-height:1.7;margin:0 0 1rem">A model with respectable aggregate AUC can still systematically over- or under-flag a subgroup. Reporting the worst-case gap alongside the headline metric frames bias mitigation as the crucial calibration step that it is.</p>
           <p style="color:var(--faint);line-height:1.7;margin:0;font-size:.9rem;font-family:var(--mono)">metric: max(|ΔTPR|, |ΔFPR|) across pairing</p>
         </div>
         <div style="border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:clamp(1.2rem,2.4vw,1.8rem)">
@@ -551,18 +586,21 @@ class Component extends DCLogic {
       { n:'02', t:'Mapped 1,863 ICD-10-CM codes to descriptions, ICD chapters, and DSM-5 categories.' },
       { n:'03', t:'Built interpretable regression, regularized ML, bootstrap, calibration, and fairness analyses.' },
       { n:'04', t:'Stress-tested with bootstrap optimism correction, out-of-fold validation, and equity-aware subgroup audits.' },
-      { n:'05', t:'Generated conference-facing figures, native interactive viz, and narrative summaries.' },
+      { n:'05', t:'Generated conference-facing figures, native interactive visualizations, and narrative summaries.' },
     ];
 
     // ── demographic small multiples ──
     const demoMax = 15;
     const demoBaseCss = (baseline/demoMax*100)+'%';
     const demoColor = r => r > baseline+0.4 ? RISK : (r < baseline-0.4 ? PROT : NEUT);
-    const mkDemo = arr => arr.map(d=>{
+    const mkDemo = (arr, opts={}) => arr.map(d=>{
       const p = this.pTwoSided(d.r/d.n, baseline/100, d.n);
       const lvl = p<0.001 ? 3 : p<0.01 ? 2 : p<0.05 ? 1 : 0;
+      const sub = opts.showR
+        ? 'n='+this.fmt(d.n)+' · '+d.r+' readmit'
+        : 'n='+this.fmt(d.n);
       return {
-        label:d.label, sub:'n='+this.fmt(d.n),
+        label:d.label, sub, mark:d.mark||'',
         valueText:d.rate.toFixed(1)+'%',
         stars:'*'.repeat(lvl),
         starColor: d.rate>=baseline ? 'var(--risk)' : 'var(--protect)',
@@ -570,9 +608,21 @@ class Component extends DCLogic {
         color:demoColor(d.rate),
       };
     });
+    const groupStats = {
+      gender:    { or:'1.13', ci:'0.87–1.48', p:'.349' },
+      cssrs:     { or:'0.92', ci:'0.71–1.20', p:'.546' },
+      ins:       { or:'1.12', ci:'0.85–1.48', p:'.402' },
+      restraint: { or:'1.58', ci:'1.10–2.26', p:'.013' },
+    };
     const ageRaw = [
-      {label:'5–7', n:416, r:56, rate:13.5}, {label:'8–9', n:673, r:62, rate:9.2},
-      {label:'10–11', n:1034, r:96, rate:9.3}, {label:'12+', n:529, r:32, rate:6.0},
+      {label:'5 yrs',  n:82,  r:13, rate:15.9},
+      {label:'6 yrs',  n:126, r:18, rate:14.3},
+      {label:'7 yrs',  n:208, r:26, rate:12.5},
+      {label:'8 yrs',  n:305, r:29, rate:9.5},
+      {label:'9 yrs',  n:368, r:33, rate:9.0},
+      {label:'10 yrs', n:496, r:47, rate:9.5},
+      {label:'11 yrs', n:538, r:49, rate:9.1},
+      {label:'12 yrs', n:529, r:31, rate:5.9, mark:'†'},
     ];
     const genderRaw = [
       {label:'Male', n:1369, r:134, rate:9.8}, {label:'Female', n:1283, r:112, rate:8.7},
@@ -626,19 +676,18 @@ class Component extends DCLogic {
     // ── forest plot ──
     const orOneCss = this.logScale(1)+'%';
     const fRaw = [
-      {label:'Depressive disorders', or:1.78, lo:1.23, hi:2.58, stat:'1.78 [1.23–2.58]', kind:'risk'},
-      {label:'Physical restraint use', or:1.58, lo:1.11, hi:2.27, stat:'1.58 [1.11–2.27]', kind:'risk'},
-      {label:'Diagnostic complexity / category', or:1.31, lo:1.11, hi:1.53, stat:'1.31 [1.11–1.53]', kind:'risk'},
-      {label:'Older age (per year)', or:0.90, lo:0.83, hi:0.97, stat:'0.90 [0.83–0.97]', kind:'protect'},
-      {label:'Any C-SSRS flag', or:0.91, lo:0.68, hi:1.23, stat:'0.91 [0.68–1.23]', kind:'null'},
-      {label:'Male sex', or:0.98, lo:0.72, hi:1.33, stat:'0.98 [0.72–1.33]', kind:'null'},
+      {label:'Depressive disorders', or:1.78, lo:1.23, hi:2.58, stat:'1.78 [1.23–2.58]', kind:'risk',    stars:'**' },
+      {label:'Physical restraint use', or:1.58, lo:1.11, hi:2.27, stat:'1.58 [1.11–2.27]', kind:'risk',    stars:'*'  },
+      {label:'Diagnostic complexity / category', or:1.31, lo:1.11, hi:1.53, stat:'1.31 [1.11–1.53]', kind:'risk',    stars:'**' },
+      {label:'Older age (per year)', or:0.90, lo:0.83, hi:0.97, stat:'0.90 [0.83–0.97]', kind:'protect', stars:'**' },
+      {label:'Any C-SSRS flag', or:0.91, lo:0.68, hi:1.23, stat:'0.91 [0.68–1.23]', kind:'null',    stars:'n.s.' },
+      {label:'Male sex', or:0.98, lo:0.72, hi:1.33, stat:'0.98 [0.72–1.33]', kind:'null',    stars:'n.s.' },
     ];
     const fColor = { risk:RISK, protect:PROT, null:'rgba(255,255,255,.32)' };
-    const fTag = { risk:'sig ↑', protect:'sig ↓', null:'n.s.' };
     const forest = fRaw.map(f=>{
       const loP=this.logScale(f.lo), hiP=this.logScale(f.hi);
       return {
-        label:f.label, stat:f.stat, tag:fTag[f.kind], color:fColor[f.kind],
+        label:f.label, stat:f.stat, tag:f.stars, color:fColor[f.kind],
         tagColor: f.kind==='null' ? 'var(--faint)' : (f.kind==='protect' ? 'var(--protect)' : 'var(--risk)'),
         loCss:loP+'%', hiCss:hiP+'%', ciCss:(hiP-loP)+'%', pointCss:this.logScale(f.or)+'%',
       };
@@ -716,8 +765,10 @@ class Component extends DCLogic {
 
     return {
       accent, headline, metrics, pipeline,
-      demoBaseCss, ageBars:mkDemo(ageRaw), genderBars:mkDemo(genderRaw), insBars:mkDemo(insRaw),
-      cssrsBars:mkDemo(cssrsRaw), restraintBars:mkDemo(restraintRaw),
+      demoBaseCss, ageBars:mkDemo(ageRaw),
+      genderBars:mkDemo(genderRaw,{showR:true}), insBars:mkDemo(insRaw,{showR:true}),
+      cssrsBars:mkDemo(cssrsRaw,{showR:true}), restraintBars:mkDemo(restraintRaw,{showR:true}),
+      groupStats,
       dxBars, dxBaseCss,
       forest, forestTicks, orOneCss,
       models, modelTicks,

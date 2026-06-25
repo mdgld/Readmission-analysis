@@ -1,0 +1,26 @@
+:root {
+  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --bg: #0b0d13;
+  --bg-2: #0e1119;
+
+  --panel: rgba(255,255,255,.022);
+  --panel-2: rgba(255,255,255,.045);
+
+  --line: rgba(255,255,255,.09);
+  --line-2: rgba(255,255,255,.055);
+
+  --text: #e8ecf4;
+  --muted: #98a3ba;
+  --faint: #646f88;
+
+  --accent: #6fb2f0;
+  --risk: #e8927c;
+  --protect: #7cc0a6;
+  --warn: #d8b06a;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --max-width: 1240px;
+}
