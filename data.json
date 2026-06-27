@@ -100,7 +100,7 @@
       { "label": "Diagnostic complexity / category", "or": 1.31, "lo": 1.11, "hi": 1.53, "p": 0.001, "kind": "risk", "stars": "**" },
       { "label": "Older age (per year)", "or": 0.90, "lo": 0.83, "hi": 0.97, "p": 0.008, "kind": "protect", "stars": "**" },
       { "label": "Any C-SSRS flag", "or": 0.91, "lo": 0.68, "hi": 1.23, "p": 0.546, "kind": "null", "stars": "n.s." },
-      { "label": "Male sex", "or": 0.98, "lo": 0.72, "hi": 1.33, "p": 0.815, "kind": "null", "stars": "n.s." }
+      { "label": "Male gender identity", "or": 0.98, "lo": 0.72, "hi": 1.33, "p": 0.815, "kind": "null", "stars": "n.s." }
     ],
     "auc": [
       { "name": "Logistic", "apparent": 0.712, "corrected": 0.685, "oof": 0.665 },
@@ -117,14 +117,14 @@
   "equity": {
     "metric_note": "metric: max(|\u0394TPR|, |\u0394FPR|) across pairing",
     "fairness": [
-      { "label": "Age (\u22649 vs \u226510)", "gap": 25.7, "auc_gap": 4.8 },
+      { "label": "Age (<9 vs ≥9)", "gap": 25.7, "auc_gap": 4.8 },
       { "label": "ACE (high vs not)", "gap": 21.6, "auc_gap": 1.9 },
       { "label": "Insurance (public vs private)", "gap": 20.7, "auc_gap": 5.8 },
       { "label": "Sex (M vs F)", "gap": 10.0, "auc_gap": 4.4 }
     ],
     "subgroups": [
-      { "label": "Age \u22649", "n": 1089, "readmit_rate": "10.8%", "auc_catboost": 0.670, "auc_rf": 0.711, "auc_lr": 0.684 },
-      { "label": "Age \u226510", "n": 1563, "readmit_rate": "8.2%", "auc_catboost": 0.608, "auc_rf": 0.648, "auc_lr": 0.641 },
+      { "label": "Age <9", "n": 1089, "readmit_rate": "10.8%", "auc_catboost": 0.670, "auc_rf": 0.711, "auc_lr": 0.684 },
+      { "label": "Age ≥9", "n": 1563, "readmit_rate": "8.2%", "auc_catboost": 0.608, "auc_rf": 0.648, "auc_lr": 0.641 },
       { "label": "Male", "n": 1369, "readmit_rate": "9.8%", "auc_catboost": 0.653, "auc_rf": 0.702, "auc_lr": 0.694 },
       { "label": "Female", "n": 1283, "readmit_rate": "8.7%", "auc_catboost": 0.628, "auc_rf": 0.660, "auc_lr": 0.630 },
       { "label": "Public Insurance", "n": 1589, "readmit_rate": "9.8%", "auc_catboost": 0.642, "auc_rf": 0.678, "auc_lr": 0.680 },

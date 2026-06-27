@@ -24,7 +24,7 @@ async function renderDemographics() {
 
   const panels = [
     { key: 'age', title: 'By age band', cls: 'demo-card demo-card--wide', showR: false, footnote: '\u2020 Unit age cap is 12; 12-year-olds aging out of eligibility cannot be readmitted to this site, which is a plausible explanation of the observed rate depression.' },
-    { key: 'gender', title: 'By gender identity', cls: 'demo-card', showR: true, stats: groupStats.gender },
+    { key: 'gender', title: 'By gender identity', cls: 'demo-card demo-card--wide', showR: true, stats: groupStats.gender },
     { key: 'cssrs', title: 'By C-SSRS flag', cls: 'demo-card', showR: true, stats: groupStats.cssrs },
     { key: 'insurance', title: 'By insurance', cls: 'demo-card', showR: true, stats: groupStats.insurance, note: data.findings.groups.insurance_note },
     { key: 'restraint', title: 'By physical restraint', cls: 'demo-card', showR: true, stats: groupStats.restraint },
@@ -52,8 +52,10 @@ async function renderDemographics() {
     canvas.setAttribute('role', 'img');
     const ariaParts = items.map(d => `${d.label} ${d.rate.toFixed(1)}% (n=${d.n})`);
     canvas.setAttribute('aria-label', `Readmission rate by ${p.title.toLowerCase()}: ${ariaParts.join(', ')}. Cohort baseline ${COHORT_RATE}%.`);
-    canvas.style.maxHeight = p.key === 'age' ? '260px' : '160px';
-    card.appendChild(canvas);
+    const canvasWrap = document.createElement('div');
+    canvasWrap.style.cssText = `position:relative;${p.key === 'age' ? 'height:240px' : `height:${items.length <= 2 ? 180 : Math.max(160, items.length * 36)}px`}`;
+    canvasWrap.appendChild(canvas);
+    card.appendChild(canvasWrap);
 
     if (p.stats) {
       const foot = document.createElement('div');
@@ -81,6 +83,8 @@ async function renderDemographics() {
       return d.rate >= COHORT_RATE ? '#e8927c' : '#7cc0a6';
     });
 
+    const horizontal = p.key === 'age';
+
     new Chart(canvas, {
       type: 'bar',
       data: {
@@ -93,7 +97,7 @@ async function renderDemographics() {
         }]
       },
       options: {
-        indexAxis: p.key === 'age' ? 'y' : 'x',
+        indexAxis: horizontal ? 'y' : 'x',
         responsive: true,
         maintainAspectRatio: false,
         animation: REDUCED ? false : { duration: 600, easing: 'easeOutQuart' },
@@ -111,39 +115,58 @@ async function renderDemographics() {
           },
           annotation: {}
         },
-        scales: {
+        scales: horizontal ? {
           x: {
-            max: demoMax,
+            max: demoMax + 1,
             beginAtZero: true,
             grid: { color: 'rgba(255,255,255,.05)' },
-            ticks: { callback: (v) => v + '%' }
+            ticks: { callback: (v) => v + '%', maxTicksLimit: 8 }
           },
           y: {
             grid: { display: false },
+            ticks: { font: { size: 10 }, autoSkip: false }
+          }
+        } : {
+          x: {
+            grid: { display: false },
             ticks: { font: { size: 10 } }
+          },
+          y: {
+            max: demoMax + 1,
+            beginAtZero: true,
+            grid: { color: 'rgba(255,255,255,.05)' },
+            ticks: { callback: (v) => v + '%', maxTicksLimit: 8 }
           }
         }
       },
-      plugins: [baselineLinePlugin(COHORT_RATE, demoMax)]
+      plugins: [baselineLinePlugin(COHORT_RATE, demoMax, horizontal)]
     });
   }
 }
 
-function baselineLinePlugin(baseline, maxVal) {
+function baselineLinePlugin(baseline, maxVal, horizontal) {
   return {
     id: 'baselineLine',
     afterDraw(chart) {
       const { ctx, chartArea, scales } = chart;
-      const xScale = scales.x;
-      if (!xScale) return;
-      const x = xScale.getPixelForValue(baseline);
       ctx.save();
       ctx.strokeStyle = '#6fb2f0';
       ctx.lineWidth = 1;
       ctx.globalAlpha = 0.6;
       ctx.beginPath();
-      ctx.moveTo(x, chartArea.top);
-      ctx.lineTo(x, chartArea.bottom);
+      if (horizontal) {
+        const xScale = scales.x;
+        if (!xScale) return;
+        const x = xScale.getPixelForValue(baseline);
+        ctx.moveTo(x, chartArea.top);
+        ctx.lineTo(x, chartArea.bottom);
+      } else {
+        const yScale = scales.y;
+        if (!yScale) return;
+        const y = yScale.getPixelForValue(baseline);
+        ctx.moveTo(chartArea.left, y);
+        ctx.lineTo(chartArea.right, y);
+      }
       ctx.stroke();
       ctx.restore();
     }

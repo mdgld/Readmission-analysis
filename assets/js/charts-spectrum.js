@@ -31,16 +31,16 @@ async function renderSpectrum() {
   container.appendChild(controls);
 
   const canvasWrap = document.createElement('div');
-  canvasWrap.style.cssText = 'position:relative';
+  const chartHeight = Math.max(560, items.length * 42);
+  canvasWrap.style.cssText = `position:relative;height:${chartHeight}px`;
   const canvas = document.createElement('canvas');
   canvas.setAttribute('role', 'img');
   canvas.setAttribute('aria-label', `DSM-5 diagnostic spectrum: ${items.length} categories ranked by 90-day readmission rate, ranging from ${items[0].rate}% to ${items[items.length-1].rate}%. Cohort baseline ${COHORT_RATE}%.`);
-  canvas.style.maxHeight = '500px';
   canvasWrap.appendChild(canvas);
   container.appendChild(canvasWrap);
 
   const legend = document.createElement('div');
-  legend.style.cssText = 'display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.3rem;margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.7rem;color:var(--faint)';
+  legend.style.cssText = 'display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.7rem 1.3rem;margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.7rem;color:var(--faint)';
   legend.innerHTML = `
     <span style="display:flex;align-items:center;gap:.45rem"><span style="width:1px;height:12px;background:var(--accent)"></span>cohort ${COHORT_RATE}%</span>
     <span style="display:flex;align-items:center;gap:.45rem"><span style="width:16px;height:8px;border-radius:2px;background:#e8927c"></span>significant</span>
@@ -64,6 +64,13 @@ async function renderSpectrum() {
     return filtered;
   }
 
+  function getStars(arr) {
+    return arr.map(d => {
+      const p = pTwoSided(d.readmitted / d.n, p0, d.n);
+      return stars(p);
+    });
+  }
+
   function getColors(arr) {
     return arr.map(d => {
       const p = pTwoSided(d.readmitted / d.n, p0, d.n);
@@ -75,7 +82,7 @@ async function renderSpectrum() {
   const chart = new Chart(canvas, {
     type: 'bar',
     data: {
-      labels: getChartData().map(d => d.label),
+      labels: getChartData().map((d, i) => `${d.label} ${getStars(getChartData())[i]}`.trim()),
       datasets: [{
         data: getChartData().map(d => d.rate),
         backgroundColor: getColors(getChartData()),
@@ -126,7 +133,8 @@ async function renderSpectrum() {
 
   function update() {
     const newData = getChartData();
-    chart.data.labels = newData.map(d => d.label);
+    const newStars = getStars(newData);
+    chart.data.labels = newData.map((d, i) => `${d.label} ${newStars[i]}`.trim());
     chart.data.datasets[0].data = newData.map(d => d.rate);
     chart.data.datasets[0].backgroundColor = getColors(newData);
     chart.update();

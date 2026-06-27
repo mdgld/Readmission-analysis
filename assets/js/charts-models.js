@@ -24,18 +24,20 @@ async function renderModels() {
 
 function renderForest(container, forest) {
   container.innerHTML = `
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.5rem">
-      <h3 style="font-size:1.02rem;font-weight:600;margin:0">Independent predictors of readmission</h3>
-      <span style="font-family:var(--mono);font-size:.68rem;color:var(--faint)">multivariable logistic regression</span>
-    </div>
-    <div style="position:relative"><canvas role="img" aria-label="Forest plot: ${forest.length} predictors with odds ratios and 95% confidence intervals on log scale, OR=1 reference line." style="max-height:340px"></canvas></div>
-    <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:.6rem">odds ratio (log scale) · point estimate, line = 95% CI</div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-      <span><span style="color:var(--risk);font-weight:600">*</span> p&lt;.05</span>
-      <span><span style="color:var(--risk);font-weight:600">**</span> p&lt;.01</span>
-      <span><span style="color:var(--risk)">red</span> = risk ↑</span>
-      <span><span style="color:var(--protect)">green</span> = protective ↓</span>
-      <span>n.s. = not significant</span>
+    <div style="display:flex;flex-direction:column;height:100%">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem">
+        <h3 style="font-size:1.02rem;font-weight:600;margin:0">Independent predictors of readmission</h3>
+        <span style="font-family:var(--mono);font-size:.68rem;color:var(--faint)">multivariable logistic regression</span>
+      </div>
+      <div style="position:relative;flex:1 1 auto;min-height:280px"><canvas role="img" aria-label="Forest plot: ${forest.length} predictors with odds ratios and 95% confidence intervals on log scale, OR=1 reference line."></canvas></div>
+      <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:.4rem">odds ratio (log scale) · point estimate, line = 95% CI</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin-top:.4rem;padding-top:.6rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+        <span><span style="color:var(--risk);font-weight:600">*</span> p&lt;.05</span>
+        <span><span style="color:var(--risk);font-weight:600">**</span> p&lt;.01</span>
+        <span><span style="color:var(--risk)">red</span> = risk ↑</span>
+        <span><span style="color:var(--protect)">green</span> = protective ↓</span>
+        <span>n.s. = not significant</span>
+      </div>
     </div>
   `;
   const canvas = container.querySelector('canvas');
@@ -121,8 +123,9 @@ function orRefLinePlugin() {
       const { ctx, chartArea, scales } = chart;
       const x = scales.x.getPixelForValue(1);
       ctx.save();
-      ctx.strokeStyle = 'rgba(255,255,255,.09)';
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(255,255,255,.32)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 4]);
       ctx.beginPath();
       ctx.moveTo(x, chartArea.top);
       ctx.lineTo(x, chartArea.bottom);
