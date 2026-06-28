@@ -170,20 +170,22 @@ function renderAUC(container, models) {
   const delta = models.optimism_delta;
 
   container.innerHTML = `
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem">
-      <h3 style="font-size:1.02rem;font-weight:600;margin:0">Apparent vs. honest AUC</h3>
-    </div>
-    <div style="display:flex;gap:1rem;margin-bottom:1rem;font-family:var(--mono);font-size:.72rem">
-      <button id="auc-toggle" style="padding:.4rem .8rem;border:1px solid var(--accent);border-radius:6px;background:rgba(111,178,240,.1);color:var(--accent);cursor:pointer;font-family:inherit">Showing: Apparent</button>
-    </div>
-    <div style="position:relative"><canvas role="img" aria-label="Model AUC comparison: Logistic, Random Forest, CatBoost. Toggle between apparent and out-of-fold (honest) AUC." style="max-height:300px"></canvas></div>
-    <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:.6rem">AUROC · 5-fold CV · bootstrap optimism correction (1,000 iterations)</div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.2rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
-      <span>Logistic <span style="color:var(--text)">\u0394=${delta.Logistic.toFixed(3)}</span></span>
-      <span>Random Forest <span style="color:var(--text)">\u0394=${delta['Random Forest'].toFixed(3)}</span></span>
-      <span>CatBoost <span style="color:var(--risk);font-weight:600">\u0394=${delta.CatBoost.toFixed(3)}</span></span>
-      <span style="color:var(--line)">·</span>
-      <span>\u0394 = apparent \u2212 out-of-fold (optimism)</span>
+    <div style="display:flex;flex-direction:column;height:100%">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem">
+        <h3 style="font-size:1.02rem;font-weight:600;margin:0">Apparent vs. honest AUC</h3>
+      </div>
+      <div style="display:flex;gap:1rem;margin-bottom:1rem;font-family:var(--mono);font-size:.72rem">
+        <button id="auc-toggle" style="padding:.4rem .8rem;border:1px solid var(--accent);border-radius:6px;background:rgba(111,178,240,.1);color:var(--accent);cursor:pointer;font-family:inherit">Showing: Apparent</button>
+      </div>
+      <div style="position:relative;flex:1 1 auto;min-height:280px"><canvas role="img" aria-label="Model AUC comparison: Logistic, Random Forest, CatBoost. Toggle between apparent and out-of-fold (honest) AUC."></canvas></div>
+      <div style="font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;margin-top:.6rem">AUROC · 5-fold CV · bootstrap optimism correction (1,000 iterations)</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.2rem;margin-top:.6rem;padding-top:.8rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
+        <span>Logistic <span style="color:var(--text)">\u0394=${delta.Logistic.toFixed(3)}</span></span>
+        <span>Random Forest <span style="color:var(--text)">\u0394=${delta['Random Forest'].toFixed(3)}</span></span>
+        <span>CatBoost <span style="color:var(--risk);font-weight:600">\u0394=${delta.CatBoost.toFixed(3)}</span></span>
+        <span style="color:var(--line)">·</span>
+        <span>\u0394 = apparent \u2212 out-of-fold (optimism)</span>
+      </div>
     </div>
   `;
 
@@ -220,7 +222,15 @@ function renderAUC(container, models) {
         }
       },
       scales: {
-        y: { min: 0.5, max: 0.95, grid: { color: 'rgba(255,255,255,.05)' }, ticks: { callback: v => v.toFixed(1) } },
+        y: {
+          min: 0.5,
+          max: 0.95,
+          grid: { color: 'rgba(255,255,255,.05)' },
+          afterBuildTicks: (axis) => {
+            axis.ticks = [0.5, 0.6, 0.7, 0.8, 0.9].map(v => ({ value: v }));
+          },
+          ticks: { callback: v => v.toFixed(2) }
+        },
         x: { grid: { display: false } }
       }
     }

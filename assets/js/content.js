@@ -116,7 +116,7 @@ function renderAbstract(data) {
   if (objectives) {
     objectives.innerHTML = `
       <h3 class="abstract-section-h">Learning objectives</h3>
-      <div style="display:grid;gap:.55rem">
+      <div class="objective-grid">
         ${data.abstract.objectives.map(o =>
           `<div class="objective-row"><span class="objective-num">${o.n}</span><span class="objective-text">${o.t}</span></div>`
         ).join('')}
