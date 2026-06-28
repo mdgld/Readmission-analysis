@@ -49,8 +49,8 @@
         { "label": "Female", "n": 1283, "readmitted": 112, "rate": 8.7 }
       ],
       "cssrs": [
-        { "label": "Any flag", "n": 1180, "readmitted": 105, "rate": 8.9 },
-        { "label": "No flag", "n": 1472, "readmitted": 141, "rate": 9.6 }
+        { "label": "Red flag", "n": 446, "readmitted": 45, "rate": 10.1 },
+        { "label": "No flag", "n": 1792, "readmitted": 165, "rate": 9.2 }
       ],
       "insurance": [
         { "label": "Public", "n": 1595, "readmitted": 155, "rate": 9.7 },
@@ -64,43 +64,53 @@
     },
     "groupStats": {
       "gender": { "or": "1.13", "ci": "0.87\u20131.48", "p": ".349" },
-      "cssrs": { "or": "0.92", "ci": "0.71\u20131.20", "p": ".546" },
+      "cssrs": { "or": "1.11", "ci": "0.78\u20131.57", "p": ".568" },
       "insurance": { "or": "1.12", "ci": "0.85\u20131.48", "p": ".402" },
       "restraint": { "or": "1.52", "ci": "1.06\u20132.18", "p": ".022" }
     }
   },
   "spectrum": {
-    "dx_max": 24,
+    "dx_max": 30,
     "cohort_rate": 9.3,
     "items": [
-      { "label": "Tic Disorders", "n": 51, "readmitted": 11, "rate": 21.6 },
-      { "label": "Other Neurodevelopmental", "n": 101, "readmitted": 19, "rate": 18.8 },
-      { "label": "Dissociative Disorders", "n": 32, "readmitted": 6, "rate": 18.8 },
-      { "label": "Psychotic Disorders", "n": 55, "readmitted": 10, "rate": 18.2 },
-      { "label": "Other Mental Disorder", "n": 232, "readmitted": 41, "rate": 17.7 },
-      { "label": "Bipolar & Related", "n": 147, "readmitted": 23, "rate": 15.6 },
-      { "label": "Specific Learning Disorder", "n": 93, "readmitted": 14, "rate": 15.1 },
-      { "label": "Personality Disorder", "n": 138, "readmitted": 20, "rate": 14.5 },
-      { "label": "Obsessive-Compulsive", "n": 114, "readmitted": 16, "rate": 14.0 },
-      { "label": "Intellectual Disability", "n": 57, "readmitted": 8, "rate": 14.0 },
-      { "label": "Autism Spectrum", "n": 513, "readmitted": 70, "rate": 13.6 },
-      { "label": "Conduct Disorder", "n": 484, "readmitted": 66, "rate": 13.6 },
-      { "label": "ADHD", "n": 1399, "readmitted": 159, "rate": 11.4 },
-      { "label": "Non-Suicidal Self-Injury", "n": 1348, "readmitted": 154, "rate": 11.4 },
-      { "label": "Anxiety Disorders", "n": 1154, "readmitted": 125, "rate": 10.8 },
-      { "label": "Depressive Disorders", "n": 1779, "readmitted": 191, "rate": 10.7 },
-      { "label": "Trauma & Stressor-Related", "n": 1424, "readmitted": 146, "rate": 10.3 }
+      { "label": "Non-Suicidal Self-Injury Behavior", "n": 1348, "readmitted": 394, "rate": 29.2 },
+      { "label": "Other Neurodevelopmental Disorder", "n": 101, "readmitted": 28, "rate": 27.7 },
+      { "label": "Homicidal ideation (R45.850)", "n": 232, "readmitted": 62, "rate": 26.7 },
+      { "label": "Specific Learning Disorder", "n": 93, "readmitted": 24, "rate": 25.8 },
+      { "label": "Tic Disorders", "n": 51, "readmitted": 12, "rate": 23.5 },
+      { "label": "Dissociative Disorders", "n": 32, "readmitted": 7, "rate": 21.9 },
+      { "label": "Bipolar and Related Disorders", "n": 147, "readmitted": 32, "rate": 21.8 },
+      { "label": "Psychotic Disorders", "n": 55, "readmitted": 12, "rate": 21.8 },
+      { "label": "Obsessive-Compulsive and Related Disorders", "n": 114, "readmitted": 24, "rate": 21.1 },
+      { "label": "Depressive Disorders", "n": 1779, "readmitted": 360, "rate": 20.2 },
+      { "label": "Autism Spectrum Disorder", "n": 513, "readmitted": 102, "rate": 19.9 },
+      { "label": "Conduct Disorder", "n": 484, "readmitted": 96, "rate": 19.8 },
+      { "label": "Trauma and Stressor-Related Disorders", "n": 1424, "readmitted": 280, "rate": 19.7 },
+      { "label": "Anxiety Disorders", "n": 1154, "readmitted": 214, "rate": 18.5 },
+      { "label": "ADHD", "n": 1399, "readmitted": 258, "rate": 18.4 },
+      { "label": "Intellectual Disability", "n": 57, "readmitted": 10, "rate": 17.5 },
+      { "label": "Feeding and Eating Disorders", "n": 66, "readmitted": 11, "rate": 16.7 },
+      { "label": "Personality Disorder", "n": 138, "readmitted": 21, "rate": 15.2 },
+      { "label": "Elimination Disorders", "n": 15, "readmitted": 2, "rate": 13.3 },
+      { "label": "Disruptive Behavior Disorder", "n": 59, "readmitted": 6, "rate": 10.2 },
+      { "label": "Substance-Related and Addictive Disorders", "n": 21, "readmitted": 2, "rate": 9.5 },
+      { "label": "Sleep-Wake Disorders", "n": 35, "readmitted": 3, "rate": 8.6 },
+      { "label": "Communication Disorders", "n": 86, "readmitted": 7, "rate": 8.1 },
+      { "label": "Other Specified Mental Disorder", "n": 88, "readmitted": 7, "rate": 8.0 },
+      { "label": "Gender Identity Disorders", "n": 57, "readmitted": 4, "rate": 7.0 }
     ],
-    "prose_note": "Every DSM-5 category (n \u2265 20) ranked by 90-day readmission rate. A single label can bundle high-risk and low-risk subtypes \u2014 within Depressive Disorders, DMDD carries 14.2% (OR 1.82) while single-episode MDD is flat at 9.0% (n.s.)."
+    "prose_note": "Every DSM-5 category (n \u2265 15) ranked by 90-day readmission rate \u2014 unadjusted bivariate, with no control for comorbidity. The 'Other Mental Disorder' bucket in earlier drafts was a single ICD code (homicidal ideation, R45.850, n=232, 26.7%) and is plotted as such. The reconciliation that matters: non-suicidal self-injury sits at the top here (29.2%) yet is independently protective in the adjusted model (\u00a704, OR 0.38, p<0.001), because the high raw rate is driven by NSSI's overlap with depression and suicidal ideation \u2014 once those covariates are controlled for, NSSI-only patients return less often than the cohort average. Suicidal ideation (R45.851), conversely, carries adjusted OR 2.59. The two self-harm constructs separate sharply once you adjust."
   },
   "models": {
     "forest": [
-      { "label": "Depressive disorders", "or": 1.78, "lo": 1.23, "hi": 2.58, "p": 0.002, "kind": "risk", "stars": "**" },
-      { "label": "Physical restraint use", "or": 1.52, "lo": 1.06, "hi": 2.18, "p": 0.022, "kind": "risk", "stars": "*" },
-      { "label": "Diagnostic complexity / category", "or": 1.31, "lo": 1.11, "hi": 1.53, "p": 0.001, "kind": "risk", "stars": "**" },
-      { "label": "Older age (per year)", "or": 0.90, "lo": 0.83, "hi": 0.97, "p": 0.008, "kind": "protect", "stars": "**" },
-      { "label": "Any C-SSRS flag", "or": 0.91, "lo": 0.68, "hi": 1.23, "p": 0.546, "kind": "null", "stars": "n.s." },
-      { "label": "Male gender identity", "or": 0.98, "lo": 0.72, "hi": 1.33, "p": 0.815, "kind": "null", "stars": "n.s." }
+      { "label": "Suicidal ideation (R45.851)", "or": 2.59, "lo": 1.83, "hi": 3.67, "p": 0.0000001, "kind": "risk", "stars": "***" },
+      { "label": "Depressive disorders", "or": 1.69, "lo": 1.18, "hi": 2.41, "p": 0.004, "kind": "risk", "stars": "**" },
+      { "label": "Physical restraint use", "or": 1.55, "lo": 1.08, "hi": 2.21, "p": 0.017, "kind": "risk", "stars": "*" },
+      { "label": "Diagnostic complexity / category", "or": 1.34, "lo": 1.19, "hi": 1.52, "p": 0.0001, "kind": "risk", "stars": "***" },
+      { "label": "Older age (per year) †", "or": 0.91, "lo": 0.84, "hi": 0.99, "p": 0.024, "kind": "protect", "stars": "*" },
+      { "label": "Non-suicidal self-injury", "or": 0.38, "lo": 0.26, "hi": 0.57, "p": 0.0000015, "kind": "protect", "stars": "***" },
+      { "label": "C-SSRS red flag", "or": 1.15, "lo": 0.79, "hi": 1.68, "p": 0.473, "kind": "null", "stars": "n.s." },
+      { "label": "Male gender identity", "or": 1.00, "lo": 0.74, "hi": 1.35, "p": 0.986, "kind": "null", "stars": "n.s." }
     ],
     "auc": [
       { "name": "Logistic", "apparent": 0.712, "corrected": 0.685, "oof": 0.665 },
@@ -123,18 +133,18 @@
       { "label": "Sex (M vs F)", "gap": 10.0, "auc_gap": 4.4 }
     ],
     "subgroups": [
-      { "label": "Age <9", "n": 1089, "readmit_rate": "10.8%", "auc_catboost": 0.670, "auc_rf": 0.711, "auc_lr": 0.684 },
-      { "label": "Age ≥9", "n": 1563, "readmit_rate": "8.2%", "auc_catboost": 0.608, "auc_rf": 0.648, "auc_lr": 0.641 },
-      { "label": "Male", "n": 1369, "readmit_rate": "9.8%", "auc_catboost": 0.653, "auc_rf": 0.702, "auc_lr": 0.694 },
-      { "label": "Female", "n": 1283, "readmit_rate": "8.7%", "auc_catboost": 0.628, "auc_rf": 0.660, "auc_lr": 0.630 },
-      { "label": "Public Insurance", "n": 1589, "readmit_rate": "9.8%", "auc_catboost": 0.642, "auc_rf": 0.678, "auc_lr": 0.680 },
-      { "label": "Private Insurance", "n": 1063, "readmit_rate": "8.6%", "auc_catboost": 0.637, "auc_rf": 0.692, "auc_lr": 0.640 },
-      { "label": "ACE \u22654", "n": 1197, "readmit_rate": "10.4%", "auc_catboost": 0.644, "auc_rf": 0.669, "auc_lr": 0.656 },
-      { "label": "ACE <4", "n": 1455, "readmit_rate": "8.4%", "auc_catboost": 0.633, "auc_rf": 0.694, "auc_lr": 0.668 },
-      { "label": "With Trauma", "n": 1424, "readmit_rate": "10.3%", "auc_catboost": 0.630, "auc_rf": 0.672, "auc_lr": 0.674 },
-      { "label": "Without Trauma", "n": 1228, "readmit_rate": "8.1%", "auc_catboost": 0.648, "auc_rf": 0.688, "auc_lr": 0.639 },
-      { "label": "With Restraints", "n": 510, "readmit_rate": "13.5%", "auc_catboost": 0.706, "auc_rf": 0.705, "auc_lr": 0.688 },
-      { "label": "Without Restraints", "n": 2142, "readmit_rate": "8.3%", "auc_catboost": 0.610, "auc_rf": 0.664, "auc_lr": 0.638 }
+      { "label": "Age <9", "n": 1089, "readmit_rate": "10.8%", "auc_catboost": 0.699, "auc_rf": 0.720, "auc_lr": 0.699 },
+      { "label": "Age ≥9", "n": 1563, "readmit_rate": "8.2%", "auc_catboost": 0.625, "auc_rf": 0.665, "auc_lr": 0.685 },
+      { "label": "Male", "n": 1369, "readmit_rate": "9.8%", "auc_catboost": 0.675, "auc_rf": 0.715, "auc_lr": 0.710 },
+      { "label": "Female", "n": 1283, "readmit_rate": "8.7%", "auc_catboost": 0.652, "auc_rf": 0.674, "auc_lr": 0.673 },
+      { "label": "Public Insurance", "n": 1589, "readmit_rate": "9.8%", "auc_catboost": 0.669, "auc_rf": 0.696, "auc_lr": 0.713 },
+      { "label": "Private Insurance", "n": 1063, "readmit_rate": "8.6%", "auc_catboost": 0.657, "auc_rf": 0.697, "auc_lr": 0.660 },
+      { "label": "ACE high", "n": 996, "readmit_rate": "9.4%", "auc_catboost": 0.644, "auc_rf": 0.667, "auc_lr": 0.684 },
+      { "label": "ACE not high", "n": 573, "readmit_rate": "8.0%", "auc_catboost": 0.570, "auc_rf": 0.660, "auc_lr": 0.694 },
+      { "label": "With Trauma", "n": 1424, "readmit_rate": "10.3%", "auc_catboost": 0.673, "auc_rf": 0.693, "auc_lr": 0.712 },
+      { "label": "Without Trauma", "n": 1228, "readmit_rate": "8.1%", "auc_catboost": 0.643, "auc_rf": 0.692, "auc_lr": 0.658 },
+      { "label": "With Restraints", "n": 510, "readmit_rate": "13.5%", "auc_catboost": 0.695, "auc_rf": 0.688, "auc_lr": 0.675 },
+      { "label": "Without Restraints", "n": 2142, "readmit_rate": "8.3%", "auc_catboost": 0.645, "auc_rf": 0.688, "auc_lr": 0.684 }
     ]
   },
   "figures": [
@@ -160,10 +170,11 @@
       { "h": "Conclusions", "body": "The models surfaced risk factors that standard regression failed to identify, yet individual readmission remains hard to predict \u2014 feature discovery is necessary but not sufficient for a useful risk measure. Larger, multi-site data and equity-aware validation are needed before clinical use." }
     ],
     "results": [
-      { "tag": "\u2191 Risk", "text": "Diagnostic complexity \u2014 OR 1.31 per DSM-5 category, p < 0.001", "kind": "sig" },
-      { "tag": "\u2191 Risk", "text": "Physical restraint use \u2014 OR 1.52, p = 0.022; also the largest driver of length of stay", "kind": "sig" },
-      { "tag": "\u2191 Risk", "text": "Depressive disorders \u2014 OR 1.78, p = 0.002; younger age \u2014 OR 1.10 per year", "kind": "sig" },
-      { "tag": "Null", "text": "Modified ACE category, C-SSRS flags, NSSI, chronic comorbidity \u2014 not independently associated", "kind": "null" },
+      { "tag": "\u2191 Risk", "text": "Suicidal ideation (R45.851) \u2014 OR 2.59, p < 0.001; strongest predictor in the adjusted model", "kind": "sig" },
+      { "tag": "\u2191 Risk", "text": "Depressive disorders \u2014 OR 1.69, p = 0.004; diagnostic complexity \u2014 OR 1.34 per DSM-5 category, p < 0.001", "kind": "sig" },
+      { "tag": "\u2191 Risk", "text": "Physical restraint use \u2014 OR 1.55, p = 0.017; also the largest driver of length of stay", "kind": "sig" },
+      { "tag": "\u2193 Risk", "text": "Non-suicidal self-injury \u2014 OR 0.38, p < 0.001 (protective); older age \u2014 OR 0.91 per year, p = 0.024", "kind": "sig" },
+      { "tag": "Null", "text": "ACE score, C-SSRS flags, insurance, gender identity, chronic medical comorbidity \u2014 not independently associated", "kind": "null" },
       { "tag": "Model", "text": "RF apparent AUC 0.853 \u2192 0.752 after bootstrap optimism correction; PPV \u2248 20% at optimal threshold", "kind": "warn" },
       { "tag": "Equity", "text": "Equalized-odds disparities \u2014 age gap 0.257, insurance 0.207, ACE 0.216", "kind": "warn" }
     ],
