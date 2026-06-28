@@ -79,16 +79,19 @@ function renderExplorer(container, subgroups) {
 
   function update() {
     const s = subgroups[parseInt(select.value)];
+    const fmtAuc = (v, color) => v == null
+      ? `<div style="color:var(--faint);font-size:1rem">\u2014</div>`
+      : `<div style="color:${color};font-size:1rem">${v.toFixed(3)}</div>`;
     readout.innerHTML = `
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;font-family:var(--mono);font-size:.82rem">
         <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">N</div><div style="color:var(--text);font-size:1rem">${s.n}</div></div>
         <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">Readmit rate</div><div style="color:var(--text);font-size:1rem">${s.readmit_rate}</div></div>
-        <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">CatBoost AUC</div><div style="color:var(--accent);font-size:1rem">${s.auc_catboost.toFixed(3)}</div></div>
-        <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">RF AUC</div><div style="color:var(--protect);font-size:1rem">${s.auc_rf.toFixed(3)}</div></div>
-        <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">LR AUC</div><div style="color:var(--risk);font-size:1rem">${s.auc_lr.toFixed(3)}</div></div>
+        <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">CatBoost AUC</div>${fmtAuc(s.auc_catboost, 'var(--accent)')}</div>
+        <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">RF AUC</div>${fmtAuc(s.auc_rf, 'var(--protect)')}</div>
+        <div style="padding:.6rem .8rem;border:1px solid var(--line);border-radius:8px"><div style="font-size:.62rem;color:var(--faint);text-transform:uppercase">LR AUC</div>${fmtAuc(s.auc_lr, 'var(--risk)')}</div>
       </div>
     `;
-    chart.data.datasets[0].data = [s.auc_catboost, s.auc_rf, s.auc_lr];
+    chart.data.datasets[0].data = [s.auc_catboost ?? null, s.auc_rf ?? null, s.auc_lr ?? null];
     chart.update();
   }
 

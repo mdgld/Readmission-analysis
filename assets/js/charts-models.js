@@ -34,9 +34,11 @@ function renderForest(container, forest) {
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin-top:.4rem;padding-top:.6rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.66rem;color:var(--faint)">
         <span><span style="color:var(--risk);font-weight:600">*</span> p&lt;.05</span>
         <span><span style="color:var(--risk);font-weight:600">**</span> p&lt;.01</span>
+        <span><span style="color:var(--risk);font-weight:600">***</span> p&lt;.001</span>
         <span><span style="color:var(--risk)">red</span> = risk ↑</span>
         <span><span style="color:var(--protect)">green</span> = protective ↓</span>
-        <span>n.s. = not significant</span>
+        <span><span style="color:rgba(255,255,255,.32)">grey</span> = not significant</span>
+        <span>† patients &gt;12 cannot be readmitted to this unit; ceiling effect may inflate the protective association for older age</span>
       </div>
     </div>
   `;
@@ -47,7 +49,7 @@ function renderForest(container, forest) {
   new Chart(canvas, {
     type: 'bar',
     data: {
-      labels: forest.map(f => `${f.label} ${f.stars}`),
+      labels: forest.map(f => f.kind === 'null' ? f.label : `${f.label} ${f.stars}`),
       datasets: [{
         data: forest.map(f => f.or),
         backgroundColor: forest.map(f => fColor[f.kind] || fColor.null),
@@ -72,7 +74,16 @@ function renderForest(container, forest) {
         }
       },
       scales: {
-        x: { type: 'logarithmic', min: 0.6, max: 3.0, grid: { color: 'rgba(255,255,255,.05)' }, ticks: { callback: v => v } },
+        x: {
+          type: 'logarithmic',
+          min: 0.25,
+          max: 3.0,
+          grid: { color: 'rgba(255,255,255,.05)' },
+          afterBuildTicks: (axis) => {
+            axis.ticks = [0.25, 0.5, 1, 2, 3].map(v => ({ value: v }));
+          },
+          ticks: { callback: v => v }
+        },
         y: { grid: { display: false }, ticks: { font: { size: 10 }, autoSkip: false } }
       }
     },
@@ -96,8 +107,23 @@ function forestWhiskerPlugin(forest, fColor) {
         const ptX = xScale.getPixelForValue(f.or);
         ctx.strokeStyle = color;
         ctx.fillStyle = color;
+        // Two-pass tube: dark outline then colored line, so the whisker is visible against the bar AND the dark bg.
+        ctx.globalAlpha = 1;
+        ctx.strokeStyle = '#0b0d13';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(loX, y);
+        ctx.lineTo(hiX, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(loX, y - 6);
+        ctx.lineTo(loX, y + 6);
+        ctx.moveTo(hiX, y - 6);
+        ctx.lineTo(hiX, y + 6);
+        ctx.stroke();
+
+        ctx.strokeStyle = color;
         ctx.lineWidth = 2;
-        ctx.globalAlpha = 0.55;
         ctx.beginPath();
         ctx.moveTo(loX, y);
         ctx.lineTo(hiX, y);
@@ -109,7 +135,11 @@ function forestWhiskerPlugin(forest, fColor) {
         ctx.lineTo(hiX, y + 5);
         ctx.stroke();
         ctx.globalAlpha = 1;
+        ctx.fillStyle = '#0b0d13';
         ctx.fillRect(ptX - 4.5, y - 4.5, 9, 9);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(ptX - 4.5, y - 4.5, 9, 9);
       });
       ctx.restore();
     }
@@ -161,8 +191,8 @@ function renderAUC(container, models) {
   const toggle = container.querySelector('#auc-toggle');
   let showingApparent = true;
 
-  const colors = ['rgba(255,255,255,.16)', '#6fb2f0', '#6fb2f0'];
-  const opacities = [1, 0.5, 1];
+  const apparentColors = ['rgba(255,255,255,.16)', '#6fb2f0', '#6fb2f0'];
+  const honestColors   = ['rgba(255,255,255,.16)', '#d8b06a', '#d8b06a'];
 
   const chart = new Chart(canvas, {
     type: 'bar',
@@ -170,7 +200,7 @@ function renderAUC(container, models) {
       labels: aucData.map(m => m.name),
       datasets: [{
         data: aucData.map(m => m.apparent),
-        backgroundColor: colors,
+        backgroundColor: apparentColors,
         borderRadius: 3,
       }]
     },
@@ -201,6 +231,7 @@ function renderAUC(container, models) {
       ? aucData.map(m => m.apparent)
       : aucData.map(m => m.oof);
     chart.data.datasets[0].data = values;
+    chart.data.datasets[0].backgroundColor = showingApparent ? apparentColors : honestColors;
     toggle.textContent = showingApparent ? 'Showing: Apparent' : 'Showing: Honest (OOF)';
     toggle.style.background = showingApparent ? 'rgba(111,178,240,.1)' : 'rgba(216,176,106,.1)';
     toggle.style.borderColor = showingApparent ? 'var(--accent)' : 'var(--warn)';

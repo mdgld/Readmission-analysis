@@ -23,7 +23,7 @@ async function renderDemographics() {
   const demoMax = data.findings.demo_max || 15;
 
   const panels = [
-    { key: 'age', title: 'By age band', cls: 'demo-card demo-card--wide', showR: false, footnote: '\u2020 Unit age cap is 12; 12-year-olds aging out of eligibility cannot be readmitted to this site, which is a plausible explanation of the observed rate depression.' },
+    { key: 'age', title: 'By age band', cls: 'demo-card demo-card--wide', showR: false, footnote: 'Unit age cap is 12; 12-year-olds aging out of eligibility cannot be readmitted to this site, which is a plausible explanation of the observed rate depression.' },
     { key: 'gender', title: 'By gender identity', cls: 'demo-card demo-card--wide', showR: true, stats: groupStats.gender },
     { key: 'cssrs', title: 'By C-SSRS flag', cls: 'demo-card', showR: true, stats: groupStats.cssrs },
     { key: 'insurance', title: 'By insurance', cls: 'demo-card', showR: true, stats: groupStats.insurance, note: data.findings.groups.insurance_note },
@@ -73,7 +73,7 @@ async function renderDemographics() {
 
     container.appendChild(card);
 
-    const labels = items.map(d => d.label);
+    const labels = items.map(d => d.mark ? `${d.label} ${d.mark}` : d.label);
     const rates = items.map(d => d.rate);
     const p0 = COHORT_RATE / 100;
     const colors = items.map(d => {
@@ -115,6 +115,7 @@ async function renderDemographics() {
           },
           annotation: {}
         },
+        layout: { padding: horizontal ? { right: 28 } : { top: 18 } },
         scales: horizontal ? {
           x: {
             max: demoMax + 1,
@@ -139,9 +140,42 @@ async function renderDemographics() {
           }
         }
       },
-      plugins: [baselineLinePlugin(COHORT_RATE, demoMax, horizontal)]
+      plugins: [baselineLinePlugin(COHORT_RATE, demoMax, horizontal), starsOnBarsPlugin(items, p0, horizontal)]
     });
   }
+}
+
+function starsOnBarsPlugin(items, p0, horizontal) {
+  return {
+    id: 'starsOnBars',
+    afterDatasetsDraw(chart) {
+      const { ctx, scales } = chart;
+      ctx.save();
+      ctx.font = "bold 11px 'Geist Mono', ui-monospace, monospace";
+      ctx.fillStyle = 'rgba(255,255,255,.85)';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      items.forEach((d, i) => {
+        const p = pTwoSided(d.readmitted / d.n, p0, d.n);
+        const s = stars(p);
+        if (!s) return;
+        if (horizontal) {
+          const xScale = scales.x;
+          const yScale = scales.y;
+          const x = xScale.getPixelForValue(d.rate) + 18;
+          const y = yScale.getPixelForTick(i);
+          ctx.fillText(s, x, y);
+        } else {
+          const xScale = scales.x;
+          const yScale = scales.y;
+          const x = xScale.getPixelForTick(i);
+          const y = yScale.getPixelForValue(d.rate) - 10;
+          ctx.fillText(s, x, y);
+        }
+      });
+      ctx.restore();
+    }
+  };
 }
 
 function baselineLinePlugin(baseline, maxVal, horizontal) {
