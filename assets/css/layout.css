@@ -29,6 +29,9 @@
 
 .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; align-items: start; }
 
+#equity .two-col { align-items: stretch; }
+#equity .two-col > .panel { display: flex; flex-direction: column; }
+
 .panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); padding: clamp(1rem, 2.5vw, 1.8rem); }
 
 .hero { padding: clamp(3.5rem, 7vw, 6rem) clamp(1rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4.5rem); border-bottom: 1px solid var(--line); }
@@ -104,7 +107,7 @@
 .abstract-title { font-size: clamp(1.6rem, 2.6vw, 2.3rem); letter-spacing: -.03em; font-weight: 600; margin: 0 0 .6rem; max-width: 24ch; }
 .abstract-byline { font-family: var(--mono); font-size: .82rem; color: var(--faint); margin: 0 0 2.5rem; }
 .abstract-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; align-items: start; }
-.abstract-col { display: grid; gap: 1rem; min-width: 0; }
+.abstract-col { display: grid; gap: 1rem; min-width: 0; align-content: start; }
 .abstract-section { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); padding: 1.5rem; }
 .abstract-section-h { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 .9rem; }
 .abstract-section-body { color: var(--muted); line-height: 1.75; margin: 0; font-size: .95rem; }
@@ -122,6 +125,9 @@
 .result-text.null { color: var(--muted); }
 .result-text.warn { color: var(--text); }
 .objectives-panel { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012)); padding: 1.25rem 1.5rem; }
+.objectives-band { margin-top: 1rem; }
+.objectives-band .objective-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem 1.75rem; }
+.objectives-band .objective-row { margin-bottom: 0; }
 .objective-row { display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: start; margin-bottom: .55rem; }
 .objective-row:last-child { margin-bottom: 0; }
 .objective-num { font-family: var(--mono); font-size: .74rem; font-weight: 600; color: var(--accent); padding-top: .1rem; }
