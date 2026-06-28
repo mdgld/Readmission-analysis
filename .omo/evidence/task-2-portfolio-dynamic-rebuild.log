@@ -1,0 +1,34 @@
+# T2 — Canonical root data.json + allowlisted web figure staging
+
+## Deliverables
+- `data.json` (root) — single source of truth, 467→ restructured with ALL page data
+- `assets/figures/*.png` — 12 web-staged figure copies (allowlist-only, no figures/*.csv shipped)
+
+## Acceptance criteria (all PASS)
+- `.venv/bin/python -c "import json;d=json.load(open('data.json'));assert d['summary']['n']==2652"` ✓
+- `.venv/bin/python tools/verify_restraint.py --check-datajson data.json` → OK (restraint fields match AUTHORITATIVE) ✓
+- All 12 `data.json` figure `file` paths exist under `assets/figures/` ✓
+
+## Structure
+- `summary`: n, readmitted, readmission_rate, age_mean/range, ace, restraint (AUTHORITATIVE: n=510, rate_restrained=13.5%, not_restrained=2142), diagnosis_records, icd_codes, dsm5_categories, best_oof_auc
+- `pipeline`: 5 steps (verbatim from baseline)
+- `findings`: cohort_rate, demo_max, groups (age 8-band, gender 2, cssrs 2, insurance 2 + note, restraint 2 AUTHORITATIVE), groupStats (gender/cssrs/insurance/restraint OR/CI/p — restraint = 1.52/1.06-2.18/.022)
+- `spectrum`: 17 DSM-5 categories (rate/n/readmitted), dx_max, prose_note (DMDD 14.2%)
+- `models`: forest (6 predictors — restraint AUTHORITATIVE 1.52[1.06-2.18] p=0.022), auc (3 models × apparent/corrected/oof), optimism_delta (0.047/0.169/0.263), clinical_read
+- `equity`: fairness (4 pairings), subgroups (12 with 3 AUCs each)
+- `figures`: 12 entries with id/title/tag/file (file → assets/figures/)
+- `abstract`: title, byline, sections (Objectives/Methods/Conclusions), results (6 chips — restraint chip = "OR 1.52, p = 0.022"), objectives (4)
+
+## Restraint reconciliation applied
+- findings.groups.restraint: [{n:510, readmitted:69, rate:13.5}, {n:2142, readmitted:177, rate:8.3}]
+- findings.groupStats.restraint: {or:"1.52", ci:"1.06–2.18", p:".022"}
+- models.forest[1]: {label:"Physical restraint use", or:1.52, lo:1.06, hi:2.18, p:0.022}
+- abstract.results[1]: "Physical restraint use — OR 1.52, p = 0.022; also the largest driver of length of stay"
+- equity.subgroups[10]: "With Restraints" n=510, readmit_rate=13.5%
+- equity.subgroups[11]: "Without Restraints" n=2142, readmit_rate=8.3%
+
+## Figure staging
+12 PNGs copied from `figures/` → `assets/figures/`:
+Cohort_Descriptive_Overview, Fig2_demographics_panel, Fig3_readmission_by_dsm5, Fig7_forest_plot, Fig8_ROC_curves, AdvStats_optimism_validation, AdvStats_fairness, Fig14_flagging_thresholds, Fig_Recon_7_predictive_ceiling, Fig9_Feature_Importance_SideBySide, Fig10_SHAP_summary, Fig_Calibration
+
+The `assets/figures/` dir is part of the deploy allowlist (T14); `figures/*.csv` and `data/**` are NOT staged and will never ship.

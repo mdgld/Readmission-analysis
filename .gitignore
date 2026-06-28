@@ -31,5 +31,13 @@ catboost_info/
 *.bmp
 *.ico
 
-# Allow portfolio static assets for GitHub Pages
+# Allow web-staged figure assets for the portfolio
 !portfolio/assets/*.png
+!assets/figures/*.png
+_site/
+
+# Local tooling state (not for version control)
+.omc/
+.serena/
+.omo/drafts/
+.omo/run-continuation/
