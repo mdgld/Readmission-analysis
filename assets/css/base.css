@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+html { scroll-padding-top: 5rem; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p, dl, dd, figure { margin: 0; }
+h1, h2 { font-family: var(--serif); font-weight: 500; text-wrap: balance; }
+h1 { font-size: clamp(2.8rem, 5.4vw, 4.85rem); line-height: 1.02; letter-spacing: -.048em; }
+h2 { font-size: clamp(2.1rem, 3.65vw, 3.25rem); line-height: 1.08; letter-spacing: -.04em; }
+h3 { font-size: 1.1rem; line-height: 1.35; }
+a { color: inherit; text-underline-offset: .25em; }
+button, select { font: inherit; color: inherit; }
+button, summary, select { cursor: pointer; }
+img, canvas { max-width: 100%; }
+::selection { background: #c8e0d4; color: var(--ink); }
+:focus-visible { outline: 3px solid #aa671f; outline-offset: 3px; }
+.skip-link { position: fixed; z-index: 100; top: .5rem; left: .5rem; transform: translateY(-160%); background: var(--paper); padding: .6rem 1rem; }
+.skip-link:focus { transform: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }

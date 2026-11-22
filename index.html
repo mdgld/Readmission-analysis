@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#143c37">
+  <title>Psychiatric readmission in children aged 5–12 | Gold &amp; Ritfeld</title>
+  <meta name="description" content="A study of 90-day psychiatric readmission among 2,652 children treated at one Arizona hospital between 2017 and 2024.">
+  <meta property="og:title" content="Psychiatric readmission in children aged 5–12">
+  <meta property="og:description" content="Gold and Ritfeld report on 90-day outcomes after inpatient psychiatric care at one Arizona hospital.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/charts.css">
+  <script defer src="assets/vendor/chart-4.4.7.umd.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#study">Skip to study</a>
+<header class="site-header">
+  <div class="container masthead">
+    <a class="brand" href="#study">Gold &amp; Ritfeld <span class="brand-separator" aria-hidden="true">|</span> <span class="brand-study">Arizona Cohort study 2017-2024</span></a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="sections">Sections <span aria-hidden="true">▾</span></button>
+    <nav id="sections" class="site-nav" data-nav aria-label="Study sections">
+      <a href="#methods">Methods</a><a href="#findings">Findings</a><a href="#spectrum">Diagnoses</a><a href="#models">Models</a><a href="#equity">Subgroups</a><a href="#figures">Figures</a><a href="#abstract">Abstract</a>
+    </nav>
+  </div>
+</header>
+<main id="study">
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Psychiatric readmission in children aged&nbsp;5–12</h1>
+          <p class="hero-lead">We studied which children returned to one Arizona hospital within 90 days of discharge, and how well diagnoses, screening results and other information from their admission predicted that return.</p>
+          <div class="hero-actions"><a class="btn" href="#findings">Read the findings <span aria-hidden="true">↓</span></a><a class="text-link" href="#abstract">Conference abstract</a></div>
+        </div>
+        <figure class="cohort-figure">
+          <figcaption>Readmitted within 90 days</figcaption>
+          <div class="cohort-rate" data-cohort-rate>9.3<span>%</span></div>
+          <p class="cohort-count" data-cohort-count>246 of 2,652 children</p>
+          <canvas data-cohort-plot role="img" aria-label="Each dot is one child. Of 2,652 children, 246 were readmitted within 90 days."></canvas>
+          <p class="dot-note">Each dot represents one child.</p>
+          <div class="cohort-key"><span>Readmitted</span><span>No recorded readmission</span></div>
+        </figure>
+      </div>
+      <dl class="facts" data-metrics-body aria-label="Cohort characteristics"></dl>
+    </div>
+  </div>
+
+  <section id="methods" class="section">
+    <div class="container two-col methods-grid">
+      <div class="study-prose">
+        <h2>Study methods</h2>
+        <p>We reviewed the records of children aged 5–12 admitted for psychiatric care from 2017 through 2024. The outcome was a return to the same hospital within 90 days of discharge. A child with multiple returns counted once.</p>
+        <p>We used regression to estimate how clinical characteristics related to readmission. In a separate analysis, we tested how well three models predicted readmission for children whose records were held out of training.</p>
+      </div>
+      <div class="pipeline" data-pipeline></div>
+    </div>
+  </section>
+
+  <section id="findings" class="section">
+    <div class="container">
+      <header class="centered-section">
+        <h2>Who returned within 90 days?</h2>
+        <p class="section-lead">Compare observed readmission rates by age, recorded gender, suicide screening, insurance and physical restraint use. The reference line marks the rate for all children in the cohort.</p>
+      </header>
+      <div class="demo-grid" data-charts-demographics></div>
+    </div>
+  </section>
+
+  <section id="spectrum" class="section">
+    <div class="container">
+      <header class="centered-section">
+        <h2>Readmission by diagnosis</h2>
+        <p class="section-lead" data-spectrum-intro></p>
+      </header>
+      <div class="panel" data-charts-spectrum></div>
+    </div>
+  </section>
+
+  <section id="models" class="section">
+    <div class="container">
+      <h2>Clinical associations and model performance</h2>
+      <p class="section-lead">We used logistic regression in the full cohort to estimate how each clinical characteristic was associated with readmission after accounting for the others. In a separate prediction analysis, all three models used the same recorded characteristics, including age, diagnoses and screening results.</p>
+      <div class="model-guide">
+        <h3>How the three models work</h3>
+        <dl class="model-guide-grid">
+          <div>
+            <dt>Logistic regression</dt>
+            <dd>Assigns a weight to each characteristic and combines those weights to estimate the chance of readmission. In the full-cohort analysis, those weights also give us the adjusted odds ratios shown below.</dd>
+          </div>
+          <div>
+            <dt>Random forest</dt>
+            <dd>Builds many decision trees. Each tree asks a series of yes-or-no questions, such as whether a child is under 10. The trees learn from different samples of records, and the forest averages their estimates.</dd>
+          </div>
+          <div>
+            <dt>CatBoost</dt>
+            <dd>Builds a sequence of decision trees, one at a time. Each new tree tries to improve the combined predictions from the earlier trees. This approach is called boosting.</dd>
+          </div>
+        </dl>
+        <div class="model-validation">
+          <div>
+            <h3>How we tested predictions</h3>
+            <p>We divided the children into ten groups. Each model learned from nine groups and predicted readmission for the tenth. Each group took a turn, so every child received a prediction from a model trained on other children.</p>
+          </div>
+          <div>
+            <h3>What does an AUC of 0.660 mean?</h3>
+            <p>Imagine picking two children at random, one who returned and one who did not. How often did logistic regression give the higher score to the child who returned? About 66% of the time, counting ties as half. This is the area under the ROC curve (AUC). Chance alone would give 50%.</p>
+          </div>
+        </div>
+      </div>
+      <div class="models-grid"><div class="panel" data-charts-forest></div><div class="panel" data-charts-models></div></div>
+      <div class="clinical-read" data-clinical-read></div>
+    </div>
+  </section>
+
+  <section id="equity" class="section">
+    <div class="container">
+      <div class="two-col equity-grid"><div class="study-prose" data-equity-prose></div><div class="panel" data-charts-equity></div></div>
+      <div class="panel subgroup-explorer-panel" data-subgroup-explorer></div>
+    </div>
+  </section>
+
+  <section id="figures" class="section">
+    <div class="container">
+      <h2>Study figures</h2>
+      <p class="section-lead">Open a figure to see its labels and estimates at full size.</p>
+      <div class="gallery-grid" data-gallery></div>
+    </div>
+  </section>
+
+  <section id="abstract" class="section">
+    <div class="container">
+      <p class="kicker">AACAP 2026 Annual Meeting</p>
+      <h2>Conference abstract</h2>
+      <p class="abstract-byline">Gold &amp; Ritfeld · Summary of the July 2026 draft</p>
+      <article class="abstract" data-abstract aria-label="Abstract summary"></article>
+      <details class="objectives" data-objectives><summary>Learning objectives</summary></details>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><span>Gold &amp; Ritfeld · Pediatric psychiatry</span><a href="#study">Back to top ↑</a></div></footer>
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
