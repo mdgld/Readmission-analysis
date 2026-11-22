@@ -1,26 +1,26 @@
 :root {
-  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-
-  --bg: #0b0d13;
-  --bg-2: #0e1119;
-
-  --panel: rgba(255,255,255,.022);
-  --panel-2: rgba(255,255,255,.045);
-
-  --line: rgba(255,255,255,.09);
-  --line-2: rgba(255,255,255,.055);
-
-  --text: #e8ecf4;
-  --muted: #98a3ba;
-  --faint: #646f88;
-
-  --accent: #6fb2f0;
-  --risk: #e8927c;
-  --protect: #7cc0a6;
-  --warn: #d8b06a;
-
-  --radius: 14px;
-  --radius-sm: 8px;
-  --max-width: 1240px;
+  --sans: "Helvetica Neue", Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --bg: #f8f8f2;
+  --bg-2: #ffffff;
+  --panel: #fffefa;
+  --panel-2: #e6eeea;
+  --line: #ccd5cd;
+  --line-2: #e1e6df;
+  --text: #182e2c;
+  --muted: #495f59;
+  --faint: #536661;
+  --accent: #12655e;
+  --risk: #985037;
+  --protect: #12655e;
+  --warn: #855720;
+  --ink: #143c37;
+  --paper: #fffefa;
+  --radius: 4px;
+  --radius-sm: 3px;
+  --gutter: clamp(1rem, 5vw, 4.75rem);
+  --gap: clamp(1rem, 2vw, 1.75rem);
+  --card-pad: clamp(1rem, 2.15vw, 1.85rem);
+  --max-width: 73rem;
 }

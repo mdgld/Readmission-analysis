@@ -1,15 +1,9 @@
 import { loadData } from './data.js';
-import { pTwoSided, stars, sigLevel, colorByDirection, COHORT_RATE } from './format.js';
+import { applyChartDefaults, chartScales, CHART_COLORS, COHORT_RATE } from './format.js';
 
 const REDUCED = window.__reducedMotion || matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (typeof Chart !== 'undefined') {
-  Chart.defaults.color = '#cbd5e1';
-  Chart.defaults.borderColor = 'rgba(255,255,255,.09)';
-  Chart.defaults.font.family = "'Geist Mono', ui-monospace, monospace";
-  Chart.defaults.font.size = 11;
-}
-
+applyChartDefaults();
 document.addEventListener('portfolio:ready', renderDemographics);
 
 async function renderDemographics() {
@@ -19,190 +13,94 @@ async function renderDemographics() {
   if (!container) return;
 
   const groups = data.findings.groups;
-  const groupStats = data.findings.groupStats;
-  const demoMax = data.findings.demo_max || 15;
-
+  const stats = data.findings.groupStats;
   const panels = [
-    { key: 'age', title: 'By age band', cls: 'demo-card demo-card--wide', showR: false, footnote: 'Unit age cap is 12; 12-year-olds aging out of eligibility cannot be readmitted to this site, which is a plausible explanation of the observed rate depression.' },
-    { key: 'gender', title: 'By gender identity', cls: 'demo-card demo-card--wide', showR: true, stats: groupStats.gender },
-    { key: 'cssrs', title: 'By C-SSRS flag', cls: 'demo-card', showR: true, stats: groupStats.cssrs },
-    { key: 'insurance', title: 'By insurance', cls: 'demo-card', showR: true, stats: groupStats.insurance, note: data.findings.groups.insurance_note },
-    { key: 'restraint', title: 'By physical restraint', cls: 'demo-card', showR: true, stats: groupStats.restraint },
+    { key: 'age', title: 'Age band', cls: 'demo-card demo-card--wide', footnote: 'Age at the index admission.' },
+    { key: 'gender', title: 'Gender identity', cls: 'demo-card demo-card--wide', stats: stats.gender },
+    { key: 'cssrs', title: 'C-SSRS flag', cls: 'demo-card', stats: stats.cssrs, note: groups.cssrs_note },
+    { key: 'insurance', title: 'Insurance', cls: 'demo-card', stats: stats.insurance, note: groups.insurance_note },
+    { key: 'restraint', title: 'Physical restraint', cls: 'demo-card', stats: stats.restraint },
   ];
 
-  container.innerHTML = '';
-  for (const p of panels) {
-    const items = groups[p.key];
+  container.replaceChildren();
+  for (const panel of panels) {
+    const items = groups[panel.key];
     if (!items) continue;
-    const card = document.createElement('div');
-    card.className = p.cls;
 
-    const h3 = document.createElement('h3');
-    h3.className = 'demo-card-title';
-    h3.textContent = p.title;
-    if (p.note) {
-      const note = document.createElement('span');
-      note.style.cssText = 'font-family:var(--mono);font-size:.6rem;color:var(--faint);margin-left:.6rem;font-weight:400';
-      note.textContent = p.note;
-      h3.appendChild(note);
-    }
-    card.appendChild(h3);
-
-    const canvas = document.createElement('canvas');
-    canvas.setAttribute('role', 'img');
-    const ariaParts = items.map(d => `${d.label} ${d.rate.toFixed(1)}% (n=${d.n})`);
-    canvas.setAttribute('aria-label', `Readmission rate by ${p.title.toLowerCase()}: ${ariaParts.join(', ')}. Cohort baseline ${COHORT_RATE}%.`);
-    const canvasWrap = document.createElement('div');
-    canvasWrap.style.cssText = `position:relative;${p.key === 'age' ? 'height:240px' : `height:${items.length <= 2 ? 180 : Math.max(160, items.length * 36)}px`}`;
-    canvasWrap.appendChild(canvas);
-    card.appendChild(canvasWrap);
-
-    if (p.stats) {
-      const foot = document.createElement('div');
-      foot.className = 'demo-foot';
-      foot.innerHTML = `<span>OR <span>${p.stats.or}</span></span><span>95% CI <span>${p.stats.ci}</span></span><span>p <span>${p.stats.p}</span></span>`;
-      card.appendChild(foot);
-    }
-
-    if (p.footnote) {
-      const fn = document.createElement('p');
-      fn.style.cssText = 'margin:1.2rem 0 0;padding-top:.9rem;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.64rem;line-height:1.5;color:var(--faint)';
-      fn.innerHTML = `<span style="color:var(--accent)">\u2020</span> ${p.footnote}`;
-      card.appendChild(fn);
-    }
-
+    const card = document.createElement('article');
+    card.className = panel.cls;
+    card.innerHTML = `
+      <header class="chart-header">
+        <div><h3 class="chart-title">${panel.title}</h3></div>
+        <span class="chart-measure">90-day readmission</span>
+      </header>
+      <div class="chart-frame ${panel.key === 'age' ? 'chart-frame--age' : 'chart-frame--compact'}"><canvas role="img"></canvas></div>
+      ${panel.stats ? statisticFooter(panel.stats) : ''}
+      ${(panel.note || panel.footnote) ? `<p class="chart-note">${panel.note || panel.footnote}</p>` : ''}
+    `;
+    const canvas = card.querySelector('canvas');
+    canvas.setAttribute('aria-label', `Readmission rate by ${panel.title.toLowerCase()}. ${items.map(item => `${item.label}: ${item.rate.toFixed(1)}%, ${item.readmitted} of ${item.n}`).join('. ')}. Cohort rate: ${COHORT_RATE}%.`);
     container.appendChild(card);
-
-    const labels = items.map(d => d.mark ? `${d.label} ${d.mark}` : d.label);
-    const rates = items.map(d => d.rate);
-    const p0 = COHORT_RATE / 100;
-    const colors = items.map(d => {
-      const p = pTwoSided(d.readmitted / d.n, p0, d.n);
-      const lvl = sigLevel(p);
-      if (lvl === 0) return 'rgba(255,255,255,.22)';
-      return d.rate >= COHORT_RATE ? '#e8927c' : '#7cc0a6';
-    });
-
-    const horizontal = p.key === 'age';
-
-    new Chart(canvas, {
-      type: 'bar',
-      data: {
-        labels,
-        datasets: [{
-          data: rates,
-          backgroundColor: colors,
-          borderRadius: 3,
-          barPercentage: 0.7,
-        }]
-      },
-      options: {
-        indexAxis: horizontal ? 'y' : 'x',
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: REDUCED ? false : { duration: 600, easing: 'easeOutQuart' },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: (ctx) => {
-                const d = items[ctx.dataIndex];
-                const p = pTwoSided(d.readmitted / d.n, p0, d.n);
-                const s = stars(p);
-                return [`Rate: ${d.rate.toFixed(1)}%`, `n=${d.n}, readmit=${d.readmitted}`, s ? `p=${p.toFixed(4)} ${s}` : 'n.s.'];
-              }
-            }
-          },
-          annotation: {}
-        },
-        layout: { padding: horizontal ? { right: 28 } : { top: 18 } },
-        scales: horizontal ? {
-          x: {
-            max: demoMax + 1,
-            beginAtZero: true,
-            grid: { color: 'rgba(255,255,255,.05)' },
-            ticks: { callback: (v) => v + '%', maxTicksLimit: 8 }
-          },
-          y: {
-            grid: { display: false },
-            ticks: { font: { size: 10 }, autoSkip: false }
-          }
-        } : {
-          x: {
-            grid: { display: false },
-            ticks: { font: { size: 10 } }
-          },
-          y: {
-            max: demoMax + 1,
-            beginAtZero: true,
-            grid: { color: 'rgba(255,255,255,.05)' },
-            ticks: { callback: (v) => v + '%', maxTicksLimit: 8 }
-          }
-        }
-      },
-      plugins: [baselineLinePlugin(COHORT_RATE, demoMax, horizontal), starsOnBarsPlugin(items, p0, horizontal)]
-    });
+    renderChart(canvas, items, panel.key === 'age', Math.max(20, data.findings.demo_max || 0));
   }
 }
 
-function starsOnBarsPlugin(items, p0, horizontal) {
-  return {
-    id: 'starsOnBars',
-    afterDatasetsDraw(chart) {
-      const { ctx, scales } = chart;
-      ctx.save();
-      ctx.font = "bold 11px 'Geist Mono', ui-monospace, monospace";
-      ctx.fillStyle = 'rgba(255,255,255,.85)';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      items.forEach((d, i) => {
-        const p = pTwoSided(d.readmitted / d.n, p0, d.n);
-        const s = stars(p);
-        if (!s) return;
-        if (horizontal) {
-          const xScale = scales.x;
-          const yScale = scales.y;
-          const x = xScale.getPixelForValue(d.rate) + 18;
-          const y = yScale.getPixelForTick(i);
-          ctx.fillText(s, x, y);
-        } else {
-          const xScale = scales.x;
-          const yScale = scales.y;
-          const x = xScale.getPixelForTick(i);
-          const y = yScale.getPixelForValue(d.rate) - 10;
-          ctx.fillText(s, x, y);
-        }
-      });
-      ctx.restore();
-    }
-  };
+function statisticFooter(stats) {
+  return `<dl class="chart-stats" aria-label="Unadjusted pairwise comparison"><div><dt>Unadjusted OR</dt><dd>${stats.or}</dd></div><div><dt>95% CI</dt><dd>${stats.ci}</dd></div><div><dt>Fisher p</dt><dd>${stats.p}</dd></div></dl>`;
 }
 
-function baselineLinePlugin(baseline, maxVal, horizontal) {
-  return {
-    id: 'baselineLine',
-    afterDraw(chart) {
-      const { ctx, chartArea, scales } = chart;
-      ctx.save();
-      ctx.strokeStyle = '#6fb2f0';
-      ctx.lineWidth = 1;
-      ctx.globalAlpha = 0.6;
-      ctx.beginPath();
+function renderChart(canvas, items, horizontal, max) {
+  const colors = items.map(item => item.rate > COHORT_RATE ? CHART_COLORS.risk : item.rate < COHORT_RATE ? CHART_COLORS.protect : CHART_COLORS.neutral);
+
+  new Chart(canvas, {
+    type: 'bar',
+    data: { labels: items.map(item => item.mark ? `${item.label} ${item.mark}` : item.label), datasets: [{ data: items.map(item => item.rate), backgroundColor: colors, borderRadius: 2, borderSkipped: false, barPercentage: .68, maxBarThickness: 34 }] },
+    options: {
+      indexAxis: horizontal ? 'y' : 'x', responsive: true, maintainAspectRatio: false,
+      animation: REDUCED ? false : { duration: 350 }, layout: { padding: horizontal ? { right: 28 } : { top: 20 } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => {
+        const item = items[ctx.dataIndex];
+        return [`${item.rate.toFixed(1)}% readmitted`, `${item.readmitted} of ${item.n} patients`];
+      } } } },
+      scales: horizontal ? horizontalScales(max) : verticalScales(max),
+    },
+    plugins: [baselineLine(COHORT_RATE, horizontal), valueLabels(items, horizontal)],
+  });
+}
+
+function valueLabels(items, horizontal) {
+  return { id: `demographicValues-${horizontal}`, afterDatasetsDraw(chart) {
+    const { ctx, scales } = chart;
+    ctx.save(); ctx.font = '600 10px Inter, ui-sans-serif, system-ui, sans-serif'; ctx.fillStyle = CHART_COLORS.text;
+    items.forEach((item, index) => {
       if (horizontal) {
-        const xScale = scales.x;
-        if (!xScale) return;
-        const x = xScale.getPixelForValue(baseline);
-        ctx.moveTo(x, chartArea.top);
-        ctx.lineTo(x, chartArea.bottom);
+        ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText(`${item.rate.toFixed(1)}%`, scales.x.getPixelForValue(item.rate) + 5, scales.y.getPixelForTick(index));
       } else {
-        const yScale = scales.y;
-        if (!yScale) return;
-        const y = yScale.getPixelForValue(baseline);
-        ctx.moveTo(chartArea.left, y);
-        ctx.lineTo(chartArea.right, y);
+        ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+        ctx.fillText(`${item.rate.toFixed(1)}%`, scales.x.getPixelForTick(index), scales.y.getPixelForValue(item.rate) - 5);
       }
-      ctx.stroke();
-      ctx.restore();
-    }
-  };
+    });
+    ctx.restore();
+  } };
+}
+
+function horizontalScales(max) {
+  const base = chartScales();
+  return { x: { ...base, max: max + 1, beginAtZero: true, ticks: { ...base.ticks, callback: value => `${value}%`, maxTicksLimit: 6 } }, y: { ...base, grid: { display: false }, ticks: { ...base.ticks, autoSkip: false } } };
+}
+
+function verticalScales(max) {
+  const base = chartScales();
+  return { x: { ...base, grid: { display: false }, ticks: { ...base.ticks, maxRotation: 0, minRotation: 0 } }, y: { ...base, max: max + 1, beginAtZero: true, ticks: { ...base.ticks, callback: value => `${value}%`, maxTicksLimit: 6 } } };
+}
+
+function baselineLine(value, horizontal) {
+  return { id: `cohortBaseline-${horizontal}`, afterDraw(chart) {
+    const { ctx, chartArea, scales } = chart;
+    ctx.save(); ctx.strokeStyle = CHART_COLORS.teal; ctx.lineWidth = 1.25; ctx.setLineDash([4, 3]); ctx.beginPath();
+    if (horizontal) { const x = scales.x.getPixelForValue(value); ctx.moveTo(x, chartArea.top); ctx.lineTo(x, chartArea.bottom); }
+    else { const y = scales.y.getPixelForValue(value); ctx.moveTo(chartArea.left, y); ctx.lineTo(chartArea.right, y); }
+    ctx.stroke(); ctx.restore();
+  } };
 }

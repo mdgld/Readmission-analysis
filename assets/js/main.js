@@ -17,6 +17,5 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
-  console.log('[portfolio] shell loaded');
   document.dispatchEvent(new CustomEvent('portfolio:ready'));
 }

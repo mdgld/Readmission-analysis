@@ -1,82 +1,33 @@
-const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-window.__reducedMotion = REDUCED;
+const button = document.querySelector('.nav-toggle');
+const nav = document.querySelector('[data-nav]');
+const links = Array.from(nav.querySelectorAll('a'));
+const chapters = links.map(link => document.querySelector(link.hash));
 
-if (!REDUCED) {
-  initScrollReveal();
-  initCounters();
-  initScrollspy();
-} else {
-  document.documentElement.classList.add('reduced-motion');
+function closeMenu() {
+  button.setAttribute('aria-expanded', 'false');
 }
 
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+button.addEventListener('click', () => {
+  button.setAttribute('aria-expanded', String(button.getAttribute('aria-expanded') !== 'true'));
+});
+nav.addEventListener('click', closeMenu);
+document.addEventListener('click', event => {
+  if (!event.target.closest('.masthead')) closeMenu();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+    closeMenu();
+    button.focus();
+  }
+});
 
-  document.querySelectorAll('.section, .demo-card, .panel, .gallery-card, .metric-row, .pipeline-row').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
+function markChapter() {
+  const top = document.querySelector('.site-header').getBoundingClientRect().height + 60;
+  const current = chapters.filter(section => section.getBoundingClientRect().top <= top).pop();
+  for (const link of links) {
+    if (current && link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
 }
-
-function initCounters() {
-  const counters = document.querySelectorAll('.metric-v');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const text = el.textContent;
-      const numMatch = text.match(/^([\d,]+(?:\.\d+)?)$/);
-      if (!numMatch) { observer.unobserve(el); return; }
-      const target = parseFloat(numMatch[1].replace(/,/g, ''));
-      if (isNaN(target)) { observer.unobserve(el); return; }
-      const hasComma = numMatch[1].includes(',');
-      const hasDecimal = numMatch[1].includes('.');
-      const decimals = hasDecimal ? numMatch[1].split('.')[1].length : 0;
-      const duration = 1200;
-      const start = performance.now();
-      function tick(now) {
-        const t = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
-        const val = target * eased;
-        el.textContent = hasComma ? Math.round(val).toLocaleString('en-US') : val.toFixed(decimals);
-        if (t < 1) requestAnimationFrame(tick);
-        else el.textContent = hasComma ? Math.round(target).toLocaleString('en-US') : target.toFixed(decimals);
-      }
-      requestAnimationFrame(tick);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c => observer.observe(c));
-}
-
-function initScrollspy() {
-  const nav = document.querySelector('[data-nav]');
-  if (!nav) return;
-  nav.style.display = 'flex';
-
-  const links = nav.querySelectorAll('a');
-  const sections = ['findings', 'spectrum', 'models', 'equity', 'abstract']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        links.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-
-  sections.forEach(s => observer.observe(s));
-}
+const observer = new IntersectionObserver(markChapter, { rootMargin: '-10% 0px -80% 0px' });
+for (const chapter of chapters) observer.observe(chapter);

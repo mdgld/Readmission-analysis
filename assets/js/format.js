@@ -45,13 +45,52 @@ export function sigLevel(p) {
 }
 
 export function colorByDirection(rate, baseline = 9.3) {
-  if (rate > baseline + 0.4) return getComputedStyle(document.documentElement).getPropertyValue('--risk').trim() || '#e8927c';
-  if (rate < baseline - 0.4) return getComputedStyle(document.documentElement).getPropertyValue('--protect').trim() || '#7cc0a6';
-  return 'rgba(255,255,255,.22)';
+  if (rate > baseline + 0.4) return CHART_COLORS.risk;
+  if (rate < baseline - 0.4) return CHART_COLORS.protect;
+  return CHART_COLORS.neutral;
 }
 
 export const COHORT_RATE = 9.3;
 export const COHORT_N = 2652;
+
+export const CHART_COLORS = Object.freeze({
+  text: '#182e2c',
+  muted: '#536661',
+  line: '#d5ddd6',
+  grid: 'rgba(83, 102, 97, .16)',
+  paper: '#fbfcf8',
+  teal: '#12655e',
+  tealSoft: '#8fb9b1',
+  risk: '#985037',
+  protect: '#12655e',
+  neutral: '#a8b3ae',
+  neutralSoft: '#dfe5df',
+  caution: '#9a6a2f',
+});
+
+export function chartScales() {
+  return {
+    grid: { color: CHART_COLORS.grid, drawBorder: false },
+    border: { color: CHART_COLORS.line },
+    ticks: {
+      color: CHART_COLORS.muted,
+      font: { family: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", size: 11 },
+    },
+  };
+}
+
+export function applyChartDefaults() {
+  if (typeof Chart === 'undefined') return;
+  Chart.defaults.color = CHART_COLORS.muted;
+  Chart.defaults.borderColor = CHART_COLORS.line;
+  Chart.defaults.font.family = "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.plugins.tooltip.backgroundColor = CHART_COLORS.text;
+  Chart.defaults.plugins.tooltip.titleColor = '#fff';
+  Chart.defaults.plugins.tooltip.bodyColor = '#fff';
+  Chart.defaults.plugins.tooltip.cornerRadius = 3;
+  Chart.defaults.plugins.tooltip.padding = 10;
+}
 
 if (typeof window !== 'undefined') {
   window.__fmt = { fmt, pct, fmtCI, fmtP, stars, logScale, pTwoSided, sigLevel, colorByDirection };

@@ -1,184 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pediatric Psychiatric Readmission Analytics — Gold & Ritfeld</title>
-<meta name="description" content="A single-site cohort of 2,652 children aged 5–12 admitted for inpatient psychiatric care. DSM-5-informed features, interactive figures, and an honest assessment of what machine learning can — and cannot — predict.">
-<meta property="og:title" content="Pediatric Psychiatric Readmission Analytics">
-<meta property="og:description" content="From ICD-10 mapping to clinically honest prediction. 2,652 children, 2017–2024, single Arizona unit.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/tokens.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/layout.css">
-<link rel="stylesheet" href="assets/css/motion.css">
-<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#143c37">
+  <title>Psychiatric readmission in children aged 5–12 | Gold &amp; Ritfeld</title>
+  <meta name="description" content="A study of 90-day psychiatric readmission among 2,652 children treated at one Arizona hospital between 2017 and 2024.">
+  <meta property="og:title" content="Psychiatric readmission in children aged 5–12">
+  <meta property="og:description" content="Gold and Ritfeld report on 90-day outcomes after inpatient psychiatric care at one Arizona hospital.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/charts.css">
+  <script defer src="assets/vendor/chart-4.4.7.umd.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#methods">Skip to content</a>
-
+<a class="skip-link" href="#study">Skip to study</a>
 <header class="site-header">
-  <div class="brand">
-    <span class="brand-dot" aria-hidden="true"></span>
-    <span class="brand-name">MDGLD</span>
-    <span class="brand-sub">/ pediatric&nbsp;psychiatry&nbsp;analytics</span>
+  <div class="container masthead">
+    <a class="brand" href="#study">Gold &amp; Ritfeld <span class="brand-separator" aria-hidden="true">|</span> <span class="brand-study">Arizona Cohort study 2017-2024</span></a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="sections">Sections <span aria-hidden="true">▾</span></button>
+    <nav id="sections" class="site-nav" data-nav aria-label="Study sections">
+      <a href="#methods">Methods</a><a href="#findings">Findings</a><a href="#spectrum">Diagnoses</a><a href="#models">Models</a><a href="#equity">Subgroups</a><a href="#figures">Figures</a><a href="#abstract">Abstract</a>
+    </nav>
   </div>
-  <nav class="site-nav" data-nav aria-label="Section navigation">
-    <a href="#findings">findings</a>
-    <a href="#spectrum">spectrum</a>
-    <a href="#models">models</a>
-    <a href="#equity">equity</a>
-    <a href="#abstract">abstract</a>
-  </nav>
-  <span class="site-status">single-site · 2017–2024 · n=2,652</span>
 </header>
-
-<main>
-  <section class="hero" data-screen-label="Hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <div class="eyebrow"><span class="eyebrow-rule" aria-hidden="true"></span><b>Clinical data-science case study</b></div>
-        <h1 class="hero-title">From ICD&#8209;10 mapping to clinically honest prediction</h1>
-        <p class="hero-lead">A single-site cohort of <span class="hl">2,652 children aged 5–12</span> admitted for inpatient psychiatric care. Raw EHR data became DSM-5-informed features, native interactive figures, and an explicit assessment of what machine learning can — and cannot — predict in small clinical datasets.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#spectrum">View the analysis <span aria-hidden="true">↓</span></a>
-          <a class="btn btn-ghost" href="#abstract">Read abstract</a>
-          <a class="btn btn-outline" href="#methods">Methods</a>
+<main id="study">
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Psychiatric readmission in children aged&nbsp;5–12</h1>
+          <p class="hero-lead">We studied which children returned to one Arizona hospital within 90 days of discharge, and how well diagnoses, screening results and other information from their admission predicted that return.</p>
+          <div class="hero-actions"><a class="btn" href="#findings">Read the findings <span aria-hidden="true">↓</span></a><a class="text-link" href="#abstract">Conference abstract</a></div>
         </div>
+        <figure class="cohort-figure">
+          <figcaption>Readmitted within 90 days</figcaption>
+          <div class="cohort-rate" data-cohort-rate>9.3<span>%</span></div>
+          <p class="cohort-count" data-cohort-count>246 of 2,652 children</p>
+          <canvas data-cohort-plot role="img" aria-label="Each dot is one child. Of 2,652 children, 246 were readmitted within 90 days."></canvas>
+          <p class="dot-note">Each dot represents one child.</p>
+          <div class="cohort-key"><span>Readmitted</span><span>No recorded readmission</span></div>
+        </figure>
       </div>
-      <aside class="readout-panel" data-metrics aria-label="Descriptive statistics">
-        <div class="readout-head"><span class="readout-dot" aria-hidden="true"></span><b>Descriptive Statistics</b></div>
-        <div class="readout-body" data-metrics-body></div>
-      </aside>
+      <dl class="facts" data-metrics-body aria-label="Cohort characteristics"></dl>
+    </div>
+  </div>
+
+  <section id="methods" class="section">
+    <div class="container two-col methods-grid">
+      <div class="study-prose">
+        <h2>Study methods</h2>
+        <p>We reviewed the records of children aged 5–12 admitted for psychiatric care from 2017 through 2024. The outcome was a return to the same hospital within 90 days of discharge. A child with multiple returns counted once.</p>
+        <p>We used regression to estimate how clinical characteristics related to readmission. In a separate analysis, we tested how well three models predicted readmission for children whose records were held out of training.</p>
+      </div>
+      <div class="pipeline" data-pipeline></div>
     </div>
   </section>
 
-  <section id="methods" class="section" data-screen-label="Overview">
+  <section id="findings" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-num">§01</span>
-        <span class="section-label">Premise</span>
-        <span class="section-rule" aria-hidden="true"></span>
-      </div>
-      <div class="two-col">
-        <div data-methods-prose></div>
-        <div class="pipeline-panel" data-pipeline aria-label="Analysis pipeline"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="findings" class="section section-alt" data-screen-label="Findings">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-num">§02</span>
-        <span class="section-label">Exploratory findings</span>
-        <span class="section-rule" aria-hidden="true"></span>
-      </div>
-      <div class="findings-head">
-        <h2 class="section-h2">Aggregate readmission patterns</h2>
-        <div class="findings-legend">
-          <span class="legend-item"><span class="swatch swatch-risk" aria-hidden="true"></span>above cohort</span>
-          <span class="legend-item"><span class="swatch swatch-protect" aria-hidden="true"></span>below</span>
-          <span class="legend-item"><span class="swatch swatch-baseline" aria-hidden="true"></span>cohort 9.3% readmission rate</span>
-          <span class="legend-sep" aria-hidden="true">·</span>
-          <span class="legend-item"><span class="star star-1" aria-hidden="true">*</span>p&lt;.05</span>
-          <span class="legend-item"><span class="star star-2" aria-hidden="true">**</span>p&lt;.01</span>
-          <span class="legend-item"><span class="star star-3" aria-hidden="true">***</span>p&lt;.001</span>
-        </div>
-      </div>
+      <header class="centered-section">
+        <h2>Who returned within 90 days?</h2>
+        <p class="section-lead">Compare observed readmission rates by age, recorded gender, suicide screening, insurance and physical restraint use. The reference line marks the rate for all children in the cohort.</p>
+      </header>
       <div class="demo-grid" data-charts-demographics></div>
     </div>
   </section>
 
-  <section id="spectrum" class="section" data-screen-label="Diagnostic spectrum">
+  <section id="spectrum" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-num">§03</span>
-        <span class="section-label">Within-category heterogeneity</span>
-        <span class="section-rule" aria-hidden="true"></span>
-      </div>
-      <h2 class="section-h2">Readmission risk across the full diagnostic spectrum</h2>
-      <p class="section-lead" data-spectrum-intro>Every DSM-5 category (n ≥ 15) ranked by 90-day readmission rate — unadjusted bivariate, with no control for comorbidity. The 'Other Mental Disorder' bucket in earlier drafts was a single ICD code (homicidal ideation, R45.850, n=232, 26.7%) and is plotted as such. The reconciliation that matters: non-suicidal self-injury sits at the top here (29.2%) yet is independently protective in the adjusted model (§04, OR 0.38, p&lt;0.001), because the high raw rate is driven by NSSI's overlap with depression and suicidal ideation — once those covariates are controlled for, NSSI-only patients return less often than the cohort average. Suicidal ideation (R45.851), conversely, carries adjusted OR 2.59. The two self-harm constructs separate sharply once you differentiate.</p>
+      <header class="centered-section">
+        <h2>Readmission by diagnosis</h2>
+        <p class="section-lead" data-spectrum-intro></p>
+      </header>
       <div class="panel" data-charts-spectrum></div>
     </div>
   </section>
 
-  <section id="models" class="section section-alt" data-screen-label="Predictors and models">
+  <section id="models" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-num">§04</span>
-        <span class="section-label">Modeling takeaway</span>
-        <span class="section-rule" aria-hidden="true"></span>
+      <h2>Clinical associations and model performance</h2>
+      <p class="section-lead">We used logistic regression in the full cohort to estimate how each clinical characteristic was associated with readmission after accounting for the others. In a separate prediction analysis, all three models used the same recorded characteristics, including age, diagnoses and screening results.</p>
+      <div class="model-guide">
+        <h3>How the three models work</h3>
+        <dl class="model-guide-grid">
+          <div>
+            <dt>Logistic regression</dt>
+            <dd>Assigns a weight to each characteristic and combines those weights to estimate the chance of readmission. In the full-cohort analysis, those weights also give us the adjusted odds ratios shown below.</dd>
+          </div>
+          <div>
+            <dt>Random forest</dt>
+            <dd>Builds many decision trees. Each tree asks a series of yes-or-no questions, such as whether a child is under 10. The trees learn from different samples of records, and the forest averages their estimates.</dd>
+          </div>
+          <div>
+            <dt>CatBoost</dt>
+            <dd>Builds a sequence of decision trees, one at a time. Each new tree tries to improve the combined predictions from the earlier trees. This approach is called boosting.</dd>
+          </div>
+        </dl>
+        <div class="model-validation">
+          <div>
+            <h3>How we tested predictions</h3>
+            <p>We divided the children into ten groups. Each model learned from nine groups and predicted readmission for the tenth. Each group took a turn, so every child received a prediction from a model trained on other children.</p>
+          </div>
+          <div>
+            <h3>What does an AUC of 0.660 mean?</h3>
+            <p>Imagine picking two children at random, one who returned and one who did not. How often did logistic regression give the higher score to the child who returned? About 66% of the time, counting ties as half. This is the area under the ROC curve (AUC). Chance alone would give 50%.</p>
+          </div>
+        </div>
       </div>
-      <h2 class="section-h2">Feature discovery worked better than individual-level prediction</h2>
-      <div class="models-grid">
-        <div class="panel" data-charts-forest></div>
-        <div class="panel" data-charts-models></div>
-      </div>
+      <div class="models-grid"><div class="panel" data-charts-forest></div><div class="panel" data-charts-models></div></div>
       <div class="clinical-read" data-clinical-read></div>
     </div>
   </section>
 
-  <section id="equity" class="section" data-screen-label="Equity">
+  <section id="equity" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-num">§05</span>
-        <span class="section-label">Equity audit</span>
-        <span class="section-rule" aria-hidden="true"></span>
-      </div>
-      <div class="two-col">
-        <div data-equity-prose></div>
-        <div class="panel" data-charts-equity></div>
-      </div>
+      <div class="two-col equity-grid"><div class="study-prose" data-equity-prose></div><div class="panel" data-charts-equity></div></div>
       <div class="panel subgroup-explorer-panel" data-subgroup-explorer></div>
     </div>
   </section>
 
-  <section id="figures" class="section section-alt" data-screen-label="Figures">
+  <section id="figures" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-num">§06</span>
-        <span class="section-label">Static outputs for publication</span>
-        <span class="section-rule" aria-hidden="true"></span>
-      </div>
-      <div class="findings-head">
-        <h2 class="section-h2">Publication-ready figure catalog</h2>
-        <span class="fig-count">12 figures · matplotlib pipeline</span>
-      </div>
+      <h2>Study figures</h2>
+      <p class="section-lead">Open a figure to see its labels and estimates at full size.</p>
       <div class="gallery-grid" data-gallery></div>
     </div>
   </section>
 
-  <section id="abstract" class="section" data-screen-label="Abstract">
+  <section id="abstract" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-num">§07</span>
-        <span class="section-label">AACAP 2026 Annual Meeting · Abstract &amp; Poster Submission</span>
-        <span class="section-rule" aria-hidden="true"></span>
-      </div>
-      <h2 class="abstract-title">Estimating psychiatric rehospitalization risk in children</h2>
-      <p class="abstract-byline">Gold &amp; Ritfeld · AACAP 2026 Annual Meeting · ML surfaces Predictors But Fails At Individual Prediction</p>
-      <div class="abstract-grid">
-        <div class="abstract-col" data-abstract></div>
-        <div class="abstract-col">
-          <div class="panel" data-results></div>
-        </div>
-      </div>
-      <div class="objectives-panel objectives-band" data-objectives></div>
+      <p class="kicker">AACAP 2026 Annual Meeting</p>
+      <h2>Conference abstract</h2>
+      <p class="abstract-byline">Gold &amp; Ritfeld · Summary of the July 2026 draft</p>
+      <article class="abstract" data-abstract aria-label="Abstract summary"></article>
+      <details class="objectives" data-objectives><summary>Learning objectives</summary></details>
     </div>
   </section>
 </main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <span class="footer-brand"><span class="footer-dot" aria-hidden="true"></span>Pediatric Psychiatric Readmission Analytics · 2026</span>
-    <span class="footer-note">Gold &amp; Ritfeld · patient-level data intentionally excluded from this web artifact</span>
-  </div>
-</footer>
-
+<footer class="site-footer"><div class="container footer-inner"><span>Gold &amp; Ritfeld · Pediatric psychiatry</span><a href="#study">Back to top ↑</a></div></footer>
 <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

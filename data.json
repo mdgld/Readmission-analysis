@@ -1,188 +1,701 @@
 {
-  "_provenance": "Canonical aggregate data for the pediatric psychiatric readmission portfolio. Numbers trace to .omo/evidence/baseline-numbers.md (captured from the prior page) and .omo/evidence/restraint-authoritative.json (T1 source-level recompute). Restraint N=510, readmission-rate-among-restrained=13.5%, adjusted OR=1.52[1.06-2.18] p=0.022 are AUTHORITATIVE (source: data/annotated_psychiatric_data_complete.csv + figures/Mv_logit_readmission.csv had_restraints row). No patient-level data in this file.",
+  "_provenance": "July 2026 analysis outputs. Cohort and diagnosis counts use distinct children in annotated_psychiatric_data_complete.csv. The full-cohort regression uses Mv_logit_readmission.csv. The 1,569-child predictions and error-rate comparisons use AdvStats_optimism_validation.csv and AdvStats_fairness_disparities.csv. The broader subgroup comparisons use Subgroup_AUC.csv. tools/refresh_portfolio_data.py reproduces these aggregates from the local analysis files.",
   "summary": {
     "n": 2652,
     "readmitted": 246,
     "readmission_rate": 9.3,
-    "age_mean": 9.7,
-    "age_range": [5, 12],
-    "ace_collected": 1569,
-    "ace_mean": 3.7,
-    "restraint": {
-      "n": 510,
-      "n_not_restrained": 2142,
-      "prevalence_pct": 19.2,
-      "rate_restrained_pct": 13.5,
-      "rate_not_restrained_pct": 8.3,
-      "restrained_readmit_n": 69,
-      "not_restrained_readmit_n": 177
-    },
+    "age_mean": 9.66,
+    "age_range": [
+      5,
+      12
+    ],
     "diagnosis_records": 27884,
     "unique_icd_codes": 1863,
-    "dsm5_categories": 31,
-    "best_oof_auc": 0.684,
-    "predictive_ceiling_note": "Best out-of-fold AUC is about 0.68; high apparent tree-model AUCs shrink substantially after correction."
+    "dsm5_categories": 31
   },
   "pipeline": [
-    { "n": "01", "t": "Cleaned raw visit-level exports into canonical patient and diagnosis tables." },
-    { "n": "02", "t": "Mapped 1,863 ICD-10-CM codes to descriptions, ICD chapters, and DSM-5 categories." },
-    { "n": "03", "t": "Built interpretable regression, regularized ML, bootstrap, calibration, and fairness analyses." },
-    { "n": "04", "t": "Stress-tested with bootstrap optimism correction, out-of-fold validation, and equity-aware subgroup audits." },
-    { "n": "05", "t": "Generated conference-facing figures, native interactive visualizations, and narrative summaries." }
+    {
+      "t": "Group ICD-10-CM codes by diagnosis. Count each child once in each category, including diagnoses recorded in more than one field."
+    },
+    {
+      "t": "Estimate adjusted odds ratios for 90-day readmission using logistic regression across the full cohort."
+    },
+    {
+      "t": "Compare logistic regression, random forest and CatBoost using held-out predictions. Examine calibration and differences in error rates across patient groups."
+    }
   ],
   "findings": {
     "cohort_rate": 9.3,
-    "demo_max": 15,
+    "demo_max": 20,
     "groups": {
-      "age": [
-        { "label": "5 yrs", "n": 82, "readmitted": 13, "rate": 15.9 },
-        { "label": "6 yrs", "n": 126, "readmitted": 18, "rate": 14.3 },
-        { "label": "7 yrs", "n": 208, "readmitted": 26, "rate": 12.5 },
-        { "label": "8 yrs", "n": 305, "readmitted": 29, "rate": 9.5 },
-        { "label": "9 yrs", "n": 368, "readmitted": 33, "rate": 9.0 },
-        { "label": "10 yrs", "n": 496, "readmitted": 47, "rate": 9.5 },
-        { "label": "11 yrs", "n": 538, "readmitted": 49, "rate": 9.1 },
-        { "label": "12 yrs", "n": 529, "readmitted": 31, "rate": 5.9, "mark": "\u2020" }
-      ],
       "gender": [
-        { "label": "Male", "n": 1369, "readmitted": 134, "rate": 9.8 },
-        { "label": "Female", "n": 1283, "readmitted": 112, "rate": 8.7 }
+        {
+          "label": "Male",
+          "n": 1369,
+          "readmitted": 134,
+          "rate": 9.8
+        },
+        {
+          "label": "Female",
+          "n": 1283,
+          "readmitted": 112,
+          "rate": 8.7
+        }
       ],
       "cssrs": [
-        { "label": "Red flag", "n": 446, "readmitted": 45, "rate": 10.1 },
-        { "label": "No flag", "n": 1792, "readmitted": 165, "rate": 9.2 }
+        {
+          "label": "Red flag",
+          "n": 446,
+          "readmitted": 45,
+          "rate": 10.1
+        },
+        {
+          "label": "No flag",
+          "n": 1792,
+          "readmitted": 165,
+          "rate": 9.2
+        }
       ],
       "insurance": [
-        { "label": "Public", "n": 1595, "readmitted": 155, "rate": 9.7 },
-        { "label": "Private / other", "n": 1018, "readmitted": 89, "rate": 8.7 }
+        {
+          "label": "AHCCCS",
+          "n": 1589,
+          "readmitted": 155,
+          "rate": 9.8
+        },
+        {
+          "label": "Other recorded",
+          "n": 1024,
+          "readmitted": 89,
+          "rate": 8.7
+        }
       ],
-      "insurance_note": "n=39 unknown excluded",
       "restraint": [
-        { "label": "Restrained", "n": 510, "readmitted": 69, "rate": 13.5 },
-        { "label": "Not restrained", "n": 2142, "readmitted": 177, "rate": 8.3 }
-      ]
+        {
+          "label": "Restraint used",
+          "n": 510,
+          "readmitted": 69,
+          "rate": 13.5
+        },
+        {
+          "label": "No restraint",
+          "n": 2142,
+          "readmitted": 177,
+          "rate": 8.3
+        }
+      ],
+      "age": [
+        {
+          "label": "5 years",
+          "n": 87,
+          "readmitted": 6,
+          "rate": 6.9
+        },
+        {
+          "label": "6 years",
+          "n": 119,
+          "readmitted": 22,
+          "rate": 18.5
+        },
+        {
+          "label": "7 years",
+          "n": 210,
+          "readmitted": 28,
+          "rate": 13.3
+        },
+        {
+          "label": "8 years",
+          "n": 299,
+          "readmitted": 31,
+          "rate": 10.4
+        },
+        {
+          "label": "9 years",
+          "n": 374,
+          "readmitted": 31,
+          "rate": 8.3
+        },
+        {
+          "label": "10 years",
+          "n": 488,
+          "readmitted": 44,
+          "rate": 9.0
+        },
+        {
+          "label": "11 years",
+          "n": 546,
+          "readmitted": 52,
+          "rate": 9.5
+        },
+        {
+          "label": "12 years",
+          "n": 529,
+          "readmitted": 32,
+          "rate": 6.0
+        }
+      ],
+      "insurance_note": "39 children with missing insurance were excluded.",
+      "cssrs_note": "414 children with only a yellow or orange flag were excluded."
     },
     "groupStats": {
-      "gender": { "or": "1.13", "ci": "0.87\u20131.48", "p": ".349" },
-      "cssrs": { "or": "1.11", "ci": "0.78\u20131.57", "p": ".568" },
-      "insurance": { "or": "1.12", "ci": "0.85\u20131.48", "p": ".402" },
-      "restraint": { "or": "1.52", "ci": "1.06\u20132.18", "p": ".022" }
+      "gender": {
+        "or": "1.13",
+        "ci": "0.87–1.48",
+        "p": "0.350"
+      },
+      "cssrs": {
+        "or": "1.11",
+        "ci": "0.78–1.57",
+        "p": "0.586"
+      },
+      "insurance": {
+        "or": "1.14",
+        "ci": "0.86–1.49",
+        "p": "0.372"
+      },
+      "restraint": {
+        "or": "1.74",
+        "ci": "1.29–2.34",
+        "p": "<0.001"
+      }
     }
   },
   "spectrum": {
-    "dx_max": 30,
+    "dx_max": 25,
     "cohort_rate": 9.3,
     "items": [
-      { "label": "Non-Suicidal Self-Injury Behavior", "n": 1348, "readmitted": 394, "rate": 29.2 },
-      { "label": "Other Neurodevelopmental Disorder", "n": 101, "readmitted": 28, "rate": 27.7 },
-      { "label": "Homicidal ideation (R45.850)", "n": 232, "readmitted": 62, "rate": 26.7 },
-      { "label": "Specific Learning Disorder", "n": 93, "readmitted": 24, "rate": 25.8 },
-      { "label": "Tic Disorders", "n": 51, "readmitted": 12, "rate": 23.5 },
-      { "label": "Dissociative Disorders", "n": 32, "readmitted": 7, "rate": 21.9 },
-      { "label": "Bipolar and Related Disorders", "n": 147, "readmitted": 32, "rate": 21.8 },
-      { "label": "Psychotic Disorders", "n": 55, "readmitted": 12, "rate": 21.8 },
-      { "label": "Obsessive-Compulsive and Related Disorders", "n": 114, "readmitted": 24, "rate": 21.1 },
-      { "label": "Depressive Disorders", "n": 1779, "readmitted": 360, "rate": 20.2 },
-      { "label": "Autism Spectrum Disorder", "n": 513, "readmitted": 102, "rate": 19.9 },
-      { "label": "Conduct Disorder", "n": 484, "readmitted": 96, "rate": 19.8 },
-      { "label": "Trauma and Stressor-Related Disorders", "n": 1424, "readmitted": 280, "rate": 19.7 },
-      { "label": "Anxiety Disorders", "n": 1154, "readmitted": 214, "rate": 18.5 },
-      { "label": "ADHD", "n": 1399, "readmitted": 258, "rate": 18.4 },
-      { "label": "Intellectual Disability", "n": 57, "readmitted": 10, "rate": 17.5 },
-      { "label": "Feeding and Eating Disorders", "n": 66, "readmitted": 11, "rate": 16.7 },
-      { "label": "Personality Disorder", "n": 138, "readmitted": 21, "rate": 15.2 },
-      { "label": "Elimination Disorders", "n": 15, "readmitted": 2, "rate": 13.3 },
-      { "label": "Disruptive Behavior Disorder", "n": 59, "readmitted": 6, "rate": 10.2 },
-      { "label": "Substance-Related and Addictive Disorders", "n": 21, "readmitted": 2, "rate": 9.5 },
-      { "label": "Sleep-Wake Disorders", "n": 35, "readmitted": 3, "rate": 8.6 },
-      { "label": "Communication Disorders", "n": 86, "readmitted": 7, "rate": 8.1 },
-      { "label": "Other Specified Mental Disorder", "n": 88, "readmitted": 7, "rate": 8.0 },
-      { "label": "Gender Identity Disorders", "n": 57, "readmitted": 4, "rate": 7.0 }
+      {
+        "label": "Tic Disorders",
+        "n": 51,
+        "readmitted": 11,
+        "rate": 21.6,
+        "p": 0.005795458854030367,
+        "q": 0.0181108089188449
+      },
+      {
+        "label": "Dissociative Disorders",
+        "n": 32,
+        "readmitted": 6,
+        "rate": 18.8,
+        "p": 0.1132495919171807,
+        "q": 0.17695248737059485
+      },
+      {
+        "label": "Other Neurodevelopmental Disorder",
+        "n": 101,
+        "readmitted": 19,
+        "rate": 18.8,
+        "p": 0.0023311176046911827,
+        "q": 0.008325420016754223
+      },
+      {
+        "label": "Psychotic Disorders",
+        "n": 55,
+        "readmitted": 10,
+        "rate": 18.2,
+        "p": 0.0315591277084406,
+        "q": 0.07172529024645591
+      },
+      {
+        "label": "Homicidal ideation (R45.850)",
+        "n": 232,
+        "readmitted": 41,
+        "rate": 17.7,
+        "p": 2.4514404323799392e-05,
+        "q": 0.0006128601080949848
+      },
+      {
+        "label": "Bipolar and Related Disorders",
+        "n": 147,
+        "readmitted": 23,
+        "rate": 15.6,
+        "p": 0.011822731913805846,
+        "q": 0.03284092198279402
+      },
+      {
+        "label": "Specific Learning Disorder",
+        "n": 93,
+        "readmitted": 14,
+        "rate": 15.1,
+        "p": 0.06580047975368444,
+        "q": 0.1246096680380331
+      },
+      {
+        "label": "Personality Disorder",
+        "n": 138,
+        "readmitted": 20,
+        "rate": 14.5,
+        "p": 0.035016200703469,
+        "q": 0.0729504181322271
+      },
+      {
+        "label": "Intellectual Disability",
+        "n": 57,
+        "readmitted": 8,
+        "rate": 14.0,
+        "p": 0.24198535055331893,
+        "q": 0.3558608096372337
+      },
+      {
+        "label": "Obsessive-Compulsive and Related Disorders",
+        "n": 114,
+        "readmitted": 16,
+        "rate": 14.0,
+        "p": 0.09583827796755451,
+        "q": 0.15973046327925752
+      },
+      {
+        "label": "Autism Spectrum Disorder",
+        "n": 513,
+        "readmitted": 70,
+        "rate": 13.6,
+        "p": 0.000256401284108305,
+        "q": 0.0012820064205415248
+      },
+      {
+        "label": "Conduct Disorder",
+        "n": 484,
+        "readmitted": 66,
+        "rate": 13.6,
+        "p": 0.0004909843652197077,
+        "q": 0.002045768188415449
+      },
+      {
+        "label": "Elimination Disorders",
+        "n": 15,
+        "readmitted": 2,
+        "rate": 13.3,
+        "p": 0.6432763598841564,
+        "q": 0.8332977438014223
+      },
+      {
+        "label": "ADHD",
+        "n": 1399,
+        "readmitted": 159,
+        "rate": 11.4,
+        "p": 9.506986316598047e-05,
+        "q": 0.0009711721156409255
+      },
+      {
+        "label": "Suicidal ideation / self-harm code group",
+        "n": 1348,
+        "readmitted": 154,
+        "rate": 11.4,
+        "p": 0.00012777365597617884,
+        "q": 0.0009711721156409255
+      },
+      {
+        "label": "Anxiety Disorders",
+        "n": 1154,
+        "readmitted": 125,
+        "rate": 10.8,
+        "p": 0.017993613401179283,
+        "q": 0.044984033502948204
+      },
+      {
+        "label": "Depressive Disorders",
+        "n": 1779,
+        "readmitted": 191,
+        "rate": 10.7,
+        "p": 0.00015538753850254808,
+        "q": 0.0009711721156409255
+      },
+      {
+        "label": "Feeding and Eating Disorders",
+        "n": 66,
+        "readmitted": 7,
+        "rate": 10.6,
+        "p": 0.6666381950411379,
+        "q": 0.8332977438014223
+      },
+      {
+        "label": "Trauma and Stressor-Related Disorders",
+        "n": 1424,
+        "readmitted": 146,
+        "rate": 10.3,
+        "p": 0.06978141410129854,
+        "q": 0.1246096680380331
+      },
+      {
+        "label": "Substance-Related and Addictive Disorders",
+        "n": 21,
+        "readmitted": 2,
+        "rate": 9.5,
+        "p": 1.0,
+        "q": 1.0
+      },
+      {
+        "label": "Sleep-Wake Disorders",
+        "n": 35,
+        "readmitted": 3,
+        "rate": 8.6,
+        "p": 1.0,
+        "q": 1.0
+      },
+      {
+        "label": "Disruptive Behavior Disorder",
+        "n": 59,
+        "readmitted": 5,
+        "rate": 8.5,
+        "p": 1.0,
+        "q": 1.0
+      },
+      {
+        "label": "Other Specified Mental Disorder",
+        "n": 88,
+        "readmitted": 7,
+        "rate": 8.0,
+        "p": 0.8514479743982704,
+        "q": 0.9675545163616709
+      },
+      {
+        "label": "Communication Disorders",
+        "n": 86,
+        "readmitted": 6,
+        "rate": 7.0,
+        "p": 0.5720945183765829,
+        "q": 0.7945757199674762
+      },
+      {
+        "label": "Gender Identity Disorders",
+        "n": 57,
+        "readmitted": 4,
+        "rate": 7.0,
+        "p": 0.8160619188258689,
+        "q": 0.9675545163616709
+      }
     ],
-    "prose_note": "Every DSM-5 category (n \u2265 15) ranked by 90-day readmission rate \u2014 unadjusted bivariate, with no control for comorbidity. The 'Other Mental Disorder' bucket in earlier drafts was a single ICD code (homicidal ideation, R45.850, n=232, 26.7%) and is plotted as such. The reconciliation that matters: non-suicidal self-injury sits at the top here (29.2%) yet is independently protective in the adjusted model (\u00a704, OR 0.38, p<0.001), because the high raw rate is driven by NSSI's overlap with depression and suicidal ideation \u2014 once those covariates are controlled for, NSSI-only patients return less often than the cohort average. Suicidal ideation (R45.851), conversely, carries adjusted OR 2.59. The two self-harm constructs separate sharply once you adjust."
+    "prose_note": "Each bar shows the percentage of children with that diagnosis who returned within 90 days. A child can appear in more than one group."
   },
   "models": {
     "forest": [
-      { "label": "Suicidal ideation (R45.851)", "or": 2.59, "lo": 1.83, "hi": 3.67, "p": 0.0000001, "kind": "risk", "stars": "***" },
-      { "label": "Depressive disorders", "or": 1.69, "lo": 1.18, "hi": 2.41, "p": 0.004, "kind": "risk", "stars": "**" },
-      { "label": "Physical restraint use", "or": 1.55, "lo": 1.08, "hi": 2.21, "p": 0.017, "kind": "risk", "stars": "*" },
-      { "label": "Diagnostic complexity / category", "or": 1.34, "lo": 1.19, "hi": 1.52, "p": 0.0001, "kind": "risk", "stars": "***" },
-      { "label": "Older age (per year) †", "or": 0.91, "lo": 0.84, "hi": 0.99, "p": 0.024, "kind": "protect", "stars": "*" },
-      { "label": "Non-suicidal self-injury", "or": 0.38, "lo": 0.26, "hi": 0.57, "p": 0.0000015, "kind": "protect", "stars": "***" },
-      { "label": "C-SSRS red flag", "or": 1.15, "lo": 0.79, "hi": 1.68, "p": 0.473, "kind": "null", "stars": "n.s." },
-      { "label": "Male gender identity", "or": 1.00, "lo": 0.74, "hi": 1.35, "p": 0.986, "kind": "null", "stars": "n.s." }
+      {
+        "label": "Suicidal ideation (R45.851)",
+        "or": 2.5898991299955187,
+        "lo": 1.8265653703871656,
+        "hi": 3.672235120788358,
+        "p": 9.220179857041485e-08,
+        "stars": "***",
+        "kind": "risk"
+      },
+      {
+        "label": "Depressive disorders",
+        "or": 1.6875349539829294,
+        "lo": 1.182483324623415,
+        "hi": 2.408299687288273,
+        "p": 0.0039305367558249,
+        "stars": "**",
+        "kind": "risk"
+      },
+      {
+        "label": "Physical restraint use",
+        "or": 1.5457955552831402,
+        "lo": 1.080510700827898,
+        "hi": 2.21143936557247,
+        "p": 0.0171362502491247,
+        "stars": "*",
+        "kind": "risk"
+      },
+      {
+        "label": "Each additional diagnostic category",
+        "or": 1.3442684705341716,
+        "lo": 1.1854784863616774,
+        "hi": 1.5243277222333045,
+        "p": 3.9712534837512356e-06,
+        "stars": "***",
+        "kind": "risk"
+      },
+      {
+        "label": "Age (per year)",
+        "or": 0.9129286605018964,
+        "lo": 0.8432605185452774,
+        "hi": 0.9883526156348048,
+        "p": 0.0244978776403809,
+        "stars": "*",
+        "kind": "protect"
+      },
+      {
+        "label": "Self-injury code group (visit or chronic)",
+        "or": 0.3819775452490922,
+        "lo": 0.258103590150637,
+        "hi": 0.5653034310346737,
+        "p": 1.4952540823098074e-06,
+        "stars": "***",
+        "kind": "protect"
+      },
+      {
+        "label": "C-SSRS red flag",
+        "or": 1.1493614405643442,
+        "lo": 0.7857927497081366,
+        "hi": 1.6811452148760715,
+        "p": 0.4730705691734242,
+        "stars": "n.s.",
+        "kind": "null"
+      },
+      {
+        "label": "Male gender identity",
+        "or": 1.0026445610730628,
+        "lo": 0.7423109700468303,
+        "hi": 1.354278942942165,
+        "p": 0.9862622028627708,
+        "stars": "n.s.",
+        "kind": "null"
+      }
     ],
     "auc": [
-      { "name": "Logistic", "apparent": 0.712, "corrected": 0.685, "oof": 0.665 },
-      { "name": "Random Forest", "apparent": 0.853, "corrected": 0.752, "oof": 0.684 },
-      { "name": "CatBoost", "apparent": 0.904, "corrected": 0.789, "oof": 0.641 }
+      {
+        "name": "Logistic Regression",
+        "apparent": 0.7168499450164951,
+        "corrected": 0.6691482858472277,
+        "oof": 0.6600819754073778
+      },
+      {
+        "name": "Random Forest",
+        "apparent": 0.8804708587423773,
+        "corrected": 0.75127551824204,
+        "oof": 0.6373487953613916
+      },
+      {
+        "name": "CatBoost",
+        "apparent": 0.9577126861941418,
+        "corrected": 0.8134919570584824,
+        "oof": 0.5897580725782264
+      }
     ],
     "optimism_delta": {
-      "Logistic": 0.047,
-      "Random Forest": 0.169,
-      "CatBoost": 0.263
+      "Logistic Regression": 0.057,
+      "Random Forest": 0.243,
+      "CatBoost": 0.368
     },
-    "clinical_read": "Apparent tree-model AUCs looked strong in-sample \u2014 CatBoost reached 0.90 \u2014 but out-of-fold AUCs clustered near 0.64\u20130.68. The honest conclusion is not \u201cdeploy these readmission predictors immediately as a clinical tool\u201d; it is \u201cuse modeling to surface clinically plausible risk factors, then validate in larger, multi-site cohorts over longer time-frames.\u201d"
+    "clinical_read": "Among the 1,569 children with a recorded ACE score, logistic regression had the highest held-out AUC (0.660), followed by random forest (0.637) and CatBoost (0.590).",
+    "coding_note": "The study mapping includes suicidal ideation (R45.851) in the self-injury code group. Of 966 children with that visit or chronic diagnosis flag, 965 also had R45.851. The two coefficients cannot distinguish the effects of suicidal ideation and non-suicidal self-injury."
   },
   "equity": {
-    "metric_note": "metric: max(|\u0394TPR|, |\u0394FPR|) across pairing",
+    "metric_note": "The error-rate comparison used the 1,569 children with recorded adverse childhood experience (ACE) data. Of these children, 140 returned within 90 days.",
     "fairness": [
-      { "label": "Age (<9 vs ≥9)", "gap": 25.7, "auc_gap": 4.8 },
-      { "label": "ACE (high vs not)", "gap": 21.6, "auc_gap": 1.9 },
-      { "label": "Insurance (public vs private)", "gap": 20.7, "auc_gap": 5.8 },
-      { "label": "Sex (M vs F)", "gap": 10.0, "auc_gap": 4.4 }
+      {
+        "label": "Age (5–9 vs 10–12)",
+        "gap": 25.92516867716213,
+        "auc_gap": 5.88531321521811
+      },
+      {
+        "label": "Recorded gender (male vs female)",
+        "gap": 16.09477124183006,
+        "auc_gap": 7.95558577850161
+      },
+      {
+        "label": "Insurance (AHCCCS vs other or missing)",
+        "gap": 13.33333333333333,
+        "auc_gap": 3.5575683635026003
+      },
+      {
+        "label": "ACE category (high vs lower)",
+        "gap": 11.78931911796261,
+        "auc_gap": 0.24942091260857
+      }
     ],
     "subgroups": [
-      { "label": "Age <9", "n": 1089, "readmit_rate": "10.8%", "auc_catboost": 0.699, "auc_rf": 0.720, "auc_lr": 0.699 },
-      { "label": "Age ≥9", "n": 1563, "readmit_rate": "8.2%", "auc_catboost": 0.625, "auc_rf": 0.665, "auc_lr": 0.685 },
-      { "label": "Male", "n": 1369, "readmit_rate": "9.8%", "auc_catboost": 0.675, "auc_rf": 0.715, "auc_lr": 0.710 },
-      { "label": "Female", "n": 1283, "readmit_rate": "8.7%", "auc_catboost": 0.652, "auc_rf": 0.674, "auc_lr": 0.673 },
-      { "label": "Public Insurance", "n": 1589, "readmit_rate": "9.8%", "auc_catboost": 0.669, "auc_rf": 0.696, "auc_lr": 0.713 },
-      { "label": "Private Insurance", "n": 1063, "readmit_rate": "8.6%", "auc_catboost": 0.657, "auc_rf": 0.697, "auc_lr": 0.660 },
-      { "label": "ACE high", "n": 996, "readmit_rate": "9.4%", "auc_catboost": 0.644, "auc_rf": 0.667, "auc_lr": 0.684 },
-      { "label": "ACE not high", "n": 573, "readmit_rate": "8.0%", "auc_catboost": 0.570, "auc_rf": 0.660, "auc_lr": 0.694 },
-      { "label": "With Trauma", "n": 1424, "readmit_rate": "10.3%", "auc_catboost": 0.673, "auc_rf": 0.693, "auc_lr": 0.712 },
-      { "label": "Without Trauma", "n": 1228, "readmit_rate": "8.1%", "auc_catboost": 0.643, "auc_rf": 0.692, "auc_lr": 0.658 },
-      { "label": "With Restraints", "n": 510, "readmit_rate": "13.5%", "auc_catboost": 0.695, "auc_rf": 0.688, "auc_lr": 0.675 },
-      { "label": "Without Restraints", "n": 2142, "readmit_rate": "8.3%", "auc_catboost": 0.645, "auc_rf": 0.688, "auc_lr": 0.684 }
+      {
+        "label": "Age ≤9",
+        "n": 1089,
+        "readmit_rate": "10.8%",
+        "auc_catboost": 0.691,
+        "auc_rf": 0.719,
+        "auc_lr": 0.695
+      },
+      {
+        "label": "Age ≥10",
+        "n": 1563,
+        "readmit_rate": "8.2%",
+        "auc_catboost": 0.6,
+        "auc_rf": 0.656,
+        "auc_lr": 0.667
+      },
+      {
+        "label": "Male",
+        "n": 1369,
+        "readmit_rate": "9.8%",
+        "auc_catboost": 0.654,
+        "auc_rf": 0.71,
+        "auc_lr": 0.703
+      },
+      {
+        "label": "Female",
+        "n": 1283,
+        "readmit_rate": "8.7%",
+        "auc_catboost": 0.64,
+        "auc_rf": 0.668,
+        "auc_lr": 0.662
+      },
+      {
+        "label": "AHCCCS recorded",
+        "n": 1589,
+        "readmit_rate": "9.8%",
+        "auc_catboost": 0.65,
+        "auc_rf": 0.695,
+        "auc_lr": 0.706
+      },
+      {
+        "label": "No AHCCCS recorded",
+        "n": 1063,
+        "readmit_rate": "8.6%",
+        "auc_catboost": 0.644,
+        "auc_rf": 0.684,
+        "auc_lr": 0.643
+      },
+      {
+        "label": "High ACE category",
+        "n": 996,
+        "readmit_rate": "9.4%",
+        "auc_catboost": 0.616,
+        "auc_rf": 0.664,
+        "auc_lr": 0.672
+      },
+      {
+        "label": "Not high ACE category",
+        "n": 573,
+        "readmit_rate": "8.0%",
+        "auc_catboost": 0.542,
+        "auc_rf": 0.638,
+        "auc_lr": 0.668
+      },
+      {
+        "label": "Trauma diagnosis",
+        "n": 1424,
+        "readmit_rate": "10.3%",
+        "auc_catboost": 0.655,
+        "auc_rf": 0.687,
+        "auc_lr": 0.703
+      },
+      {
+        "label": "No trauma diagnosis",
+        "n": 1228,
+        "readmit_rate": "8.1%",
+        "auc_catboost": 0.629,
+        "auc_rf": 0.689,
+        "auc_lr": 0.644
+      },
+      {
+        "label": "Restraint used",
+        "n": 510,
+        "readmit_rate": "13.5%",
+        "auc_catboost": 0.685,
+        "auc_rf": 0.675,
+        "auc_lr": 0.665
+      },
+      {
+        "label": "No restraint",
+        "n": 2142,
+        "readmit_rate": "8.3%",
+        "auc_catboost": 0.626,
+        "auc_rf": 0.684,
+        "auc_lr": 0.675
+      }
     ]
   },
   "figures": [
-    { "id": "F01", "title": "Cohort descriptive overview", "tag": "Descriptive", "file": "assets/figures/Cohort_Descriptive_Overview.png" },
-    { "id": "F02", "title": "Demographics panel", "tag": "Descriptive", "file": "assets/figures/Fig2_demographics_panel.png" },
-    { "id": "F03", "title": "Readmission by DSM-5", "tag": "Findings", "file": "assets/figures/Fig3_readmission_by_dsm5.png" },
-    { "id": "F07", "title": "Forest plot of predictors", "tag": "Inference", "file": "assets/figures/Fig7_forest_plot.png" },
-    { "id": "F08", "title": "ROC curves", "tag": "Modeling", "file": "assets/figures/Fig8_ROC_curves.png" },
-    { "id": "F11", "title": "Optimism validation", "tag": "Validation", "file": "assets/figures/AdvStats_optimism_validation.png" },
-    { "id": "F12", "title": "Fairness audit", "tag": "Equity", "file": "assets/figures/AdvStats_fairness.png" },
-    { "id": "F14", "title": "Flagging thresholds", "tag": "Deployment", "file": "assets/figures/Fig14_flagging_thresholds.png" },
-    { "id": "F16", "title": "Predictive ceiling", "tag": "Modeling", "file": "assets/figures/Fig_Recon_7_predictive_ceiling.png" },
-    { "id": "F09", "title": "Feature importance", "tag": "Explainability", "file": "assets/figures/Fig9_Feature_Importance_SideBySide.png" },
-    { "id": "F10", "title": "SHAP summary", "tag": "Explainability", "file": "assets/figures/Fig10_SHAP_summary.png" },
-    { "id": "F18", "title": "Calibration curves", "tag": "Validation", "file": "assets/figures/Fig_Calibration.png" }
+    {
+      "id": "F01",
+      "title": "Cohort characteristics",
+      "file": "assets/figures/Cohort_Descriptive_Overview.png",
+      "caption": "Readmission counts and length of stay are shown for all 2,652 children. An adverse childhood experiences (ACE) score was recorded for 1,569."
+    },
+    {
+      "id": "F02",
+      "title": "Readmission by patient group",
+      "file": "assets/figures/Fig2_demographics_panel.png",
+      "caption": "Bars show observed rates with approximate 95% confidence intervals. The screening panel uses any C-SSRS flag. The insurance panel compares AHCCCS with all other records, including 39 with missing insurance."
+    },
+    {
+      "id": "F03",
+      "title": "Readmission by diagnostic category",
+      "file": "assets/figures/Fig3_readmission_by_dsm5.png",
+      "caption": "Each child counts once per category. The suicidal ideation / self-harm group includes ICD-10-CM R45.851."
+    },
+    {
+      "id": "F07",
+      "title": "Adjusted odds of readmission",
+      "file": "assets/figures/Fig7_forest_plot.png",
+      "caption": "Eight selected terms from a 17-predictor logistic regression in 2,652 children. Of 966 children with the visit or chronic self-injury flag, 965 also had the suicidal-ideation code."
+    },
+    {
+      "id": "F08",
+      "title": "ROC curves for held-out predictions",
+      "file": "assets/figures/Fig8_ROC_curves.png",
+      "caption": "Ten-fold predictions for 2,652 children, including those with imputed ACE scores. The curves show how sensitivity and false-positive rates change with the alert threshold. Imputation and scaling were fitted before the folds were split."
+    },
+    {
+      "id": "F11",
+      "title": "Model validation estimates",
+      "file": "assets/figures/AdvStats_optimism_validation.png",
+      "caption": "In 1,569 children with a recorded ACE score, 140 were readmitted. The figure compares training, bootstrap-corrected and held-out AUC. Random forest and CatBoost also underwent nested cross-validation."
+    },
+    {
+      "id": "F12",
+      "title": "Model error rates by subgroup",
+      "file": "assets/figures/AdvStats_fairness.png",
+      "caption": "The analysis selected one logistic regression threshold (0.078) from the validation sample and used it for every group. Gender identity was recorded at admission. The insurance comparison uses recorded AHCCCS versus other or missing insurance."
+    },
+    {
+      "id": "F14",
+      "title": "Flagging thresholds and workload",
+      "file": "assets/figures/Fig14_flagging_thresholds.png",
+      "caption": "Ten-fold predictions in the full cohort of 2,652 children. Sensitivity is the share of readmitted children flagged. Positive predictive value is the share of flagged children who returned. Each dotted line marks where false alarms and missed readmissions were closest within the range tested for that model."
+    },
+    {
+      "id": "F16",
+      "title": "Training and held-out AUC",
+      "file": "assets/figures/Fig_Recon_7_predictive_ceiling.png",
+      "caption": "Training, bootstrap-corrected and held-out AUC for the 1,569 children with a recorded ACE score."
+    },
+    {
+      "id": "F09",
+      "title": "Feature importance by model",
+      "file": "assets/figures/Fig9_Feature_Importance_SideBySide.png",
+      "caption": "Models fitted to all 2,652 children. Random forest importance measures reductions in node impurity. CatBoost importance measures changes in predictions. The self-injury code group includes suicidal ideation."
+    },
+    {
+      "id": "F10",
+      "title": "SHAP values for CatBoost",
+      "file": "assets/figures/Fig10_SHAP_summary.png",
+      "caption": "For the CatBoost model fitted to 2,652 children, positive SHAP values raise the model score and negative values lower it. The self-injury code group includes suicidal ideation."
+    },
+    {
+      "id": "F18",
+      "title": "Calibration curves",
+      "file": "assets/figures/Fig_Calibration.png",
+      "caption": "Full cohort of 2,652 children. Each point compares the average held-out prediction with the observed readmission rate in one of ten groups ordered by predicted risk. The histograms show where the model scores fall."
+    }
   ],
   "abstract": {
-    "title": "Estimating psychiatric rehospitalization risk in children",
-    "byline": "Gold & Ritfeld \u00b7 AACAP 2026 Annual Meeting \u00b7 ML surfaces Predictors But Fails At Individual Prediction",
     "sections": [
-      { "h": "Objectives", "body": "Predictors of psychiatric rehospitalization in children are poorly characterized, and prediction in any cohort remains a lofty goal. Standard regression failed to identify predictors in our prior analysis of 2,652 children aged 5\u201312. Here we use regularized and machine-learning models to identify 90-day readmission risk factors and test predictive performance on a small dataset." },
-      { "h": "Methods", "body": "Records from one Arizona biobehavioral unit (2017\u20132024) were collected; ICD-10 codes were aggregated into DSM-5 and CCSR categories. Unpenalized logistic regression gave interpretable odds ratios; regularized logistic, random forest, and gradient boosting were evaluated via bootstrap optimism correction, calibration, and fairness analysis across age, gender, insurance, and ACE strata." },
-      { "h": "Conclusions", "body": "The models surfaced risk factors that standard regression failed to identify, yet individual readmission remains hard to predict \u2014 feature discovery is necessary but not sufficient for a useful risk measure. Larger, multi-site data and equity-aware validation are needed before clinical use." }
-    ],
-    "results": [
-      { "tag": "\u2191 Risk", "text": "Suicidal ideation (R45.851) \u2014 OR 2.59, p < 0.001; strongest predictor in the adjusted model", "kind": "sig" },
-      { "tag": "\u2191 Risk", "text": "Depressive disorders \u2014 OR 1.69, p = 0.004; diagnostic complexity \u2014 OR 1.34 per DSM-5 category, p < 0.001", "kind": "sig" },
-      { "tag": "\u2191 Risk", "text": "Physical restraint use \u2014 OR 1.55, p = 0.017; also the largest driver of length of stay", "kind": "sig" },
-      { "tag": "\u2193 Risk", "text": "Non-suicidal self-injury \u2014 OR 0.38, p < 0.001 (protective); older age \u2014 OR 0.91 per year, p = 0.024", "kind": "sig" },
-      { "tag": "Null", "text": "ACE score, C-SSRS flags, insurance, gender identity, chronic medical comorbidity \u2014 not independently associated", "kind": "null" },
-      { "tag": "Model", "text": "RF apparent AUC 0.853 \u2192 0.752 after bootstrap optimism correction; PPV \u2248 20% at optimal threshold", "kind": "warn" },
-      { "tag": "Equity", "text": "Equalized-odds disparities \u2014 age gap 0.257, insurance 0.207, ACE 0.216", "kind": "warn" }
+      {
+        "h": "Objective",
+        "body": "We examined which features of a psychiatric admission were associated with a child’s return to the hospital within 90 days and how accurately clinical records predicted that return."
+      },
+      {
+        "h": "Methods",
+        "body": "We reviewed admissions from 2017 through 2024 for 2,652 children aged 5–12 at one Arizona hospital. We grouped diagnoses using ICD-10-CM codes and fitted a multivariable logistic regression. For 1,569 children with recorded ACE data, we compared three prediction models using 10-fold cross-validation and bootstrap correction."
+      },
+      {
+        "h": "Results",
+        "body": "Within 90 days, 246 children (9.3%) returned. Higher adjusted odds of readmission were associated with depressive disorders (OR 1.69, 95% CI 1.18–2.41), each additional diagnostic category (OR 1.34, 1.19–1.52) and physical restraint use (OR 1.55, 1.08–2.21). Older age was associated with lower odds (OR 0.91 per year, 0.84–0.99). The study’s self-injury code group included suicidal ideation, which limited interpretation of those two coefficients. Held-out AUC ranged from 0.590 to 0.660. At the common threshold, logistic regression flagged 82.1% of readmitted children aged 5–9 and 56.2% of those aged 10–12."
+      },
+      {
+        "h": "Conclusion",
+        "body": "Several admission characteristics were associated with a return to the same hospital. Even the best-performing model had limited ability to distinguish individual children who returned from those who did not. How well these estimates apply at other hospitals remains unknown."
+      }
     ],
     "objectives": [
-      { "n": "01", "t": "Identify the clinical factors independently associated with 90-day psychiatric readmission in children 5\u201312, and distinguish them from factors that are not." },
-      { "n": "02", "t": "Explain how predictive models can surface salient risk factors yet fail to achieve clinically useful sensitivity and specificity on small datasets." },
-      { "n": "03", "t": "Evaluate model performance via calibration and bootstrap-corrected optimism \u2014 apparent AUC relative to optimism-corrected AUC." },
-      { "n": "04", "t": "Recognize the basis of demographic algorithmic disparities and the necessity of equity-aware validation before deployment." }
+      {
+        "t": "Identify clinical characteristics associated with 90-day readmission after adjustment for other recorded factors."
+      },
+      {
+        "t": "Interpret a difference between training and held-out AUC and explain what it means for individual predictions."
+      },
+      {
+        "t": "Compare missed readmissions and false alerts across age and recorded gender groups."
+      }
     ]
   }
 }
